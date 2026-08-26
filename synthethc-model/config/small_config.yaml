@@ -1,0 +1,106 @@
+# Small configuration for quick testing (10K world)
+
+population:
+  people: 1000
+  companies: 100
+  institutions: 30
+  accounts: 1800
+  payment_accounts: 500
+  devices: 1500
+  ip_records: 3000
+  addresses: 1200
+  invoices: 3000
+  events: 10000
+  relationships: 20000
+  transactions: 50000
+
+temporal:
+  start_date: "2024-01-01"
+  end_date: "2026-06-30"
+  salary_day_range: [25, 5]
+  business_hours: [8, 18]
+  peak_personal_hours: [18, 22]
+
+quality:
+  missing_data_rates:
+    phone: 0.03
+    email: 0.04
+    address: 0.04
+    occupation: 0.01
+    device_id: 0.02
+    ip_address: 0.025
+    invoice_id: 0.08
+    employer: 0.015
+    reference: 0.05
+    location: 0.02
+    grandfather_name: 0.06
+  duplicate_rate: 0.005
+  near_duplicate_rate: 0.015
+  typo_rate: 0.003
+  format_error_rate: 0.005
+  stale_record_rate: 0.02
+
+behaviors:
+  normal: 0.55
+  remote_worker: 0.10
+  freelancer: 0.08
+  business_owner: 0.06
+  international_worker: 0.04
+  high_income_worker: 0.03
+  student: 0.08
+  government_worker: 0.06
+
+risk_patterns:
+  structuring: 0.015
+  layering: 0.01
+  money_mule: 0.01
+  circular_transactions: 0.005
+  rapid_fund_movement: 0.008
+  dormant_activation: 0.005
+  foreign_income_anomaly: 0.01
+  shared_device_network: 0.005
+  invoice_anomaly: 0.005
+
+generation:
+  batch_size: 1000
+  transaction_batch_size: 5000
+  parquet_compression: "snappy"
+  csv_sample_size: 1000
+  partition_by: "year"
+
+demographics:
+  male_ratio: 0.52
+  female_ratio: 0.48
+  age_distribution:
+    min: 18
+    max: 75
+    mean: 32
+    std: 12
+  urban_ratio: 0.65
+  ethiopia_ratio: 0.92
+  foreign_worker_ratio: 0.08
+
+accounts_per_person:
+  min: 1
+  max: 5
+  mean: 1.8
+  weights: [0.30, 0.35, 0.20, 0.10, 0.05]
+
+devices_per_person:
+  min: 1
+  max: 4
+  mean: 1.5
+  weights: [0.45, 0.35, 0.15, 0.05]
+
+transactions_per_person:
+  min: 10
+  max: 500
+  mean: 50
+
+seasonality:
+  holiday_months: [1, 9, 12]
+  holiday_spending_multiplier: 1.4
+  year_end_business_multiplier: 1.3
+  school_payment_months: [9, 10, 2, 3]
+  vacation_months: [7, 8]
+  vacation_spending_multiplier: 1.2

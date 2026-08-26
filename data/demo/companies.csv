@@ -1,0 +1,11 @@
+company_id,company_name,country,industry,company_size,registration_country,employee_count
+C0001,Ethio Digital Labs,Ethiopia,Software,Medium,Ethiopia,85
+C0002,Blue Nile Consulting,Ethiopia,Consulting,Small,Ethiopia,24
+C0003,NovaCloud Technologies,United States,Technology,Large,United States,2400
+C0004,GlobalCode Systems,United Kingdom,Software,Medium,United Kingdom,620
+C0005,East Africa Trade Hub,Ethiopia,Import Export,Medium,Ethiopia,140
+C0006,RemoteWorks International,United States,Remote Employment,Large,United States,3100
+C0007,Addis Creative Studio,Ethiopia,Design,Small,Ethiopia,18
+C0008,CloudBridge Solutions,Germany,Technology,Medium,Germany,430
+C0009,Horizon Analytics,United Arab Emirates,Data Analytics,Medium,UAE,280
+C0010,Abyssinia Commerce,Ethiopia,Ecommerce,Medium,Ethiopia,95

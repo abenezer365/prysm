@@ -1,0 +1,11 @@
+person_id,first_name,last_name,date_of_birth,nationality,occupation,employment_status,declared_monthly_income,currency,city,region
+P0001,Abebe,Bekele,1998-04-13,ET,Software Engineer,Remote Worker,85000,ETB,Addis Ababa,Addis Ababa
+P0002,Hana,Tadesse,2001-09-22,ET,Graphic Designer,Freelancer,62000,ETB,Addis Ababa,Addis Ababa
+P0003,Dawit,Mulugeta,1995-02-17,ET,Accountant,Employed,55000,ETB,Hawassa,Sidama
+P0004,Meron,Gebre,1999-11-03,ET,Web Developer,Remote Worker,2800,USD,Addis Ababa,Addis Ababa
+P0005,Samuel,Getachew,1992-06-28,ET,Business Owner,Self Employed,145000,ETB,Bahir Dar,Amhara
+P0006,Tigist,Kebede,2002-01-19,ET,Student,Student,8000,ETB,Adama,Oromia
+P0007,Natnael,Worku,1997-08-14,ET,DevOps Engineer,Remote Worker,3200,USD,Addis Ababa,Addis Ababa
+P0008,Rahel,Alemu,1994-12-09,ET,Consultant,Freelancer,2100,USD,Dire Dawa,Dire Dawa
+P0009,Yonas,Demissie,1989-05-25,ET,Import Export Owner,Self Employed,190000,ETB,Addis Ababa,Addis Ababa
+P0010,Eden,Tesfaye,2000-07-31,ET,Marketing Specialist,Employed,48000,ETB,Jimma,Oromia

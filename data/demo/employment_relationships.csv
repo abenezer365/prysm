@@ -1,0 +1,11 @@
+employment_id,person_id,company_id,start_date,job_title,employment_type,monthly_salary,salary_currency,payment_frequency
+EMP0001,P0001,C0003,2025-02-01,Software Engineer,Remote,3200,USD,Monthly
+EMP0002,P0002,C0007,2024-07-10,Graphic Designer,Freelance,1500,USD,Project
+EMP0003,P0003,C0002,2022-01-15,Accountant,Full Time,55000,ETB,Monthly
+EMP0004,P0004,C0004,2025-05-01,Web Developer,Remote,2800,USD,Monthly
+EMP0005,P0005,C0005,2020-08-15,Owner,Self Employed,145000,ETB,Monthly
+EMP0006,P0006,,2025-02-11,Student,Student,8000,ETB,Monthly
+EMP0007,P0007,C0006,2024-03-01,DevOps Engineer,Remote,3200,USD,Monthly
+EMP0008,P0008,C0009,2025-01-20,Data Consultant,Contractor,2100,USD,Project
+EMP0009,P0009,C0005,2019-04-30,Import Export Owner,Self Employed,190000,ETB,Monthly
+EMP0010,P0010,C0010,2023-01-05,Marketing Specialist,Full Time,48000,ETB,Monthly

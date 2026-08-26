@@ -1,0 +1,11 @@
+transaction_id,timestamp,sender_account_id,receiver_account_id,amount,currency,transaction_type,channel,sender_country,receiver_country,status
+TX0001,2026-07-01 09:12:21,A0003,A0001,25000,ETB,Domestic Transfer,Mobile,Ethiopia,Ethiopia,Completed
+TX0002,2026-07-01 10:03:14,A0003,A0002,12000,ETB,Salary,Bank,Ethiopia,Ethiopia,Completed
+TX0003,2026-07-02 14:22:05,A0004,A0004,2800,USD,Salary,International,United States,Ethiopia,Completed
+TX0004,2026-07-03 08:41:33,A0007,A0007,3200,USD,Salary,International,United States,Ethiopia,Completed
+TX0005,2026-07-04 16:18:42,A0005,A0009,85000,ETB,Business Transfer,Bank,Ethiopia,Ethiopia,Completed
+TX0006,2026-07-05 19:43:17,A0008,A0004,2100,USD,Freelance Payment,International,UAE,Ethiopia,Completed
+TX0007,2026-07-06 11:05:51,A0001,A0006,4500,ETB,Domestic Transfer,Mobile,Ethiopia,Ethiopia,Completed
+TX0008,2026-07-07 13:31:29,A0009,A0005,120000,ETB,Business Transfer,Bank,Ethiopia,Ethiopia,Completed
+TX0009,2026-07-08 02:14:07,A0007,A0009,7800,USD,International Transfer,Online,Ethiopia,Ethiopia,Completed
+TX0010,2026-07-08 02:27:45,A0009,A0001,7600,USD,International Transfer,Online,Ethiopia,Ethiopia,Completed

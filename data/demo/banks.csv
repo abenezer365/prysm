@@ -1,0 +1,11 @@
+institution_id,institution_name,institution_type,country,currency
+BANK01,Ethiopian Commercial Bank,Commercial Bank,Ethiopia,ETB
+BANK02,Addis Digital Bank,Commercial Bank,Ethiopia,ETB
+BANK03,Abyssinia Financial Bank,Commercial Bank,Ethiopia,ETB
+BANK04,Horn Business Bank,Commercial Bank,Ethiopia,ETB
+BANK05,East Africa International Bank,Commercial Bank,Ethiopia,USD
+BANK06,Nova International Bank,Commercial Bank,United States,USD
+BANK07,Global Finance Europe,Commercial Bank,United Kingdom,GBP
+BANK08,Arabian Digital Finance,Payment Institution,UAE,AED
+BANK09,AfricaPay Network,Payment Institution,Kenya,KES
+BANK10,CloudMoney Payments,Payment Institution,Germany,EUR

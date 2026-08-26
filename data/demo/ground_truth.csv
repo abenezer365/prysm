@@ -1,0 +1,11 @@
+ground_truth_id,entity_id,entity_type,behavior_type,risk_pattern,is_anomalous,severity
+GT0001,P0001,person,remote_worker,none,false,low
+GT0002,P0002,person,freelancer,none,false,low
+GT0003,P0003,person,employee,none,false,low
+GT0004,P0004,person,remote_worker,none,false,low
+GT0005,P0005,person,business_owner,none,false,low
+GT0006,P0006,person,student,none,false,low
+GT0007,P0007,person,remote_worker,foreign_income_anomaly,true,medium
+GT0008,P0008,person,freelancer,none,false,low
+GT0009,P0009,person,business_owner,circular_transactions,true,high
+GT0010,P0010,person,employee,none,false,low

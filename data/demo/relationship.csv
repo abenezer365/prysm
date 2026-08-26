@@ -1,0 +1,11 @@
+device_id,person_id,device_type,os,browser,first_seen,last_seen
+DEV0001,P0001,Laptop,Windows 11,Chrome,2025-02-01,2026-08-20
+DEV0002,P0002,Phone,Android,Chrome Mobile,2024-07-10,2026-08-20
+DEV0003,P0003,Laptop,Windows 10,Edge,2022-01-15,2026-08-19
+DEV0004,P0004,Laptop,Ubuntu,Chrome,2025-05-01,2026-08-20
+DEV0005,P0005,Phone,Android,Chrome Mobile,2020-08-15,2026-08-20
+DEV0006,P0006,Phone,Android,Chrome Mobile,2025-02-11,2026-08-20
+DEV0007,P0007,Laptop,Windows 11,Chrome,2024-03-01,2026-08-20
+DEV0008,P0008,Laptop,macOS,Safari,2025-01-20,2026-08-20
+DEV0009,P0009,Laptop,Windows 11,Edge,2019-04-30,2026-08-20
+DEV0010,P0010,Phone,Android,Chrome Mobile,2023-01-05,2026-08-20

@@ -1,0 +1,11 @@
+account_id,person_id,institution_id,account_type,currency,opened_at,status,average_balance,country
+A0001,P0001,BANK01,Checking,ETB,2022-03-12,Active,145000,Ethiopia
+A0002,P0002,BANK02,Savings,ETB,2023-06-18,Active,82000,Ethiopia
+A0003,P0003,BANK03,Checking,ETB,2021-11-04,Active,97000,Ethiopia
+A0004,P0004,BANK01,Checking,USD,2024-01-20,Active,4200,Ethiopia
+A0005,P0005,BANK04,Business,ETB,2020-08-15,Active,630000,Ethiopia
+A0006,P0006,BANK02,Savings,ETB,2025-02-11,Active,12500,Ethiopia
+A0007,P0007,BANK01,Checking,USD,2023-09-08,Active,7800,Ethiopia
+A0008,P0008,BANK05,Checking,USD,2024-05-22,Active,5100,Ethiopia
+A0009,P0009,BANK04,Business,ETB,2019-04-30,Active,920000,Ethiopia
+A0010,P0010,BANK03,Checking,ETB,2022-12-17,Active,69000,Ethiopia

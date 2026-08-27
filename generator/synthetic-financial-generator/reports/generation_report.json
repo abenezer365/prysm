@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-08-27T10:59:57.470288Z",
+  "seed": 42,
+  "runtime_seconds": 89.93,
+  "total_records": 1756020,
+  "dataset_counts": {
+    "persons": 101000,
+    "companies": 10000,
+    "banks": 20,
+    "accounts": 150000,
+    "devices": 90000,
+    "invoices": 200000,
+    "transactions": 700000,
+    "relationships": 500000,
+    "ground_truth": 5000
+  },
+  "config": {
+    "temporal": {
+      "start_date": "2022-01-01",
+      "end_date": "2026-12-31",
+      "reference_date": "2026-01-01"
+    },
+    "output": {
+      "format": "parquet",
+      "compression": "zstd",
+      "row_group_size": 100000,
+      "batch_size": 10000
+    },
+    "data_quality": {
+      "missing_rate": 0.02,
+      "duplicate_rate": 0.01,
+      "column_missing_rates": {
+        "phone_hash": 0.05,
+        "address_hash": 0.08,
+        "browser": 0.03,
+        "invoice_id": 0.15,
+        "device_id": 0.05,
+        "closed_at": 0.7,
+        "employment_status": 0.03
+      }
+    }
+  }
+}

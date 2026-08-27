@@ -1,0 +1,21 @@
+institution_id,institution_name,institution_type,country,supported_currencies
+BNK001,Commercial Bank of Ethiopia,Commercial,Ethiopia,ETB|USD|EUR
+BNK002,Dashen Bank,Commercial,Ethiopia,ETB|USD|EUR
+BNK003,Awash Bank,Commercial,Ethiopia,ETB|USD|EUR
+BNK004,Bank of Abyssinia,Commercial,Ethiopia,ETB|USD|EUR
+BNK005,Cooperative Bank of Oromia,Cooperative,Ethiopia,ETB|USD|EUR
+BNK006,Oromia International Bank,Commercial,Ethiopia,ETB|USD|EUR
+BNK007,Zemen Bank,Commercial,Ethiopia,ETB|USD|EUR
+BNK008,Nib International Bank,Commercial,Ethiopia,ETB|USD|EUR
+BNK009,United Bank,Commercial,Ethiopia,ETB|USD|EUR
+BNK010,Lion International Bank,Commercial,Ethiopia,ETB|USD|EUR
+BNK011,Berhan International Bank,Commercial,Ethiopia,ETB|USD|EUR
+BNK012,Abyssinia Bank,Commercial,Ethiopia,ETB|USD|EUR
+BNK013,Hibret Bank,Commercial,Ethiopia,ETB|USD|EUR
+BNK014,Wegagen Bank,Commercial,Ethiopia,ETB|USD|EUR
+BNK015,Standard Chartered Ethiopia,Foreign,UK,USD|EUR|GBP|AED|CHF|ETB
+BNK016,Citibank Ethiopia,Foreign,USA,USD|EUR|GBP|AED|CHF|ETB
+BNK017,Credit Suisse Representative,Foreign,Switzerland,USD|EUR|GBP|AED|CHF|ETB
+BNK018,Emirates NBD Ethiopia,Foreign,UAE,USD|EUR|GBP|AED|CHF|ETB
+BNK019,HSBC Ethiopia,Foreign,UK,USD|EUR|GBP|AED|CHF|ETB
+BNK020,Deutsche Bank Ethiopia,Foreign,Germany,USD|EUR|GBP|AED|CHF|ETB

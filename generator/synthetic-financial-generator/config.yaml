@@ -12,6 +12,7 @@ dataset:
 temporal:
   start_date: "2022-01-01"
   end_date: "2026-12-31"
+  reference_date: "2026-01-01"
 
 seed: 42
 
@@ -22,10 +23,338 @@ output:
   batch_size: 10000
 
 data_quality:
-  missing_rate: 0.02      # overall target, but column-specific
+  missing_rate: 0.02
   duplicate_rate: 0.01
+  column_missing_rates:
+    phone_hash: 0.05
+    address_hash: 0.08
+    browser: 0.03
+    invoice_id: 0.15
+    device_id: 0.05
+    closed_at: 0.70
+    employment_status: 0.03
 
 realism:
   ethiopian_focus: 0.70
   foreign_remote_workers: 0.15
   suspicious_entities: 0.05
+
+# Ethiopian cities with weighted distribution
+cities:
+  Addis Ababa:    0.35
+  Dire Dawa:      0.07
+  Mekelle:        0.06
+  Gondar:         0.05
+  Hawassa:        0.06
+  Bahir Dar:      0.05
+  Adama:          0.05
+  Jimma:          0.04
+  Dessie:         0.04
+  Jijiga:         0.03
+  Shashamane:     0.03
+  Bishoftu:       0.03
+  Sodo:           0.02
+  Arba Minch:     0.02
+  Hosaena:        0.02
+  Harar:          0.02
+  Dilla:          0.02
+  Nekemte:        0.02
+  Asella:         0.01
+  Debre Birhan:   0.01
+
+# City to region mapping
+city_region_map:
+  Addis Ababa: "Addis Ababa"
+  Dire Dawa: "Dire Dawa"
+  Mekelle: "Tigray"
+  Gondar: "Amhara"
+  Hawassa: "Sidama"
+  Bahir Dar: "Amhara"
+  Adama: "Oromia"
+  Jimma: "Oromia"
+  Dessie: "Amhara"
+  Jijiga: "Somali"
+  Shashamane: "Oromia"
+  Bishoftu: "Oromia"
+  Sodo: "SNNPR"
+  Arba Minch: "SNNPR"
+  Hosaena: "SNNPR"
+  Harar: "Harari"
+  Dilla: "SNNPR"
+  Nekemte: "Oromia"
+  Asella: "Oromia"
+  Debre Birhan: "Amhara"
+
+# Occupation distribution (must sum to 1.0)
+occupations:
+  software_engineer:  0.06
+  teacher:            0.08
+  doctor:             0.02
+  nurse:              0.03
+  business_owner:     0.07
+  freelancer:         0.10
+  student:            0.12
+  farmer:             0.08
+  merchant:           0.07
+  driver:             0.05
+  day_laborer:        0.06
+  government_employee: 0.07
+  accountant:         0.03
+  lawyer:             0.02
+  engineer:           0.04
+  cashier:            0.04
+  security_guard:     0.04
+  domestic_worker:    0.03
+  ngo_worker:         0.03
+  unemployed:         0.06
+
+# Income ranges per occupation: [min_etb, max_etb, currency]
+income_by_occupation:
+  software_engineer:   [15000, 60000, "ETB"]
+  teacher:             [5000,  18000, "ETB"]
+  doctor:              [18000, 80000, "ETB"]
+  nurse:               [8000,  22000, "ETB"]
+  business_owner:      [12000, 120000, "ETB"]
+  freelancer:          [8000,  50000, "ETB"]
+  student:             [2000,  8000, "ETB"]
+  farmer:              [3000,  12000, "ETB"]
+  merchant:            [8000,  40000, "ETB"]
+  driver:              [5000,  15000, "ETB"]
+  day_laborer:         [2000,  7000, "ETB"]
+  government_employee: [6000,  25000, "ETB"]
+  accountant:          [10000, 30000, "ETB"]
+  lawyer:              [15000, 60000, "ETB"]
+  engineer:            [12000, 45000, "ETB"]
+  cashier:             [4000,  12000, "ETB"]
+  security_guard:      [3500,  10000, "ETB"]
+  domestic_worker:     [2500,  8000, "ETB"]
+  ngo_worker:          [10000, 35000, "ETB"]
+  unemployed:          [0,     5000, "ETB"]
+
+# Employment status logic by occupation
+employment_by_occupation:
+  student: "Student"
+  unemployed: "Unemployed"
+  farmer: "Self-Employed"
+  business_owner: "Self-Employed"
+  freelancer: "Self-Employed"
+  merchant: "Self-Employed"
+  default: "Employed"
+
+# Ethiopian banks (14 local + 6 foreign = 20 total)
+banks:
+  local:
+    - name: "Commercial Bank of Ethiopia"
+      short: "CBE"
+      type: "Commercial"
+    - name: "Dashen Bank"
+      short: "DBE"
+      type: "Commercial"
+    - name: "Awash Bank"
+      short: "AWB"
+      type: "Commercial"
+    - name: "Bank of Abyssinia"
+      short: "BOA"
+      type: "Commercial"
+    - name: "Cooperative Bank of Oromia"
+      short: "CBO"
+      type: "Cooperative"
+    - name: "Oromia International Bank"
+      short: "OIB"
+      type: "Commercial"
+    - name: "Zemen Bank"
+      short: "ZMB"
+      type: "Commercial"
+    - name: "Nib International Bank"
+      short: "NIB"
+      type: "Commercial"
+    - name: "United Bank"
+      short: "UNB"
+      type: "Commercial"
+    - name: "Lion International Bank"
+      short: "LIB"
+      type: "Commercial"
+    - name: "Berhan International Bank"
+      short: "BIB"
+      type: "Commercial"
+    - name: "Abyssinia Bank"
+      short: "ABB"
+      type: "Commercial"
+    - name: "Hibret Bank"
+      short: "HBE"
+      type: "Commercial"
+    - name: "Wegagen Bank"
+      short: "WGB"
+      type: "Commercial"
+  foreign:
+    - name: "Standard Chartered Ethiopia"
+      short: "SCB"
+      country: "UK"
+      type: "Foreign"
+    - name: "Citibank Ethiopia"
+      short: "CTB"
+      country: "USA"
+      type: "Foreign"
+    - name: "Credit Suisse Representative"
+      short: "CSR"
+      country: "Switzerland"
+      type: "Foreign"
+    - name: "Emirates NBD Ethiopia"
+      short: "ENB"
+      country: "UAE"
+      type: "Foreign"
+    - name: "HSBC Ethiopia"
+      short: "HSB"
+      country: "UK"
+      type: "Foreign"
+    - name: "Deutsche Bank Ethiopia"
+      short: "DBA"
+      country: "Germany"
+      type: "Foreign"
+
+# Currencies
+currencies:
+  primary: "ETB"
+  foreign: ["USD", "EUR", "GBP", "AED", "CHF"]
+  fx_rates_to_etb:
+    ETB: 1.0
+    USD: 57.5
+    EUR: 62.0
+    GBP: 72.0
+    AED: 15.6
+    CHF: 65.0
+
+# Account types
+account_types:
+  - "Savings"
+  - "Current"
+  - "Business"
+  - "Fixed Deposit"
+  - "Mobile Money"
+
+# Transaction types and channels
+transaction_types:
+  - "Transfer"
+  - "Payment"
+  - "Withdrawal"
+  - "Deposit"
+  - "Loan Disbursement"
+  - "Loan Repayment"
+  - "FX Exchange"
+  - "Mobile Money"
+  - "Bill Payment"
+  - "Salary"
+
+transaction_channels:
+  - "ATM"
+  - "Mobile Banking"
+  - "Internet Banking"
+  - "Branch"
+  - "USSD"
+  - "POS"
+  - "Agent Banking"
+
+# Device types and operating systems
+device_types:
+  - "Mobile"
+  - "Tablet"
+  - "Desktop"
+  - "Laptop"
+
+operating_systems:
+  Mobile: ["Android", "iOS"]
+  Tablet: ["Android", "iPadOS"]
+  Desktop: ["Windows", "Ubuntu", "macOS"]
+  Laptop: ["Windows", "Ubuntu", "macOS"]
+
+browsers:
+  - "Chrome"
+  - "Firefox"
+  - "Safari"
+  - "Edge"
+  - "Opera"
+  - "Samsung Internet"
+
+# Company industries
+company_industries:
+  international:
+    - "Technology"
+    - "FinTech"
+    - "E-Commerce"
+    - "Logistics"
+    - "Consulting"
+    - "Healthcare Tech"
+    - "EdTech"
+    - "Cloud Services"
+  local:
+    - "Agriculture"
+    - "Construction"
+    - "Retail"
+    - "Import/Export"
+    - "Manufacturing"
+    - "Real Estate"
+    - "Tourism"
+
+company_sizes:
+  Micro: [1, 9]
+  Small: [10, 49]
+  Medium: [50, 249]
+  Large: [250, 4999]
+  Enterprise: [5000, 50000]
+
+# Relationship types
+relationship_types:
+  - "family"
+  - "business_partner"
+  - "shared_device"
+  - "shared_address"
+  - "employer_employee"
+  - "guarantor"
+  - "joint_account"
+  - "counterpart"
+  - "supplier_customer"
+  - "referral"
+
+# Invoice service types
+invoice_service_types:
+  - "Software Development"
+  - "Consulting"
+  - "Import Duty"
+  - "Export Fee"
+  - "Logistics"
+  - "Equipment Supply"
+  - "Professional Services"
+  - "Maintenance"
+  - "Training"
+  - "Subscription"
+
+# Ground truth behavior types
+behavior_types:
+  - "smurfing"
+  - "layering"
+  - "round_tripping"
+  - "structuring"
+  - "rapid_movement"
+  - "shell_company"
+  - "false_invoice"
+  - "normal"
+
+risk_patterns:
+  - "AML_HIGH"
+  - "AML_MEDIUM"
+  - "AML_LOW"
+  - "FRAUD_HIGH"
+  - "FRAUD_MEDIUM"
+  - "NORMAL"
+
+severity_levels:
+  - "critical"
+  - "high"
+  - "medium"
+  - "low"
+  - "info"
+
+# Name CSV paths (resolved at runtime from generator root)
+names:
+  boy_names_path: "../../data/boy-names.csv"
+  girl_names_path: "../../data/girl-names.csv"

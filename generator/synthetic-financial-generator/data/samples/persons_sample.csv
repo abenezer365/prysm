@@ -1,0 +1,1001 @@
+person_id,first_name,last_name,date_of_birth,gender,nationality,occupation,employment_status,declared_monthly_income,income_currency,city,region,country,phone_hash,address_hash,created_at
+P000001,Eyerusalem,Nolawi,1995-03-17,F,Ethiopian,teacher,Employed,14434,ETB,Harar,Harari,Ethiopia,10d5e05aac17aaf5,287e5efd0be46aee,2023-11-06T06:55:32.017274
+P000002,Wossen,Fekre-Selasie,1988-09-01,M,Ethiopian,unemployed,Unemployed,2277,ETB,Addis Ababa,Addis Ababa,Ethiopia,73032be2333adb37,e783619a6ffacc07,2023-05-06T22:04:58.210646
+P000003,Tigist,Theodros,1994-04-13,F,Ethiopian,government_employee,Employed,3814,ETB,Addis Ababa,Addis Ababa,Ethiopia,,485dcf345ae985f5,2023-01-16T14:49:26.005925
+P000004,Samrawit,Fasil,1985-12-24,F,Ethiopian,cashier,,7198,ETB,Gondar,Amhara,Ethiopia,66ae74e8ed4ff590,b105bc02ddaf5ff0,2025-07-02T11:16:19.338095
+P000005,Tekeste,Fikru,1965-05-28,M,Ethiopian,farmer,Self-Employed,7868,ETB,Nekemte,Oromia,Ethiopia,c5b3696d28511fe6,1b57222729899b22,2022-11-08T01:33:51.952889
+P000006,Kelemua,Taye,1974-01-24,F,Ethiopian,ngo_worker,Employed,22004,ETB,Hawassa,Sidama,Ethiopia,44f101ca438654ea,75ed5e2293dacaf3,2023-11-10T18:00:58.286253
+P000007,Betelhem,Henok,1979-08-29,F,Ethiopian,cashier,Employed,17101,ETB,Hawassa,Sidama,Ethiopia,c891c4b0b85bbe1f,,2022-03-11T09:08:07.347135
+P000008,Menna,Khalid,1994-06-15,F,Ethiopian,student,,2516,ETB,Addis Ababa,Addis Ababa,Ethiopia,360b87e290479948,6e81d5600ab9d6ec,2024-11-23T10:31:54.000737
+P000009,Moges,Wasihun,1981-04-18,M,Ethiopian,freelancer,Self-Employed,11075,ETB,Addis Ababa,Addis Ababa,Ethiopia,a6cd60a186c08811,79b5ac6f66691ad2,2025-10-28T13:31:00.893377
+P000010,Nebyat,Paulos,2006-03-29,M,Ethiopian,software_engineer,Employed,23495,ETB,Adama,Oromia,Ethiopia,c3c00b5bfbd56d09,,2022-07-27T22:52:33.053172
+P000011,Gashaw,Abdu,1984-04-16,M,Ethiopian,security_guard,Employed,14544,ETB,Dire Dawa,Dire Dawa,Ethiopia,154519f6fa5917b2,e6edaa6dd7e49ca4,2025-12-25T04:21:07.649909
+P000012,Debritu,Fasil,2007-08-29,F,Ethiopian,business_owner,Self-Employed,69381,ETB,Gondar,Amhara,Ethiopia,11afb6ba93f7daa5,b0becded7df77211,2023-03-22T08:08:57.651027
+P000013,Yewbdar,Shifferaw,2002-07-19,F,Ethiopian,freelancer,Self-Employed,23517,ETB,Addis Ababa,Addis Ababa,Ethiopia,35343afd585a1a63,fd08dd654a9f9721,2023-12-10T15:18:45.313976
+P000014,Amsale,Beteab,1986-08-23,F,Ethiopian,freelancer,Self-Employed,14371,ETB,Addis Ababa,Addis Ababa,Ethiopia,86b9d0d5c022e139,e43f3b4b22f6aa9d,2024-11-01T22:01:06.059318
+P000015,Ayele,Khalid,1998-07-16,M,Other,security_guard,Employed,4568,ETB,Addis Ababa,Addis Ababa,Ethiopia,f7a62682c06a06eb,dc3bb6db8e7fcb97,2023-10-25T11:38:57.434154
+P000016,Tamene,Mulugeta,2006-09-24,M,Ethiopian,lawyer,Employed,36754,ETB,Addis Ababa,Addis Ababa,Ethiopia,f3e276ed52ba5e11,e7a138bddf898cc6,2023-10-06T01:51:56.215609
+P000017,Messeret,Girmachew,1975-12-11,F,Ethiopian,accountant,Employed,18673,ETB,Addis Ababa,Addis Ababa,Ethiopia,0524cc1a4cd619db,b663e4d5be6366b5,2022-07-08T13:02:52.733235
+P000018,Chebude,Getnet,1997-04-04,M,Ethiopian,business_owner,Self-Employed,27546,ETB,Addis Ababa,Addis Ababa,Ethiopia,2f0e990084a099ec,,2024-10-05T21:32:48.093080
+P000019,Selam,Alex,1983-08-18,F,Ethiopian,freelancer,Self-Employed,20315,ETB,Addis Ababa,Addis Ababa,Ethiopia,0c2c5fdc77a248e9,4d8d7e703cdd9882,2025-02-05T10:49:50.922098
+P000020,Abebech,Matheos,1980-08-08,F,Ethiopian,driver,Employed,3146,ETB,Adama,Oromia,Ethiopia,fc90b5dc35d3952c,324228379d2a9e38,2025-03-27T05:20:19.759522
+P000021,Rahel,Getachew,1990-12-29,F,Ethiopian,freelancer,Self-Employed,22765,ETB,Nekemte,Oromia,Ethiopia,5ef111b8a6dd7997,059590296726bce2,2025-09-18T13:35:20.287898
+P000022,Gebre-Mariam,Menelik,1980-12-22,M,Ethiopian,security_guard,Employed,3801,ETB,Hawassa,Sidama,Ethiopia,492dd36018fc8403,1b16eee78271f4f7,2024-08-06T07:54:29.698202
+P000023,Rebka,Mulugeta,2005-05-26,F,Ethiopian,software_engineer,Employed,21017,ETB,Dire Dawa,Dire Dawa,Ethiopia,1c8bf6b1e4b8960c,57d370b29fca24f0,2024-09-19T07:52:34.358008
+P000024,Muluemebet,Abera,1986-02-26,F,Ethiopian,teacher,Employed,4108,ETB,Arba Minch,SNNPR,Ethiopia,,20c752847a7ecd54,2022-02-20T01:24:41.518370
+P000025,Tsion,Haile,1974-04-30,F,Ethiopian,freelancer,Self-Employed,17633,ETB,Hawassa,Sidama,Ethiopia,2caddeb5d75ad93c,,2022-12-17T10:42:14.759551
+P000026,Fikremariam,Ketema,1969-06-30,M,Ethiopian,security_guard,Employed,6324,ETB,Addis Ababa,Addis Ababa,Ethiopia,f706f46aad08ad04,a93360800db75871,2024-10-22T16:42:48.208061
+P000027,Fistum,Mekbib,1997-05-24,M,Ethiopian,cashier,Employed,13415,ETB,Jijiga,Somali,Ethiopia,0530f72e91bbc455,,2025-03-08T16:57:36.922843
+P000028,Adane,sOFONYAS,1999-07-14,M,Ethiopian,cashier,Employed,7658,ETB,Dire Dawa,Dire Dawa,Ethiopia,d04a9f64661afc35,82ababe790ae4057,2025-12-19T14:17:05.166253
+P000029,Solomon,Liku,1984-05-01,M,Ethiopian,software_engineer,Employed,48641,ETB,Addis Ababa,Addis Ababa,Ethiopia,6ad3bcd2625304b6,64330483e66e6d6c,2024-09-04T01:42:58.777739
+P000030,Hamelmal,Lemma,1985-08-16,F,Ethiopian,security_guard,Employed,4345,ETB,Addis Ababa,Addis Ababa,Ethiopia,8947370aa836035c,ec48c75dfba2bcff,2023-05-29T21:21:01.436088
+P000031,Abenet,Kiros,1983-01-02,F,Other,freelancer,Self-Employed,29041,ETB,Dessie,Amhara,Ethiopia,,c4415ad60b515aa4,2025-04-30T14:26:58.096066
+P000032,Kalkidan,Girmachew,1996-12-08,F,Ethiopian,software_engineer,Employed,29606,ETB,Dessie,Amhara,Ethiopia,a9cd306d00fe128d,78ee18796b7c1e69,2025-08-10T09:34:06.124036
+P000033,Afework,Getahun,1965-04-27,M,Other,government_employee,Employed,17284,ETB,Addis Ababa,Addis Ababa,Ethiopia,b067d22bdbc8c7dc,bd9fd83ecdc84ebe,2024-06-13T22:38:45.395319
+P000034,Abayneh,Siraj,2007-04-23,M,Ethiopian,day_laborer,Employed,2888,ETB,Addis Ababa,Addis Ababa,Ethiopia,beb6f6978a9e3676,24504134d5ffcfb1,2024-06-21T04:38:19.889910
+P000035,Liku,Khalid,1979-10-27,M,Other,unemployed,Unemployed,2000,ETB,Dessie,Amhara,Ethiopia,a6bfa5e4cfe949d3,92204971a433f3fc,2022-03-29T03:32:01.908958
+P000036,Tilahun,Hailu,1987-03-16,M,Ethiopian,teacher,Employed,10615,ETB,Bahir Dar,Amhara,Ethiopia,7fc5c8dcc2f39bc0,558f9d46e5166520,2023-06-23T17:18:32.907808
+P000037,Nathnael,Girmachew,1978-03-13,M,Ethiopian,farmer,Self-Employed,5972,ETB,Adama,Oromia,Ethiopia,a209f78d4320b89c,8290232c43018d93,2022-05-29T09:42:58.960286
+P000038,Mesfin,Efrem,2006-07-16,M,Ethiopian,security_guard,Employed,6650,ETB,Arba Minch,SNNPR,Ethiopia,7ad7b1a2a588169a,4ecd9b600b464223,2025-06-11T17:28:18.544223
+P000039,Haile-Selassie,Simon,1996-03-28,M,Ethiopian,software_engineer,,19542,ETB,Nekemte,Oromia,Ethiopia,,2b84869f8cfd5426,2023-10-19T06:39:11.842243
+P000040,Nardos,Aschalew,1979-06-04,F,Ethiopian,software_engineer,Employed,45417,ETB,Addis Ababa,Addis Ababa,Ethiopia,24c1c46f2f4bbd0f,f6bbb7da4ad00373,2025-05-18T19:06:13.833355
+P000041,Kassaye,Hiruy,1963-05-07,M,Ethiopian,freelancer,Self-Employed,17277,ETB,Addis Ababa,Addis Ababa,Ethiopia,0a44bdf13bf5bca6,ff7e79234e2ec720,2023-01-26T11:31:33.342645
+P000042,Melat,Demeke,1966-02-03,F,Ethiopian,domestic_worker,Employed,8872,ETB,Harar,Harari,Ethiopia,9f3eb05927e08a95,,2022-12-21T22:48:56.091748
+P000043,Hanan,Nahom,1983-09-22,F,Ethiopian,farmer,Self-Employed,7234,ETB,Adama,Oromia,Ethiopia,5846a3d2633fb22c,250b9e9d4f45c527,2024-10-11T11:24:11.300797
+P000044,Chebude,Dilnesaw,1987-10-02,M,Ethiopian,student,Student,3743,ETB,Dessie,Amhara,Ethiopia,bcd431f65981a8a0,5fac5e460b09877c,2024-02-21T17:21:24.516403
+P000045,Adanech,Girma,1993-08-09,F,Ethiopian,domestic_worker,Employed,2006,ETB,Addis Ababa,Addis Ababa,Ethiopia,7ec5a4e0b3d6eb94,,2024-09-02T08:52:32.209097
+P000046,Abenet,Fekre-Mariam,1998-01-17,F,Ethiopian,driver,Employed,6405,ETB,Jijiga,Somali,Ethiopia,4d19c40e3e37274a,61d202b530992729,2025-01-09T06:30:07.285103
+P000047,Dejen,Wasihun,1961-10-05,M,Ethiopian,unemployed,Unemployed,2000,ETB,Hosaena,SNNPR,Ethiopia,01db3001875059ee,4f5f1ff75b415c39,2025-08-20T20:15:57.405413
+P000048,Mitiku,Daniel,1979-07-01,M,Ethiopian,merchant,Self-Employed,11991,ETB,Addis Ababa,Addis Ababa,Ethiopia,394367560f0c1ace,95a0224aaf2517da,2025-03-11T00:19:40.716749
+P000049,Ejigayehu,Tarik,1994-09-17,F,Ethiopian,business_owner,Self-Employed,24289,ETB,Harar,Harari,Ethiopia,ce0a6e4aea9d4e96,,2025-07-17T07:44:10.269733
+P000050,Alex,Nathnael,1976-07-19,M,Ethiopian,software_engineer,Employed,19705,ETB,Gondar,Amhara,Ethiopia,498d0e524a11991b,93e564afced0bf8c,2025-12-10T06:12:05.159591
+P000051,Eyasu,Tsegaye,2005-11-24,M,Ethiopian,teacher,Employed,10770,ETB,Shashamane,Oromia,Ethiopia,490a6c32dba32acd,9183dd13c61117e9,2022-10-07T09:48:51.777670
+P000052,Abay,Belay,1979-02-08,M,Ethiopian,engineer,Employed,54699,ETB,Shashamane,Oromia,Ethiopia,e5b42e0e73166616,,2025-01-27T08:25:53.793954
+P000053,Betelhem,Abiy,1982-09-03,F,Ethiopian,day_laborer,Employed,3233,ETB,Dire Dawa,Dire Dawa,Ethiopia,,20bb4f3ea2f74b5c,2025-10-26T12:15:34.501337
+P000054,Misgana,Mussie,1988-08-30,F,Ethiopian,farmer,Self-Employed,9075,ETB,Arba Minch,SNNPR,Ethiopia,4b189d5c07964c0e,,2022-12-06T04:57:34.093654
+P000055,Lidet,Muluken,1975-03-30,F,Ethiopian,student,Student,8864,ETB,Shashamane,Oromia,Ethiopia,5ef094c2b89bdb6c,,2024-08-17T18:12:20.345515
+P000056,Deborah,Bekele,1990-02-25,F,Ethiopian,freelancer,Self-Employed,21966,ETB,Mekelle,Tigray,Ethiopia,,5d3481e3ba8bc362,2024-06-13T05:07:30.587895
+P000057,Markos,Shewangizaw,1965-05-08,M,Ethiopian,government_employee,Employed,20570,ETB,Addis Ababa,Addis Ababa,Ethiopia,1b6f999f19b97936,35161d3f24cd0627,2025-12-21T21:58:09.319827
+P000058,Aynalem,Yidnekachew,1980-08-31,F,Ethiopian,day_laborer,Employed,6916,ETB,Addis Ababa,Addis Ababa,Ethiopia,6cfd595965cad996,,2025-04-21T05:46:21.835742
+P000059,Nebil,Adane,1962-02-28,M,Ethiopian,business_owner,Self-Employed,40839,ETB,Mekelle,Tigray,Ethiopia,,c08144616a68d270,2024-03-25T18:32:46.316672
+P000060,Aman,Hassen,1996-07-26,M,Ethiopian,student,Student,4021,ETB,Addis Ababa,Addis Ababa,Ethiopia,4ef6cb4ddf4c7e8b,,2025-08-21T15:30:31.595172
+P000061,Selam,Metaferia,1968-06-13,F,Ethiopian,software_engineer,Employed,14554,ETB,Dire Dawa,Dire Dawa,Ethiopia,9e7e394c91497624,e5b6709c24c742fa,2022-07-21T12:07:20.424015
+P000062,Fasil,Fekre-Selasie,2006-06-16,M,Ethiopian,business_owner,Self-Employed,51816,ETB,Bahir Dar,Amhara,Ethiopia,f686e437be796beb,9480f59fc93bced6,2023-10-29T18:07:34.635976
+P000063,Etenesh,Abenet,1996-01-14,F,Other,domestic_worker,Employed,9333,ETB,Dire Dawa,Dire Dawa,Ethiopia,88bd67cf8c4ae18c,ea6b7894d109b490,2024-10-07T23:16:37.159628
+P000064,Semira,Fekre-Mariam,2004-01-07,F,Ethiopian,cashier,Employed,6045,ETB,Shashamane,Oromia,Ethiopia,2fffddb170645c7b,994ee7186bf1ea51,2023-06-25T03:10:55.858384
+P000065,Selam,Yafet,1991-10-09,F,Other,security_guard,Employed,8709,ETB,Adama,Oromia,Ethiopia,,94631b66856408a5,2025-05-18T18:47:10.820719
+P000066,Betsega,Israel,1987-03-29,F,Ethiopian,teacher,Employed,7748,ETB,Bahir Dar,Amhara,Ethiopia,866649da1881dae4,71872fd078ba3af3,2022-12-18T23:48:15.417353
+P000067,Alemtsehay,Gebre-Giorgis,1963-06-19,F,Ethiopian,day_laborer,Employed,2849,ETB,Dire Dawa,Dire Dawa,Ethiopia,ed59dc406aeb27eb,12376498abeea33e,2025-04-09T06:17:42.114248
+P000068,Gedion,Mohammed,1986-08-30,M,Ethiopian,driver,Employed,12740,ETB,Addis Ababa,Addis Ababa,Ethiopia,43d3590455acb2a6,da5c79422a3f6cd9,2023-07-18T10:47:42.537281
+P000069,Eskinder,Abdu,1992-10-26,M,Ethiopian,day_laborer,Employed,7696,ETB,Addis Ababa,Addis Ababa,Ethiopia,27ac306184089430,ee55284b4256ea1c,2022-08-31T18:45:42.633003
+P000070,Tibebu,Biruk,1974-06-04,M,Ethiopian,freelancer,Self-Employed,18671,ETB,Nekemte,Oromia,Ethiopia,9a2f6a6a854ae78c,,2024-03-29T19:15:40.557316
+P000071,Atinafu,Zekarias,1974-12-17,M,Ethiopian,unemployed,Unemployed,3282,ETB,Addis Ababa,Addis Ababa,Ethiopia,da77bd75aaf2b856,c994b7e83d905403,2025-11-15T08:39:39.990622
+P000072,Gedion,Negash,1991-08-01,M,Ethiopian,farmer,Self-Employed,5093,ETB,Bahir Dar,Amhara,Ethiopia,c553b6a5f331c4ec,401791102df960d0,2022-10-29T17:25:30.112786
+P000073,Lielt,Michael,1987-07-17,F,Other,teacher,Employed,36372,ETB,Addis Ababa,Addis Ababa,Ethiopia,3f556b3c9d416219,d5d2301de662a529,2024-07-10T18:41:11.120535
+P000074,Aklilu,Chebude,1963-05-20,M,Ethiopian,day_laborer,Employed,6611,ETB,Addis Ababa,Addis Ababa,Ethiopia,65baddb024470a9c,aae207050de81712,2023-03-14T10:32:30.214201
+P000075,Bisrat,Haile-Mariam,1999-04-15,M,Ethiopian,software_engineer,Employed,20148,ETB,Addis Ababa,Addis Ababa,Ethiopia,a2f5093ae7e8e123,45fd106f9d46e4a2,2025-06-18T22:02:45.242433
+P000076,Ermias,Molalign,1986-05-12,M,Ethiopian,day_laborer,Employed,11558,ETB,Nekemte,Oromia,Ethiopia,3eab982562ccb360,ca2f55a98dba5599,2022-11-08T19:44:29.196896
+P000077,Zelalem,Addisu,1994-04-26,M,Ethiopian,software_engineer,Employed,67928,ETB,Jijiga,Somali,Ethiopia,1333230d75036031,,2025-03-24T16:51:00.001965
+P000078,Tizita,Abiy,2002-10-13,F,Ethiopian,teacher,Employed,4585,ETB,Mekelle,Tigray,Ethiopia,ffce73ec57d62f33,5849c98c0b85d112,2022-02-04T00:13:00.346270
+P000079,Seble,Dejen,1970-01-08,F,Ethiopian,student,Student,4920,ETB,Dessie,Amhara,Ethiopia,ba1d41fb5e60a8ce,addce13f8242c223,2023-07-26T12:21:20.778586
+P000080,Abebaye,Habte,1995-07-15,F,Ethiopian,student,Student,2995,ETB,Arba Minch,SNNPR,Ethiopia,8deda44f42422477,4ecbf8c273817508,2024-03-25T07:27:58.977525
+P000081,Yabsira,Tesema,1970-10-27,F,Ethiopian,nurse,Employed,12303,ETB,Addis Ababa,Addis Ababa,Ethiopia,73690c70372751ae,54f14034fc32ef20,2022-06-06T14:39:24.284968
+P000082,Haile-Selassie,Bekele,1971-05-03,M,Ethiopian,merchant,Self-Employed,15875,ETB,Adama,Oromia,Ethiopia,592436f3e6ed8e53,4d819f25e6acd0c7,2025-06-04T06:34:40.802076
+P000083,Netsanet,Kassaye,1963-07-02,F,Ethiopian,farmer,Self-Employed,5699,ETB,Adama,Oromia,Ethiopia,2b48d76d7c0b3712,7a8cfb1b64969095,2023-03-18T19:23:15.486925
+P000084,Desta,Sebhat,1968-09-08,M,Ethiopian,day_laborer,Employed,5141,ETB,Addis Ababa,Addis Ababa,Ethiopia,3c0276a3d4e7ad8c,86db04f4d74adb72,2024-09-23T08:51:22.211483
+P000085,Jemal,Surafel,1961-02-21,M,Ethiopian,driver,Employed,20088,ETB,Debre Birhan,Amhara,Ethiopia,5c80696273c6d7bf,,2024-10-04T13:43:41.054608
+P000086,Asefa,Abera,1999-10-08,M,Ethiopian,day_laborer,Employed,7280,ETB,Bahir Dar,Amhara,Ethiopia,5cad144a0ac9c525,7d97331e046079f5,2025-10-06T07:03:04.060054
+P000087,Nardos,Andargachew,1982-07-27,F,Ethiopian,ngo_worker,Employed,46733,ETB,Mekelle,Tigray,Ethiopia,446585340b9c7e3e,787a20bb20baa4f5,2023-04-23T03:25:57.985491
+P000088,Andargachew,Girma,2002-07-11,M,Ethiopian,teacher,,4489,ETB,Addis Ababa,Addis Ababa,Ethiopia,d4f67e9051fe6d49,,2023-02-25T05:39:09.826908
+P000089,Akalu,Metaferia,1998-05-19,M,Ethiopian,government_employee,,9401,ETB,Addis Ababa,Addis Ababa,Ethiopia,4820caa873c7f321,087cf9fb3cfd701e,2024-05-21T02:38:43.939578
+P000090,Misrak,Wuhib,1978-10-15,F,Ethiopian,farmer,Self-Employed,2766,ETB,Harar,Harari,Ethiopia,95a5e194367f1da0,215f3f4485353859,2022-04-21T03:44:54.425075
+P000091,Nolawi,Adugna,2002-04-21,M,Ethiopian,student,Student,2401,ETB,Gondar,Amhara,Ethiopia,e200d8096b20d78a,c92e788cf1efc5b7,2023-04-28T12:44:13.867295
+P000092,Gelila,Husein,1975-03-06,F,Ethiopian,teacher,Employed,15968,ETB,Addis Ababa,Addis Ababa,Ethiopia,,df7c2b654eed2d8f,2025-07-15T15:39:35.696094
+P000093,Siraj,Teferri,2006-11-14,M,Ethiopian,government_employee,Employed,11667,ETB,Addis Ababa,Addis Ababa,Ethiopia,30b3ec30c97bad1b,,2022-03-25T06:09:30.958570
+P000094,Moges,Dejen,1976-03-06,M,Ethiopian,doctor,Employed,47921,ETB,Addis Ababa,Addis Ababa,Ethiopia,40004bb4cc41fec3,fffbf89f6f0a7bd4,2024-11-08T18:42:46.519723
+P000095,Abenezer,Endale,1978-10-03,M,Ethiopian,driver,Employed,4429,ETB,Gondar,Amhara,Ethiopia,ea3bffe6fcc7baf0,f31fae94e1e2ae0a,2022-08-10T07:30:24.459610
+P000096,Taitu,Shimelis,1971-07-24,F,Ethiopian,freelancer,Self-Employed,16773,ETB,Hawassa,Sidama,Ethiopia,0dfc5147af56e39f,5a46ea750790c95d,2022-01-28T19:29:32.156589
+P000097,Efrem,Kassahun,1971-10-18,M,Ethiopian,freelancer,Self-Employed,15453,ETB,Bishoftu,Oromia,Ethiopia,59957c2baa1ad698,34712394b9e2c86d,2022-10-16T21:05:47.897460
+P000098,Zekarias,Muluken,1970-03-26,M,Other,teacher,Employed,8976,ETB,Adama,Oromia,Ethiopia,1282ad750a0a3c62,37153b1f76473674,2024-07-28T23:24:46.680985
+P000099,Lake,Yakob,1991-01-26,M,Ethiopian,security_guard,Employed,10755,ETB,Hosaena,SNNPR,Ethiopia,54cdee46a3b33da5,f1456e58f5f110ea,2025-09-24T19:16:44.691936
+P000100,Lidiya,Abate,1969-11-14,F,Ethiopian,farmer,Self-Employed,6862,ETB,Adama,Oromia,Ethiopia,cdbc545e904a6f42,5b380bc5e991e276,2023-01-15T21:59:10.591979
+P000101,Yordanos,Kiros,2004-03-23,F,Ethiopian,day_laborer,Employed,5384,ETB,Hawassa,Sidama,Ethiopia,5be49faf671bd4fb,0415abf549df3be1,2022-05-12T11:28:49.894663
+P000102,Senait,Abebe,2007-08-26,F,Ethiopian,freelancer,Self-Employed,44855,ETB,Adama,Oromia,Ethiopia,d289bdddf5143022,8dbf27fb2a030fae,2023-06-17T02:40:27.624096
+P000103,Nebil,Matheos,1990-06-17,M,Ethiopian,student,Student,9349,ETB,Mekelle,Tigray,Ethiopia,61f3f7511b437000,c81a9fa5617345d8,2025-09-15T10:30:16.752990
+P000104,Aklil,Andargachew,2001-09-18,F,Ethiopian,doctor,Employed,39611,ETB,Harar,Harari,Ethiopia,cbdad140de98679a,56634515b813e02c,2023-02-16T04:43:01.496237
+P000105,Lidiya,Petros,1970-10-25,F,Ethiopian,government_employee,Employed,14231,ETB,Bahir Dar,Amhara,Ethiopia,2a046209d9b8e4da,0500311be70ae6f7,2024-01-30T11:27:32.222143
+P000106,Negassi,Ermias,1986-12-08,F,Ethiopian,domestic_worker,Employed,3599,ETB,Nekemte,Oromia,Ethiopia,fe46dfa4e3cac924,d69c10ed47f3b022,2023-07-02T10:39:17.103739
+P000107,Eshetu,Bisrat,1978-02-09,M,Ethiopian,day_laborer,,2486,ETB,Addis Ababa,Addis Ababa,Ethiopia,,a57ea28b87e4bc4c,2022-09-24T17:09:20.755211
+P000108,Worku,Biruk,2004-04-30,M,Ethiopian,domestic_worker,Employed,2937,ETB,Dire Dawa,Dire Dawa,Ethiopia,f72c84eb118a78dd,3045e8b74f7b75e4,2022-09-03T15:55:56.964995
+P000109,Dibaba,Kassaye,1969-02-20,M,Ethiopian,software_engineer,Employed,28811,ETB,Bishoftu,Oromia,Ethiopia,4276bac33e00fe8b,6c9a84bd2e8cbda7,2025-09-03T09:43:56.674827
+P000110,Roza,Addisu,1967-11-23,F,Ethiopian,driver,Employed,5047,ETB,Hawassa,Sidama,Ethiopia,604da7747b1accef,785e0814e89f60a0,2022-02-05T20:08:36.206727
+P000111,Adugna,Haile-Selassie,2005-04-13,M,Ethiopian,teacher,Employed,14170,ETB,Addis Ababa,Addis Ababa,Ethiopia,8010590af67b4c3f,43e644b5879b4ad3,2023-07-26T10:15:08.433257
+P000112,Hailu,Ezra,1985-02-25,M,Ethiopian,teacher,Employed,14414,ETB,Adama,Oromia,Ethiopia,19054b981d511478,3d0e0af41df45c02,2024-11-11T13:31:08.413830
+P000113,Girmachew,Kassahun,1966-07-12,M,Ethiopian,unemployed,Unemployed,2018,ETB,Hawassa,Sidama,Ethiopia,,cd52969d876a6413,2023-09-23T12:10:47.286767
+P000114,Woyneshet,Alemu,2007-02-14,F,Ethiopian,ngo_worker,Employed,10680,ETB,Addis Ababa,Addis Ababa,Ethiopia,188dcce40499e47e,17d676f299c5ace9,2022-04-17T09:52:21.397438
+P000115,Estifanos,Mintesnot,1997-01-15,M,Ethiopian,cashier,Employed,4033,ETB,Addis Ababa,Addis Ababa,Ethiopia,cc439f96dc4436dd,c1b7c653ff34d545,2024-01-30T04:53:35.524174
+P000116,Tiruwork,Mohammed,2005-10-09,F,Ethiopian,farmer,Self-Employed,16595,ETB,Bishoftu,Oromia,Ethiopia,53591bb70e7839a8,,2024-12-26T19:46:10.025057
+P000117,Beletu,Tedla,1978-04-14,F,Ethiopian,merchant,Self-Employed,18468,ETB,Adama,Oromia,Ethiopia,479f932eac54edbb,7a899f68861d3703,2022-04-23T19:49:13.983324
+P000118,Eyerusalem,Lemma,1999-04-05,F,Ethiopian,government_employee,Employed,7207,ETB,Addis Ababa,Addis Ababa,Ethiopia,db32b394304d2db7,8f14ef146515e8d3,2025-12-28T17:06:04.190062
+P000119,Kassaye,Mussie,1996-07-27,M,Ethiopian,engineer,Employed,14292,ETB,Hawassa,Sidama,Ethiopia,6c5c3efd42fe96c1,46fe4e7d51032dae,2023-05-28T16:41:16.041363
+P000120,Almaz,Ezana,1965-05-08,F,Ethiopian,government_employee,Employed,16329,ETB,Jijiga,Somali,Ethiopia,a69a8299a7b66aa3,525c96a3fbe9c1e5,2022-10-23T05:31:20.923622
+P000121,Elizabeth,Mamo,1971-04-21,F,Ethiopian,teacher,Employed,9357,ETB,Dire Dawa,Dire Dawa,Ethiopia,a90fa2be4eca2368,a55fc262eaed154d,2024-06-26T21:53:21.249380
+P000122,Ejigayehu,Dejen,1998-04-14,F,Ethiopian,business_owner,Self-Employed,34678,ETB,Addis Ababa,Addis Ababa,Ethiopia,,a48e215affc8798d,2022-11-15T00:22:27.950394
+P000123,Dagnachew,Alula,1967-07-18,M,Ethiopian,government_employee,Employed,9905,ETB,Bahir Dar,Amhara,Ethiopia,91ba310058bf2862,79f464b3bfbafd76,2023-05-09T08:26:31.620548
+P000124,Wossen,Beteab,2007-06-10,M,Ethiopian,merchant,Self-Employed,13870,ETB,Mekelle,Tigray,Ethiopia,23f43e88ada6c02d,50ac37cfd5572c09,2022-05-01T02:36:12.553815
+P000125,Fiseha,Seid,1978-10-01,M,Ethiopian,teacher,Employed,23518,ETB,Debre Birhan,Amhara,Ethiopia,b4b878f727a735f6,a4c7a6f973df1540,2025-09-12T23:53:57.160573
+P000126,Aida,Amanuel,1962-03-25,F,Ethiopian,merchant,Self-Employed,36937,ETB,Dire Dawa,Dire Dawa,Ethiopia,,c72e8b57b31cf3ac,2025-03-15T19:19:46.226870
+P000127,Endalkachew,Mussie,2002-09-06,M,Ethiopian,government_employee,Employed,11864,ETB,Jijiga,Somali,Ethiopia,44288506f727c301,,2022-11-08T10:58:33.289787
+P000128,Niguse,dEMISSIE,1977-08-22,M,Ethiopian,merchant,Self-Employed,10274,ETB,Bahir Dar,Amhara,Ethiopia,325d355cb32151c3,1b21b63a971feda6,2025-07-19T04:20:22.107735
+P000129,Anteneh,Kidus,1976-05-13,M,Ethiopian,nurse,Employed,7739,ETB,Mekelle,Tigray,Ethiopia,85ed8529a47125a8,6a1e71515aa1f3d3,2023-06-06T01:13:31.521420
+P000130,Addis,Admasu,2005-08-10,F,Ethiopian,farmer,Self-Employed,10595,ETB,Jimma,Oromia,Ethiopia,,8d0e86e00d309a7a,2025-10-31T07:23:40.461127
+P000131,Dibaba,Yonas,1990-06-03,M,Ethiopian,freelancer,Self-Employed,24715,ETB,Addis Ababa,Addis Ababa,Ethiopia,eaa1acba3bce715e,166eef1a03bf8210,2025-05-31T08:20:59.302683
+P000132,Semira,Girum,1985-02-18,F,Ethiopian,government_employee,Employed,11538,ETB,Addis Ababa,Addis Ababa,Ethiopia,9ca8335b874d7d1d,,2025-08-04T22:09:38.239957
+P000133,Siham,Estifanos,2002-03-04,F,Ethiopian,freelancer,Self-Employed,35428,ETB,Dessie,Amhara,Ethiopia,7b10b6295d721b18,15fe3afc8ed2783e,2023-10-14T04:04:52.768156
+P000134,Gebre-Micheal,Yelekal,1996-11-26,M,Ethiopian,doctor,Employed,88598,ETB,Bahir Dar,Amhara,Ethiopia,cc7cf672092865f3,238f621746d6c040,2025-09-04T06:19:58.660494
+P000135,Roman,Girmachew,1965-08-17,F,Ethiopian,day_laborer,Employed,3765,ETB,Dire Dawa,Dire Dawa,Ethiopia,beae878ad44caabd,3830dc95ebcbd58f,2022-08-05T16:37:31.195047
+P000136,Issak,Shimelis,1976-01-23,M,Ethiopian,day_laborer,Employed,2000,ETB,Adama,Oromia,Ethiopia,7586423f53c10615,71f2415d6a0d06fa,2022-04-26T15:37:05.883925
+P000137,Azeb,Abdi,1999-06-12,F,Ethiopian,nurse,Employed,18828,ETB,Addis Ababa,Addis Ababa,Ethiopia,ec2002ed8f773d45,ba4305ff9e3633dc,2023-03-29T22:13:14.307264
+P000138,Ejigayehu,Wuhib,1972-06-26,F,Ethiopian,student,Student,6676,ETB,Addis Ababa,Addis Ababa,Ethiopia,49bf31c625b35d07,,2024-04-11T12:25:39.906226
+P000139,Elshaday,Taye,1961-12-06,F,Ethiopian,software_engineer,Employed,91195,ETB,Sodo,SNNPR,Ethiopia,0855aa70c4f9c38f,875a91071bfa9c43,2024-12-03T13:20:15.290277
+P000140,Abraham,Caleb,1990-06-13,M,Ethiopian,student,Student,5672,ETB,Hawassa,Sidama,Ethiopia,67fd487275a105a3,21ef1c857a56cf31,2023-08-31T06:02:04.768271
+P000141,Seble,Abayneh,1989-03-21,F,Ethiopian,farmer,Self-Employed,5497,ETB,Addis Ababa,Addis Ababa,Ethiopia,d73cd1645681719b,7d42766cad47a655,2024-12-30T23:25:05.192533
+P000142,Deborah,Fiseha,1993-09-20,F,Ethiopian,student,Student,7863,ETB,Addis Ababa,Addis Ababa,Ethiopia,b093e5b28b21a8c2,7113135c2758eb36,2023-10-01T04:36:03.327509
+P000143,Eskedar,Tamrat,1975-03-02,F,Ethiopian,business_owner,Self-Employed,75978,ETB,Bishoftu,Oromia,Ethiopia,afb0d3ad6d227fc6,,2024-12-12T19:14:56.344015
+P000144,Lidiya,Nathnael,1968-10-25,F,Ethiopian,unemployed,Unemployed,2000,ETB,Adama,Oromia,Ethiopia,e0546484b4223429,4d562b17c13ffd15,2024-07-29T00:06:58.441943
+P000145,Abdu,Abebe,1977-10-01,M,Ethiopian,day_laborer,Employed,6701,ETB,Addis Ababa,Addis Ababa,Ethiopia,,1c8ae3aa5b11d1fd,2023-09-15T18:17:56.847072
+P000146,Kassahun,Dibaba,1982-11-11,M,Ethiopian,merchant,,13302,ETB,Gondar,Amhara,Ethiopia,c31c43abbe1d4aeb,307caaa9dd453ffb,2025-09-26T10:35:21.521033
+P000147,Mebratu,Niguse,1999-10-02,M,Ethiopian,cashier,Employed,3986,ETB,Bahir Dar,Amhara,Ethiopia,5e04f26d94e6bbf4,b49a7c5888cae19a,2024-04-08T08:53:32.095385
+P000148,Sinetebeb,Amha,1997-04-01,F,Ethiopian,freelancer,Self-Employed,50485,ETB,Gondar,Amhara,Ethiopia,6af5fd6d98f2127f,e2eb2c726feb3536,2022-02-01T09:06:20.249715
+P000149,Mezgebe,Tamrat,1990-04-18,M,Ethiopian,nurse,Employed,15504,ETB,Dire Dawa,Dire Dawa,Ethiopia,e4234d583248e784,4ea2df2e41ad3f6e,2024-04-10T00:08:26.425801
+P000150,Sebhat,Haile-Selassie,1965-02-13,M,Ethiopian,farmer,Self-Employed,13135,ETB,Mekelle,Tigray,Ethiopia,a36d76c0f33b38c8,48de7c7b88c40fe5,2023-08-05T16:36:06.965574
+P000151,Hirut,Seyoum,1974-01-24,F,Ethiopian,engineer,Employed,18041,ETB,Hawassa,Sidama,Ethiopia,902f1293bac5e0f8,57792795296a9305,2024-02-28T11:40:45.328761
+P000152,Eyerus,Yelekal,1978-12-24,F,Other,government_employee,Employed,20535,ETB,Dilla,SNNPR,Ethiopia,5e358d88bd51d24a,,2025-10-26T10:39:26.429065
+P000153,Fasil,Taye,1983-10-14,M,Ethiopian,freelancer,Self-Employed,21510,ETB,Addis Ababa,Addis Ababa,Ethiopia,,7327af8ccdaba8c2,2023-10-17T06:06:01.725180
+P000154,Abezu,Redwan,1961-08-19,F,Ethiopian,student,Student,2000,ETB,Jimma,Oromia,Ethiopia,,c3f4a7859898bb7a,2024-12-26T07:07:27.585459
+P000155,Admasu,Nebyat,1969-06-02,M,Other,day_laborer,Employed,2000,ETB,Addis Ababa,Addis Ababa,Ethiopia,,cf9e005d1460b039,2023-03-18T14:48:59.026917
+P000156,Salem,Daniel,1965-07-17,F,Ethiopian,security_guard,Employed,4315,ETB,Hawassa,Sidama,Ethiopia,fd205413e3abebd9,,2024-12-29T12:38:19.767820
+P000157,Ashenafi,Alula,1987-10-06,M,Ethiopian,government_employee,Employed,9223,ETB,Mekelle,Tigray,Ethiopia,3e1ad612ca08f860,0db837e7cf77aada,2022-01-17T13:58:46.151561
+P000158,Senedu,Daniel,1978-12-17,F,Ethiopian,student,Student,6446,ETB,Addis Ababa,Addis Ababa,Ethiopia,,171fb388cd81bf4f,2023-01-08T15:18:27.633701
+P000159,Thut,Aschalew,1969-10-04,F,Ethiopian,freelancer,Self-Employed,37576,ETB,Addis Ababa,Addis Ababa,Ethiopia,ceb8cc3cdfb8357c,62c01151a01aa39b,2022-03-16T20:57:40.184041
+P000160,Naomi,Abegaz,1996-10-18,F,Ethiopian,farmer,Self-Employed,2611,ETB,Jimma,Oromia,Ethiopia,,9ce408158fe97d76,2025-02-08T04:08:36.231947
+P000161,Jemal,Jemal,2002-07-14,M,Ethiopian,software_engineer,Employed,34299,ETB,Adama,Oromia,Ethiopia,9919d75fc4faf79c,,2024-03-18T09:35:34.520265
+P000162,Eman,Mikias,2004-08-10,F,Ethiopian,nurse,Employed,10540,ETB,Dire Dawa,Dire Dawa,Ethiopia,c39c16efb0181a27,d6704cfc41208758,2024-06-20T23:30:46.278666
+P000163,Chanyalew,Fedlu,1969-03-17,M,Other,student,Student,2756,ETB,Addis Ababa,Addis Ababa,Ethiopia,,8e4bda31b785d746,2022-01-05T06:14:35.916939
+P000164,Gemechu,Abel,1980-03-19,M,Other,government_employee,Employed,4764,ETB,Asella,Oromia,Ethiopia,ae452bf0c1963ef3,,2023-03-17T12:31:19.495307
+P000165,Hamere,Sisay,1962-10-25,F,Ethiopian,ngo_worker,Employed,7426,ETB,Dire Dawa,Dire Dawa,Ethiopia,997ecbcc78ac47b7,e2bcc95879847278,2024-06-21T19:35:05.394634
+P000166,Gebre-Mariam,Habtamu,1961-05-18,M,Ethiopian,business_owner,Self-Employed,40519,ETB,Bishoftu,Oromia,Ethiopia,ca44add4fe5278a5,a7568cdddb7a03d9,2024-07-11T13:37:26.785533
+P000167,Feven,Alula,2000-10-14,F,Ethiopian,student,Student,2409,ETB,Addis Ababa,Addis Ababa,Ethiopia,544443782df27822,,2023-01-10T06:52:09.342448
+P000168,Etenesh,Tarik,1988-12-08,F,Ethiopian,day_laborer,Employed,3114,ETB,Addis Ababa,Addis Ababa,Ethiopia,e35535679a278d3c,87ac219980b811d2,2024-05-10T19:20:11.487494
+P000169,Ayele,Frezer,1980-12-16,M,Ethiopian,student,Student,5761,ETB,Hawassa,Sidama,Ethiopia,f8856a46490944bc,c6ff53a470a09227,2022-08-22T05:45:11.406271
+P000170,Netsanet,Markos,1972-10-24,F,Ethiopian,security_guard,Employed,5514,ETB,Addis Ababa,Addis Ababa,Ethiopia,5663c287cae57e88,222bfeb005f3a5b9,2025-02-17T06:55:07.634750
+P000171,Husein,Mesay,1968-12-02,M,Ethiopian,student,Student,8143,ETB,Addis Ababa,Addis Ababa,Ethiopia,fbf28f11870098e6,1d8dfbce6a0b0bd4,2024-07-05T23:46:58.970992
+P000172,Negassi,Kidus,1964-07-05,F,Ethiopian,cashier,Employed,7021,ETB,Asella,Oromia,Ethiopia,3d20f29ed3613350,12a9bc04af1cd79a,2023-09-26T17:02:57.380082
+P000173,Shimelis,Fedlu,1972-04-20,M,Ethiopian,unemployed,Unemployed,2000,ETB,Nekemte,Oromia,Ethiopia,b5cb9073a6d201d7,89c1ca2cad922704,2024-02-19T12:14:49.631753
+P000174,Bezawit,Amin,1961-11-25,F,Ethiopian,teacher,Employed,3689,ETB,Addis Ababa,Addis Ababa,Ethiopia,4930b5cfbce95562,71f98274ca5e06bb,2023-06-15T00:17:15.343812
+P000175,Gebre-Selassie,Yohannes,2005-03-27,M,Ethiopian,nurse,Employed,10983,ETB,Addis Ababa,Addis Ababa,Ethiopia,,fcc9eb95d1c02628,2023-01-06T03:05:44.651759
+P000176,Asheber,Alebachew,1992-08-19,M,Ethiopian,teacher,Employed,9250,ETB,Arba Minch,SNNPR,Ethiopia,6cef6ef1e47d37f9,,2023-08-18T11:31:11.043676
+P000177,Mohammed,Belachew,1969-07-08,M,Ethiopian,freelancer,Self-Employed,40259,ETB,Mekelle,Tigray,Ethiopia,296575612585cfef,,2023-12-22T14:15:14.662675
+P000178,Sinetebeb,Haile-Selassie,2003-12-16,F,Ethiopian,farmer,,2926,ETB,Asella,Oromia,Ethiopia,,9ad48b334a0bf851,2024-03-28T19:11:07.191765
+P000179,Mignote,Tekeste,1982-02-02,F,Ethiopian,student,Student,3069,ETB,Adama,Oromia,Ethiopia,f8ea7a6cdae61021,,2025-11-29T20:13:24.930772
+P000180,Netsanet,Yitbarek,1996-05-30,F,Ethiopian,accountant,Employed,13878,ETB,Hawassa,Sidama,Ethiopia,060796c6c93eca52,,2025-04-11T15:54:42.920706
+P000181,Tewabech,Fedlu,1976-12-12,F,Ethiopian,ngo_worker,Employed,7118,ETB,Addis Ababa,Addis Ababa,Ethiopia,872d4cf377a5de81,14599cca062ba64f,2023-08-09T17:26:26.155688
+P000182,Tizita,Dibaba,1977-12-31,F,Ethiopian,cashier,,13925,ETB,Dire Dawa,Dire Dawa,Ethiopia,a311079a2682c093,5495c175095151d2,2024-08-15T10:41:53.341573
+P000183,Elshaday,Abdela,2001-07-17,F,Ethiopian,lawyer,Employed,33263,ETB,Hawassa,Sidama,Ethiopia,b7377675cc8bb0e7,,2024-04-24T15:55:16.168743
+P000184,Aschalew,Gashaw,2004-08-12,M,Ethiopian,driver,Employed,7662,ETB,Jimma,Oromia,Ethiopia,6656b25786f637f0,d05fe273a163b2e2,2024-09-24T05:25:46.459013
+P000185,Rebka,Kefyalew,1982-02-09,F,Ethiopian,government_employee,Employed,28816,ETB,Sodo,SNNPR,Ethiopia,f61049dfaef7bff3,36ed4e6b9d802c46,2025-04-24T22:12:41.904240
+P000186,Genet,Endale,2003-01-25,F,Ethiopian,accountant,Employed,9768,ETB,Bahir Dar,Amhara,Ethiopia,d90381435eaadb3e,6dca5e1aafe0ec7c,2024-07-05T15:50:29.306662
+P000187,Isayas,Tekeste,1966-07-24,M,Ethiopian,teacher,Employed,36740,ETB,Addis Ababa,Addis Ababa,Ethiopia,0041d63bc4f14ead,07e16e10ba358641,2023-11-08T21:25:16.171438
+P000188,Mintesnot,Bisrat,1971-12-19,M,Ethiopian,unemployed,Unemployed,2766,ETB,Addis Ababa,Addis Ababa,Ethiopia,493c16b0e62ce22b,,2025-03-04T06:34:51.089701
+P000189,Derartu,Mehari,1972-06-08,F,Ethiopian,day_laborer,Employed,3996,ETB,Dessie,Amhara,Ethiopia,71086378db277f49,b1d3807be0a85eae,2024-06-08T05:16:16.038339
+P000190,Mersha,Ashenafi,2005-03-17,M,Ethiopian,student,Student,7166,ETB,Sodo,SNNPR,Ethiopia,14f9928ac2fd4a9d,32ca1d8e8c7054e3,2025-01-16T16:12:29.665614
+P000191,Alemtsehay,Abay,1987-08-30,F,Ethiopian,teacher,,7702,ETB,Addis Ababa,Addis Ababa,Ethiopia,c599f552839c3528,7369b87b09ad19b0,2023-10-15T19:25:35.145578
+P000192,Yafet,Kifle,2006-07-07,M,Ethiopian,ngo_worker,Employed,28613,ETB,Addis Ababa,Addis Ababa,Ethiopia,258fb57439c4fc93,c5f1fd43ea0775af,2023-06-18T08:48:41.460913
+P000193,Fedlu,Getahun,2000-03-17,M,Ethiopian,teacher,Employed,11281,ETB,Jijiga,Somali,Ethiopia,acd0c292e393432e,,2022-05-03T18:10:08.612684
+P000194,Kelemua,Abegaz,1989-03-01,F,Ethiopian,lawyer,Employed,17868,ETB,Addis Ababa,Addis Ababa,Ethiopia,061a44db3dbf1c8c,5e92dc920b455cbb,2023-03-11T08:28:42.299262
+P000195,Berhe,Nahom,1973-08-04,M,Other,student,Student,5270,ETB,Shashamane,Oromia,Ethiopia,78ab9a2a91d7a04d,62d81bc4309cbf1f,2024-08-24T09:41:15.176467
+P000196,Teshome,Girmachew,2005-03-16,M,Other,government_employee,Employed,13108,ETB,Jimma,Oromia,Ethiopia,52354854c2d57cae,,2022-03-30T08:47:50.522222
+P000197,Genet,Fedlu,1967-12-05,F,Ethiopian,day_laborer,Employed,3818,ETB,Dire Dawa,Dire Dawa,Ethiopia,25ae5dc8dad658e7,c8bdea521f56af0c,2025-07-17T05:35:19.132648
+P000198,Welela,Eshetu,1966-09-12,F,Ethiopian,freelancer,Self-Employed,48510,ETB,Addis Ababa,Addis Ababa,Ethiopia,6745527a2f09aa88,f998add67e649f8c,2023-09-24T18:54:32.222302
+P000199,Henok,Fekre-Selasie,1966-06-20,M,Ethiopian,unemployed,Unemployed,2572,ETB,Hawassa,Sidama,Ethiopia,6cada21933861592,1afd67915f955bac,2025-04-15T01:18:36.999602
+P000200,Nega,Atinafu,1961-07-27,M,Ethiopian,teacher,Employed,8008,ETB,Addis Ababa,Addis Ababa,Ethiopia,00fe2b00c61b2364,22ef6fa250ad2ee1,2024-02-08T06:15:26.697644
+P000201,Amsalework,Tesema,1964-08-25,F,Ethiopian,software_engineer,Employed,24834,ETB,Addis Ababa,Addis Ababa,Ethiopia,7d3323aeb1740e14,16efdfdf4f3085e3,2022-03-21T19:13:14.258449
+P000202,Tsega,Jemal,2007-02-19,F,Ethiopian,cashier,Employed,6397,ETB,Dire Dawa,Dire Dawa,Ethiopia,,961d62fa96057fe4,2022-10-23T09:40:42.210300
+P000203,Sara,Tamrat,1995-03-23,F,Ethiopian,merchant,Self-Employed,9078,ETB,Addis Ababa,Addis Ababa,Ethiopia,ee9bcb69e5a2cd17,2252fdbacc843a2e,2022-12-29T21:03:39.162966
+P000204,Yafet,Frezer,2006-06-07,M,Ethiopian,farmer,Self-Employed,5099,ETB,Jimma,Oromia,Ethiopia,0170ff9044ecc4aa,20595c5ba6429dd1,2023-11-18T17:02:53.197634
+P000205,Seifu,Belete,1979-02-28,M,Ethiopian,student,Student,3132,ETB,Dire Dawa,Dire Dawa,Ethiopia,1a6c7559ef950901,02d1341f2cdce255,2023-12-17T09:22:00.010944
+P000206,Henok,Abdul,1976-07-07,M,Ethiopian,teacher,Employed,21290,ETB,Addis Ababa,Addis Ababa,Ethiopia,853f2a93ad6eabbf,86938c0ce6f7cceb,2025-01-28T22:05:35.817801
+P000207,Alazar,Dagim,2007-03-23,M,Ethiopian,software_engineer,,89768,ETB,Addis Ababa,Addis Ababa,Ethiopia,9f8eb0ef03eeffe9,,2022-12-03T02:37:55.890465
+P000208,Ruth,Kiros,1989-05-05,F,Ethiopian,teacher,Employed,5709,ETB,Addis Ababa,Addis Ababa,Ethiopia,a2d7f38a1dc30440,95f05c4bcf6e1cef,2023-02-20T21:29:35.677589
+P000209,Lemma,Binyam,1984-05-31,M,Ethiopian,software_engineer,Employed,33524,ETB,Addis Ababa,Addis Ababa,Ethiopia,ab6acffe0f50f982,18c8a78aaee90171,2023-04-23T16:07:49.193109
+P000210,Lidet,Daniel,1969-08-24,F,Ethiopian,business_owner,Self-Employed,90703,ETB,Gondar,Amhara,Ethiopia,c925025e2ef11f6c,ae3e70ef5f02adfa,2023-09-26T11:39:25.510648
+P000211,Abebech,Zewdu,1981-10-02,F,Ethiopian,teacher,Employed,5990,ETB,Hawassa,Sidama,Ethiopia,cb2db330f67108e0,4bf9fba1f008bb3e,2025-08-11T05:30:51.226444
+P000212,Fasika,Ketema,1964-06-03,F,Ethiopian,freelancer,Self-Employed,35359,ETB,Addis Ababa,Addis Ababa,Ethiopia,006684b152272534,ac1d2941951f0f91,2025-05-07T16:03:27.124488
+P000213,Khalid,Andinet,1993-04-14,M,Ethiopian,nurse,Employed,20327,ETB,Bahir Dar,Amhara,Ethiopia,dcd65068442c119f,,2024-05-24T01:43:24.718529
+P000214,Kelemua,Shifferaw,1995-07-01,F,Ethiopian,merchant,Self-Employed,40472,ETB,Hawassa,Sidama,Ethiopia,0d5d7f86a7882ab7,5b439a4e9b098285,2023-11-21T03:34:39.558946
+P000215,Lidet,Desalegn,1994-12-20,F,Ethiopian,business_owner,Self-Employed,41812,ETB,Mekelle,Tigray,Ethiopia,402511ea5abffe88,8b32194c6c75ef01,2025-02-04T06:18:35.068005
+P000216,Mekdes,Adane,1982-10-28,F,Ethiopian,farmer,,11365,ETB,Addis Ababa,Addis Ababa,Ethiopia,97b676806e55a6fb,98589db99efed915,2025-06-03T13:23:13.844732
+P000217,Shewangizaw,Fistum,2004-12-10,M,Ethiopian,teacher,Employed,7894,ETB,Jimma,Oromia,Ethiopia,270fb921a53647d5,b7c8e1c337970b74,2024-06-22T10:46:16.135153
+P000218,Matheos,Lake,1999-09-24,M,Ethiopian,freelancer,Self-Employed,14462,ETB,Addis Ababa,Addis Ababa,Ethiopia,38aff3a7b2db693e,09e7bf96138fc1d7,2023-11-12T06:22:15.617162
+P000219,Elfnesh,Endrias,1962-04-04,F,Ethiopian,day_laborer,Employed,4316,ETB,Addis Ababa,Addis Ababa,Ethiopia,e482c5cb84a1296e,9c24aa54ff2759e4,2022-07-01T21:04:45.227186
+P000220,Gebre-Selassie,Bemnet,1967-07-06,M,Ethiopian,nurse,Employed,16104,ETB,Addis Ababa,Addis Ababa,Ethiopia,e13159cf91816d7c,,2025-09-19T17:47:36.162427
+P000221,Abegaz,Abenezer,1970-11-12,M,Ethiopian,farmer,Self-Employed,2389,ETB,Asella,Oromia,Ethiopia,eb88a9b3eeb2debc,bf5249918094af8f,2024-01-01T22:06:13.338478
+P000222,Sara,Fistum,1973-11-02,F,Ethiopian,day_laborer,Employed,8156,ETB,Addis Ababa,Addis Ababa,Ethiopia,cb563f1cd4c93418,139c82cdf6797288,2022-10-21T11:56:09.070301
+P000223,Mahder,Robel,1974-01-23,F,Other,student,Student,4912,ETB,Gondar,Amhara,Ethiopia,b0ce5cfe38177260,46f9b2ad1f004326,2022-10-06T19:01:32.691911
+P000224,Mahder,Andualem,1980-04-14,F,Ethiopian,unemployed,Unemployed,2000,ETB,Dire Dawa,Dire Dawa,Ethiopia,8ff33259fa1956a9,22e475a748d2070d,2025-08-23T00:19:25.485651
+P000225,Gemechu,Paulos,1967-07-20,M,Ethiopian,nurse,Employed,5340,ETB,Addis Ababa,Addis Ababa,Ethiopia,ec737135a96ee5dd,aa1d19218fdfa2e6,2022-03-21T19:44:02.874001
+P000226,Abigia,Seid,1981-05-07,F,Ethiopian,student,Student,5573,ETB,Asella,Oromia,Ethiopia,f44ed7e695549df8,552481b575a9ad49,2023-10-06T12:10:52.108899
+P000227,Haile-Mariam,Endalkachew,1971-08-06,M,Ethiopian,student,Student,3879,ETB,Harar,Harari,Ethiopia,655fa025184ee042,f6163a713703d871,2023-06-19T18:29:06.156626
+P000228,Kokebe,Abenezer,2007-07-03,F,Ethiopian,farmer,Self-Employed,4346,ETB,Addis Ababa,Addis Ababa,Ethiopia,857d775b42ddd709,df593e032e5c72ce,2022-04-25T05:49:44.392137
+P000229,Tsega,Dagim,1985-12-29,F,Other,teacher,Employed,8472,ETB,Addis Ababa,Addis Ababa,Ethiopia,e90848dc8f594127,bf192910b433f232,2023-10-31T21:30:16.657814
+P000230,Isayas,Bekila,1965-04-29,M,Ethiopian,day_laborer,Employed,2000,ETB,Jimma,Oromia,Ethiopia,,f83d811101ca9cef,2023-12-09T14:16:28.293804
+P000231,Thomas,Zeleke,1962-06-22,M,Ethiopian,cashier,Employed,12482,ETB,Addis Ababa,Addis Ababa,Ethiopia,180959716e5a5ff9,35699c77694fe5da,2024-09-25T06:52:49.177539
+P000232,Theodros,Mezgebe,1998-03-20,M,Other,unemployed,Unemployed,2000,ETB,Arba Minch,SNNPR,Ethiopia,9656e57f92a49ad6,,2025-09-19T15:41:46.041625
+P000233,Seble,Negash,1983-11-12,F,Ethiopian,driver,Employed,4664,ETB,Addis Ababa,Addis Ababa,Ethiopia,adbdaeb63c5ca407,2d65f8c940d31a5a,2025-11-09T02:52:07.152457
+P000234,Kalkidan,Michael,1989-12-26,F,Ethiopian,nurse,Employed,4128,ETB,Gondar,Amhara,Ethiopia,411d09f0b75ca063,053339abd1be312d,2025-07-09T19:17:06.148390
+P000235,Eyerusalem,Moges,1986-06-22,F,Ethiopian,teacher,Employed,15988,ETB,Dire Dawa,Dire Dawa,Ethiopia,8bf72203d95b7062,c70db1f4d021d907,2024-05-23T23:19:28.366011
+P000236,Zinash,Siraj,1999-05-18,F,Ethiopian,student,Student,4420,ETB,Bishoftu,Oromia,Ethiopia,686ebd7691d1af5b,98a8c66354c610c9,2024-11-08T03:14:20.106624
+P000237,Menelik,Fedlu,2006-03-23,M,Ethiopian,teacher,Employed,11710,ETB,Addis Ababa,Addis Ababa,Ethiopia,5fe7781eba80bc6a,,2023-01-28T04:44:20.403958
+P000238,Eman,Tesfaye,1979-08-24,F,Ethiopian,student,Student,7980,ETB,Addis Ababa,Addis Ababa,Ethiopia,b94ef6a1299a3747,1e5a90fcdcad9301,2024-02-11T11:43:00.013743
+P000239,Henok,Haile,1985-10-30,M,Ethiopian,unemployed,Unemployed,2049,ETB,Dilla,SNNPR,Ethiopia,6a7a9d79d8283835,72eb8aab65afa623,2022-09-14T08:59:33.635448
+P000240,Abdela,Berhanu,2000-05-01,M,Ethiopian,student,Student,2000,ETB,Nekemte,Oromia,Ethiopia,d32090e2980d61e8,,2023-10-05T10:17:26.327938
+P000241,Rebka,Eskinder,1986-02-05,F,Ethiopian,freelancer,Self-Employed,16303,ETB,Addis Ababa,Addis Ababa,Ethiopia,89b7caacb9dd9c11,f98c0bc92b78ed09,2023-07-19T04:16:00.520816
+P000242,Menbere,Wondwosen,1978-01-12,F,Ethiopian,student,Student,9519,ETB,Dire Dawa,Dire Dawa,Ethiopia,c193de44abcaa5fa,cc568aa5a6dbe644,2023-03-23T07:28:59.283095
+P000243,Worku,Paulos,2003-06-19,M,Ethiopian,merchant,Self-Employed,11119,ETB,Hawassa,Sidama,Ethiopia,f130d6716589be58,,2024-04-11T07:02:42.035346
+P000244,Desta,Sintayehu,1985-02-14,F,Ethiopian,freelancer,Self-Employed,20312,ETB,Jimma,Oromia,Ethiopia,a67ba867cee5c2d6,bb3fff9d3f5e6606,2023-12-27T05:47:37.152497
+P000245,Chaltu,Gebre-Egziabher,1980-04-26,F,Ethiopian,farmer,Self-Employed,5066,ETB,Addis Ababa,Addis Ababa,Ethiopia,df8312607ef9d546,,2025-04-16T09:59:13.910423
+P000246,Salem,Mikias,2001-10-20,F,Other,unemployed,Unemployed,3255,ETB,Jijiga,Somali,Ethiopia,,b2c079e57ac9ee99,2023-05-26T10:56:02.081096
+P000247,yABSIRA,Bereket,2007-09-29,F,Ethiopian,freelancer,Self-Employed,59622,ETB,Hawassa,Sidama,Ethiopia,b63c76a0bed14ccd,,2025-05-03T11:43:06.136166
+P000248,Dejen,Asrat,1975-10-04,M,Ethiopian,student,Student,3543,ETB,Addis Ababa,Addis Ababa,Ethiopia,,aaec41dafd0a8a07,2025-09-24T23:24:29.194725
+P000249,Ezra,Hagos,1963-02-11,M,Ethiopian,student,Student,7627,ETB,Addis Ababa,Addis Ababa,Ethiopia,f1a1ecf0eda70f34,5b73984236a9891b,2023-12-18T12:06:39.533459
+P000250,Argaw,Nathnael,1971-07-14,M,Ethiopian,cashier,Employed,5965,ETB,Dessie,Amhara,Ethiopia,49726740426c058a,715da022903a473a,2025-03-08T07:17:25.589158
+P000251,Tsion,Gebre-Meskel,1980-03-23,F,Ethiopian,merchant,,16641,ETB,Arba Minch,SNNPR,Ethiopia,25a6e0100bf60c0b,10a4556987da883f,2025-08-07T05:54:04.972829
+P000252,Ruth,Robel,1996-09-05,F,Ethiopian,domestic_worker,Employed,2813,ETB,Dire Dawa,Dire Dawa,Ethiopia,5bba478fdae83dc1,,2024-03-12T10:38:42.674219
+P000253,Ayele,Belachew,1985-09-07,M,Ethiopian,lawyer,Employed,25056,ETB,Mekelle,Tigray,Ethiopia,cfae8b9c29f869d4,f84289bdf88a6bde,2022-03-17T05:47:54.656791
+P000254,Seyoum,Molalign,2002-09-20,M,Ethiopian,day_laborer,Employed,8496,ETB,Jimma,Oromia,Ethiopia,ecbb0aa2742e75ee,2366e5fdbc1540c6,2022-12-05T18:54:00.774379
+P000255,Asheber,Legesse,1994-05-15,M,Ethiopian,software_engineer,Employed,55158,ETB,Bishoftu,Oromia,Ethiopia,eacabcec01ca2eac,15363fe9ad9631cf,2022-03-13T15:20:34.318731
+P000256,Zeritu,Bekele,1983-03-08,F,Ethiopian,farmer,Self-Employed,11080,ETB,Adama,Oromia,Ethiopia,ddd0a32aa774b108,2fd46167b0aadc8e,2024-04-21T13:44:37.054904
+P000257,Tsedenia,Haile-Selassie,1966-05-16,F,Other,cashier,Employed,5888,ETB,Addis Ababa,Addis Ababa,Ethiopia,f466c21ef7b0a291,87d7df3d8dadc808,2022-09-03T19:26:40.215967
+P000258,Caleb,Getachew,1997-03-24,M,Ethiopian,unemployed,Unemployed,2563,ETB,Addis Ababa,Addis Ababa,Ethiopia,7d8725a22d8561ae,54c69f33fe16f603,2023-08-08T18:08:16.209870
+P000259,Ermias,Fekre-Mariam,1972-03-15,M,Ethiopian,domestic_worker,Employed,4273,ETB,Addis Ababa,Addis Ababa,Ethiopia,8d95138a9e72ba88,d40babec78c78a64,2022-09-18T09:08:54.155232
+P000260,Welela,Mamush,2007-09-10,F,Other,security_guard,Employed,4143,ETB,Dire Dawa,Dire Dawa,Ethiopia,7ce9ce0d8a2ab8fd,699dbc26d551feb6,2024-08-03T14:15:15.086177
+P000261,Menelik,Mehari,1964-01-03,M,Other,day_laborer,Employed,10698,ETB,Harar,Harari,Ethiopia,9f1b62b8242a30cd,ca6c9ecaab2a0382,2025-01-25T11:34:55.018750
+P000262,Bekelech,Alemayehu,1976-09-09,F,Ethiopian,freelancer,Self-Employed,40607,ETB,Mekelle,Tigray,Ethiopia,9a98680e448fa265,8252d2fd5bc7e926,2023-07-10T12:21:45.361553
+P000263,Amha,Alazar,1989-05-04,M,Ethiopian,merchant,Self-Employed,11883,ETB,Addis Ababa,Addis Ababa,Ethiopia,f6245acf1604d664,580b871bbc6325b7,2025-08-03T03:41:13.389716
+P000264,Aschalew,Million,1961-05-05,M,Ethiopian,day_laborer,,5603,ETB,Addis Ababa,Addis Ababa,Ethiopia,d5c77503c01ec9db,6901f17df08e201e,2025-12-12T17:00:24.553845
+P000265,Dinknesh,Admasu,1974-09-18,F,Ethiopian,engineer,Employed,16877,ETB,Addis Ababa,Addis Ababa,Ethiopia,38ed1383eb5b0cd1,752559a71b15f5fd,2022-03-09T23:43:15.078609
+P000266,Markos,Addisu,1969-04-03,M,Ethiopian,teacher,Employed,7942,ETB,Hawassa,Sidama,Ethiopia,6a3b1f735c3d48eb,dc1d2279d9cb82b3,2025-07-25T23:09:30.788921
+P000267,Wossen,Taye,2004-02-08,M,Ethiopian,software_engineer,Employed,30085,ETB,Addis Ababa,Addis Ababa,Ethiopia,77845378851c9324,,2024-07-12T20:40:05.081658
+P000268,Andualem,Getahun,1994-06-06,M,Ethiopian,doctor,Employed,43050,ETB,Dessie,Amhara,Ethiopia,d8848ff2e651e0a1,9a3b7c1c09c0b7a7,2025-08-31T08:40:21.321392
+P000269,Mikias,Gemechu,1984-02-19,M,Ethiopian,accountant,Employed,15739,ETB,Mekelle,Tigray,Ethiopia,,,2022-02-26T16:48:57.878891
+P000270,Fekre-Mariam,Kagnew,1975-11-25,M,Ethiopian,government_employee,Employed,14741,ETB,Shashamane,Oromia,Ethiopia,c7f031f98337138f,,2023-05-19T03:30:53.772621
+P000271,Taye,Alebachew,1985-03-24,M,Ethiopian,cashier,Employed,3721,ETB,Gondar,Amhara,Ethiopia,c6fa0cc431ad7a9c,,2024-08-21T10:22:40.310973
+P000272,Israel,Mulugeta,1994-11-24,M,Ethiopian,student,Student,2494,ETB,Addis Ababa,Addis Ababa,Ethiopia,e17e4e47d679c9b2,92c9ba56dc6f8087,2023-01-29T14:20:12.580689
+P000273,Asefa,Fedlu,1964-12-03,M,Ethiopian,ngo_worker,Employed,15133,ETB,Mekelle,Tigray,Ethiopia,81a2232899f31b0f,837548f989add5a5,2022-01-31T14:27:22.740657
+P000274,Nardos,Zeleke,2003-03-14,F,Ethiopian,teacher,Employed,5228,ETB,Nekemte,Oromia,Ethiopia,435eb95ad7be1cf7,9da57ba7bf7ef5f0,2022-04-25T09:54:28.819073
+P000275,Derartu,Nathnael,1980-03-24,F,Ethiopian,student,Student,9981,ETB,Mekelle,Tigray,Ethiopia,534c39ec7d4cc139,1c6d594e747b6766,2025-01-14T09:04:18.332732
+P000276,Yohannes,Girma,1969-12-11,M,Ethiopian,accountant,Employed,10844,ETB,Shashamane,Oromia,Ethiopia,,e73271ceda381a52,2023-09-02T04:29:01.864701
+P000277,Seyoum,Frezer,1995-10-05,M,Ethiopian,day_laborer,Employed,7677,ETB,Addis Ababa,Addis Ababa,Ethiopia,e449566f558cee3a,6b861e2669fe5752,2022-02-15T21:03:01.617821
+P000278,Sitota,Gebre-Micheal,2001-12-02,F,Ethiopian,freelancer,Self-Employed,13819,ETB,Addis Ababa,Addis Ababa,Ethiopia,8e7453f3736f38bf,158f37f9a20e1347,2025-06-17T12:36:14.333421
+P000279,Kelemua,Getahun,1964-02-16,F,Ethiopian,day_laborer,Employed,4411,ETB,Jijiga,Somali,Ethiopia,30e3b89775c066e5,7b3820a5ded84857,2024-03-23T03:00:07.088614
+P000280,Bemnet,Endrias,1961-04-18,F,Ethiopian,lawyer,Employed,21171,ETB,Hosaena,SNNPR,Ethiopia,a258c88c95890ab2,3558b44ee67da410,2023-08-07T08:38:55.296269
+P000281,Lemma,Zeleke,1984-09-24,M,Other,farmer,Self-Employed,8216,ETB,Gondar,Amhara,Ethiopia,,,2023-03-08T15:33:16.416808
+P000282,Sisay,Menelik,1997-12-07,M,Ethiopian,business_owner,Self-Employed,88791,ETB,Bahir Dar,Amhara,Ethiopia,6fcffe288bc46bab,02a9ccd821d60a61,2024-12-30T10:59:26.684243
+P000283,Berhanu,Belayneh,1987-04-15,M,Ethiopian,security_guard,Employed,4951,ETB,Addis Ababa,Addis Ababa,Ethiopia,b631731e7cd2a18e,3b9bd1fe267d2b4a,2024-07-10T20:47:52.855835
+P000284,Cherenet,Samson,1994-03-23,M,Ethiopian,student,Student,4472,ETB,Jijiga,Somali,Ethiopia,f258d3d675edb4f2,89e1810ab0bd46e3,2025-04-29T16:51:28.466777
+P000285,Alem,Mezgebe,2003-12-10,F,Ethiopian,unemployed,Unemployed,2000,ETB,Dessie,Amhara,Ethiopia,,a904b04845792938,2022-08-30T09:44:28.111033
+P000286,Mezgebe,Shewangizaw,1973-09-15,M,Ethiopian,security_guard,Employed,6156,ETB,Addis Ababa,Addis Ababa,Ethiopia,76b38f0319c73eb4,d0ae6d2d0f864dba,2025-06-08T09:47:21.026057
+P000287,Girum,Niguse,1977-05-26,M,Ethiopian,business_owner,Self-Employed,150000,ETB,Gondar,Amhara,Ethiopia,d7444cb0b9348f4d,3ea2c8f1b2900330,2025-11-14T11:44:38.746908
+P000288,Behailu,Addisu,1971-05-15,M,Ethiopian,merchant,Self-Employed,14896,ETB,Addis Ababa,Addis Ababa,Ethiopia,5360d6eba9b4546e,a30d80a5b196cf2e,2023-11-15T02:28:40.639060
+P000289,Kelemua,Aschalew,1979-06-15,F,Ethiopian,merchant,Self-Employed,19875,ETB,Hawassa,Sidama,Ethiopia,f985d411349c4bbc,fd5f752f28a55869,2024-07-17T18:41:46.125829
+P000290,Gebre-Giorgis,Asmamaw,1980-12-15,M,Ethiopian,teacher,Employed,4045,ETB,Mekelle,Tigray,Ethiopia,6d0ecdb0683860c8,6dd9c0f20b3b1310,2024-04-28T23:38:31.319346
+P000291,Atsede,Adugna,1977-07-06,F,Ethiopian,student,Student,4618,ETB,Addis Ababa,Addis Ababa,Ethiopia,53037dca91c054f2,2ccc01a3436e018e,2022-10-09T15:08:49.873613
+P000292,Mamo,Liku,1981-07-24,M,Ethiopian,driver,Employed,7615,ETB,Jijiga,Somali,Ethiopia,948318afa5f328a1,5266dc114c15336f,2022-10-31T13:27:51.008296
+P000293,Mentewab,Dagnachew,1971-09-28,F,Other,student,Student,7813,ETB,Adama,Oromia,Ethiopia,542680089ea61a99,5dbbc78becea5941,2024-07-13T17:49:05.834425
+P000294,Shifferaw,Fikadu,1982-02-18,M,Ethiopian,security_guard,Employed,8227,ETB,Hosaena,SNNPR,Ethiopia,9eed30fd94e5312c,a7548f90815a2594,2024-01-25T18:47:01.983912
+P000295,Woyneshet,Habte,1984-04-25,F,Ethiopian,student,Student,3940,ETB,Debre Birhan,Amhara,Ethiopia,59d5b1fe6a2eae5c,032f65e4012525fd,2025-08-14T17:16:11.462015
+P000296,Aberash,Million,1992-12-09,F,Ethiopian,freelancer,Self-Employed,10800,ETB,Addis Ababa,Addis Ababa,Ethiopia,77158889b056a707,ffa0cf6488499154,2023-02-24T20:03:53.796233
+P000297,Roman,Hagos,1984-11-16,F,Ethiopian,unemployed,Unemployed,2576,ETB,Adama,Oromia,Ethiopia,8832dd86b5f5e00d,d477fa5c017a79cd,2024-03-26T05:00:51.557580
+P000298,Tsion,Mintesnot,1971-07-19,F,Ethiopian,cashier,Employed,7104,ETB,Dire Dawa,Dire Dawa,Ethiopia,5d4b49da2c1a749b,8e5f0776f00673b4,2025-08-05T14:20:11.714846
+P000299,Tsedenia,Nathnael,1977-02-18,F,Ethiopian,engineer,,23211,ETB,Mekelle,Tigray,Ethiopia,b10dd03ce5215692,00daeba103d1ac52,2025-03-29T05:15:44.979390
+P000300,Hewan,Legesse,1985-07-08,F,Other,nurse,Employed,12893,ETB,Nekemte,Oromia,Ethiopia,28d2c83113a37d0c,,2022-08-02T04:21:40.175846
+P000301,Abebech,Medhin,1984-03-08,F,Ethiopian,student,,4614,ETB,Hawassa,Sidama,Ethiopia,bb3935543db05fc6,6ca8e09bbc162ab6,2023-07-09T07:04:12.972631
+P000302,Atlabachew,Abel,1979-06-19,M,Ethiopian,teacher,Employed,10241,ETB,Arba Minch,SNNPR,Ethiopia,054b28d117e56b92,0b68725d2b72b064,2023-12-14T02:38:47.786283
+P000303,Belaynesh,Zewdu,1982-08-13,F,Ethiopian,nurse,Employed,11952,ETB,Addis Ababa,Addis Ababa,Ethiopia,61fa67ee03d0cdde,281b08355ce4febb,2025-04-01T16:09:55.235981
+P000304,Mahlet,Kiros,1986-12-23,F,Ethiopian,security_guard,Employed,8236,ETB,Adama,Oromia,Ethiopia,544fb7498e39be39,,2023-08-02T05:33:25.616817
+P000305,Siham,Amin,1972-07-06,F,Ethiopian,freelancer,Self-Employed,20643,ETB,Harar,Harari,Ethiopia,fdc65e986ee78311,45d6b0df51ebf941,2024-05-02T02:30:14.658072
+P000306,Kifle,Mussie,1983-03-03,M,Ethiopian,merchant,Self-Employed,9619,ETB,Hawassa,Sidama,Ethiopia,,605078f11a25c90f,2024-12-11T07:01:07.327069
+P000307,Abdela,Bekele,1999-03-22,M,Ethiopian,government_employee,Employed,15876,ETB,Addis Ababa,Addis Ababa,Ethiopia,c9237f6f16be9b68,2fbc652a9df0a67b,2023-01-19T07:26:25.936735
+P000308,Martha,Binyam,1976-11-22,F,Ethiopian,software_engineer,Employed,40869,ETB,Adama,Oromia,Ethiopia,4b40afb257b6c788,d9824647335ef78a,2023-09-05T01:20:07.154951
+P000309,Amha,Kidus,2002-10-01,M,Ethiopian,student,,6860,ETB,Bishoftu,Oromia,Ethiopia,c743abfe9e6ac6bd,809af581b5d6357b,2023-11-08T10:35:25.509952
+P000310,Debebe,Demissie,1997-07-03,M,Ethiopian,government_employee,Employed,10090,ETB,Hosaena,SNNPR,Ethiopia,61d599674c8dc239,1c3eb8d06501e4d3,2022-10-24T12:42:27.652565
+P000311,Yitbarek,Alemu,1976-11-25,M,Ethiopian,farmer,Self-Employed,3837,ETB,Jijiga,Somali,Ethiopia,0db4aecb1602acf7,,2025-12-16T23:10:29.058850
+P000312,Mussie,Tsegaye,1982-03-28,M,Ethiopian,driver,Employed,5756,ETB,Addis Ababa,Addis Ababa,Ethiopia,,14f22d99dd1a6fcc,2022-06-05T09:59:21.791725
+P000313,Aklilu,Mengistu,2000-07-26,M,Ethiopian,software_engineer,Employed,28283,ETB,Adama,Oromia,Ethiopia,bd1e8dfbea7b03aa,7c2c2b0e125d8b25,2024-12-28T18:13:07.470781
+P000314,Gebre-Egziabher,Beteab,1961-10-29,M,Other,student,Student,3054,ETB,Jimma,Oromia,Ethiopia,a46273ccbc3ecd56,c3665ceb4769d086,2022-11-12T05:58:44.447050
+P000315,Khalid,Teferri,2003-05-25,M,Ethiopian,cashier,Employed,5540,ETB,Addis Ababa,Addis Ababa,Ethiopia,fa9da21df377ac54,315340e3b2572db3,2024-08-28T01:16:59.302505
+P000316,Tarik,Solomon,1974-05-08,M,Ethiopian,day_laborer,Employed,5191,ETB,Bahir Dar,Amhara,Ethiopia,6ad0ee5e602af236,6bf6750e546d482f,2025-08-21T05:34:51.616083
+P000317,Endale,Kefyalew,1971-05-22,M,Ethiopian,security_guard,,4836,ETB,Bahir Dar,Amhara,Ethiopia,fa7d76002bf5ffbb,f9d9d4f3f32cac1b,2025-11-27T11:08:01.763738
+P000318,Algansh,Alula,1986-03-31,F,Ethiopian,software_engineer,Employed,36276,ETB,Addis Ababa,Addis Ababa,Ethiopia,2b5178d807db58b0,ecc3b8d214e0c6c9,2025-05-06T15:22:20.926179
+P000319,Thomas,Fiseha,1977-10-05,M,Ethiopian,merchant,Self-Employed,18347,ETB,Addis Ababa,Addis Ababa,Ethiopia,f91bd98fecd0d13e,f5289d8902b93b08,2023-11-15T18:27:40.805304
+P000320,Zeritu,Wasihun,1980-05-21,F,Other,student,Student,4383,ETB,Addis Ababa,Addis Ababa,Ethiopia,b24e896c1c51e9d5,892dd0772817567a,2024-11-26T07:01:39.360168
+P000321,Tsion,Dagmawi,1978-10-05,F,Ethiopian,business_owner,,102359,ETB,Gondar,Amhara,Ethiopia,3077071f6ba134fb,9ebbcb2948747606,2022-12-25T07:35:19.060048
+P000322,Feker,Yidnekachew,1982-05-28,F,Ethiopian,driver,Employed,10568,ETB,Addis Ababa,Addis Ababa,Ethiopia,4521df4620e1fea7,3f61516bfeba94db,2023-10-10T22:24:55.918508
+P000323,Fekre-Mariam,Kirubel,1961-08-07,M,Ethiopian,security_guard,Employed,15122,ETB,Gondar,Amhara,Ethiopia,,,2022-01-18T11:42:20.939177
+P000324,Naomi,Hagos,1964-02-17,F,Ethiopian,business_owner,Self-Employed,64449,ETB,Dessie,Amhara,Ethiopia,13cfe65223d4a44f,,2022-06-30T10:29:51.206371
+P000325,Muna,Getnet,2002-04-13,F,Ethiopian,driver,Employed,6477,ETB,Shashamane,Oromia,Ethiopia,b0680113b80e6f95,46f28fed71e46193,2024-12-27T21:49:28.546269
+P000326,Aklil,Bahiru,1968-05-09,F,Ethiopian,domestic_worker,Employed,8874,ETB,Shashamane,Oromia,Ethiopia,cdc9846ca1a74e4c,aec88dcaf14cb083,2022-10-22T23:50:14.008694
+P000327,Deborah,Kassahun,1990-11-21,F,Ethiopian,business_owner,Self-Employed,32793,ETB,Addis Ababa,Addis Ababa,Ethiopia,21eb053dfc0b33a6,6fcd35a327dfeac1,2022-12-10T08:25:26.807119
+P000328,Lielt,Gebre-Meskel,1977-12-07,F,Ethiopian,cashier,Employed,5349,ETB,Addis Ababa,Addis Ababa,Ethiopia,d3175e92e964cd3c,463af723fd2dfade,2023-11-01T00:11:36.604438
+P000329,Genet,Fikru,2002-04-05,F,Ethiopian,software_engineer,Employed,26544,ETB,Addis Ababa,Addis Ababa,Ethiopia,309b2f76329a9e82,530535b810bed0d2,2023-10-31T01:43:50.295035
+P000330,Akalu,Mussie,1999-05-01,M,Ethiopian,teacher,Employed,10387,ETB,Addis Ababa,Addis Ababa,Ethiopia,,,2022-06-16T14:48:14.653466
+P000331,Maraki,Fikru,1966-02-06,F,Ethiopian,lawyer,Employed,38376,ETB,Addis Ababa,Addis Ababa,Ethiopia,5a21a8712e5db335,703a7ab79d321ed9,2025-09-29T14:30:08.173373
+P000332,Abenezer,Fekre-Mariam,1995-08-26,M,Ethiopian,freelancer,Self-Employed,14231,ETB,Hawassa,Sidama,Ethiopia,7a457646482d16c9,1108a8a3bcb65618,2023-06-16T01:14:32.830359
+P000333,Hewan,Lake,1968-08-19,F,Ethiopian,day_laborer,Employed,2000,ETB,Arba Minch,SNNPR,Ethiopia,4eab23b453ee6bec,2d4023a3ed4cbc17,2023-01-02T10:05:45.966447
+P000334,Menbere,Amanuel,2000-08-16,F,Ethiopian,engineer,Employed,39964,ETB,Dessie,Amhara,Ethiopia,76c01e45bb8ff5e2,fbb1e73bb3589f4a,2025-10-26T17:51:56.476924
+P000335,Kebede,Medhin,2005-07-16,M,Ethiopian,farmer,Self-Employed,2679,ETB,Addis Ababa,Addis Ababa,Ethiopia,,a4151d0356bd4905,2024-02-19T00:30:30.759562
+P000336,Tiruwork,Negash,1967-02-11,F,Ethiopian,farmer,Self-Employed,2857,ETB,Dilla,SNNPR,Ethiopia,a417de5d167b639f,a36b631fad7fb974,2022-12-06T09:37:35.020369
+P000337,Seyoum,Aman,1996-08-21,M,Ethiopian,teacher,Employed,6034,ETB,Addis Ababa,Addis Ababa,Ethiopia,d8ba9d5818884487,,2022-12-07T06:32:05.529390
+P000338,Misgana,Chanyalew,1983-07-21,F,Ethiopian,day_laborer,Employed,2644,ETB,Sodo,SNNPR,Ethiopia,cffaab4d28a758c8,31708eb3232010b6,2025-11-21T11:01:42.695148
+P000339,Mekbib,Biruk,1970-01-29,M,Other,driver,Employed,6822,ETB,Addis Ababa,Addis Ababa,Ethiopia,b8c33b3954534f1c,3307db01f8317520,2023-04-18T19:02:54.813543
+P000340,Eyerusalem,Berhanu,1983-12-15,F,Ethiopian,freelancer,Self-Employed,32860,ETB,Nekemte,Oromia,Ethiopia,a1c5dff4656d7b0e,b720fdf8f5a48715,2025-04-10T23:34:36.550834
+P000341,Molalign,Hailu,1998-02-22,M,Other,doctor,Employed,36283,ETB,Bahir Dar,Amhara,Ethiopia,73d9c5822ef162bf,c791c545a87f5065,2023-03-16T12:42:10.477019
+P000342,Siham,Daniel,1998-01-03,F,Ethiopian,day_laborer,Employed,7339,ETB,Addis Ababa,Addis Ababa,Ethiopia,,,2024-08-31T16:36:56.719937
+P000343,Ayana,Mesfin,1962-03-27,F,Ethiopian,security_guard,Employed,4144,ETB,Shashamane,Oromia,Ethiopia,2c4b1e8083d039d5,6f89e256fcb4df35,2024-06-16T00:25:55.105533
+P000344,Hareg,Mebratu,1991-03-22,F,Ethiopian,engineer,Employed,16614,ETB,Dire Dawa,Dire Dawa,Ethiopia,6b257310edc6e651,7246c31c02be43ce,2023-10-31T21:41:45.716947
+P000345,Rebka,Desalegn,1998-06-19,F,Ethiopian,doctor,Employed,150000,ETB,Addis Ababa,Addis Ababa,Ethiopia,2c4f890b98df8d8c,034b19a7581e1e86,2023-11-29T07:58:27.959999
+P000346,Konjit,Fikadu,1978-12-22,F,Ethiopian,business_owner,Self-Employed,57904,ETB,Hawassa,Sidama,Ethiopia,828873e39f64c658,ba37d743e0f107a0,2025-10-06T04:24:21.525279
+P000347,Sefanit,Bereket,1963-07-22,F,Other,software_engineer,Employed,19196,ETB,Addis Ababa,Addis Ababa,Ethiopia,c243ae808a4911e9,c69858484dbab0ea,2022-10-29T20:16:16.893044
+P000348,Argaw,Samson,1991-05-03,M,Ethiopian,driver,Employed,3218,ETB,Shashamane,Oromia,Ethiopia,c0318809d4c45002,,2025-02-15T01:42:34.067142
+P000349,Abebawork,Thomas,1989-06-23,F,Ethiopian,engineer,Employed,36942,ETB,Gondar,Amhara,Ethiopia,889289d418b7600f,f65a4b9404c23043,2022-04-04T23:25:33.471549
+P000350,Belayneh,Henok,1981-06-09,M,Ethiopian,business_owner,Self-Employed,48694,ETB,Hawassa,Sidama,Ethiopia,0001b8b9a6754f55,f7d7c3c230011cef,2023-10-01T15:51:04.430957
+P000351,Serkadis,Atlabachew,1976-05-15,F,Ethiopian,unemployed,,3071,ETB,Hawassa,Sidama,Ethiopia,16b5bc861f81850b,2436d1ac31fe8e9c,2022-07-11T00:00:37.456325
+P000352,Bekila,Andualem,1989-08-10,M,Ethiopian,accountant,Employed,16812,ETB,Addis Ababa,Addis Ababa,Ethiopia,58d1b96fb87d5127,bbad67b2a0eacba0,2023-11-22T08:22:57.091403
+P000353,Siham,Jemal,1995-01-02,F,Ethiopian,freelancer,Self-Employed,40027,ETB,Bahir Dar,Amhara,Ethiopia,39a2d5de5c82ebe5,a47f9e00de776f43,2024-07-01T12:36:36.771843
+P000354,Feker,Moges,2006-09-26,F,Ethiopian,student,Student,3604,ETB,Addis Ababa,Addis Ababa,Ethiopia,2f14a9054984470b,,2025-03-14T17:36:23.265929
+P000355,Gezahegn,Petros,1979-02-09,M,Ethiopian,nurse,,13535,ETB,Addis Ababa,Addis Ababa,Ethiopia,683d7a2e9f3f3ed5,bd2fff3537d8cd0e,2022-11-14T20:02:19.372514
+P000356,Alem,Mitiku,1976-05-22,F,Ethiopian,driver,Employed,6330,ETB,Harar,Harari,Ethiopia,f2fb764fdd188d15,dea7864a7c8d818d,2025-02-05T05:36:59.501691
+P000357,Amarech,Abiy,1965-02-28,F,Ethiopian,driver,Employed,13297,ETB,Addis Ababa,Addis Ababa,Ethiopia,15268c0b7112e395,,2023-01-05T22:05:18.896296
+P000358,Thut,Wondwosen,1974-12-07,F,Other,software_engineer,Employed,16125,ETB,Hawassa,Sidama,Ethiopia,4ad952ae94c93034,d56374790e691d06,2022-08-06T07:21:42.038816
+P000359,Thut,Thomas,1990-10-19,F,Ethiopian,farmer,Self-Employed,7398,ETB,Addis Ababa,Addis Ababa,Ethiopia,43c29122b342e529,50bb1f3b2abd852a,2025-11-14T23:34:16.797919
+P000360,Saba,Kidus,1975-04-20,F,Ethiopian,domestic_worker,Employed,6067,ETB,Adama,Oromia,Ethiopia,05263ef5e25c7fb9,4bccf4e37f36cad9,2025-01-17T12:33:20.055495
+P000361,Serkalem,Abebe,1966-07-09,F,Other,engineer,Employed,23962,ETB,Jimma,Oromia,Ethiopia,4b403217b09e2a8c,1f98a5f613aa842a,2025-05-28T13:58:43.534275
+P000362,Sintayehu,Zeleke,2007-09-23,M,Ethiopian,security_guard,Employed,7049,ETB,Addis Ababa,Addis Ababa,Ethiopia,60796c9c3adab9f5,134991b01e6d7e65,2024-07-07T03:46:10.752314
+P000363,Markos,Yonas,1980-03-09,M,Ethiopian,business_owner,Self-Employed,32731,ETB,Addis Ababa,Addis Ababa,Ethiopia,d08b8b5e8ea9fa6a,144de3fd2154463d,2022-07-09T07:41:21.657546
+P000364,Lemma,Atlabachew,1996-04-17,M,Ethiopian,student,Student,7895,ETB,Hawassa,Sidama,Ethiopia,,f3acc6bd8b7c6773,2025-09-19T16:38:12.720421
+P000365,Hanan,Liku,1984-04-29,F,Ethiopian,cashier,Employed,2501,ETB,Dire Dawa,Dire Dawa,Ethiopia,6f8a5c044f97069c,e664ecc3f937ad64,2025-09-05T11:00:29.639678
+P000366,Niguse,Eshete,1963-06-19,M,Ethiopian,day_laborer,,4150,ETB,Hawassa,Sidama,Ethiopia,feb9507adb27ba03,94cc5157eda10d8a,2022-11-17T08:39:40.198205
+P000367,Tsedenia,Legesse,1989-11-28,F,Ethiopian,student,Student,2742,ETB,Jimma,Oromia,Ethiopia,74272225a05b04ec,7526f9859a13fa79,2022-11-22T03:52:49.115348
+P000368,Metasebiya,Melaku,2001-10-19,F,Ethiopian,nurse,Employed,6092,ETB,Hawassa,Sidama,Ethiopia,6a0a149e09b9d540,1380142be5c4fa89,2025-09-29T10:41:49.213725
+P000369,Mulugeta,Mersha,1996-06-19,M,Ethiopian,security_guard,Employed,2000,ETB,Mekelle,Tigray,Ethiopia,,5f9faecd48f5d6d6,2024-05-16T06:26:44.660068
+P000370,Kokebe,Adugna,1980-07-25,F,Ethiopian,software_engineer,Employed,18609,ETB,Addis Ababa,Addis Ababa,Ethiopia,9343472826c3bc58,,2023-10-28T05:20:34.970857
+P000371,Hanan,Ezana,1996-11-07,F,Ethiopian,teacher,Employed,14105,ETB,Bahir Dar,Amhara,Ethiopia,68ff3ec52e5a0569,5f6359d824714ddf,2025-10-29T23:00:05.386846
+P000372,Lake,Bisrat,2003-01-15,M,Ethiopian,nurse,Employed,8202,ETB,Jijiga,Somali,Ethiopia,862e7fd2d4cf6cd9,4753fb7d79d0b596,2024-02-01T04:23:08.960211
+P000373,Wolde-Giorgis,Eyasu,1997-11-15,M,Ethiopian,driver,Employed,19600,ETB,Addis Ababa,Addis Ababa,Ethiopia,68f985da2a73b1a1,d41881e43b5db1cb,2025-01-08T18:27:15.252033
+P000374,Abay,Issak,1997-09-29,M,Ethiopian,farmer,Self-Employed,4024,ETB,Addis Ababa,Addis Ababa,Ethiopia,813764a851ac9b34,61b21209fafc0087,2025-08-13T21:38:44.246058
+P000375,Medhin,Ali,1995-06-16,M,Ethiopian,unemployed,Unemployed,2537,ETB,Addis Ababa,Addis Ababa,Ethiopia,f8379f5563e5c3ce,645b00065aa07d78,2024-07-29T22:46:14.900687
+P000376,Sintayehu,Yonathan,1981-11-09,M,Ethiopian,government_employee,,9415,ETB,Jimma,Oromia,Ethiopia,9a8efcf5fd9b81bf,e1bfd17aaa675043,2023-03-20T22:24:46.342498
+P000377,Aster,Chebude,1991-06-20,F,Ethiopian,driver,Employed,9112,ETB,Gondar,Amhara,Ethiopia,fdfe2786715b7d4d,f359aab273a0a890,2023-09-01T22:48:04.201007
+P000378,Menelik,Yohannes,1981-11-06,M,Ethiopian,unemployed,Unemployed,2000,ETB,Gondar,Amhara,Ethiopia,50e1dc11af365a85,030eafe634bd0fb3,2024-01-03T00:08:11.756661
+P000379,Kassaye,Belay,1990-01-19,M,Ethiopian,software_engineer,Employed,35617,ETB,Bishoftu,Oromia,Ethiopia,41d62119d191c072,6017516a08a75332,2023-12-05T12:51:24.109111
+P000380,Zewditu,Eyasu,1982-07-18,F,Ethiopian,security_guard,Employed,4107,ETB,Addis Ababa,Addis Ababa,Ethiopia,c73a59b7f915ee6b,52312235af515a6a,2025-12-30T17:50:30.879073
+P000381,Freyhiwot,Teferri,2005-08-20,F,Ethiopian,business_owner,Self-Employed,13234,ETB,Nekemte,Oromia,Ethiopia,0e128585449a8599,2c57de0aa8f0fca6,2022-07-02T11:54:16.031097
+P000382,Derartu,Beyene,1972-02-17,F,Ethiopian,business_owner,Self-Employed,31981,ETB,Bishoftu,Oromia,Ethiopia,b2463c5fcce19501,8e15dffd6b9ff57d,2022-04-11T15:59:01.244403
+P000383,Nunu,Tilahun,2002-07-18,F,Ethiopian,software_engineer,Employed,35392,ETB,Jimma,Oromia,Ethiopia,6bfddbc25189b7bc,009082e8a52b13f3,2024-01-25T01:52:56.614848
+P000384,Zelalem,Moges,1992-05-04,M,Ethiopian,student,Student,3215,ETB,Jimma,Oromia,Ethiopia,c602646854c704dd,c289751cb71608e8,2023-05-30T21:03:41.567067
+P000385,Sofonyas,Fekre-Selasie,2003-07-20,M,Ethiopian,business_owner,Self-Employed,58613,ETB,Addis Ababa,Addis Ababa,Ethiopia,27c51a762cd33933,4dc455ee8f540812,2024-05-22T07:52:25.758169
+P000386,Addis,Tilahun,1995-10-30,F,Ethiopian,teacher,,18262,ETB,Dire Dawa,Dire Dawa,Ethiopia,a311a9193600fa80,,2025-09-11T13:55:09.717123
+P000387,Meskerem,Mekuriya,1978-09-08,F,Ethiopian,security_guard,Employed,3448,ETB,Shashamane,Oromia,Ethiopia,36a525a08e1c9c79,,2022-01-19T04:38:21.925363
+P000388,Meselu,Fikadu,2002-12-23,F,Ethiopian,student,Student,3147,ETB,Addis Ababa,Addis Ababa,Ethiopia,36bfb15d3980003b,7a7b56dd613148c6,2023-05-28T10:00:57.586994
+P000389,Bekele,Fikadu,2000-09-23,M,Ethiopian,merchant,,20185,ETB,Nekemte,Oromia,Ethiopia,2215fe7d9010a3b6,d60332be4e96b436,2022-08-03T05:03:20.619273
+P000390,Konjit,Mersha,2007-12-09,F,Ethiopian,government_employee,Employed,9148,ETB,Jijiga,Somali,Ethiopia,1b7dce07e75f74aa,433a734215812991,2024-08-01T05:38:14.604154
+P000391,Eden,Ali,1981-10-15,F,Ethiopian,student,Student,6194,ETB,Dire Dawa,Dire Dawa,Ethiopia,4e83f17c3d63d10b,d3b9720c7ff31a5e,2023-04-05T08:14:48.441870
+P000392,Zerihun,Addisu,1968-09-17,M,Ethiopian,domestic_worker,Employed,4794,ETB,Nekemte,Oromia,Ethiopia,e4cf6de5494eebc6,058ba96c57ff2c6b,2022-07-26T16:14:15.334778
+P000393,Zufan,Seifu,1996-07-13,F,Other,student,Student,2466,ETB,Dilla,SNNPR,Ethiopia,c7b15d657c706779,fcf7a1161032107b,2022-11-19T10:30:20.421972
+P000394,Abezu,Abebe,1995-12-04,F,Ethiopian,domestic_worker,Employed,3421,ETB,Sodo,SNNPR,Ethiopia,f350ed6b5ef712ac,0280af6a501a0f5e,2023-06-18T22:11:46.450586
+P000395,Kassahun,Mintesnot,1995-11-06,M,Ethiopian,student,Student,2964,ETB,Bahir Dar,Amhara,Ethiopia,2d94d41fcf9c9188,7cb273a7fa255ff8,2022-05-11T02:04:54.126956
+P000396,Girmachew,Alebachew,1968-09-14,M,Ethiopian,merchant,Self-Employed,19903,ETB,Addis Ababa,Addis Ababa,Ethiopia,9c89eece59c39a38,47610b91e31058fd,2023-11-09T10:18:57.861538
+P000397,Taitu,Million,2005-07-08,F,Ethiopian,day_laborer,Employed,2397,ETB,Dire Dawa,Dire Dawa,Ethiopia,3ed6c88510a06f82,948ea7d45454f814,2022-07-17T12:00:43.160041
+P000398,Fekre-Mariam,Getnet,1962-07-05,M,Ethiopian,nurse,Employed,13089,ETB,Addis Ababa,Addis Ababa,Ethiopia,c27d13332562e357,1d7aeeacb545e574,2023-08-04T05:07:13.186988
+P000399,Lake,Abdela,1986-02-24,M,Ethiopian,day_laborer,Employed,2738,ETB,Addis Ababa,Addis Ababa,Ethiopia,acc6514285c66bc9,7f430bdf72b2bf69,2023-02-24T22:02:31.626814
+P000400,Moges,Beteab,1967-06-10,M,Ethiopian,business_owner,Self-Employed,93567,ETB,Addis Ababa,Addis Ababa,Ethiopia,47e907d7830e5288,772ce0a5bcff39d1,2025-09-18T17:47:13.913734
+P000401,Asrat,Adane,1998-06-05,M,Ethiopian,doctor,Employed,50176,ETB,Mekelle,Tigray,Ethiopia,61281157b9bb8616,2fb7c980ba824d54,2022-04-07T19:27:41.167176
+P000402,Menbere,Kifle,1988-05-08,F,Ethiopian,accountant,Employed,38303,ETB,Addis Ababa,Addis Ababa,Ethiopia,cdc3451749a67b44,73807d27c6bec883,2022-01-08T22:09:23.194585
+P000403,Alemtsehay,Fikru,1997-06-23,F,Ethiopian,merchant,Self-Employed,27837,ETB,Hawassa,Sidama,Ethiopia,7cafb594b2a4c631,1c7358a546719896,2024-05-30T01:34:22.627105
+P000404,Gedion,Haile,1985-08-28,M,Ethiopian,domestic_worker,Employed,8512,ETB,Addis Ababa,Addis Ababa,Ethiopia,,a2d122f01221cb0c,2022-06-05T17:20:34.430510
+P000405,Metasebiya,Abenezer,1999-09-03,F,Ethiopian,teacher,Employed,13701,ETB,Addis Ababa,Addis Ababa,Ethiopia,289d393f7024b134,7a773bd5bfb72aae,2025-05-12T22:07:54.595185
+P000406,Belaynesh,Tefera,1994-08-14,F,Ethiopian,day_laborer,Employed,3236,ETB,Addis Ababa,Addis Ababa,Ethiopia,48205da41f9aeab0,f8ba5cec6562e78a,2023-08-09T05:40:12.719083
+P000407,Temesgen,Getahun,1999-04-14,M,Ethiopian,cashier,Employed,6558,ETB,Dessie,Amhara,Ethiopia,08d1eebf08cbfa5a,9114b62971f2fa04,2022-08-18T00:27:31.259018
+P000408,Serkalem,Mamo,1963-10-17,F,Ethiopian,merchant,Self-Employed,13180,ETB,Dessie,Amhara,Ethiopia,9441f22e19532c9f,e16cd2a7743223fe,2024-02-23T05:06:41.121852
+P000409,Gebre-Mariam,Hassen,1990-11-12,M,Other,unemployed,Unemployed,2000,ETB,Addis Ababa,Addis Ababa,Ethiopia,29e9cb0ccf783255,3e45680046968e6a,2025-07-31T06:14:06.199541
+P000410,Elizabeth,Kiros,1972-07-01,F,Ethiopian,day_laborer,Employed,3082,ETB,Addis Ababa,Addis Ababa,Ethiopia,d17e3d6770d06bdc,1987b59d38d4f202,2022-06-27T07:17:23.340968
+P000411,Feven,Gebre-Meskel,1986-05-08,F,Ethiopian,day_laborer,Employed,3577,ETB,Nekemte,Oromia,Ethiopia,8007baa9c8f261d3,ad38ce16bbfb7e68,2025-10-09T16:13:58.584131
+P000412,Selamawit,Ezra,2002-10-14,F,Ethiopian,farmer,Self-Employed,3969,ETB,Addis Ababa,Addis Ababa,Ethiopia,2cf8de9a20872ffa,3e95e6c1525c78a6,2022-10-10T19:44:10.682713
+P000413,Aman,Mesfin,1985-05-29,M,Ethiopian,freelancer,Self-Employed,21542,ETB,Arba Minch,SNNPR,Ethiopia,90233cb8d703d4e3,0500f6416efcbbdd,2024-09-05T10:05:09.060317
+P000414,Semira,Fikru,1999-12-20,F,Ethiopian,nurse,Employed,7088,ETB,Dilla,SNNPR,Ethiopia,094978f1a8e0f5eb,2f583db6f097c898,2022-05-12T03:24:52.953312
+P000415,Sofonyas,Amha,2005-07-21,M,Ethiopian,day_laborer,Employed,2742,ETB,Dire Dawa,Dire Dawa,Ethiopia,f3b64cc8a20ae53d,3e1c5d78040dddf9,2024-03-08T09:41:14.040662
+P000416,Kiros,Dagim,1974-02-22,M,Ethiopian,freelancer,Self-Employed,41313,ETB,Bahir Dar,Amhara,Ethiopia,909b9e093ccbdc39,bee42be4524b5806,2023-08-20T11:52:29.514655
+P000417,Demerew,Besufekad,1986-04-25,M,Ethiopian,ngo_worker,Employed,23598,ETB,Addis Ababa,Addis Ababa,Ethiopia,6c46844cfb83ffc9,2098be5f537c0db8,2023-08-31T21:23:42.080795
+P000418,Etenesh,Endrias,1972-12-04,F,Ethiopian,student,Student,3770,ETB,Asella,Oromia,Ethiopia,11ad30bcbea32d5f,def807f1298e1411,2025-07-15T07:15:16.827660
+P000419,Eyasu,Kefyalew,1980-05-09,M,Ethiopian,student,Student,2674,ETB,Bahir Dar,Amhara,Ethiopia,46299989f17a7a27,2859212f753dad87,2025-12-10T12:50:27.845019
+P000420,Edom,Tadele,1976-02-03,F,Ethiopian,merchant,Self-Employed,34256,ETB,Nekemte,Oromia,Ethiopia,0efe03fec0c0259e,f5bca013b7d72be2,2024-11-27T07:19:10.022592
+P000421,Zinash,Tamrat,1962-11-21,F,Ethiopian,farmer,Self-Employed,10444,ETB,Bahir Dar,Amhara,Ethiopia,40c73205e69e45ad,14a8a440bade7882,2025-06-01T14:28:10.334007
+P000422,Dereje,Gebre-Meskel,1991-07-02,M,Ethiopian,teacher,Employed,14556,ETB,Addis Ababa,Addis Ababa,Ethiopia,09245de8409cd1cd,899386dcaa8e127a,2023-04-03T11:39:53.426168
+P000423,Ibrahim,Beyene,1974-07-26,M,Ethiopian,business_owner,Self-Employed,62301,ETB,Adama,Oromia,Ethiopia,fab00f0602db900f,25f0fdf715f43175,2025-05-20T04:42:02.299752
+P000424,Tsegaye,Behailu,1979-09-29,M,Ethiopian,government_employee,Employed,22166,ETB,Bahir Dar,Amhara,Ethiopia,4b112d3e1dab5d27,8caf2d373424739d,2022-11-24T05:27:34.168866
+P000425,Dagmawit,Kidus,1984-01-26,F,Ethiopian,farmer,Self-Employed,2948,ETB,Addis Ababa,Addis Ababa,Ethiopia,,44ac44924387e52e,2025-02-16T03:02:55.962127
+P000426,Edom,Abdulahi,1996-05-10,F,Ethiopian,student,Student,2229,ETB,Gondar,Amhara,Ethiopia,3cb39f9d180c71ff,35ad39e82bafaaa8,2022-07-21T16:15:20.409830
+P000427,Dagim,Redwan,1974-06-03,M,Ethiopian,engineer,Employed,22292,ETB,Sodo,SNNPR,Ethiopia,e60d5d00ed021034,406dcd2032fe513a,2025-10-16T03:35:10.164037
+P000428,Fekerte,Admasu,1994-09-06,F,Ethiopian,government_employee,Employed,16085,ETB,Nekemte,Oromia,Ethiopia,d864ade4ccb9c320,ff3801cdcbeee4c9,2023-01-08T12:31:26.315929
+P000429,Markos,Alemayehu,1968-05-09,M,Ethiopian,business_owner,Self-Employed,30046,ETB,Dire Dawa,Dire Dawa,Ethiopia,fe988be37a39938b,f6eea5c87179c4df,2023-08-14T00:32:22.114839
+P000430,Sitota,Leul,1970-03-20,F,Other,farmer,Self-Employed,13463,ETB,Hosaena,SNNPR,Ethiopia,b708990d19076d37,e3e930fa1505ecbf,2022-02-24T05:16:47.301604
+P000431,Eyerusalem,Sisay,2005-05-22,F,Ethiopian,teacher,Employed,11009,ETB,Addis Ababa,Addis Ababa,Ethiopia,80375f6b62dc3b20,c8aa5a75fd4d72e8,2024-11-08T01:14:29.142694
+P000432,Saron,Atlabachew,1995-08-04,F,Ethiopian,driver,Employed,5419,ETB,Gondar,Amhara,Ethiopia,8d40ba211411ef40,fb7d914fef1b3775,2024-04-17T17:41:11.847320
+P000433,Mulu,Zeleke,2002-12-14,F,Ethiopian,teacher,Employed,11903,ETB,Nekemte,Oromia,Ethiopia,1ac83d5780465691,23f4fb5a0aa1625b,2025-07-22T02:36:18.162287
+P000434,Messeret,Seifu,1997-12-24,F,Ethiopian,doctor,Employed,48488,ETB,Arba Minch,SNNPR,Ethiopia,20747f4752ad4972,,2023-07-02T03:35:50.666793
+P000435,Bemnet,Kassahun,1979-06-01,M,Other,freelancer,,44083,ETB,Gondar,Amhara,Ethiopia,07d325efa4537f9d,520e0e094ba710b1,2025-08-14T02:50:43.363029
+P000436,Kassahun,Dilnesaw,1968-08-08,M,Ethiopian,business_owner,Self-Employed,114917,ETB,Gondar,Amhara,Ethiopia,d24969d3c6183abf,,2023-11-10T22:05:55.279792
+P000437,Dilnesaw,Dagmawi,1990-07-15,M,Ethiopian,ngo_worker,Employed,16669,ETB,Hawassa,Sidama,Ethiopia,707d3c7567ae51b0,1430d7ed6f0d56b9,2024-11-20T01:14:29.468401
+P000438,Abigia,Amanuel,2007-01-09,F,Ethiopian,student,Student,5539,ETB,Mekelle,Tigray,Ethiopia,,,2024-09-15T02:02:38.245804
+P000439,Inku,  Samson,1988-02-03,F,Ethiopian,student,Student,3891,ETB,Addis Ababa,Addis Ababa,Ethiopia,b36efd64e588e19e,ebd68a8460956e0c,2023-03-20T07:13:56.727374
+P000440,Alemtsehay,Fikru,1968-11-13,F,Ethiopian,engineer,Employed,28742,ETB,Addis Ababa,Addis Ababa,Ethiopia,e197ac6e94f301ac,23c5ff6021f702c0,2022-03-21T23:19:59.169761
+P000441,Hermela,Yakob,2004-12-07,F,Ethiopian,unemployed,Unemployed,2000,ETB,Asella,Oromia,Ethiopia,3af264170032ef65,0f6c91595f93adc4,2024-03-02T21:20:40.839133
+P000442,Berhe,Dawit,1962-12-11,M,Ethiopian,student,Student,2170,ETB,Addis Ababa,Addis Ababa,Ethiopia,,,2022-11-24T19:19:50.711340
+P000443,Ayana,Ezra,1972-10-07,F,Ethiopian,freelancer,Self-Employed,19319,ETB,Addis Ababa,Addis Ababa,Ethiopia,4ef843fcd1b11c23,,2023-02-18T09:01:18.058291
+P000444,Paulos,Sofonyas,2000-01-17,M,Other,lawyer,Employed,65318,ETB,Bahir Dar,Amhara,Ethiopia,35f5559ac11a8739,1d35e982c1202ced,2025-01-09T09:33:54.017618
+P000445,Mesfin,Getnet,2006-01-02,M,Ethiopian,freelancer,Self-Employed,9325,ETB,Nekemte,Oromia,Ethiopia,73cabc538d45018c,6e4e0f62fa0a1da3,2025-10-31T10:19:14.028326
+P000446,Tsedenia,Yelekal,2003-10-21,F,Ethiopian,lawyer,Employed,33175,ETB,Dire Dawa,Dire Dawa,Ethiopia,80d3dc21f7e9e718,40daa459671cb135,2023-10-05T09:47:28.295866
+P000447,Tenagne,Rediet,1996-08-16,F,Ethiopian,teacher,Employed,27755,ETB,Addis Ababa,Addis Ababa,Ethiopia,7d246ae7207459cb,9da42bd6fd701265,2022-06-22T05:08:08.126987
+P000448,Misrak,Abay,1965-05-06,F,Ethiopian,ngo_worker,Employed,20521,ETB,Jimma,Oromia,Ethiopia,2f36001626d4e736,,2022-07-10T18:12:30.855941
+P000449,Ali,Tekeste,1972-07-29,M,Ethiopian,nurse,Employed,8890,ETB,Bishoftu,Oromia,Ethiopia,cdce9659d4180ee8,60a671f057dff2f9,2022-09-03T19:00:17.027660
+P000450,Biftu,Zewdu,1992-07-15,F,Ethiopian,engineer,Employed,16372,ETB,Asella,Oromia,Ethiopia,af3a0087cffd47d6,274748ff68702c08,2023-07-15T14:31:46.087274
+P000451,Issak,Atlabachew,1998-01-08,M,Ethiopian,merchant,Self-Employed,37282,ETB,Shashamane,Oromia,Ethiopia,37aa110e0dae198b,8a512b4793e23469,2024-04-11T23:53:09.315507
+P000452,Yodit,Tadele,2007-07-26,F,Ethiopian,software_engineer,,58645,ETB,Addis Ababa,Addis Ababa,Ethiopia,c886f982ed55bd11,ec3041874b13df9f,2022-11-10T03:45:00.793073
+P000453,Arssema,Ketema,1970-05-30,F,Ethiopian,farmer,Self-Employed,7093,ETB,Harar,Harari,Ethiopia,,88ce2db61e0662d9,2022-03-29T04:07:12.908811
+P000454,Asheber,Bisrat,1978-01-17,M,Ethiopian,lawyer,Employed,22610,ETB,Mekelle,Tigray,Ethiopia,7d834f05a23f5431,be78bfadbdd4dc6f,2023-08-19T01:16:36.915044
+P000455,Nebiyou,Gashaw,2001-08-03,M,Ethiopian,day_laborer,Employed,2261,ETB,Addis Ababa,Addis Ababa,Ethiopia,d97e8e21591cd3ae,33d0e56e8af066e6,2023-01-07T19:33:59.122736
+P000456,Fikru,Abayneh,1973-07-07,M,Ethiopian,student,Student,3384,ETB,Bishoftu,Oromia,Ethiopia,,e5015f67d83385cf,2024-10-29T14:28:31.952756
+P000457,Tiruwork,Michael,1979-02-11,F,Ethiopian,farmer,Self-Employed,9513,ETB,Addis Ababa,Addis Ababa,Ethiopia,df65052ec4023770,0a6197d8bc9e2bcb,2025-10-05T09:09:13.735360
+P000458,Gebre-Meskel,Dagmawi,1971-06-21,M,Ethiopian,software_engineer,Employed,29045,ETB,Hawassa,Sidama,Ethiopia,569acd8129b7440c,a67c1d08d1c277e7,2025-06-30T13:41:05.316564
+P000459,Tsedenia,Desta,1977-09-14,F,Ethiopian,unemployed,Unemployed,2000,ETB,Adama,Oromia,Ethiopia,9c58d4a4760c7b21,c6505d11da109976,2022-11-03T08:08:18.688546
+P000460,Makeda,Shimelis,1997-09-13,F,Ethiopian,government_employee,Employed,6543,ETB,Mekelle,Tigray,Ethiopia,1e309e68f26c5577,,2023-11-26T20:22:21.873610
+P000461,Eyerus,Atinafu,1978-08-10,F,Ethiopian,accountant,,11641,ETB,Addis Ababa,Addis Ababa,Ethiopia,17a52cb2d76a880c,a7b9f74da3654394,2025-05-15T01:12:44.777460
+P000462,Medhin,Zekarias,1993-06-27,M,Ethiopian,teacher,Employed,8052,ETB,Addis Ababa,Addis Ababa,Ethiopia,,bf822d58b0187722,2023-05-02T07:12:10.628395
+P000463,Azalech,Tibebu,2002-10-06,F,Ethiopian,teacher,Employed,15795,ETB,Gondar,Amhara,Ethiopia,a7a5294d304dbc66,9c95eb9b22b2978d,2023-08-13T18:37:53.389559
+P000464,Kefyalew,Haile-Mariam,1996-02-12,M,Ethiopian,student,Student,5525,ETB,Adama,Oromia,Ethiopia,ed292ead86384d4c,da84943f6605222c,2022-08-27T05:44:16.713090
+P000465,Inku,Taye,1991-05-22,F,Ethiopian,software_engineer,Employed,13390,ETB,Nekemte,Oromia,Ethiopia,fee864e4e0d2d224,e1cdd1b91dfae99a,2025-11-17T14:32:10.804571
+P000466,Sinetebeb,Husein,2001-11-04,F,Ethiopian,nurse,,21210,ETB,Gondar,Amhara,Ethiopia,a41301680b28559e,c84e2775f481a8c5,2024-07-12T17:51:22.453572
+P000467,Mekdes,Anteneh,1961-01-27,F,Ethiopian,day_laborer,Employed,5362,ETB,Harar,Harari,Ethiopia,3904d8877eef2348,75c181c993c88750,2022-10-28T10:08:08.121977
+P000468,Sinetebeb,Debebe,2007-03-05,F,Ethiopian,teacher,Employed,13453,ETB,Adama,Oromia,Ethiopia,6636e4fbe3361f78,42a65107f18ca144,2023-01-28T14:23:23.608434
+P000469,Yosef,Atlabachew,1969-12-02,M,Ethiopian,student,Student,2237,ETB,Addis Ababa,Addis Ababa,Ethiopia,8314452c561c9077,afee9f269767f0d6,2024-11-08T01:14:51.414652
+P000470,Eskedar,Robel,1971-12-02,F,Ethiopian,student,Student,4633,ETB,Dire Dawa,Dire Dawa,Ethiopia,d7f2a2770a7d8544,,2024-12-16T15:18:53.260769
+P000471,Ayele,Fistum,1987-02-23,M,Other,freelancer,Self-Employed,12099,ETB,Addis Ababa,Addis Ababa,Ethiopia,1849c00fa83a68d2,,2022-07-27T07:30:32.726693
+P000472,Mikias,Wolde-Giorgis,1974-09-16,M,Ethiopian,software_engineer,Employed,36948,ETB,Gondar,Amhara,Ethiopia,8c9c5309d5cd5d14,75170642adcaf3b9,2025-04-22T15:05:14.398104
+P000473,Mekuriya,Ketema,2003-10-18,M,Ethiopian,merchant,Self-Employed,20277,ETB,Addis Ababa,Addis Ababa,Ethiopia,a5c167baf55d1adc,60ed6cc1781e978f,2024-01-06T05:00:09.802740
+P000474,Tamrat,Berhe,1993-09-23,M,Ethiopian,government_employee,Employed,23836,ETB,Dire Dawa,Dire Dawa,Ethiopia,5e4a242f9bcdd832,ff63ba153bdd2fa8,2023-10-25T18:39:15.419286
+P000475,Aschalew,Tekeste,2003-04-02,M,Ethiopian,software_engineer,Employed,31420,ETB,Dire Dawa,Dire Dawa,Ethiopia,a4bcf02116d5fa42,f70514623b5b6117,2023-11-08T20:14:14.478630
+P000476,Abdi,Temesgen,1991-05-12,M,Ethiopian,teacher,,11421,ETB,Addis Ababa,Addis Ababa,Ethiopia,,3732aef57511688f,2022-09-28T12:34:37.029266
+P000477,Paulos,Medhin,2000-11-30,M,Ethiopian,engineer,Employed,29774,ETB,Addis Ababa,Addis Ababa,Ethiopia,0275f5979e1efb5e,54b39b710f0425c1,2023-09-25T23:19:31.075732
+P000478,Messeret,Gashaw,1990-11-04,F,Ethiopian,driver,Employed,7275,ETB,Gondar,Amhara,Ethiopia,e9d06444d987b91c,f98d29f97f144f13,2023-03-03T19:14:05.364715
+P000479,Konjit,Teshome,2002-06-01,F,Other,driver,Employed,11763,ETB,Addis Ababa,Addis Ababa,Ethiopia,974b4d9622e69420,034bc5adb6cc57f0,2022-08-19T04:16:34.219356
+P000480,Bekila,Seifu,1999-06-24,M,Ethiopian,student,Student,11061,ETB,Harar,Harari,Ethiopia,fcd2881ee8566385,17a8f7335a5fb161,2023-08-10T12:40:15.206933
+P000481,Desalegn,Abdulahi,1992-05-22,M,Ethiopian,merchant,Self-Employed,29856,ETB,Addis Ababa,Addis Ababa,Ethiopia,7cac96f06d6a5560,d4e92b00069c9a79,2025-03-24T20:15:16.931229
+P000482,Tarik,Yosef,2003-04-25,M,Ethiopian,merchant,Self-Employed,11968,ETB,Addis Ababa,Addis Ababa,Ethiopia,015f57c57eec582f,64d693f4588ba974,2022-12-12T11:28:26.092783
+P000483,Hanna,Demerew,1990-05-22,F,Ethiopian,student,Student,2328,ETB,Nekemte,Oromia,Ethiopia,,b5cb36421d3f0125,2024-10-13T15:52:10.963508
+P000484,Fedlu,Desalegn,2005-02-08,M,Other,farmer,Self-Employed,5460,ETB,Gondar,Amhara,Ethiopia,,e4cf5050894ebf8a,2022-07-17T13:41:34.215663
+P000485,Elias,Tesfaye,1995-10-31,M,Ethiopian,unemployed,Unemployed,2000,ETB,Dessie,Amhara,Ethiopia,468b50873581160a,,2022-03-20T12:46:16.767390
+P000486,Yafet,Tekeste,1972-03-08,M,Ethiopian,software_engineer,Employed,32915,ETB,Adama,Oromia,Ethiopia,975318c417977279,c6a6e4d6939d2cf8,2024-03-06T08:23:39.296770
+P000487,Tadesse,Yafet,1975-07-30,M,Ethiopian,ngo_worker,Employed,19360,ETB,Arba Minch,SNNPR,Ethiopia,dcedfd6f0fa3a262,f5dc7b9d46cbbbc4,2022-12-23T21:33:19.896506
+P000488,Petros,Kefyalew,1963-09-29,M,Ethiopian,nurse,Employed,12650,ETB,Hawassa,Sidama,Ethiopia,ae5a4572a575f9ae,,2024-05-25T20:45:26.803038
+P000489,Sinetebeb,Abate,1987-03-07,F,Ethiopian,merchant,Self-Employed,18250,ETB,Debre Birhan,Amhara,Ethiopia,f07573b27089ec1d,e0edb3937450ed1f,2024-05-23T18:08:29.160378
+P000490,Konjit,Kirubel,2002-11-10,F,Ethiopian,cashier,Employed,11387,ETB,Arba Minch,SNNPR,Ethiopia,1cb1651d5f3832d9,e8b9f8dac858d111,2025-12-09T00:16:03.333634
+P000491,Beletshachew,Gebre-Meskel,1994-09-07,F,Ethiopian,business_owner,Self-Employed,37460,ETB,Addis Ababa,Addis Ababa,Ethiopia,28fd7f544d5d1044,5dd90d5706b1b589,2022-09-05T00:07:40.930783
+P000492,Saba,Yohannes,1971-09-22,F,Ethiopian,student,Student,3908,ETB,Hawassa,Sidama,Ethiopia,79c7f91f61e09971,e5a08fad2072ab50,2022-02-14T00:18:43.420971
+P000493,Abeba,Admasu,2006-11-04,F,Ethiopian,unemployed,Unemployed,2000,ETB,Debre Birhan,Amhara,Ethiopia,0d5ceb0f4feb7e72,94b6cfb80e7af5c2,2023-07-23T11:14:24.628125
+P000494,Aron,Tamrat,1976-02-11,M,Ethiopian,teacher,Employed,9853,ETB,Addis Ababa,Addis Ababa,Ethiopia,c32e8e8137a186ef,4fc6ffcb6885b9fb,2024-05-13T09:47:41.834563
+P000495,Aberash,Jemal,1999-08-01,F,Ethiopian,student,Student,3309,ETB,Addis Ababa,Addis Ababa,Ethiopia,740210a045cd8739,8fa4fb24ad45c9fc,2022-12-14T08:22:17.425885
+P000496,Alemitu,Mekonnen,1997-01-21,F,Ethiopian,government_employee,Employed,8510,ETB,Bishoftu,Oromia,Ethiopia,78c8874038976311,a4d2fc3130e0dd86,2023-03-11T08:08:41.930558
+P000497,Yidnekachew,Yohannes,1967-04-16,M,Ethiopian,engineer,,10710,ETB,Addis Ababa,Addis Ababa,Ethiopia,38e94c7d5f4b676a,d303804ea9f6137a,2022-06-11T02:29:04.640698
+P000498,Addis,Thomas,1996-07-10,F,Ethiopian,driver,Employed,14734,ETB,Addis Ababa,Addis Ababa,Ethiopia,8f2b010a06403cf7,ca42a207a0c083e9,2024-12-09T01:27:02.295816
+P000499,Alemu,Samson,1992-02-25,M,Ethiopian,student,Student,5019,ETB,Dessie,Amhara,Ethiopia,7a7ead98ffdb3a13,a4802ff1b1203c09,2022-11-21T11:18:32.764429
+P000500,Amsalu,Girmachew,1983-11-11,F,Ethiopian,government_employee,,3690,ETB,Nekemte,Oromia,Ethiopia,14031172d9994eb9,2c17aafb51472627,2023-09-08T08:56:21.717920
+P000501,Aklil,Sofonyas,1996-07-27,F,Ethiopian,domestic_worker,Employed,7864,ETB,Addis Ababa,Addis Ababa,Ethiopia,092acbc5af580012,,2025-03-01T20:45:08.377807
+P000502,Sefanit,Amha,1991-12-16,F,Ethiopian,driver,Employed,10563,ETB,Hawassa,Sidama,Ethiopia,e7cde16177270613,,2022-01-12T07:20:02.532958
+P000503,Derartu,Gemechu,2001-09-18,F,Ethiopian,freelancer,Self-Employed,37511,ETB,Dessie,Amhara,Ethiopia,,89d10f23768db97c,2024-03-27T21:40:26.274021
+P000504,Ayana,Adugna,1992-09-19,F,Ethiopian,security_guard,Employed,7713,ETB,Gondar,Amhara,Ethiopia,,4a1d1170b13da647,2022-03-25T00:42:22.798947
+P000505,Lielt,Paulos,2002-09-19,F,Ethiopian,merchant,Self-Employed,25990,ETB,Shashamane,Oromia,Ethiopia,c1d4a18fd9e2f56b,b6cb1dfafd5cb255,2024-12-07T14:46:17.129473
+P000506,Adey,Abel,1983-09-16,F,Ethiopian,software_engineer,Employed,22327,ETB,Addis Ababa,Addis Ababa,Ethiopia,193d017e4769bf79,86c38eabef328c1d,2025-01-04T08:19:28.421019
+P000507,Sisay,Zerihun,1980-01-04,M,Ethiopian,day_laborer,Employed,4546,ETB,Addis Ababa,Addis Ababa,Ethiopia,48c04ed788c3874a,,2024-07-18T15:27:50.522043
+P000508,Selamawit,Temesgen,1969-09-18,F,Ethiopian,teacher,Employed,10226,ETB,Bahir Dar,Amhara,Ethiopia,31ab1465315ad362,5cf522baaa16eeb3,2024-01-08T22:26:46.409026
+P000509,Abaynesh,Gezahegn,1962-11-25,F,Ethiopian,nurse,Employed,13442,ETB,Jijiga,Somali,Ethiopia,921e44c3ac5fd6eb,404aad5599404648,2024-12-27T22:23:18.868441
+P000510,Matheos,Mebratu,2006-10-09,M,Other,security_guard,Employed,8439,ETB,Adama,Oromia,Ethiopia,35dd7521477f761e,a8b1f9e136155954,2022-04-26T00:32:54.041002
+P000511,Ali,Medhin,1963-06-14,M,Ethiopian,farmer,Self-Employed,5344,ETB,Adama,Oromia,Ethiopia,812921130947d6e7,57bc09964beede75,2024-01-12T09:19:13.042523
+P000512,Fasika,Argaw,1990-02-15,F,Ethiopian,government_employee,Employed,15815,ETB,Adama,Oromia,Ethiopia,430a7f739c17df27,,2025-11-03T15:55:40.905518
+P000513,Alemu,Bekele,1990-02-07,M,Ethiopian,lawyer,Employed,35428,ETB,Jimma,Oromia,Ethiopia,,b287be246684528a,2025-03-07T09:28:57.333232
+P000514,Wolde-Giorgis,Desta,1980-06-21,M,Ethiopian,farmer,Self-Employed,6727,ETB,Asella,Oromia,Ethiopia,e5b4f8719cd91259,6e145d10582818c5,2024-10-22T08:04:40.968426
+P000515,Behailu,Tadele,1998-10-21,M,Ethiopian,day_laborer,,2395,ETB,Addis Ababa,Addis Ababa,Ethiopia,05e902e41a6436be,fe8e4179f06758bb,2025-12-25T14:20:04.320240
+P000516,Sintayehu,Chebude,2001-09-30,M,Ethiopian,freelancer,Self-Employed,17739,ETB,Shashamane,Oromia,Ethiopia,,1047914d202253b7,2025-08-05T04:58:40.559799
+P000517,Afework,Abenet,1983-09-27,M,Ethiopian,merchant,Self-Employed,22462,ETB,Dessie,Amhara,Ethiopia,4666c0c068133542,a6b9cc03155615ee,2024-10-26T21:38:56.812580
+P000518,Liya,Gizachew,1981-04-15,F,Ethiopian,business_owner,Self-Employed,84153,ETB,Sodo,SNNPR,Ethiopia,1f0ab742c1d18feb,d5d847f665e22335,2023-07-06T22:09:11.403525
+P000519,Yafet,Kebede,1997-08-06,M,Ethiopian,student,Student,5799,ETB,Dire Dawa,Dire Dawa,Ethiopia,3ab10a4f102ebae2,5f14fe7c5ecdea20,2024-02-03T13:45:28.517493
+P000520,Abaynesh,Michael,1996-12-26,F,Ethiopian,farmer,Self-Employed,8672,ETB,Mekelle,Tigray,Ethiopia,9609d6b7c1ca7203,0f57ec379e0f8a39,2023-08-18T19:59:12.305028
+P000521,Senait,Andualem,1961-05-18,F,Ethiopian,nurse,Employed,6584,ETB,Bahir Dar,Amhara,Ethiopia,0f1d8e953d5d9646,24d50d7a89fa9f50,2022-06-08T09:16:36.013051
+P000522,Endale,Nolawi,2006-01-25,M,Ethiopian,nurse,Employed,11861,ETB,Mekelle,Tigray,Ethiopia,37189f9ab8383e81,ade3f7390630d8c6,2025-03-31T22:03:36.583375
+P000523,Husein,Siraj,1993-11-14,M,Ethiopian,teacher,Employed,14897,ETB,Dilla,SNNPR,Ethiopia,54ea567d81b37888,6ee3704f3fe3b30c,2024-05-12T16:35:40.523026
+P000524,Netsanet,Asmamaw,1998-06-18,F,Ethiopian,freelancer,Self-Employed,15277,ETB,Addis Ababa,Addis Ababa,Ethiopia,79114ea286f27c28,,2022-05-02T09:05:57.381016
+P000525,Andinet,Belete,2007-06-23,M,Ethiopian,engineer,Employed,15609,ETB,Mekelle,Tigray,Ethiopia,9caf5911ea343c0d,cac4fd0a0f4ff87a,2022-08-11T21:28:53.495778
+P000526,Eskinder,Andualem,2000-05-24,M,Ethiopian,unemployed,,2526,ETB,Dire Dawa,Dire Dawa,Ethiopia,6d2305581aeecc74,50313f0781730444,2025-01-30T18:46:42.918908
+P000527,Ruth,Kidus,1997-09-03,F,Ethiopian,student,Student,2085,ETB,Addis Ababa,Addis Ababa,Ethiopia,3d86badcffb0e1ac,61442b194fa902d8,2025-10-12T14:29:02.338654
+P000528,Beletu,Daniel,1998-06-26,F,Ethiopian,driver,Employed,7533,ETB,Mekelle,Tigray,Ethiopia,bc4911113ed86fc3,1f5b96dcc976b006,2022-08-05T19:35:45.777561
+P000529,Taitu,Moges,2007-03-05,F,Ethiopian,nurse,,21145,ETB,Sodo,SNNPR,Ethiopia,89639b4a31aa4c5b,3af293dbc4c5f40c,2024-09-01T18:03:16.266851
+P000530,Girum,Bemnet,2000-06-09,M,Ethiopian,security_guard,Employed,3227,ETB,Shashamane,Oromia,Ethiopia,5bc09aa60a1fe9be,934f6d74886766a2,2023-03-23T06:31:48.664148
+P000531,Bilen,Gedion,1971-02-14,F,Ethiopian,student,Student,3481,ETB,Gondar,Amhara,Ethiopia,f6b2e38b4027a354,63ac3c9b8bde7d60,2024-12-20T00:46:26.346451
+P000532,Amsalu,Yafet,1972-09-09,F,Other,nurse,Employed,49142,ETB,Addis Ababa,Addis Ababa,Ethiopia,cf46c7c54fab5d87,14d1d2a838c3cbf6,2022-06-20T15:54:57.095913
+P000533,Isayas,Caleb,1979-09-05,M,Ethiopian,farmer,Self-Employed,10686,ETB,Jimma,Oromia,Ethiopia,a6c67f9e8fbeb15b,ef4a87203549d1ad,2022-02-16T22:39:42.289448
+P000534,Yohanna,Sebhat,1999-06-22,F,Ethiopian,student,Student,9260,ETB,Mekelle,Tigray,Ethiopia,451772b1b2f47d4a,dfe43a82bf260461,2022-11-20T21:04:58.509194
+P000535,Worku,Zewdu,1985-09-22,M,Ethiopian,teacher,Employed,17698,ETB,Jijiga,Somali,Ethiopia,a2064fcdfc66c7ba,5b4012bd9d12c2f9,2024-10-14T16:39:30.587082
+P000536,Zelalem,Tamrat,1977-03-15,M,Ethiopian,student,Student,4593,ETB,Bahir Dar,Amhara,Ethiopia,0757617beeea64e4,9ffc2a4e56666368,2023-06-19T00:36:56.465876
+P000537,Bezawit,Biruk,1975-03-24,F,Ethiopian,teacher,Employed,16374,ETB,Addis Ababa,Addis Ababa,Ethiopia,8fe46daad946af8f,3d272e8bcea27f45,2025-10-03T11:15:58.925878
+P000538,Yidnekachew,Abay,1962-05-29,M,Ethiopian,nurse,Employed,9618,ETB,Mekelle,Tigray,Ethiopia,3fe3041a52679d42,18442499ebac28e5,2023-05-19T16:09:50.491066
+P000539,Dagmawi,Gebre-Mariam,1990-06-22,M,Ethiopian,teacher,Employed,14021,ETB,Asella,Oromia,Ethiopia,00a1f2bcb9c4209e,c70594d4cab90095,2023-12-24T00:10:21.230296
+P000540,Eyerusalem,Wondwosen,1973-05-10,F,Ethiopian,day_laborer,Employed,4313,ETB,Mekelle,Tigray,Ethiopia,aef4d68194567216,,2025-05-08T10:33:51.922937
+P000541,Mekdes,Sebsebe,1994-06-25,F,Ethiopian,security_guard,Employed,10366,ETB,Jijiga,Somali,Ethiopia,60b15ccd3a8ee0b3,3949c1d162a2a9ee,2022-08-09T04:55:04.864098
+P000542,Woyneshet,Gebre-Micheal,1979-05-30,F,Ethiopian,software_engineer,Employed,14192,ETB,Hawassa,Sidama,Ethiopia,,245b3611aa4fd098,2024-06-20T10:38:26.512372
+P000543,Abebawork,Mikias,1990-02-18,F,Ethiopian,freelancer,Self-Employed,59181,ETB,Jimma,Oromia,Ethiopia,5637c4540966c874,,2024-10-11T20:39:43.201678
+P000544,Tigist,Girum,1992-06-21,F,Ethiopian,freelancer,Self-Employed,37493,ETB,Dire Dawa,Dire Dawa,Ethiopia,94992e340d8d8dc5,d87a0d419209b25a,2025-03-24T23:48:00.006168
+P000545,Kagnew,Tilahun,1988-01-19,M,Ethiopian,engineer,Employed,15418,ETB,Addis Ababa,Addis Ababa,Ethiopia,8b6cef236e04b0dc,51335103c8c021b6,2022-12-02T12:48:01.550518
+P000546,Alazar,Cherenet,1985-01-24,M,Ethiopian,business_owner,Self-Employed,33943,ETB,Addis Ababa,Addis Ababa,Ethiopia,,e4282bad07278cfe,2024-08-26T06:01:30.269163
+P000547,Molla,Moges,1973-07-09,M,Other,unemployed,Unemployed,2000,ETB,Bahir Dar,Amhara,Ethiopia,6d3953e9d8babe01,60dd0e9db13708ab,2023-05-12T23:03:42.652035
+P000548,Yohannes,Belayneh,1999-08-10,M,Ethiopian,teacher,Employed,6223,ETB,Bishoftu,Oromia,Ethiopia,ffbbda64c741d780,b10f889bad385819,2025-08-25T11:39:43.559700
+P000549,Addis,Wolde-Giorgis,1982-09-10,F,Ethiopian,business_owner,,132558,ETB,Arba Minch,SNNPR,Ethiopia,2cabd1048e357afa,,2023-06-06T15:47:59.712558
+P000550,Dawit,Ayele,1999-05-27,M,Ethiopian,security_guard,Employed,3750,ETB,Bahir Dar,Amhara,Ethiopia,f3c2ff63da255384,75fa7ef32c3d1c83,2023-01-31T23:00:14.511633
+P000551,Abebe,Kassaye,2001-08-13,M,Ethiopian,student,Student,2623,ETB,Adama,Oromia,Ethiopia,1622d06f91c14669,,2025-09-04T04:25:32.830547
+P000552,Befekadu,Abenezer,1963-03-04,M,Ethiopian,business_owner,Self-Employed,85156,ETB,Adama,Oromia,Ethiopia,800f662b7441848f,e36de759dc33dcad,2022-11-23T19:31:01.416653
+P000553,Gashaw,Assefa,1979-08-14,M,Other,nurse,Employed,9168,ETB,Mekelle,Tigray,Ethiopia,b3d1bb8dca010d96,35c63ec95a742e7b,2023-04-15T12:17:02.694937
+P000554,Mulu,Amha,1971-04-15,F,Ethiopian,unemployed,Unemployed,2000,ETB,Addis Ababa,Addis Ababa,Ethiopia,f6bc9bafa166e118,06a194bc2f9d270e,2023-10-25T08:57:13.326173
+P000555,Fekre-Mariam,Efrem,1990-06-15,M,Ethiopian,student,Student,3243,ETB,Addis Ababa,Addis Ababa,Ethiopia,c107176e92346fc9,da2d32d4d1a31f9e,2024-01-20T03:05:02.417636
+P000556,Alemayehu,Abel,1965-05-19,M,Ethiopian,student,Student,6866,ETB,Arba Minch,SNNPR,Ethiopia,5e0d4912267e4722,75d20f253dc21713,2024-11-07T20:04:31.746801
+P000557,Temesgen,Argaw,1986-10-02,M,Ethiopian,business_owner,Self-Employed,45595,ETB,Gondar,Amhara,Ethiopia,dd108eb32bc6cf48,,2023-10-24T09:13:44.075649
+P000558,Tinbit,Ermias,1976-03-05,F,Ethiopian,student,Student,3593,ETB,Adama,Oromia,Ethiopia,c7236f1a77bed6c2,176889a963a454f0,2023-04-01T11:27:37.336704
+P000559,Abiot,Zerihun,1987-05-04,F,Ethiopian,software_engineer,Employed,14209,ETB,Dessie,Amhara,Ethiopia,5f1d2dbdeea6a623,fc2210d57b987618,2024-03-26T11:17:35.849096
+P000560,Hewan,Assefa,1992-11-09,F,Ethiopian,merchant,Self-Employed,15768,ETB,Bishoftu,Oromia,Ethiopia,fe749c762e319e6e,,2023-03-13T17:48:10.413537
+P000561,Yitbarek,Mebratu,1964-11-23,M,Other,day_laborer,Employed,4555,ETB,Addis Ababa,Addis Ababa,Ethiopia,c5757fa70e861740,,2024-06-12T20:31:06.106380
+P000562,Zeleke,Niguse,1991-10-20,M,Ethiopian,software_engineer,Employed,66975,ETB,Addis Ababa,Addis Ababa,Ethiopia,a835480a2c9a1cef,0080ae6a834b9474,2023-04-13T13:13:50.166517
+P000563,Yeshimebet,Bemnet,1989-09-14,F,Other,software_engineer,,16036,ETB,Dessie,Amhara,Ethiopia,56d25fcf082fbf69,30260187838ababe,2022-05-22T11:36:38.443062
+P000564,Kidist,Solomon,1980-10-21,F,Ethiopian,cashier,Employed,3573,ETB,Addis Ababa,Addis Ababa,Ethiopia,,e0068c7070ad6902,2023-02-27T03:56:42.406994
+P000565,Aida,Moges,1995-04-24,F,Ethiopian,teacher,Employed,14965,ETB,Addis Ababa,Addis Ababa,Ethiopia,537cd1e61c7b93d7,2d434936fcf5368c,2022-02-07T11:24:16.019557
+P000566,Haimanot,Mohammed,1999-10-05,F,Ethiopian,freelancer,Self-Employed,32700,ETB,Shashamane,Oromia,Ethiopia,5b1f5635e509b9d0,308e8d66b4d508b9,2023-05-22T00:19:41.451635
+P000567,Mulu,Bereket,1973-11-30,F,Ethiopian,cashier,Employed,2879,ETB,Mekelle,Tigray,Ethiopia,37425bf9329b0a2d,6bbbdfcaca020fbf,2025-01-09T14:54:45.575937
+P000568,Girmachew,Lemma,1966-04-12,M,Ethiopian,security_guard,Employed,9523,ETB,Dire Dawa,Dire Dawa,Ethiopia,6f411a7d5a2eed74,422a04169f38547f,2022-06-30T01:02:47.713309
+P000569,Cherenet,Gizachew,1985-12-19,M,Ethiopian,student,Student,3000,ETB,Addis Ababa,Addis Ababa,Ethiopia,4688b31390d0d808,,2022-10-12T00:37:10.622198
+P000570,Samrawit,Fikadu,1995-07-13,F,Ethiopian,day_laborer,Employed,6094,ETB,Addis Ababa,Addis Ababa,Ethiopia,b97c05fa09cb8cb5,2ec900b948999fae,2022-09-09T02:05:56.127345
+P000571,Seyoum,Fistum,1974-01-20,M,Ethiopian,day_laborer,Employed,4606,ETB,Gondar,Amhara,Ethiopia,4dd45b66d121df66,,2024-11-15T13:30:35.077147
+P000572,Welela,Samuel,1994-07-25,F,Ethiopian,accountant,Employed,55625,ETB,Dilla,SNNPR,Ethiopia,d9c6550db78ced27,3016527d2c6f036c,2024-06-15T02:01:35.137251
+P000573,Zeritu,Tamrat,1994-10-27,F,Ethiopian,government_employee,Employed,15715,ETB,Addis Ababa,Addis Ababa,Ethiopia,7a48396655a05d03,b6f43c380eecf70c,2023-04-28T05:31:08.439579
+P000574,Yeshimebet,Beyene,1974-06-16,F,Ethiopian,accountant,Employed,14841,ETB,Addis Ababa,Addis Ababa,Ethiopia,0dae002262123ee2,9055b5a78deb1352,2023-09-29T01:30:17.729768
+P000575,Elfnesh,Alazar,1963-06-10,F,Ethiopian,domestic_worker,Employed,3348,ETB,Addis Ababa,Addis Ababa,Ethiopia,bef7f482bd10da58,ca2697ff47734703,2024-03-03T10:29:37.920337
+P000576,Sinetebeb,Abdela,1986-04-06,F,Ethiopian,lawyer,Employed,39846,ETB,Mekelle,Tigray,Ethiopia,910b8572cbf7d246,8a3d2d5342de62d2,2022-04-02T22:22:49.709828
+P000577,Kalkidan,Bisrat,1978-06-12,F,Ethiopian,farmer,Self-Employed,8990,ETB,Addis Ababa,Addis Ababa,Ethiopia,4485832e86c53fb6,7462850087c00cc1,2023-05-05T05:22:56.776920
+P000578,Elfnesh,Adane,2006-06-16,F,Ethiopian,business_owner,Self-Employed,33710,ETB,Gondar,Amhara,Ethiopia,a5d9bd4eb200db46,,2025-07-02T10:04:09.946702
+P000579,Lidiya,Selam,1978-09-07,F,Ethiopian,cashier,Employed,7135,ETB,Mekelle,Tigray,Ethiopia,,32bb34e4870935c9,2024-06-26T22:56:19.819280
+P000580,Abegaz,Caleb,2002-06-01,M,Ethiopian,farmer,Self-Employed,8975,ETB,Gondar,Amhara,Ethiopia,4527dc45549fd905,ae8230172a75aa15,2023-07-21T01:29:15.542942
+P000581,Etsegenet,Sebhat,1970-01-31,F,Ethiopian,domestic_worker,Employed,5552,ETB,Addis Ababa,Addis Ababa,Ethiopia,f95930e95a1b7dd8,,2024-04-04T01:03:59.087246
+P000582,Misrak,Alazar,2005-01-30,F,Other,day_laborer,Employed,3925,ETB,Jimma,Oromia,Ethiopia,b02666ad0de92536,2097cece97e66ff0,2024-01-04T15:06:22.706016
+P000583,Theodros,Cherenet,1968-03-25,M,Ethiopian,student,Student,10750,ETB,Addis Ababa,Addis Ababa,Ethiopia,b7ee335d5d50ac87,97631adb1f2e95e7,2025-03-29T14:21:29.554466
+P000584,Gebre-Selassie,Habte,1984-07-26,M,Ethiopian,engineer,Employed,26757,ETB,Hosaena,SNNPR,Ethiopia,e5c52fa317e979af,1becd2f22de870d8,2022-01-18T12:11:24.866344
+P000585,Senedu,Dilnesaw,1992-06-02,F,Other,government_employee,Employed,12266,ETB,Addis Ababa,Addis Ababa,Ethiopia,095dfa148edefaf1,,2022-05-17T07:54:25.039593
+P000586,Naomi,Molla,1998-01-13,F,Ethiopian,farmer,Self-Employed,3394,ETB,Addis Ababa,Addis Ababa,Ethiopia,6f09af9b834af2f2,74386edbc7c83c38,2022-11-16T17:44:27.200890
+P000587,Abebe,Girum,2007-01-10,M,Ethiopian,security_guard,Employed,5909,ETB,Hawassa,Sidama,Ethiopia,,2f53ece2cf6ba79f,2024-12-22T06:33:20.398099
+P000588,Abay,Getachew,1987-12-17,M,Other,farmer,,4911,ETB,Addis Ababa,Addis Ababa,Ethiopia,be8dbbdcc9fa5707,16e141661cf049e5,2024-07-03T05:26:18.985328
+P000589,Lake,Kifle,1976-01-15,M,Ethiopian,driver,Employed,9808,ETB,Bahir Dar,Amhara,Ethiopia,ec845ddb4d61ab5c,646c57608e4223d1,2023-09-01T01:36:42.799462
+P000590,Belete,Assefa,2006-06-25,M,Ethiopian,cashier,Employed,6737,ETB,Addis Ababa,Addis Ababa,Ethiopia,64e13ed58f02b84b,9f16067aa830f6d7,2023-06-04T09:15:28.676615
+P000591,Yamrot,Shifferaw,1996-01-01,F,Ethiopian,merchant,Self-Employed,33233,ETB,Addis Ababa,Addis Ababa,Ethiopia,,3020f784c1b753e6,2024-08-31T06:46:13.648475
+P000592,Abiy,Beteab,1970-08-07,M,Ethiopian,engineer,Employed,28074,ETB,Sodo,SNNPR,Ethiopia,c0bf465860e87148,22cc7fc29a68d9e7,2024-03-09T20:03:04.712116
+P000593,Mezgebe,Mekuriya,1995-09-22,M,Ethiopian,merchant,Self-Employed,41985,ETB,Jimma,Oromia,Ethiopia,39b2f4da274a8f21,c7c66564ad6941f5,2025-10-04T15:27:50.542775
+P000594,Tigist,Gashaw,1965-10-04,F,Ethiopian,merchant,Self-Employed,22684,ETB,Jimma,Oromia,Ethiopia,65490b4c9dde094f,27d815f9bf016949,2023-10-13T04:09:44.054319
+P000595,Abdulahi,Michael,1969-02-14,M,Ethiopian,teacher,Employed,16880,ETB,Dilla,SNNPR,Ethiopia,,9c3c1f9bd26ad586,2022-02-08T01:19:41.291874
+P000596,Haile-Selassie,Fikremariam,1980-07-29,M,Ethiopian,merchant,,14546,ETB,Addis Ababa,Addis Ababa,Ethiopia,eaebde0d9f837f40,40d61b02c348c22c,2023-11-25T17:36:39.502541
+P000597,Biftu,Desalegn,1999-06-01,F,Other,driver,Employed,10436,ETB,Adama,Oromia,Ethiopia,aead8654fe4383a6,84180ec4c35bcd3f,2023-12-04T23:16:23.225068
+P000598,Mahder,Yonas,1988-08-08,F,Ethiopian,farmer,Self-Employed,2000,ETB,Addis Ababa,Addis Ababa,Ethiopia,60434f7ea1a4dde6,a88e89e6ed157d36,2023-10-10T04:08:11.152150
+P000599,Senedu,Tarik,1997-07-08,F,Ethiopian,student,Student,2000,ETB,Dire Dawa,Dire Dawa,Ethiopia,1c543c4b69ad8727,fc4b81ad2a1201e2,2024-01-24T04:09:19.403338
+P000600,Amsale,Berhanu,1975-12-28,F,Ethiopian,student,Student,2000,ETB,Hosaena,SNNPR,Ethiopia,,e38378166e436715,2024-04-27T13:45:42.811203
+P000601,Rediet,Legesse,1964-11-13,M,Ethiopian,nurse,Employed,36083,ETB,Dire Dawa,Dire Dawa,Ethiopia,3ba72ba7e86458c1,4c87fa4d667d201b,2022-10-06T00:48:41.137347
+P000602,Zeritu,Kagnew,1983-02-04,F,Ethiopian,software_engineer,Employed,26514,ETB,Mekelle,Tigray,Ethiopia,1a32ded7183390e7,e2d7fbfaed61b446,2025-06-04T03:29:43.002350
+P000603,Aksum,Belachew,1998-01-23,F,Ethiopian,software_engineer,Employed,20120,ETB,Dessie,Amhara,Ethiopia,7cd5d18847bda3ad,62fa99409456e55e,2024-10-08T10:17:31.661509
+P000604,Taitu,Mamush,2003-06-24,F,Ethiopian,teacher,Employed,4955,ETB,Mekelle,Tigray,Ethiopia,fe6453038eac71fc,c1541a84f4c29675,2023-07-03T16:32:03.642376
+P000605,Negassi,Tesfaye,1973-10-16,F,Ethiopian,driver,Employed,8000,ETB,Addis Ababa,Addis Ababa,Ethiopia,a1f3693a4ee77b8e,c3c225ee7c685e84,2022-08-03T07:24:56.475669
+P000606,Derartu,Abayneh,2006-12-26,F,Ethiopian,software_engineer,Employed,54825,ETB,Addis Ababa,Addis Ababa,Ethiopia,81e797d07a3b5473,1f6abb977ced84e9,2024-09-07T08:22:22.372749
+P000607,Bruktawit,  Fistum,1968-01-14,F,Ethiopian,government_employee,Employed,10042,ETB,Nekemte,Oromia,Ethiopia,e350f93051dbd211,9e3b6b5ec2afec01,2024-11-26T16:51:53.675885
+P000608,Aron,Menelik,1963-06-01,M,Other,freelancer,Self-Employed,29546,ETB,Addis Ababa,Addis Ababa,Ethiopia,c6e4ecfa0124fe08,1f89f9847d65f2d2,2023-10-24T22:19:28.811597
+P000609,Genet,Legesse,1998-11-24,F,Ethiopian,ngo_worker,Employed,8618,ETB,Addis Ababa,Addis Ababa,Ethiopia,,9ae78b08f1b817b6,2025-01-09T21:49:00.096382
+P000610,Bahiru,Lemma,2004-03-27,M,Ethiopian,software_engineer,Employed,27244,ETB,Arba Minch,SNNPR,Ethiopia,8ba5a91a8c0324e9,a4a7e3e97b9b1334,2023-06-25T16:37:29.212483
+P000611,Hanna,Habte,1983-09-12,F,Ethiopian,cashier,Employed,5540,ETB,Addis Ababa,Addis Ababa,Ethiopia,54580badc858b071,,2024-06-06T19:27:05.618653
+P000612,Salem,Gashaw,1961-10-28,F,Ethiopian,driver,Employed,17556,ETB,Dire Dawa,Dire Dawa,Ethiopia,02da1a0588d91d6c,b3ac91067222ddc1,2025-04-09T04:53:34.278024
+P000613,Birtukan,Kebron,1993-11-08,F,Ethiopian,nurse,Employed,34555,ETB,Addis Ababa,Addis Ababa,Ethiopia,0a426bc8b0010180,c09de0918d1a3205,2022-08-04T17:23:43.194793
+P000614,Freyhiwot,Fedlu,1995-03-05,F,Ethiopian,merchant,,23620,ETB,Nekemte,Oromia,Ethiopia,2496fadc537cc823,fdea6aeee435f4a8,2024-04-29T22:09:06.823337
+P000615,Anteneh,Teshome,1964-04-10,M,Ethiopian,driver,Employed,7112,ETB,Harar,Harari,Ethiopia,f3c99874174a7027,752a2a9d897b35da,2024-01-10T20:09:53.932843
+P000616,Roza,Israel,1975-12-15,F,Ethiopian,government_employee,Employed,15493,ETB,Gondar,Amhara,Ethiopia,054930d7577a0ae5,,2022-08-21T01:20:54.310160
+P000617,Bemnet,Asfaw,2005-07-10,F,Ethiopian,freelancer,Self-Employed,19459,ETB,Addis Ababa,Addis Ababa,Ethiopia,10decc95f9795e1b,82d54d32428ad9a4,2023-06-07T19:57:55.473335
+P000618,Lake,Assefa,1981-08-15,M,Ethiopian,unemployed,Unemployed,2000,ETB,Bishoftu,Oromia,Ethiopia,5ebe39b2dba3a474,bac101c35b88d1d7,2022-03-14T11:22:52.845117
+P000619,Bekila,Daniel,1988-09-03,M,Ethiopian,farmer,Self-Employed,16184,ETB,Asella,Oromia,Ethiopia,a7ed2a78bbad5753,4c865227380310ed,2022-12-25T14:20:36.221037
+P000620,Elias,Legesse,2000-10-01,M,Ethiopian,unemployed,Unemployed,3152,ETB,Bahir Dar,Amhara,Ethiopia,3f4117ab6f91fe58,5a45d0363d7a892d,2022-02-09T10:38:08.457871
+P000621,Helen,Endrias,1983-04-01,F,Ethiopian,engineer,Employed,43601,ETB,Addis Ababa,Addis Ababa,Ethiopia,5f372ca50d5bcf35,b9ddf935d95bb81f,2025-09-09T20:45:36.764413
+P000622,Yewbdar,Thomas,1969-11-20,F,Ethiopian,engineer,Employed,18825,ETB,Jimma,Oromia,Ethiopia,bb5b315dd4e4c133,8f7b63369d36f3e3,2025-04-06T19:31:27.152292
+P000623,Melat,Abenezer,1976-08-24,F,Ethiopian,merchant,Self-Employed,32099,ETB,Dire Dawa,Dire Dawa,Ethiopia,dc385e0da6be29f5,7fe4f05aeca2444c,2025-02-05T18:03:43.188582
+P000624,Addisu,Tibebu,1984-06-27,M,Ethiopian,unemployed,Unemployed,3741,ETB,Hawassa,Sidama,Ethiopia,1a673a3427adb515,c146fc53cd51edcf,2022-08-30T14:18:11.102145
+P000625,Amsalu,Endrias,1991-07-19,F,Ethiopian,lawyer,Employed,31934,ETB,Addis Ababa,Addis Ababa,Ethiopia,813b261452666f2c,54a2ed83c0318b22,2023-12-08T22:10:50.681721
+P000626,Wolde-Giorgis,Abebe,2000-10-15,M,Ethiopian,merchant,Self-Employed,13351,ETB,Shashamane,Oromia,Ethiopia,3760f12610dd6cc2,02cb5afd61629870,2022-03-21T18:33:25.771924
+P000627,Wudassie,Fikadu,1981-07-26,F,Ethiopian,freelancer,Self-Employed,18739,ETB,Addis Ababa,Addis Ababa,Ethiopia,10fd003f8ec7c365,1224a5dbadb78002,2023-07-12T13:52:51.171628
+P000628,Fiseha,Niguse,1986-01-05,M,Ethiopian,engineer,Employed,18601,ETB,Shashamane,Oromia,Ethiopia,30f3407c5e726175,19876ffaad337afd,2025-02-05T10:28:08.158545
+P000629,Maraki,Mussie,1965-12-22,F,Ethiopian,farmer,Self-Employed,7487,ETB,Addis Ababa,Addis Ababa,Ethiopia,e7125ef8773d1fe8,eae9203db2bc0e44,2024-05-02T01:20:46.644653
+P000630,Saba,Gebre-Meskel,1977-12-09,F,Ethiopian,government_employee,Employed,11438,ETB,Addis Ababa,Addis Ababa,Ethiopia,29564aba5b6b1ead,,2024-04-24T22:43:38.692626
+P000631,  Aida,Zelalem,1970-07-12,F,Ethiopian,teacher,Employed,21171,ETB,Hawassa,Sidama,Ethiopia,83792535aa256003,e7b56672ee6188be,2024-06-11T02:31:33.525457
+P000632,Netsanet,Cherenet,1997-09-01,F,Ethiopian,cashier,Employed,13374,ETB,Addis Ababa,Addis Ababa,Ethiopia,e74e393b162ba2b8,7a263413909ef7b1,2022-08-04T20:50:23.884768
+P000633,Abdi,Amin,1989-10-01,M,Ethiopian,student,Student,2724,ETB,Addis Ababa,Addis Ababa,Ethiopia,71d7cb6a13b38c19,d795395bde80c770,2025-01-02T22:55:42.780077
+P000634,Dejen,Mebratu,1967-04-01,M,Ethiopian,ngo_worker,Employed,86928,ETB,Addis Ababa,Addis Ababa,Ethiopia,ec9652b9c0102529,62ef822c4ea30673,2024-05-03T13:43:35.298259
+P000635,Nolawi,Zelalem,1984-03-28,M,Ethiopian,software_engineer,Employed,54685,ETB,Hosaena,SNNPR,Ethiopia,d104958f27f7b6b7,59671e578c0f7524,2022-09-13T13:23:33.199970
+P000636,Afework,Simon,1996-08-21,M,Ethiopian,security_guard,Employed,5258,ETB,Dessie,Amhara,Ethiopia,264bd3338641f30b,2fa11bf0cccb24a4,2025-07-31T12:09:42.475976
+P000637,Kelemua,Gebre-Mariam,1971-03-13,F,Ethiopian,lawyer,Employed,37561,ETB,Shashamane,Oromia,Ethiopia,7986794dd781deb4,f7f6ea9556bfdc54,2022-01-23T02:51:30.320265
+P000638,Samrawit,Mekuriya,1994-09-15,F,Ethiopian,ngo_worker,Employed,15854,ETB,Addis Ababa,Addis Ababa,Ethiopia,b1913cde137a61a9,dcd1e0c420cfcf9d,2024-08-19T03:08:53.043392
+P000639,Tsedey,Workneh,1994-10-07,F,Ethiopian,teacher,Employed,8047,ETB,Adama,Oromia,Ethiopia,2825508510f4fda3,c8c2a4b8d87ef934,2023-05-04T17:00:00.741297
+P000640,Hiwot,Mersha,1978-12-15,F,Ethiopian,business_owner,Self-Employed,82201,ETB,Jijiga,Somali,Ethiopia,,797ca56c21990f88,2024-05-15T18:28:12.426232
+P000641,Siham,Mekbib,1982-03-28,F,Ethiopian,cashier,Employed,2984,ETB,Addis Ababa,Addis Ababa,Ethiopia,,88407d6203023827,2024-01-22T20:02:22.724487
+P000642,Helen,Samson,2006-08-28,F,Ethiopian,business_owner,Self-Employed,127764,ETB,Bahir Dar,Amhara,Ethiopia,cdb0dc3747cdf6bf,,2022-12-28T17:30:16.967453
+P000643,Abdul,Tedla,1963-03-03,M,Other,merchant,Self-Employed,34475,ETB,Hosaena,SNNPR,Ethiopia,fab5f0ae529c301d,19d4054be0aa0999,2022-03-01T19:26:36.234777
+P000644,Tadesse,Beteab,1981-01-18,M,Ethiopian,unemployed,Unemployed,2000,ETB,Dilla,SNNPR,Ethiopia,87df3462534a0690,97be993881384ae0,2024-10-02T23:17:35.598588
+P000645,Tigist,Beyene,1969-01-05,F,Ethiopian,software_engineer,Employed,19938,ETB,Mekelle,Tigray,Ethiopia,a7b98a3296dc45e1,b1d91e391979c2e2,2023-08-12T16:47:42.356750
+P000646,Almaz,Wossen,1985-12-10,F,Ethiopian,student,Student,6083,ETB,Sodo,SNNPR,Ethiopia,d6478ceeafcd7a49,ac4b79651375eb04,2023-03-30T12:08:22.180808
+P000647,Shifferaw,Dibaba,1986-09-04,M,Ethiopian,farmer,Self-Employed,8065,ETB,Gondar,Amhara,Ethiopia,491b48dc437feab2,df9d27a8a2afc565,2025-04-16T13:54:39.211705
+P000648,Senait,Legesse,1971-08-24,F,Ethiopian,freelancer,Self-Employed,31794,ETB,Addis Ababa,Addis Ababa,Ethiopia,602ae8af1b4e99bd,,2022-06-15T21:16:46.542930
+P000649,Tersit,Zeleke,1999-01-29,F,Ethiopian,nurse,Employed,4886,ETB,Adama,Oromia,Ethiopia,5859748c75f181db,,2022-05-15T12:42:35.160459
+P000650,Girma,Ayele,1976-01-31,M,Ethiopian,day_laborer,Employed,2985,ETB,Gondar,Amhara,Ethiopia,1254d4f4bdc152f8,c2a822cd6fc306cc,2023-03-30T02:05:54.614593
+P000651,Fekre-Selasie,Wossen,1997-04-23,M,Ethiopian,freelancer,Self-Employed,16973,ETB,Asella,Oromia,Ethiopia,023b5ab391f7b2fd,fd41f80fe3f433c6,2024-01-08T21:29:57.170695
+P000652,Saba,Addisu,1997-04-03,F,Ethiopian,domestic_worker,Employed,2832,ETB,Sodo,SNNPR,Ethiopia,ef2c1de8340cb04a,adb94a72a5b412b4,2023-05-17T18:10:12.106012
+P000653,Mignote,Andargachew,1962-01-05,F,Ethiopian,farmer,Self-Employed,6367,ETB,Bahir Dar,Amhara,Ethiopia,06a6b17c155a225b,7910bca4c4764e18,2025-09-16T04:48:28.234224
+P000654,Akalu,Negash,1962-06-08,M,Ethiopian,domestic_worker,Employed,4775,ETB,Mekelle,Tigray,Ethiopia,c65f062a2280b351,33eb2cb5bee14f0c,2024-09-17T12:44:42.671822
+P000655,Yordanos,Tamene,1976-11-05,F,Ethiopian,student,Student,3375,ETB,Dilla,SNNPR,Ethiopia,48b2c96fc8f6a6eb,fc322025c0e925d3,2024-02-26T18:33:45.209626
+P000656,Metaferia,Bemnet,1984-03-10,M,Ethiopian,driver,Employed,7364,ETB,Addis Ababa,Addis Ababa,Ethiopia,9d581cecbe48e21c,7be1d5829c81ffc9,2022-03-15T07:11:41.442659
+P000657,Saba,Markos,2002-11-03,F,Ethiopian,student,,4198,ETB,Jijiga,Somali,Ethiopia,25f4109378f51a65,47a6337df86fda3d,2025-03-27T01:50:49.229849
+P000658,Zewdu,Yared,1971-12-27,M,Ethiopian,nurse,Employed,13469,ETB,Hawassa,Sidama,Ethiopia,,e8f84225c543643f,2023-09-07T23:34:50.612399
+P000659,Menna,Elias,1983-03-20,F,Ethiopian,student,Student,6015,ETB,Addis Ababa,Addis Ababa,Ethiopia,a8b9eb89e92c7475,5c2dcd5348b6c903,2025-03-12T07:31:15.829874
+P000660,Robel,Mulugeta,1964-07-02,M,Ethiopian,domestic_worker,Employed,5719,ETB,Hosaena,SNNPR,Ethiopia,c15460f2ac578195,f4e8f56cc395863d,2022-08-05T12:43:27.754948
+P000661,Fikadu,Wasihun,2004-02-04,M,Ethiopian,teacher,Employed,12130,ETB,Shashamane,Oromia,Ethiopia,cab0ca592a3e8eb8,,2025-03-31T16:01:09.907574
+P000662,Beletshachew,Yafet,1986-05-30,F,Ethiopian,accountant,Employed,21682,ETB,Dire Dawa,Dire Dawa,Ethiopia,d18aa6da45373488,4bbc6b7d19bd6d34,2023-11-08T17:30:36.863899
+P000663,Tsegaye,Besufekad,2001-03-22,M,Ethiopian,day_laborer,Employed,2000,ETB,Harar,Harari,Ethiopia,5b4b8d10905af89e,b47a14350e4bed75,2023-12-07T20:45:00.463449
+P000664,Tefera,Gebre-Giorgis,1966-10-20,M,Ethiopian,cashier,Employed,9624,ETB,Addis Ababa,Addis Ababa,Ethiopia,,bc33179a94a5f64d,2024-08-12T19:39:10.339402
+P000665,Gebre-Mariam,Sintayehu,1971-12-05,M,Other,lawyer,Employed,44941,ETB,Adama,Oromia,Ethiopia,a898ad7e87a67b32,fa0842c6a7cb8ffa,2025-06-02T00:14:44.112887
+P000666,Mekdes,Henok,1982-10-08,F,Ethiopian,driver,Employed,9311,ETB,Addis Ababa,Addis Ababa,Ethiopia,d52b2e05bc131794,b4ff658c6479a4cf,2022-07-25T18:33:59.401567
+P000667,Abiot,Dagnachew,1990-03-08,F,Ethiopian,government_employee,Employed,21275,ETB,Addis Ababa,Addis Ababa,Ethiopia,d91120e0e735ef17,681ca6ca4b1f3b55,2025-08-19T11:58:32.859168
+P000668,Nardos,Ayele,1989-07-06,F,Ethiopian,business_owner,Self-Employed,41962,ETB,Addis Ababa,Addis Ababa,Ethiopia,bc28dd96424be49c,ca54624126604fc4,2024-07-16T15:59:40.501820
+P000669,Yohannes,Mohammed,1971-05-16,M,Ethiopian,student,Student,4397,ETB,Jijiga,Somali,Ethiopia,f0c709216a12cf5a,927cdbaf6b2e3e20,2024-06-16T11:12:00.015942
+P000670,Dibaba,Elias,1969-09-12,M,Ethiopian,day_laborer,Employed,3683,ETB,Addis Ababa,Addis Ababa,Ethiopia,9b00bd7e1fa7f89e,488916e324e3ccad,2022-09-25T22:00:03.721595
+P000671,Endale,Tesema,1982-12-16,M,Ethiopian,farmer,Self-Employed,7376,ETB,Dire Dawa,Dire Dawa,Ethiopia,1186c301d7f33325,,2024-07-02T19:27:04.270400
+P000672,Inku,Moges,1975-05-21,F,Ethiopian,merchant,Self-Employed,21172,ETB,Addis Ababa,Addis Ababa,Ethiopia,51df2e030cfb81b9,43de63dd410c9b34,2024-08-19T02:54:57.101224
+P000673,Menbere,Tariku,1982-04-04,F,Ethiopian,teacher,Employed,9147,ETB,Addis Ababa,Addis Ababa,Ethiopia,8ec08615ed0756a3,cff0280ff12a5262,2025-09-19T02:03:11.120221
+P000674,Emebet,Muluken,1970-01-03,F,Ethiopian,student,Student,2103,ETB,Dire Dawa,Dire Dawa,Ethiopia,b49852da08afa9a9,b12de479f146a56c,2023-04-10T02:15:21.408314
+P000675,Hewan,Elias,1968-01-16,F,Ethiopian,student,Student,6539,ETB,Addis Ababa,Addis Ababa,Ethiopia,247ddd62ef5b0943,335d6a276c125f15,2024-10-09T23:29:48.383335
+P000676,Wossen,Hassen,1991-09-01,M,Ethiopian,merchant,Self-Employed,10188,ETB,Sodo,SNNPR,Ethiopia,295a7bc3c71c4595,6710c98f64ed6cc6,2022-08-08T23:04:28.149606
+P000677,Asegedech,Khalid,1997-07-26,F,Ethiopian,software_engineer,Employed,38204,ETB,Hawassa,Sidama,Ethiopia,1a42bd694303da26,2aed9518db31c029,2024-02-22T22:48:24.307290
+P000678,Sara,Ermias,1980-07-06,F,Ethiopian,student,Student,8735,ETB,Addis Ababa,Addis Ababa,Ethiopia,f2046b1f46e4c993,5dc4be4b98a8be63,2023-01-12T14:19:08.303289
+P000679,Zeleke,Mersha,1984-08-21,M,Ethiopian,accountant,Employed,22912,ETB,Sodo,SNNPR,Ethiopia,5a51ed2e136e90b1,e08ef62b36c8eb03,2025-06-17T19:08:56.361245
+P000680,Habtamu,Fedlu,1989-10-17,M,Ethiopian,farmer,Self-Employed,9162,ETB,Gondar,Amhara,Ethiopia,011760778bac6ada,18e1900ff80fa1e2,2022-12-07T23:34:13.353471
+P000681,nEBIYOU,Mesfin,1996-02-29,M,Ethiopian,driver,Employed,18994,ETB,Dire Dawa,Dire Dawa,Ethiopia,189d3547529b962d,3c231f0684c3d980,2022-02-06T07:59:33.443695
+P000682,Ashenafi,Abenezer,2006-08-16,M,Ethiopian,teacher,Employed,17652,ETB,Shashamane,Oromia,Ethiopia,e6d08b7d8ffc7339,1f089903e6c43bee,2023-06-06T13:47:38.605657
+P000683,Cherenet,Thomas,1972-10-22,M,Other,driver,Employed,13568,ETB,Addis Ababa,Addis Ababa,Ethiopia,9d8d0cc503bee6ce,82a862b02b8ccb5e,2023-07-21T07:13:41.919980
+P000684,Redwan,Dawit,1978-11-25,M,Ethiopian,merchant,Self-Employed,12532,ETB,Harar,Harari,Ethiopia,773a568f7ff3c7a4,ba9d2f69abb9f71d,2025-04-27T23:52:22.002718
+P000685,Betelhem,Tesfaye,2004-01-27,F,Ethiopian,software_engineer,Employed,21860,ETB,Addis Ababa,Addis Ababa,Ethiopia,7521793fff3c8862,d410872872a14b26,2024-04-25T14:48:09.096199
+P000686,Zekarias,Efrem,1971-06-09,M,Ethiopian,ngo_worker,Employed,28269,ETB,Addis Ababa,Addis Ababa,Ethiopia,8d0801195d62bbc3,12bc2bee08a41cc8,2023-03-02T02:34:41.000242
+P000687,Akalu,Ermias,2004-02-21,M,Other,cashier,Employed,3313,ETB,Gondar,Amhara,Ethiopia,e5072f507f45ab61,5786944d471ff142,2025-12-30T00:09:36.907251
+P000688,Senedu,Legesse,1961-10-19,F,Ethiopian,day_laborer,Employed,4156,ETB,Jijiga,Somali,Ethiopia,4b705ee1f0ff44c9,8a6f7d0220f8fb32,2022-08-31T07:06:03.970955
+P000689,Salem,Mitiku,1982-08-14,F,Ethiopian,unemployed,Unemployed,2000,ETB,Addis Ababa,Addis Ababa,Ethiopia,85df48362bf8b19a,9c619d4e28088d83,2022-01-13T19:55:06.506106
+P000690,Hewan,Sebhat,1999-05-22,F,Ethiopian,engineer,Employed,34677,ETB,Jijiga,Somali,Ethiopia,,f96c161338e2b339,2023-12-10T04:04:10.341878
+P000691,Aschalew,Tesfaye,1963-04-17,M,Ethiopian,engineer,,21282,ETB,Debre Birhan,Amhara,Ethiopia,a6239b5562fccb6b,0481df2645470b60,2024-02-16T08:18:15.451809
+P000692,Tewabech,Abdela,1966-03-26,F,Ethiopian,security_guard,Employed,7358,ETB,Addis Ababa,Addis Ababa,Ethiopia,a41ebe555fe35d33,bb482f9281eb4b7a,2022-03-26T21:44:36.155766
+P000693,Ezana,Habte,1979-07-10,M,Ethiopian,doctor,Employed,95707,ETB,Addis Ababa,Addis Ababa,Ethiopia,31f95ff9536112b0,596a6998a20d648e,2023-12-21T06:42:45.575841
+P000694,Dawit,Kassahun,2004-11-05,M,Ethiopian,farmer,Self-Employed,9210,ETB,Bahir Dar,Amhara,Ethiopia,a5575d1a0a578c85,17aaa7d148667955,2024-02-19T04:37:37.987637
+P000695,Hamelmal,Kidus,2002-07-26,F,Ethiopian,accountant,Employed,19905,ETB,Addis Ababa,Addis Ababa,Ethiopia,,b384c686c6284ded,2025-08-19T22:52:55.830733
+P000696,Aster,Abraham,1981-06-11,F,Ethiopian,teacher,Employed,5651,ETB,Jijiga,Somali,Ethiopia,2068012f87e5d19e,,2022-03-22T17:48:08.429315
+P000697,Elfnesh,Andinet,1983-12-09,F,Ethiopian,government_employee,Employed,19344,ETB,Addis Ababa,Addis Ababa,Ethiopia,5a0f03f2d8443831,bf989ebc2d03d41b,2025-05-22T19:11:40.990853
+P000698,Sitota,Fikremariam,1988-12-20,F,Ethiopian,unemployed,Unemployed,2414,ETB,Addis Ababa,Addis Ababa,Ethiopia,792d14c6c2ee2968,a230e209dc2b5c02,2025-01-13T23:07:21.612299
+P000699,Adanech,Million,1977-02-07,F,Ethiopian,freelancer,Self-Employed,9461,ETB,Addis Ababa,Addis Ababa,Ethiopia,88037a6777712932,4325806279bf6b4e,2023-11-08T21:45:21.959666
+P000700,Samson,Melaku,1991-06-30,M,Ethiopian,farmer,Self-Employed,30682,ETB,Adama,Oromia,Ethiopia,c13def3d13a2ddf6,,2023-06-22T19:44:31.063625
+P000701,Robel,Paulos,1973-05-20,M,Ethiopian,student,Student,3653,ETB,Dilla,SNNPR,Ethiopia,c6167e521fffecd3,75eba2d45e6eb92c,2025-03-14T07:09:57.515891
+P000702,Kassaye,Abdul,1982-10-02,M,Ethiopian,security_guard,Employed,5601,ETB,Sodo,SNNPR,Ethiopia,9eab8e234bdda279,15243c415dcadd12,2022-09-05T08:11:29.779981
+P000703,Adane,Gedion,2004-11-18,M,Ethiopian,software_engineer,Employed,13446,ETB,Addis Ababa,Addis Ababa,Ethiopia,,,2022-06-08T18:13:23.273578
+P000704,Etsegenet,Asrat,1982-07-24,F,Ethiopian,domestic_worker,Employed,4532,ETB,Arba Minch,SNNPR,Ethiopia,1273826835b559e9,080933852e2d0621,2025-01-29T23:00:34.674533
+P000705,Mamo,Demeke,1964-01-25,M,Ethiopian,unemployed,Unemployed,2108,ETB,Jijiga,Somali,Ethiopia,d48bb7a397e3a739,16b939b7dbd4aa3e,2022-02-19T10:13:32.511926
+P000706,Inku,Nathnael,2005-06-07,F,Ethiopian,farmer,Self-Employed,6823,ETB,Hosaena,SNNPR,Ethiopia,a79ab9e1ad1d2418,45a36cb14e7f2ecf,2023-06-30T04:14:01.370635
+P000707,Welela,Issak,1962-08-23,F,Ethiopian,freelancer,Self-Employed,21727,ETB,Addis Ababa,Addis Ababa,Ethiopia,1f1275dc2be43a5a,aae8ab66485fa6db,2023-06-06T11:18:10.347001
+P000708,Eskedar,Demerew,1994-06-15,F,Ethiopian,teacher,Employed,14101,ETB,Adama,Oromia,Ethiopia,2f4b41182a873bff,143b4a6831d58bfa,2022-07-17T12:40:58.492500
+P000709,Kassahun,Gebre-Selassie,1989-02-15,M,Ethiopian,day_laborer,Employed,5906,ETB,Hawassa,Sidama,Ethiopia,,85469353e29295d8,2025-10-08T18:47:59.437419
+P000710,Hassen,Ashenafi,1989-05-29,M,Ethiopian,student,Student,4356,ETB,Addis Ababa,Addis Ababa,Ethiopia,9355b45ea208a6aa,91a7b34c47163b28,2023-08-08T12:25:02.633214
+P000711,Muluemebet,Kagnew,1972-04-24,F,Ethiopian,farmer,Self-Employed,10065,ETB,Jijiga,Somali,Ethiopia,12293710a18323b8,d2b0cfd75ed9fd64,2023-08-10T12:06:37.444082
+P000712,Algansh,Gebre-Selassie,1972-02-28,F,Ethiopian,day_laborer,,4359,ETB,Dire Dawa,Dire Dawa,Ethiopia,,,2022-02-15T07:14:29.385327
+P000713,Thut,Mengistu,1966-10-25,F,Ethiopian,business_owner,Self-Employed,30724,ETB,Addis Ababa,Addis Ababa,Ethiopia,595f23be0955af2e,,2023-05-22T17:48:01.408130
+P000714,Mimi,Mekonnen,1973-02-19,F,Ethiopian,unemployed,Unemployed,2155,ETB,Dire Dawa,Dire Dawa,Ethiopia,7395efb47c0cb410,a4263d5f3188841c,2023-11-22T17:28:07.916442
+P000715,Mimi,Tekeste,2004-05-08,F,Ethiopian,teacher,Employed,7067,ETB,Addis Ababa,Addis Ababa,Ethiopia,3339602e9a021e2d,ebc62a9281d6f0b7,2025-08-20T08:50:47.785029
+P000716,Fikremariam,Ashenafi,1987-10-29,M,Ethiopian,freelancer,Self-Employed,41447,ETB,Addis Ababa,Addis Ababa,Ethiopia,6a60ebd9bb95adfd,,2023-09-29T17:53:42.005021
+P000717,Haimanot,Dagnachew,1987-09-03,F,Ethiopian,cashier,Employed,13840,ETB,Addis Ababa,Addis Ababa,Ethiopia,358799242acec7c6,772be7f90a98bf11,2023-11-25T11:33:12.060513
+P000718,Gebre-Micheal,Estifanos,1961-10-18,M,Ethiopian,lawyer,Employed,41601,ETB,Dessie,Amhara,Ethiopia,c3e47b5a5e73c0a7,49779b93c5f09979,2023-11-16T18:18:47.961839
+P000719,Kalkidan,Caleb,1976-12-29,F,Ethiopian,engineer,Employed,19747,ETB,Addis Ababa,Addis Ababa,Ethiopia,44e427afbf13c305,bc930372320f337a,2024-06-16T03:53:14.259127
+P000720,Senait,Abera,1987-01-06,F,Other,student,Student,8737,ETB,Addis Ababa,Addis Ababa,Ethiopia,a83d9622ebacdccb,,2024-12-09T17:51:41.769120
+P000721,Zeritu,Bereket,2002-03-30,F,Ethiopian,student,Student,2872,ETB,Sodo,SNNPR,Ethiopia,eff47faab2bc05ca,0fda4a2dab88fefc,2022-08-14T00:52:06.502120
+P000722,Metaferia,Chebude,1993-05-06,M,Ethiopian,nurse,Employed,7749,ETB,Bishoftu,Oromia,Ethiopia,d5dd4d99498d41b4,d853f01d9f20dcc1,2024-07-17T02:37:48.537632
+P000723,Gizachew,Jemal,1982-01-13,M,Ethiopian,driver,Employed,4919,ETB,Addis Ababa,Addis Ababa,Ethiopia,447631bd576232e8,f34fabe59c654a84,2024-02-12T23:48:42.505250
+P000724,Maramawit,Getahun,2000-11-26,F,Ethiopian,student,Student,4653,ETB,Addis Ababa,Addis Ababa,Ethiopia,a6a42e02d2a79cc5,c06406ef3dfcbcdf,2022-07-14T17:49:22.598469
+P000725,Gezahegn,Mesfin,1969-07-06,M,Ethiopian,student,Student,4184,ETB,Addis Ababa,Addis Ababa,Ethiopia,e24479c49a24ed20,,2022-11-29T20:40:49.256782
+P000726,Husein,Yakob,1999-11-14,M,Ethiopian,student,Student,3457,ETB,Addis Ababa,Addis Ababa,Ethiopia,b474581408cb74e9,5aa16577124259ae,2022-11-15T10:23:47.529501
+P000727,Belay,Gezahegn,1984-04-25,M,Ethiopian,teacher,Employed,33205,ETB,Dire Dawa,Dire Dawa,Ethiopia,99ab0532bb1316f6,668f786a88ae3e00,2022-02-04T00:51:52.696345
+P000728,Berhanu,Mesfin,1968-07-19,M,Ethiopian,driver,Employed,9032,ETB,Mekelle,Tigray,Ethiopia,0565c98b0603c7cb,6e7b08139a2e4149,2022-07-12T05:35:16.574251
+P000729,Hassen,Dereje,1981-01-07,M,Ethiopian,merchant,,13492,ETB,Addis Ababa,Addis Ababa,Ethiopia,fd9b7c232c92d89c,2555f50fbdb21937,2025-09-23T16:29:17.019196
+P000730,Elfnesh,Kebron,1984-10-13,F,Ethiopian,government_employee,Employed,26489,ETB,Adama,Oromia,Ethiopia,1f1ec1f44be6fb2e,ad83e97a6bb80917,2023-12-22T10:24:31.565874
+P000731,Dagmawi,Fasil,1993-07-08,M,Ethiopian,software_engineer,Employed,56183,ETB,Addis Ababa,Addis Ababa,Ethiopia,9d67b17f4207f766,a2f88d3a7436047b,2025-04-15T15:30:47.810671
+P000732,Girma,Nathnael,2006-03-31,M,Ethiopian,software_engineer,Employed,64335,ETB,Addis Ababa,Addis Ababa,Ethiopia,63959d6c9b4d51c5,,2022-09-29T09:39:09.013142
+P000733,Binyam,Yakob,1983-02-26,M,Ethiopian,merchant,Self-Employed,26324,ETB,Addis Ababa,Addis Ababa,Ethiopia,9bbff723e25ad1db,f25a8987df631109,2025-08-04T09:55:55.976657
+P000734,Bereket,Tadesse,1968-05-21,M,Ethiopian,freelancer,Self-Employed,29877,ETB,Nekemte,Oromia,Ethiopia,b0ba321b3fe30dca,4a874faa53ca02e7,2025-08-31T18:18:09.846000
+P000735,Endalkachew,Mintesnot,1974-11-26,M,Other,government_employee,Employed,6604,ETB,Addis Ababa,Addis Ababa,Ethiopia,2f7b27b8cb1c6a89,b773089ca61e9193,2025-04-28T23:27:24.403468
+P000736,Abigail,Haile-Mariam,1993-03-06,F,Ethiopian,freelancer,Self-Employed,34703,ETB,Bahir Dar,Amhara,Ethiopia,,ed048c2b7a31e3de,2023-08-18T16:52:06.503070
+P000737,Markos,Mamo,1968-06-10,M,Ethiopian,day_laborer,,2957,ETB,Adama,Oromia,Ethiopia,61da17b660dc402a,e701ef4d5c9e2d3c,2022-12-15T00:39:30.408255
+P000738,Mamo,Abdul,1997-11-16,M,Ethiopian,student,Student,9254,ETB,Addis Ababa,Addis Ababa,Ethiopia,,,2022-12-03T04:12:43.427562
+P000739,Kassahun,Medhin,1983-08-20,M,Ethiopian,business_owner,Self-Employed,48146,ETB,Addis Ababa,Addis Ababa,Ethiopia,165a785b522925ec,6de7a57690789d70,2025-05-01T00:22:02.182454
+P000740,Beyene,Alemu,2005-02-20,M,Ethiopian,business_owner,Self-Employed,48498,ETB,Addis Ababa,Addis Ababa,Ethiopia,dd186a7501403b33,4e0b904ee1e3f8d5,2022-10-30T02:05:55.074609
+P000741,Hagos,Legesse,1964-11-29,M,Ethiopian,engineer,Employed,26420,ETB,Shashamane,Oromia,Ethiopia,81da5f60e66b48a1,b56dd1b18ce1447d,2025-01-28T17:47:13.845368
+P000742,Gedion,Menelik,1989-03-20,M,Ethiopian,lawyer,Employed,57862,ETB,Hosaena,SNNPR,Ethiopia,241380797de88b48,c6960697d13dd911,2024-06-12T13:06:39.536220
+P000743,Belaynesh,Mussie,1961-09-17,F,Ethiopian,software_engineer,Employed,9054,ETB,Addis Ababa,Addis Ababa,Ethiopia,994c0d014c214f3a,2f62da8d0fe6aa54,2025-01-24T13:56:56.848397
+P000744,Melaku,Molla,1963-08-22,M,Ethiopian,freelancer,Self-Employed,24963,ETB,Addis Ababa,Addis Ababa,Ethiopia,6a13d0754ca5bdfd,5e010809ad116b26,2023-07-12T14:25:48.643346
+P000745,Rebka,Leul,1995-05-17,F,Ethiopian,day_laborer,Employed,6168,ETB,Gondar,Amhara,Ethiopia,2b3e5f8563bb5cc3,13ef328575a9dbda,2024-08-22T01:37:24.158797
+P000746,Martha,Teshome,1987-04-09,F,Ethiopian,software_engineer,Employed,55782,ETB,Dire Dawa,Dire Dawa,Ethiopia,,582e5c4b8228e8eb,2022-11-12T14:52:08.503845
+P000747,Moges,Alula,1962-02-26,M,Ethiopian,farmer,Self-Employed,4642,ETB,Bishoftu,Oromia,Ethiopia,a031e48664ed0a80,c1326f59239552fe,2025-11-08T03:39:34.517721
+P000748,Aklilu,Argaw,1967-02-05,M,Ethiopian,engineer,Employed,31419,ETB,Dire Dawa,Dire Dawa,Ethiopia,dae91e8320bcde6c,c1602f59075a8d8a,2023-11-09T22:33:46.518861
+P000749,Atsede,Yafet,1971-06-28,F,Ethiopian,farmer,Self-Employed,4238,ETB,Jijiga,Somali,Ethiopia,4c80340ea29a2c1a,62f8b2da88bf9d64,2022-04-21T02:31:14.749100
+P000750,Yamrot,Aschalew,1981-04-19,F,Ethiopian,accountant,Employed,8976,ETB,Addis Ababa,Addis Ababa,Ethiopia,2e937a883b4b5d82,13af8293b956be50,2022-07-11T04:54:42.389838
+P000751,Haile-Selassie,Mekbib,1993-11-22,M,Ethiopian,student,Student,2247,ETB,Adama,Oromia,Ethiopia,6b2d5941dab5c6f3,744784c1f448366e,2024-07-31T18:29:18.827759
+P000752,Amin,Adane,2001-12-17,M,Ethiopian,security_guard,Employed,14151,ETB,Addis Ababa,Addis Ababa,Ethiopia,5b905a511b473de0,1392eba8bb8a05e9,2025-08-15T08:49:05.343302
+P000753,Amin,Dagnachew,1969-06-18,M,Other,student,Student,2768,ETB,Addis Ababa,Addis Ababa,Ethiopia,,cc2c116b42e429b5,2022-08-14T06:47:45.288476
+P000754,Habtamu,Aklilu,1972-06-13,M,Ethiopian,merchant,Self-Employed,31986,ETB,Asella,Oromia,Ethiopia,b89acaed313c8469,797f5392a3520076,2024-02-12T23:16:01.689903
+P000755,Asegedech,Atinafu,1964-10-08,F,Ethiopian,business_owner,Self-Employed,44265,ETB,Sodo,SNNPR,Ethiopia,479d1b810a885167,eda10ed3fd42e440,2022-01-04T21:42:21.952919
+P000756,Teferri,Liku,1994-04-19,M,Ethiopian,domestic_worker,Employed,2837,ETB,Addis Ababa,Addis Ababa,Ethiopia,cc05c6a4f744bee2,d46cd714043473e7,2022-04-29T10:56:25.384926
+P000757,Ibrahim,Abel,2002-09-20,M,Ethiopian,student,,11229,ETB,Addis Ababa,Addis Ababa,Ethiopia,67cb925af7f82ebe,846e1eb03a6f5947,2024-02-17T00:44:26.418362
+P000758,Azalech,Dereje,2004-03-04,F,Other,cashier,Employed,13102,ETB,Dire Dawa,Dire Dawa,Ethiopia,ff3a2c1083ac2061,,2024-10-11T16:18:05.191360
+P000759,Atlabachew,Nebyat,1993-04-07,M,Ethiopian,student,Student,5493,ETB,Addis Ababa,Addis Ababa,Ethiopia,46e041add5463698,738a4576ffac1e96,2025-02-02T19:33:09.568578
+P000760,Seid,Endalkachew,2002-08-27,M,Ethiopian,farmer,Self-Employed,2212,ETB,Dire Dawa,Dire Dawa,Ethiopia,29d40889b68824f9,,2024-03-21T03:13:12.584939
+P000761,Hanna,Andargachew,1973-05-26,F,Ethiopian,government_employee,Employed,11041,ETB,Jimma,Oromia,Ethiopia,a67247a6fbefb0b1,d17dbb9872d4ef1a,2023-11-16T02:15:17.661182
+P000762,Alazar,Tamene,1966-12-21,M,Ethiopian,teacher,Employed,29446,ETB,Dire Dawa,Dire Dawa,Ethiopia,1a67e66182fd7f07,,2023-09-21T06:45:47.026032
+P000763,Argaw,Abraham,1985-04-22,M,Ethiopian,software_engineer,Employed,56987,ETB,Dire Dawa,Dire Dawa,Ethiopia,82301ec944299f4d,d101b8462000d0ff,2022-01-28T12:02:29.982525
+P000764,Demerew,Adugna,2001-01-24,M,Ethiopian,security_guard,Employed,11115,ETB,Nekemte,Oromia,Ethiopia,8782ede7af3cb5e6,0c9e9010f4e970c6,2023-10-25T14:32:46.887321
+P000765,Beletshachew,Sofonyas,1966-12-26,F,Ethiopian,business_owner,Self-Employed,75305,ETB,Arba Minch,SNNPR,Ethiopia,6af9c5d3c6cbcdbb,54952e6d69850860,2023-02-12T04:18:41.750529
+P000766,Atlabachew,Abayneh,1989-03-17,M,Ethiopian,student,Student,5806,ETB,Addis Ababa,Addis Ababa,Ethiopia,bd10b5476e92c2c7,6ebac6dea20a8e83,2023-11-10T18:51:25.929040
+P000767,Abraham,Yakob,1984-11-06,M,Ethiopian,freelancer,,44395,ETB,Addis Ababa,Addis Ababa,Ethiopia,7b454effd565c17b,0657dd766f376ac8,2025-01-05T12:40:14.229429
+P000768,Hassen,Niguse,1964-10-07,M,Ethiopian,student,Student,4698,ETB,Jijiga,Somali,Ethiopia,62295e196ea18b09,,2022-05-08T09:10:26.374169
+P000769,Aklilu,Demeke,1981-09-25,M,Ethiopian,engineer,Employed,70554,ETB,Dessie,Amhara,Ethiopia,,a17fb43a3065ede3,2024-12-17T20:37:52.331854
+P000770,Selam,Tefera,1992-12-08,F,Ethiopian,student,Student,6502,ETB,Bahir Dar,Amhara,Ethiopia,36d40451213cedfd,21acb0fc1c605cf2,2023-04-24T18:26:26.463324
+P000771,Demeke,Khalid,2002-02-08,M,Ethiopian,freelancer,Self-Employed,38459,ETB,Dire Dawa,Dire Dawa,Ethiopia,1977d9c70fea62c6,3f60e269367b2f5a,2025-07-01T07:17:35.285841
+P000772,Amelework,Ibrahim,1965-11-16,F,Ethiopian,nurse,Employed,6617,ETB,Mekelle,Tigray,Ethiopia,14716a6d199c28ec,21e4e916989be45e,2024-02-02T23:59:05.665605
+P000773,Meaza,Estifanos,1999-03-13,F,Ethiopian,unemployed,Unemployed,3000,ETB,Gondar,Amhara,Ethiopia,6c9116362d7a2114,,2025-09-26T02:12:37.965645
+P000774,Tenagne,Afework,1991-05-26,F,Ethiopian,government_employee,Employed,22720,ETB,Addis Ababa,Addis Ababa,Ethiopia,bc440d936b46c798,1ed642497136cf2d,2023-12-06T01:54:41.884673
+P000775,Wuhib,Sisay,1993-09-28,M,Ethiopian,security_guard,Employed,9881,ETB,Addis Ababa,Addis Ababa,Ethiopia,c0ace24ba163c1d9,,2022-03-08T05:52:19.478513
+P000776,Biftu,Nega,2002-03-20,F,Ethiopian,student,Student,4605,ETB,Dilla,SNNPR,Ethiopia,,94b166928dbcddc1,2024-03-12T10:09:32.826099
+P000777,Muluemebet,Seifu,1967-12-26,F,Ethiopian,farmer,Self-Employed,11364,ETB,Hawassa,Sidama,Ethiopia,0ba93ebf25b72978,76d691860340e057,2023-08-02T07:13:47.586390
+P000778,Ermias,Yidnekachew,1994-06-28,M,Ethiopian,driver,Employed,5695,ETB,Hawassa,Sidama,Ethiopia,6226ed6db3c9a8b5,,2024-07-21T02:34:11.845997
+P000779,Tsedey,Taye,1981-08-31,F,Ethiopian,day_laborer,Employed,3204,ETB,Addis Ababa,Addis Ababa,Ethiopia,cf41b61559a4c856,51e19c2a5a0da85b,2025-04-14T20:01:35.989150
+P000780,bRUKTAWIT,Abiy,1990-01-31,F,Ethiopian,doctor,Employed,26866,ETB,Jijiga,Somali,Ethiopia,d28a4decd34cbf6e,1ed0351823ea57b1,2022-08-15T11:54:24.712821
+P000781,Aschalew,Beyene,2003-06-25,M,Ethiopian,farmer,Self-Employed,6691,ETB,Addis Ababa,Addis Ababa,Ethiopia,77af08bd5804a5dd,,2024-05-30T11:46:43.417221
+P000782,Hamere,Dibaba,1976-12-05,F,Ethiopian,day_laborer,Employed,2000,ETB,Shashamane,Oromia,Ethiopia,fdf234e5c3c610e5,dfeb77f20785e52c,2025-05-06T17:40:17.802161
+P000783,Argaw,Gebre-Giorgis,1982-10-02,M,Ethiopian,business_owner,Self-Employed,71658,ETB,Debre Birhan,Amhara,Ethiopia,73620a8107f7276a,d140163dec164edc,2023-04-24T06:42:05.295924
+P000784,Fegegta,Dejen,1978-04-23,F,Other,business_owner,Self-Employed,54129,ETB,Dessie,Amhara,Ethiopia,099a9269592b8473,,2024-06-13T13:03:49.306235
+P000785,Dagmawit,Tariku,1968-09-20,F,Ethiopian,lawyer,Employed,33495,ETB,Hosaena,SNNPR,Ethiopia,0ee72d941cf64958,6127c5f49ae9a260,2024-05-19T18:39:29.654535
+P000786,Ezana,Paulos,1997-05-29,M,Other,freelancer,Self-Employed,37543,ETB,Gondar,Amhara,Ethiopia,6cde249ec58e57e1,,2022-07-04T09:39:32.214533
+P000787,Abebech,Ahmed,1971-06-29,F,Ethiopian,unemployed,Unemployed,2000,ETB,Jijiga,Somali,Ethiopia,f9bff55724ff8706,198dc4e247d19640,2023-05-14T13:21:54.597150
+P000788,Petros,Samson,2005-03-18,M,Ethiopian,business_owner,Self-Employed,71456,ETB,Dilla,SNNPR,Ethiopia,,33da7b07dc6016d2,2022-10-16T08:37:51.701339
+P000789,Atsede,Haile-Selassie,1983-09-27,F,Ethiopian,unemployed,Unemployed,2000,ETB,Sodo,SNNPR,Ethiopia,f612ab2ba47b7199,ab9bef49057adc9f,2024-07-24T16:48:06.614813
+P000790,Inku,Alebachew,1994-11-16,F,Other,student,,10823,ETB,Bishoftu,Oromia,Ethiopia,697ba5dba9463c31,,2024-12-27T11:17:07.503937
+P000791,Khalid,Gebre-Giorgis,1988-09-15,M,Ethiopian,teacher,Employed,8822,ETB,Mekelle,Tigray,Ethiopia,3c006226cd606398,,2022-07-31T22:56:11.166844
+P000792,Wuhib,Anteneh,1992-04-19,M,Ethiopian,ngo_worker,Employed,18743,ETB,Gondar,Amhara,Ethiopia,8153105d5955f726,0821d90c3323ff39,2025-06-01T22:25:56.315424
+P000793,Dilnesaw,Dagim,1962-11-24,M,Ethiopian,unemployed,Unemployed,2000,ETB,Adama,Oromia,Ethiopia,c3bd679772cc2a8e,8bd35718188b468c,2024-04-19T21:21:48.960896
+P000794,Aschalew,Ashenafi,1982-08-02,M,Ethiopian,government_employee,Employed,20387,ETB,Addis Ababa,Addis Ababa,Ethiopia,a3ccd159fbd56c9a,4a425fe8b7085d00,2022-06-19T20:54:59.492185
+P000795,Alebachew,Girma,1962-03-15,M,Ethiopian,ngo_worker,Employed,38288,ETB,Jimma,Oromia,Ethiopia,,d94a540f8c7ecd19,2025-10-26T17:03:25.780707
+P000796,Zewdu,Simon,1981-04-02,M,Ethiopian,software_engineer,Employed,22501,ETB,Addis Ababa,Addis Ababa,Ethiopia,b56cd5367a19ae12,718525e85830e7aa,2024-05-05T02:44:49.081662
+P000797,Demerew,Mebratu,1979-12-10,M,Ethiopian,freelancer,Self-Employed,48547,ETB,Addis Ababa,Addis Ababa,Ethiopia,6e6f07c50a6bf517,1f0f03528f6c6997,2025-04-23T09:33:57.523766
+P000798,Aklilu,Fikru,1993-11-30,M,Ethiopian,cashier,Employed,11464,ETB,Bahir Dar,Amhara,Ethiopia,928978832f712fe3,c282f458a899f333,2023-11-20T11:25:08.061787
+P000799,Yeshi,Thomas,1987-03-10,F,Ethiopian,freelancer,Self-Employed,36736,ETB,Jijiga,Somali,Ethiopia,33ec715db19bd6e9,c48168db3e4f1770,2022-07-26T00:42:07.114259
+P000800,Selam,Elias,2002-10-02,F,Ethiopian,teacher,Employed,5759,ETB,Jijiga,Somali,Ethiopia,,76c70565efd8e305,2024-01-22T13:10:36.351728
+P000801,Woyneshet,Theodros,1961-06-28,F,Ethiopian,cashier,Employed,10061,ETB,Addis Ababa,Addis Ababa,Ethiopia,9463062ec1574822,4437d6d69e47b203,2023-12-14T19:11:30.357609
+P000802,Behailu,Paulos,2005-06-27,M,Ethiopian,business_owner,Self-Employed,31650,ETB,Dire Dawa,Dire Dawa,Ethiopia,4a24b18a69f09d0b,2d54b98eca4327dd,2022-03-13T12:28:19.780550
+P000803,Woyneshet,Isayas,1992-05-14,F,Ethiopian,cashier,Employed,9800,ETB,Gondar,Amhara,Ethiopia,e9ddf326548045bf,,2023-08-30T11:12:45.156606
+P000804,Addis,Kefyalew,1991-04-29,F,Ethiopian,merchant,Self-Employed,12464,ETB,Hawassa,Sidama,Ethiopia,c88c85a41ea44637,,2023-07-31T01:15:05.037565
+P000805,Anteneh,Seifu,1962-07-02,M,Ethiopian,freelancer,Self-Employed,31181,ETB,Bishoftu,Oromia,Ethiopia,7f8edf7b9c4aa41d,7c2af64270434f7f,2023-11-05T06:06:03.283396
+P000806,Petros,Elias,2006-02-07,M,Other,business_owner,Self-Employed,73032,ETB,Dire Dawa,Dire Dawa,Ethiopia,,af0cab2bf24e2cae,2023-02-16T08:45:39.644869
+P000807,Wudassie,Fikru,1975-07-28,F,Ethiopian,cashier,Employed,15531,ETB,Dire Dawa,Dire Dawa,Ethiopia,7e946f9a5f08d363,047b432ca32bd61b,2023-07-29T18:50:14.902094
+P000808,Girmachew,Michael,1969-01-26,M,Ethiopian,cashier,Employed,6076,ETB,Addis Ababa,Addis Ababa,Ethiopia,d71714aa4b9c8afd,ddbfc28e743d14b7,2022-03-30T18:34:58.338943
+P000809,Etenesh,Mezgebe,1977-07-31,F,Ethiopian,student,Student,3921,ETB,Nekemte,Oromia,Ethiopia,,524d2a352b184688,2025-06-04T04:55:06.513727
+P000810,Feven,Eskinder,1974-08-29,F,Other,software_engineer,Employed,7438,ETB,Addis Ababa,Addis Ababa,Ethiopia,,51cdea0376c51543,2022-02-21T01:18:21.171551
+P000811,Bereket,Alebachew,1994-08-18,M,Ethiopian,teacher,Employed,8417,ETB,Dire Dawa,Dire Dawa,Ethiopia,3cda45a23c44e5ce,9073eecb98def381,2025-11-28T10:03:09.863400
+P000812,Mohammed,Abera,1966-05-11,M,Ethiopian,accountant,Employed,22269,ETB,Bishoftu,Oromia,Ethiopia,ca81eeef736431e8,d54c2995d76f2bbd,2023-02-23T15:22:08.014418
+P000813,Belaynesh,Abdu,1963-11-16,F,Ethiopian,student,Student,3704,ETB,Addis Ababa,Addis Ababa,Ethiopia,8a9e146792cd479a,8d069dec67e83eef,2025-12-23T00:56:16.045446
+P000814,Alemnesh,Abera,2002-10-13,F,Ethiopian,freelancer,Self-Employed,20197,ETB,Dilla,SNNPR,Ethiopia,939f0b174cfc320a,0c38786b1238b410,2022-09-24T21:08:30.162474
+P000815,Nebiyou,Fasil,1971-12-18,M,Ethiopian,nurse,Employed,14922,ETB,Arba Minch,SNNPR,Ethiopia,7c90fc8a202118e3,8fc991b407c4dae3,2022-01-10T06:11:48.802579
+P000816,Beletshachew,Ezana,1974-07-10,F,Ethiopian,unemployed,Unemployed,2000,ETB,Hosaena,SNNPR,Ethiopia,6b7a32ddaa26a9fd,dbd2ca2385366ac4,2024-07-18T00:30:38.867276
+P000817,Bezawit,Gebre-Mariam,2007-01-03,F,Other,cashier,Employed,3141,ETB,Debre Birhan,Amhara,Ethiopia,130e9c4fde210d4c,19b21dddfa0194bf,2023-09-10T12:08:20.311138
+P000818,Tinbit,Tadesse,1972-07-17,F,Ethiopian,driver,Employed,9279,ETB,Addis Ababa,Addis Ababa,Ethiopia,871bb044fb225968,52cfacf45ca54894,2024-04-21T12:06:48.503972
+P000819,Asnakech,Berhe,1998-05-30,F,Ethiopian,unemployed,Unemployed,3010,ETB,Addis Ababa,Addis Ababa,Ethiopia,21f11d10ab0a002a,4f67693ac75b1d82,2024-11-17T00:23:15.614463
+P000820,Yakob,Gashaw,1985-06-23,M,Ethiopian,driver,Employed,3662,ETB,Addis Ababa,Addis Ababa,Ethiopia,65e3301fd94cd032,159e85b1f8f73aa8,2022-01-11T13:26:33.780110
+P000821,Negash,Yosef,1962-04-27,M,Ethiopian,merchant,Self-Employed,12473,ETB,Addis Ababa,Addis Ababa,Ethiopia,7257eb92a79a5f4f,9c360cd6fa9ad8c2,2023-02-07T15:33:54.864968
+P000822,Bezawit,Abdul,1997-11-09,F,Ethiopian,software_engineer,Employed,19517,ETB,Addis Ababa,Addis Ababa,Ethiopia,f83652711d8076c3,1359a26320c4702a,2022-09-30T12:43:18.204668
+P000823,Hiruy,Ali,1987-10-01,M,Ethiopian,student,Student,4423,ETB,Sodo,SNNPR,Ethiopia,344b6c48e57b9484,a09d913d6d52cf6c,2025-05-05T08:32:28.053993
+P000824,Asnakech,Kidus,1992-04-22,F,Ethiopian,teacher,Employed,13970,ETB,Adama,Oromia,Ethiopia,e06afa713468bc93,3c796a0c04665e4b,2024-05-18T16:32:11.880294
+P000825,Mulu,Shimelis,1973-08-18,F,Other,freelancer,Self-Employed,30539,ETB,Addis Ababa,Addis Ababa,Ethiopia,4564fc60368516e3,e174499cde8eb92d,2023-07-20T23:17:49.109430
+P000826,Andinet,Belachew,1995-08-27,M,Ethiopian,freelancer,Self-Employed,24831,ETB,Addis Ababa,Addis Ababa,Ethiopia,d92cf71057b95b33,,2024-02-24T21:01:08.068358
+P000827,Feker,Abate,1978-07-16,F,Other,freelancer,Self-Employed,15598,ETB,Addis Ababa,Addis Ababa,Ethiopia,e8d6e8db113058fe,,2023-07-06T14:21:02.792245
+P000828,Wossen,Mussie,1982-12-15,M,Ethiopian,doctor,Employed,22514,ETB,Addis Ababa,Addis Ababa,Ethiopia,d097faf8c91bd85e,7455d8b35ad118ec,2022-10-04T18:16:19.104289
+P000829,Eskedar,Beyene,1999-08-08,F,Ethiopian,day_laborer,Employed,3248,ETB,Bishoftu,Oromia,Ethiopia,8581895733a7e4d3,888ac01e667a5db4,2023-09-10T15:54:56.022700
+P000830,Haile-Mariam,Matheos,1965-03-20,M,Ethiopian,cashier,Employed,3732,ETB,Addis Ababa,Addis Ababa,Ethiopia,60da45ed188158f6,2b352033138502eb,2024-08-12T01:02:19.110790
+P000831,Genet,Abdu,1974-07-27,F,Ethiopian,student,Student,5026,ETB,Addis Ababa,Addis Ababa,Ethiopia,5191387af2c0d646,,2024-10-27T10:08:56.168528
+P000832,Freyhiwot,Chebude,1998-10-30,F,Ethiopian,farmer,Self-Employed,8662,ETB,Addis Ababa,Addis Ababa,Ethiopia,4566d7f83dbf5f39,773c63beb771cbaf,2022-03-29T18:07:40.455548
+P000833,Assefa,Caleb,2003-03-03,M,Ethiopian,cashier,Employed,8434,ETB,Harar,Harari,Ethiopia,d6c81bdebab18f02,14836ca24cf5a9ea,2022-10-20T23:25:35.295796
+P000834,Helina,Alemu,1963-06-18,F,Other,nurse,Employed,32620,ETB,Addis Ababa,Addis Ababa,Ethiopia,b2bd46405a79a2a5,,2024-11-11T21:55:19.967502
+P000835,Helen,Kebron,1966-04-08,F,Ethiopian,merchant,Self-Employed,33655,ETB,Dessie,Amhara,Ethiopia,4bd4161a3538c211,,2023-11-15T12:40:54.456720
+P000836,Meron,Andualem,2001-06-25,F,Other,day_laborer,Employed,10611,ETB,Bishoftu,Oromia,Ethiopia,,00b3f2121f239fa9,2023-07-04T01:35:13.128505
+P000837,Bezawit,Fistum,1982-12-04,F,Ethiopian,government_employee,Employed,23558,ETB,Addis Ababa,Addis Ababa,Ethiopia,ef491fbab4cf350a,fc997991e58b035c,2023-04-02T22:00:13.218201
+P000838,Etenesh,Asmamaw,2003-05-23,F,Ethiopian,farmer,Self-Employed,7752,ETB,Shashamane,Oromia,Ethiopia,8ee6e8af25a536c4,4a25ce0231487267,2022-01-30T09:20:35.402189
+P000839,Yidnekachew,Daniel,1998-12-29,M,Ethiopian,security_guard,Employed,9693,ETB,Addis Ababa,Addis Ababa,Ethiopia,6ebe364affd92a3e,ff0bb4732a9adaa3,2025-04-09T12:18:31.026855
+P000840,Kelemua,Bisrat,1985-03-29,F,Ethiopian,business_owner,Self-Employed,51072,ETB,Dilla,SNNPR,Ethiopia,3888f3aae85f5fdb,d043f362da0c2337,2024-05-27T07:44:37.982269
+P000841,  Mamo,Yafet,1971-01-18,M,Ethiopian,freelancer,Self-Employed,41872,ETB,Adama,Oromia,Ethiopia,13d9f43436db47b5,176b425aaf89b3f0,2024-12-09T13:58:59.509809
+P000842,Hanan,Eshete,1996-12-14,F,Other,student,Student,3679,ETB,Hawassa,Sidama,Ethiopia,,67bc1859b337b80e,2023-03-09T05:20:52.714356
+P000843,Lidet,Mintesnot,2002-11-12,F,Ethiopian,merchant,Self-Employed,31164,ETB,Shashamane,Oromia,Ethiopia,,426c489fd0987fef,2022-03-30T20:36:59.311224
+P000844,Abera,Yohannes,1976-03-14,M,Ethiopian,day_laborer,Employed,7073,ETB,Addis Ababa,Addis Ababa,Ethiopia,e15960103caf32bf,0ece77a7ac5c35a0,2023-12-24T14:10:06.491798
+P000845,Yohannes,Mamush,1977-02-05,M,Ethiopian,freelancer,Self-Employed,22727,ETB,Dire Dawa,Dire Dawa,Ethiopia,089113962acb0aff,d12a39eadcfb335b,2023-05-14T06:51:28.899450
+P000846,Lielt,Getahun,1966-06-14,F,Ethiopian,driver,Employed,8037,ETB,Addis Ababa,Addis Ababa,Ethiopia,49ea60c9034d40f2,e56fdf0f2c42a80b,2024-03-12T10:24:59.567791
+P000847,Molla,Frezer,1993-11-13,M,Ethiopian,unemployed,Unemployed,2000,ETB,Addis Ababa,Addis Ababa,Ethiopia,a50c40d831516964,d49b8f8827288f44,2024-03-20T03:40:50.889937
+P000848,Hanna,Mengistu,2001-02-28,F,Ethiopian,domestic_worker,Employed,3105,ETB,Hawassa,Sidama,Ethiopia,feb23e16790d717a,c17ba7d2968bb7c1,2022-08-08T06:46:42.418575
+P000849,Asfaw,Belay,1999-06-30,M,Ethiopian,business_owner,Self-Employed,55721,ETB,Debre Birhan,Amhara,Ethiopia,,498fe529ff5e4989,2022-02-09T15:19:36.141902
+P000850,Tersit,Hiruy,1996-12-15,F,Ethiopian,accountant,Employed,10378,ETB,Bahir Dar,Amhara,Ethiopia,4f91a71afceb802d,8a35677012d3c74c,2023-11-28T01:09:33.395449
+P000851,Abel,Atlabachew,2001-09-19,M,Ethiopian,day_laborer,Employed,4379,ETB,Dessie,Amhara,Ethiopia,bd9fbdf248dc9416,9bbbdc5e0fb6a5a7,2024-10-21T05:22:52.322729
+P000852,Kifle,Solomon,1989-04-19,M,Other,farmer,Self-Employed,7255,ETB,Addis Ababa,Addis Ababa,Ethiopia,c212b2713c657d52,093dcb8e22875bf9,2023-02-05T02:52:07.588423
+P000853,Algansh,Atlabachew,1993-08-11,F,Ethiopian,unemployed,Unemployed,2000,ETB,Shashamane,Oromia,Ethiopia,65b9bcbb1922d1b5,5a2b0bc5d0bcae9e,2024-06-08T08:36:11.833745
+P000854,Nunu,Cherenet,1967-09-29,F,Ethiopian,software_engineer,Employed,19791,ETB,Hawassa,Sidama,Ethiopia,f2d4c818b3fbd430,cac737fa3147e32b,2025-07-27T00:37:51.676023
+P000855,Atinafu,Matheos,2004-11-14,M,Ethiopian,business_owner,Self-Employed,48023,ETB,Addis Ababa,Addis Ababa,Ethiopia,099e787e97ea730c,c6ad5c89a2d78686,2023-06-10T01:58:15.206579
+P000856,Ayele,Asfaw,1975-05-21,M,Ethiopian,teacher,Employed,15899,ETB,Hawassa,Sidama,Ethiopia,bd7f62791d5931c6,9462a62822600e9c,2024-04-02T08:48:07.962666
+P000857,Derartu,Girmachew,1965-01-22,F,Ethiopian,teacher,Employed,7395,ETB,Jijiga,Somali,Ethiopia,4ca69cb31eba016b,6b0544eaf535a2ab,2022-04-10T08:36:50.075248
+P000858,Konjit,Kassaye,1965-07-03,F,Ethiopian,government_employee,Employed,14443,ETB,Addis Ababa,Addis Ababa,Ethiopia,110ec5c370a48881,00cd3f6e90addc43,2022-02-06T16:51:11.144778
+P000859,Caleb,Andargachew,2007-07-13,M,Ethiopian,software_engineer,Employed,122752,ETB,Hawassa,Sidama,Ethiopia,b98555444f59ba38,,2024-09-02T22:03:30.650616
+P000860,Muluemebet,Anteneh,1986-11-25,F,Ethiopian,merchant,Self-Employed,16780,ETB,Dilla,SNNPR,Ethiopia,be47b6ecbbe90a85,2c38bbb52dfc701f,2022-09-05T15:13:47.826279
+P000861,Lielt,Endale,1989-10-09,F,Ethiopian,driver,Employed,11945,ETB,Bahir Dar,Amhara,Ethiopia,,d992585bc4d88ec4,2025-01-17T19:38:52.369251
+P000862,Tizita,Mintesnot,1989-12-16,F,Ethiopian,freelancer,,30601,ETB,Asella,Oromia,Ethiopia,25393a87f49e0238,cdfef60394d903d6,2022-03-05T07:06:45.791039
+P000863,Lidet,Wossen,2003-06-15,F,Ethiopian,software_engineer,Employed,28157,ETB,Addis Ababa,Addis Ababa,Ethiopia,a2e8692ff6fec98e,05d451ff5d1fc8c6,2023-06-28T05:10:57.319870
+P000864,Desta,Eyasu,1993-08-07,F,Ethiopian,driver,Employed,10296,ETB,Addis Ababa,Addis Ababa,Ethiopia,a68996c920435ac7,56c1380137dc1e97,2025-06-28T10:03:44.587556
+P000865,Gebre-Micheal,Mekuriya,1989-12-13,M,Ethiopian,engineer,Employed,35230,ETB,Addis Ababa,Addis Ababa,Ethiopia,cb2372a120c50545,0ce6d22230b7d14e,2024-09-19T00:59:38.140016
+P000866,Metasebiya,Workneh,2002-06-03,F,Ethiopian,nurse,Employed,18777,ETB,Dessie,Amhara,Ethiopia,,d72ba0ebfc38c252,2024-04-06T09:48:24.550333
+P000867,Algansh,Yelekal,1962-03-07,F,Other,government_employee,Employed,18519,ETB,Nekemte,Oromia,Ethiopia,03c4772461eecb1a,4cde13e54d606b6b,2024-06-30T04:02:53.415051
+P000868,Aynalem,Mekbib,1990-03-02,F,Other,lawyer,Employed,55902,ETB,Arba Minch,SNNPR,Ethiopia,8d66973104a9a787,5bb9758688afd04e,2022-07-28T19:23:42.888408
+P000869,Efrem,Befekadu,1968-02-26,M,Ethiopian,government_employee,Employed,19318,ETB,Addis Ababa,Addis Ababa,Ethiopia,,,2022-12-21T01:28:45.441294
+P000870,Mekbib,Nahom,1995-10-11,M,Ethiopian,teacher,Employed,6774,ETB,Dire Dawa,Dire Dawa,Ethiopia,e635d972fb4ab8f6,23e0c1b37d3f509c,2022-05-30T08:29:16.465611
+P000871,Abebech,Shimelis,1983-09-20,F,Ethiopian,freelancer,,16621,ETB,Addis Ababa,Addis Ababa,Ethiopia,3f2ee6495d9b5950,c6574bb87ec01d3c,2024-05-29T12:36:36.162269
+P000872,Abera,Fedlu,1975-06-07,M,Ethiopian,ngo_worker,Employed,19244,ETB,Addis Ababa,Addis Ababa,Ethiopia,318f7115237ebd13,3a33afed50b5ae0f,2023-05-04T08:36:17.113259
+P000873,Bilen,Issak,1994-07-25,F,Ethiopian,student,Student,3388,ETB,Dire Dawa,Dire Dawa,Ethiopia,fa39a699199675ec,,2023-07-31T15:59:19.837047
+P000874,Tibebu,Asmamaw,1971-09-15,M,Ethiopian,teacher,Employed,12562,ETB,Dire Dawa,Dire Dawa,Ethiopia,5a1c8a20edf98029,,2023-05-05T16:55:12.316295
+P000875,Tewabech,tADELE,1984-02-23,F,Ethiopian,student,Student,8145,ETB,Addis Ababa,Addis Ababa,Ethiopia,0d319f9e6e3e93c0,fd64539434d18f9d,2022-02-19T14:56:22.479448
+P000876,Aster,Mamo,2006-06-21,F,Ethiopian,engineer,Employed,20152,ETB,Mekelle,Tigray,Ethiopia,f02fe828aa09cbeb,095bac35f6e2c1af,2025-06-23T15:53:06.121366
+P000877,Zelalem,Amha,1968-04-03,M,Ethiopian,nurse,Employed,24178,ETB,Bahir Dar,Amhara,Ethiopia,f2ed2c2027588a34,837fb11f970f8899,2022-12-02T18:00:05.185545
+P000878,Teferri,Alazar,1986-03-16,M,Ethiopian,cashier,Employed,10302,ETB,Addis Ababa,Addis Ababa,Ethiopia,6509de59e977ff58,,2025-02-24T13:50:48.589284
+P000879,Aster,Cherenet,1982-01-11,F,Ethiopian,cashier,,6665,ETB,Addis Ababa,Addis Ababa,Ethiopia,2bf59fdff955b34d,5383acd5fad3d82f,2025-05-25T08:24:24.894461
+P000880,Wuletta,Alula,1982-07-24,F,Ethiopian,business_owner,Self-Employed,109279,ETB,Hawassa,Sidama,Ethiopia,abc1f06ce7e31252,d6667c976dd87538,2025-02-20T17:50:17.846524
+P000881,Mohammed,Yonas,1987-12-14,M,Ethiopian,student,Student,3081,ETB,Adama,Oromia,Ethiopia,a77a16c194c92daf,27a5d7e1e56a15b2,2025-06-05T13:22:16.640525
+P000882,Deborah,Theodros,1980-11-01,F,Other,student,Student,4036,ETB,Gondar,Amhara,Ethiopia,4b49854386608622,,2025-07-07T07:33:58.719090
+P000883,Ejigayehu,Bereket,1976-05-22,F,Ethiopian,ngo_worker,Employed,17587,ETB,Bahir Dar,Amhara,Ethiopia,,a4d922a70de47d53,2025-12-02T18:20:53.753163
+P000884,Mekbib,Fiseha,2007-03-20,M,Ethiopian,security_guard,Employed,2000,ETB,Addis Ababa,Addis Ababa,Ethiopia,1ff5bbb76a4904bf,4964e64707c72e03,2022-01-30T14:41:36.347996
+P000885,Melaku,Eshete,1999-05-26,M,Ethiopian,driver,Employed,11154,ETB,Bahir Dar,Amhara,Ethiopia,,5d5937d268d3b201,2023-03-13T05:49:16.300147
+P000886,Israel,Mekbib,1987-02-23,M,Ethiopian,merchant,Self-Employed,22092,ETB,Dire Dawa,Dire Dawa,Ethiopia,4b784a1f6501880d,75f5f059689d3ee8,2025-03-17T04:09:29.744121
+P000887,Kirubel,Kiros,1968-08-20,M,Ethiopian,farmer,Self-Employed,3359,ETB,Hawassa,Sidama,Ethiopia,44c64936f80ce99e,277078deacf67e91,2025-08-25T23:16:05.798048
+P000888,Taye,Ketema,2007-01-10,M,Ethiopian,business_owner,Self-Employed,129992,ETB,Dire Dawa,Dire Dawa,Ethiopia,,2b2284b1e9f12f3b,2025-08-07T07:19:22.638349
+P000889,Belachew,Yafet,1969-06-04,M,Ethiopian,student,Student,2200,ETB,Mekelle,Tigray,Ethiopia,b052bd14297a72bc,,2025-11-17T20:12:37.618299
+P000890,Seble,Gizachew,1962-10-17,F,Ethiopian,ngo_worker,Employed,19397,ETB,Hawassa,Sidama,Ethiopia,ae09a20692afe9fa,1bb64bef7f12d5a2,2023-06-26T18:29:48.063466
+P000891,Bereket,Haile-Selassie,1978-05-19,M,Ethiopian,teacher,Employed,3784,ETB,Mekelle,Tigray,Ethiopia,f2d77eed3081a536,a12037497907a2c0,2023-03-10T23:23:38.638370
+P000892,Alemtsehay,Samuel,1994-10-26,F,Other,accountant,Employed,18156,ETB,Bahir Dar,Amhara,Ethiopia,9aea72607087e6a3,bd911df14125abe3,2025-02-19T12:58:48.857870
+P000893,Sisay,Tesfaye,1991-01-05,M,Other,nurse,Employed,8821,ETB,Addis Ababa,Addis Ababa,Ethiopia,1d4ee14face35353,85a6a2a700c6d1ef,2023-04-10T08:37:28.492147
+P000894,Simon,Tadele,1974-08-03,M,Ethiopian,nurse,Employed,10212,ETB,Addis Ababa,Addis Ababa,Ethiopia,1ef953e92b30fdca,508dacbbc678aec9,2022-11-03T06:03:12.270487
+P000895,Hiwot,Gedion,2001-10-18,F,Ethiopian,driver,Employed,10821,ETB,Shashamane,Oromia,Ethiopia,518631a1df9a96d6,7e56f53cd30c5dbb,2023-04-22T14:51:06.607392
+P000896,Aster,Zewdu,2004-02-02,F,Ethiopian,farmer,Self-Employed,2210,ETB,Addis Ababa,Addis Ababa,Ethiopia,4ad373c8d874e27d,d27aa7fc033d72c9,2025-07-03T22:52:02.641708
+P000897,Kassahun,Dereje,1977-10-07,M,Ethiopian,freelancer,Self-Employed,32408,ETB,Arba Minch,SNNPR,Ethiopia,af4204120cc49ee3,0338dd76617a71ed,2023-04-25T17:28:20.864586
+P000898,Yohannes,Worku,1962-05-22,M,Ethiopian,farmer,Self-Employed,11690,ETB,Gondar,Amhara,Ethiopia,dae3d1ddc856394b,53e64466862fa6fd,2024-05-18T05:38:29.366980
+P000899,Abay,Abdu,1963-03-25,M,Ethiopian,student,Student,3402,ETB,Arba Minch,SNNPR,Ethiopia,19e758b9afed6ad2,28be349bd62f68b0,2022-12-10T17:04:05.202006
+P000900,Sinetebeb,Samson,1991-03-03,F,Ethiopian,freelancer,Self-Employed,23569,ETB,Dilla,SNNPR,Ethiopia,82c19b3b17ec25c4,,2022-07-16T10:38:42.644237
+P000901,Mitiku,Asfaw,2004-12-01,M,Ethiopian,government_employee,Employed,8792,ETB,Addis Ababa,Addis Ababa,Ethiopia,b539911f400e3153,cc9883ee3dba33d2,2024-12-22T17:31:54.795992
+P000902,Yonas,Rediet,1994-03-08,M,Ethiopian,teacher,Employed,19981,ETB,Addis Ababa,Addis Ababa,Ethiopia,ff2f6df4ae0e995e,58c70ab33d7814ee,2022-04-04T05:38:22.695404
+P000903,Beyene,Issak,1974-09-06,M,Ethiopian,unemployed,Unemployed,4379,ETB,Addis Ababa,Addis Ababa,Ethiopia,ed2a51b8a6b094c8,2081508a2a0578d6,2023-12-06T07:29:06.127755
+P000904,Lidet,Niguse,1985-04-19,F,Ethiopian,domestic_worker,Employed,2000,ETB,Addis Ababa,Addis Ababa,Ethiopia,be214285c1e0a990,c0c17f62c687f259,2022-01-11T03:52:51.326620
+P000905,Fasika,Mengistu,1995-11-26,F,Ethiopian,software_engineer,Employed,37989,ETB,Arba Minch,SNNPR,Ethiopia,b4d4d41ef5b13f4c,55558bd3936d88e7,2025-02-03T21:14:04.373787
+P000906,Yeshimebet,Cherenet,1977-12-05,F,Ethiopian,student,Student,11476,ETB,Addis Ababa,Addis Ababa,Ethiopia,04c53970f765073f,291d903dd7e8056b,2022-02-28T17:32:52.237502
+P000907,Derartu,Ayele,1981-04-23,F,Ethiopian,government_employee,Employed,14967,ETB,Hawassa,Sidama,Ethiopia,,6e0065621b0210fc,2023-05-20T19:31:55.206941
+P000908,Dagim,Henok,2001-07-02,M,Ethiopian,freelancer,Self-Employed,29775,ETB,Addis Ababa,Addis Ababa,Ethiopia,58d34be14ba3081b,af5c91a3f02e7471,2025-11-11T09:41:23.459749
+P000909,Kirubel,Asrat,2007-08-09,M,Ethiopian,security_guard,Employed,4745,ETB,Dire Dawa,Dire Dawa,Ethiopia,40b8a0d3996c3c24,b91db462076c5e77,2024-04-15T21:01:14.017725
+P000910,Atinafu,Dagnachew,2002-07-19,M,Ethiopian,student,Student,6369,ETB,Addis Ababa,Addis Ababa,Ethiopia,3eb9f6147a71e80b,5f489b93750b6ca8,2024-09-19T03:01:05.773504
+P000911,Mahder,Mikias,1963-09-17,F,Ethiopian,student,Student,5408,ETB,Gondar,Amhara,Ethiopia,4ee4f7ad2d16f3c4,3e1602ecd7eb7712,2025-05-09T06:02:12.383873
+P000912,Abebawork,Tilahun,2006-02-05,F,Ethiopian,unemployed,Unemployed,3301,ETB,Addis Ababa,Addis Ababa,Ethiopia,ff83d3233f32cc4f,50d1e174ac9c6a26,2023-05-27T01:10:33.893832
+P000913,Aynalem,Tadele,1986-08-31,F,Other,unemployed,Unemployed,4353,ETB,Jijiga,Somali,Ethiopia,dcf56d844a0dff97,9d6b89d7a4e0e445,2022-01-31T12:24:37.741220
+P000914,Wudassie,Zewdu,1992-09-06,F,Ethiopian,day_laborer,,3086,ETB,Addis Ababa,Addis Ababa,Ethiopia,f40cb17641fe3426,d7e11d63760613ab,2022-02-14T08:22:39.648986
+P000915,Serkalem,Wondwosen,2004-06-18,F,Ethiopian,farmer,Self-Employed,11421,ETB,Addis Ababa,Addis Ababa,Ethiopia,c192fab572442b66,880a10d69a3e2ed5,2022-05-23T23:23:53.504473
+P000916,Eden,Tadesse,1986-06-13,F,Ethiopian,government_employee,Employed,15739,ETB,Hawassa,Sidama,Ethiopia,06a88430ae492f47,eb964fa317b0be61,2025-05-18T10:47:43.516888
+P000917,Adane,Estifanos,1970-10-26,M,Ethiopian,student,Student,3318,ETB,Addis Ababa,Addis Ababa,Ethiopia,8863bc58bb5f7558,557b598fcc4aafc4,2022-04-29T21:02:44.483596
+P000918,Simon,Tilahun,1962-07-27,M,Ethiopian,freelancer,Self-Employed,33628,ETB,Shashamane,Oromia,Ethiopia,86a7b3650bd9f968,e1cba34d4e7dd31f,2024-10-12T09:38:05.588865
+P000919,Abdela,Fistum,1975-05-16,M,Ethiopian,unemployed,Unemployed,2326,ETB,Adama,Oromia,Ethiopia,aef21dfef4edbee8,,2023-07-24T15:47:59.830672
+P000920,Tizita,Simon,1997-12-26,F,Ethiopian,merchant,Self-Employed,17847,ETB,Addis Ababa,Addis Ababa,Ethiopia,5a0054cd9e2b76e5,,2025-03-25T13:38:50.331401
+P000921,Gebre-Meskel,Asefa,1963-07-07,M,Ethiopian,domestic_worker,Employed,3701,ETB,Bishoftu,Oromia,Ethiopia,2f5fa02ab1051c51,1621326105ff3379,2022-01-23T07:18:31.529377
+P000922,Lidet,Girum,1971-01-04,F,Ethiopian,teacher,Employed,16069,ETB,Dessie,Amhara,Ethiopia,bdb13a267d657943,41c75c72db02f79b,2024-09-24T17:39:31.074420
+P000923,Serkalem,Abenezer,1993-04-04,F,Ethiopian,software_engineer,Employed,82127,ETB,Mekelle,Tigray,Ethiopia,d3660b9cf0a61e51,37dc5c44c45beec5,2025-03-17T02:40:59.663250
+P000924,Wuletta,Nebiyou,1993-05-04,F,Ethiopian,student,Student,2000,ETB,Mekelle,Tigray,Ethiopia,7abbf9e47552d2f6,3fcd77529ef1369e,2022-05-15T18:45:43.867701
+P000925,Wasihun,Yonathan,1998-02-06,M,Ethiopian,driver,Employed,16027,ETB,Addis Ababa,Addis Ababa,Ethiopia,7affda37de25d116,6a18e3af1d3e0be9,2022-08-26T16:59:47.529719
+P000926,Kassahun,Worku,1998-06-09,M,Ethiopian,government_employee,Employed,11576,ETB,Addis Ababa,Addis Ababa,Ethiopia,532de2c9cdb91a35,1b37399c8da246d6,2025-02-03T12:11:40.900094
+P000927,Alemu,Mohammed,1992-06-13,M,Ethiopian,student,Student,5039,ETB,Addis Ababa,Addis Ababa,Ethiopia,,,2022-02-14T04:32:28.194949
+P000928,Debritu,Abraham,1975-07-24,F,Ethiopian,unemployed,Unemployed,2000,ETB,Jimma,Oromia,Ethiopia,26d5a1a506af5cbc,05084ae38f9264f8,2022-06-18T18:32:19.988068
+P000929,Rekik,Eshete,1967-01-17,F,Ethiopian,freelancer,Self-Employed,39876,ETB,Bishoftu,Oromia,Ethiopia,a84cb9eb70e1bb83,486cab1c2a2f876f,2022-09-14T07:22:29.227449
+P000930,Salem,Abdela,1968-06-05,F,Ethiopian,farmer,Self-Employed,16404,ETB,Adama,Oromia,Ethiopia,a433154ee97ea815,93229d9d41a72f12,2024-11-16T04:38:49.020174
+P000931,Beteab,Shifferaw,1969-09-25,M,Ethiopian,day_laborer,Employed,2336,ETB,Hawassa,Sidama,Ethiopia,,7ceecae25d1b9c28,2024-09-25T16:07:05.536233
+P000932,Abdu,Mulugeta,1978-12-19,M,Ethiopian,government_employee,Employed,29499,ETB,Adama,Oromia,Ethiopia,2e571124bd8f57d0,bdfc28a80858d970,2022-04-22T06:19:35.153910
+P000933,Demissie,Belayneh,1995-12-06,M,Ethiopian,freelancer,Self-Employed,21596,ETB,Adama,Oromia,Ethiopia,67c16dd4aa0819c2,4f71adf486d18b5b,2025-02-04T05:58:02.020128
+P000934,Yeshi,Mehari,1996-10-12,F,Ethiopian,driver,Employed,6459,ETB,Jimma,Oromia,Ethiopia,b86a93063277fd1e,627e174ac360e2ac,2023-06-09T23:20:28.211199
+P000935,Debritu,Ermias,1999-06-11,F,Ethiopian,business_owner,Self-Employed,102637,ETB,Dilla,SNNPR,Ethiopia,,20498d0190224039,2023-08-23T13:35:20.044881
+P000936,Dagmawi,Jemal,2002-09-21,M,Ethiopian,teacher,Employed,7425,ETB,Mekelle,Tigray,Ethiopia,a6b3831159da9c1f,bbd71efe4bc8d3a4,2022-04-10T01:34:55.091849
+P000937,Birtukan,Habtamu,1974-10-02,F,Other,engineer,Employed,33079,ETB,Adama,Oromia,Ethiopia,1cb06405c0f1a7ab,01717e4828a363fb,2023-04-12T12:59:28.484614
+P000938,Liku,Getahun,1970-10-13,M,Ethiopian,engineer,Employed,18518,ETB,Gondar,Amhara,Ethiopia,b1bc2069a4ef5021,7447ba1f8228f6e4,2025-03-08T06:51:00.845210
+P000939,Hermela,Hiruy,1987-01-23,F,Other,day_laborer,Employed,4008,ETB,Mekelle,Tigray,Ethiopia,99bb927eb70a8ba2,e443492969483db5,2024-07-09T22:40:53.577627
+P000940,Selam,Desalegn,1963-07-25,M,Ethiopian,government_employee,Employed,6156,ETB,Bahir Dar,Amhara,Ethiopia,83ace47662e96546,d661e130a5459640,2023-10-10T11:17:16.664343
+P000941,Daniel,Belete,2002-07-19,M,Ethiopian,government_employee,,12491,ETB,Dessie,Amhara,Ethiopia,ec72cc9e09cba9a6,9f761a6982c585b9,2024-05-12T10:42:16.312804
+P000942,Hewan,Bemnet,1963-03-05,F,Ethiopian,business_owner,Self-Employed,69126,ETB,Dire Dawa,Dire Dawa,Ethiopia,91e7b3485c7f36c3,23ca8bfc6dc32cb6,2024-07-09T21:20:05.620909
+P000943,Belayneh,Hagos,1986-11-14,M,Ethiopian,farmer,Self-Employed,4638,ETB,Adama,Oromia,Ethiopia,3a1c5bd42889ff50,8054af7e94b1dfdd,2024-06-29T23:44:33.383833
+P000944,Markos,Dagim,1981-02-26,M,Ethiopian,student,Student,5142,ETB,Bishoftu,Oromia,Ethiopia,75df2ef09ae50ec9,caacba1c733d849b,2024-06-21T03:32:02.964298
+P000945,Yafet,Alazar,1975-12-02,M,Ethiopian,engineer,Employed,21839,ETB,Dire Dawa,Dire Dawa,Ethiopia,ab7c29f0c9b13c9f,1998e9218bdcb0ca,2024-04-29T15:53:09.588034
+P000946,Yosef,Medhin,1961-06-30,M,Ethiopian,day_laborer,Employed,5016,ETB,Dessie,Amhara,Ethiopia,042c95f0d598c86d,2df7c1b0662841ff,2023-02-11T13:12:21.873565
+P000947,Hanna,Metaferia,2003-03-01,F,Ethiopian,farmer,Self-Employed,10383,ETB,Addis Ababa,Addis Ababa,Ethiopia,65d3c6bb9f97cf26,e6f400add741c262,2022-06-10T20:05:09.467618
+P000948,Beletshachew,Million,1984-08-09,F,Ethiopian,freelancer,Self-Employed,54129,ETB,Nekemte,Oromia,Ethiopia,,15ca8a91911c4a56,2025-01-19T16:56:07.191194
+P000949,Bilen,Workneh,1983-04-18,F,Ethiopian,driver,Employed,11696,ETB,Addis Ababa,Addis Ababa,Ethiopia,,d672d6df309df2f3,2023-05-12T18:02:36.147042
+P000950,Ayele,Getnet,1961-12-23,M,Ethiopian,unemployed,Unemployed,2724,ETB,Addis Ababa,Addis Ababa,Ethiopia,da4aae2ca8528a71,798f7cf655656672,2023-05-12T10:05:10.518429
+P000951,Serkadis,Abebe,1999-11-12,F,Ethiopian,engineer,Employed,37434,ETB,Hawassa,Sidama,Ethiopia,,26b93fc211a3e9ab,2023-01-04T01:29:10.926506
+P000952,Yitbarek,Abel,1974-03-31,M,Ethiopian,farmer,Self-Employed,6706,ETB,Addis Ababa,Addis Ababa,Ethiopia,,,2022-05-21T04:18:26.511445
+P000953,Fikru,Demerew,1982-02-23,M,Ethiopian,teacher,Employed,9326,ETB,Arba Minch,SNNPR,Ethiopia,f2e05309d5a46ab8,1a76d3bd7a9620a5,2022-11-04T15:46:32.508165
+P000954,Besufekad,Dagim,2003-09-21,M,Ethiopian,day_laborer,Employed,8221,ETB,Nekemte,Oromia,Ethiopia,693d928c37cd3115,7a05bf534d307c48,2022-08-25T17:15:38.651098
+P000955,Kalkidan,Tarekegn,1981-01-04,F,Ethiopian,farmer,,5310,ETB,Gondar,Amhara,Ethiopia,583906ec3d738abd,382f5653d9c4795b,2024-01-29T08:08:02.364461
+P000956,Abeba,Argaw,1988-05-31,F,Ethiopian,lawyer,Employed,30341,ETB,Dire Dawa,Dire Dawa,Ethiopia,dc1847379d612814,23ce5806564374f7,2023-05-06T18:22:44.280018
+P000957,Rediet,Nolawi,1979-09-10,F,Ethiopian,engineer,Employed,55795,ETB,Addis Ababa,Addis Ababa,Ethiopia,954a942272bf432d,e5d5a8e948777381,2024-01-15T17:15:16.265141
+P000958,Ayana,Tadesse,1998-02-10,F,Ethiopian,freelancer,Self-Employed,18500,ETB,Jimma,Oromia,Ethiopia,0c51fdf5e079b662,812133858a98571e,2024-11-04T04:20:43.714874
+P000959,Tinbit,Beteab,1962-09-19,F,Ethiopian,farmer,Self-Employed,8116,ETB,Bahir Dar,Amhara,Ethiopia,4fc0b9890d1c4a75,09d01f93782828dc,2022-05-03T14:37:30.374372
+P000960,Tiruwork,Fasil,1962-09-10,F,Ethiopian,software_engineer,Employed,35723,ETB,Addis Ababa,Addis Ababa,Ethiopia,7fe962fd46e180ba,5e08512500090974,2024-10-12T17:22:43.079235
+P000961,Betsega,Ermias,1964-02-12,F,Ethiopian,unemployed,Unemployed,2000,ETB,Adama,Oromia,Ethiopia,14c9b7292b6bd96d,c58042fb7c0ff013,2025-06-29T02:14:42.630820
+P000962,Shewangizaw,Nolawi,2004-01-16,M,Ethiopian,doctor,,36185,ETB,Addis Ababa,Addis Ababa,Ethiopia,fc908f847ac33d50,49f955532fcf4a5e,2025-11-18T06:34:05.007338
+P000963,Girma,Sofonyas,1962-11-22,M,Ethiopian,unemployed,Unemployed,2000,ETB,Dilla,SNNPR,Ethiopia,b952a4b33f7d9fd5,a1854874d63fa567,2025-04-26T21:25:06.492965
+P000964,Mamush,Kidus,2003-05-04,M,Ethiopian,security_guard,Employed,6859,ETB,Addis Ababa,Addis Ababa,Ethiopia,66d2beee7bcdf5a6,30c72b1f57c38ebe,2024-06-11T07:05:09.986369
+P000965,Hanna,Tamene,1962-09-29,F,Ethiopian,freelancer,Self-Employed,47886,ETB,Addis Ababa,Addis Ababa,Ethiopia,e03be6bd50417f68,80ca7deb42061dc4,2025-11-09T15:01:06.861777
+P000966,Mahder,Yonathan,1961-09-09,F,Ethiopian,student,Student,4700,ETB,Hawassa,Sidama,Ethiopia,d55022e5cd537782,6477c3a991583fe5,2023-11-24T15:49:32.079849
+P000967,Bruktawit,Ali,1988-06-01,F,Ethiopian,merchant,Self-Employed,16318,ETB,Bahir Dar,Amhara,Ethiopia,c28bba0ffa9c3016,a6144ba7ed2e4b40,2022-09-18T13:12:24.959303
+P000968,Endrias,Ezana,1966-03-03,M,Ethiopian,freelancer,Self-Employed,28007,ETB,Addis Ababa,Addis Ababa,Ethiopia,45d044f3dba59ad5,652d52ae8c0a7a91,2023-08-10T04:42:11.149393
+P000969,Fegegta,Aman,1961-02-13,F,Ethiopian,engineer,Employed,24881,ETB,Addis Ababa,Addis Ababa,Ethiopia,b2963692741c2da5,329b9ee09e9cd202,2022-09-01T00:52:52.145117
+P000970,Yonathan,Gosaye,2007-01-03,M,Ethiopian,farmer,Self-Employed,3726,ETB,Bahir Dar,Amhara,Ethiopia,7c06ab09099bc79f,15239135e6e7a9bb,2023-07-13T09:40:50.552078
+P000971,Fasil,Asmamaw,1998-07-05,M,Ethiopian,government_employee,Employed,10436,ETB,Addis Ababa,Addis Ababa,Ethiopia,31c55cb0a0f8c25c,d28cc2810b4f438f,2023-10-05T15:11:01.561062
+P000972,Getachew,Ermias,1963-09-26,M,Ethiopian,ngo_worker,Employed,15435,ETB,Addis Ababa,Addis Ababa,Ethiopia,e86edc685afc651f,206a61b97fba9487,2023-04-21T16:10:10.072578
+P000973,Workneh,Belay,1967-04-26,M,Ethiopian,student,Student,2000,ETB,Addis Ababa,Addis Ababa,Ethiopia,34e4649b3f70ba4b,87f40e1f15b6d847,2024-12-20T07:36:18.352488
+P000974,Hewan,Mamush,1983-05-13,F,Ethiopian,freelancer,Self-Employed,52238,ETB,Addis Ababa,Addis Ababa,Ethiopia,7bb5844796d7d1fd,111705a766e54e91,2022-12-22T12:49:35.322002
+P000975,Kifle,Gebre-Meskel,2005-10-01,M,Ethiopian,teacher,Employed,20516,ETB,Mekelle,Tigray,Ethiopia,5052b99e150083b0,a8fded90d4333749,2022-11-15T18:53:18.542425
+P000976,Bekelech,Girum,1998-06-04,F,Ethiopian,software_engineer,Employed,43505,ETB,Nekemte,Oromia,Ethiopia,2052adae71234000,67a0ca399911cde9,2023-12-09T11:19:54.357361
+P000977,Belay,Alebachew,1996-02-04,M,Ethiopian,ngo_worker,Employed,24230,ETB,Addis Ababa,Addis Ababa,Ethiopia,66219b3058a16885,25dcdfa7cd84a091,2024-10-01T00:45:22.231766
+P000978,Alex,Simon,1977-12-26,M,Other,unemployed,Unemployed,2000,ETB,Adama,Oromia,Ethiopia,0a6c1238a213005f,eb8cf612e6d06939,2024-07-18T14:46:01.391497
+P000979,Asnakech,Redwan,1968-08-27,F,Ethiopian,merchant,Self-Employed,16950,ETB,Hawassa,Sidama,Ethiopia,1936a9c410d4d836,,2022-10-16T14:15:20.914549
+P000980,Alula,Amare,2002-04-29,M,Ethiopian,nurse,Employed,11375,ETB,Addis Ababa,Addis Ababa,Ethiopia,7d5d3e59818b88a0,db9595061299dba8,2024-03-21T03:18:49.081105
+P000981,Mimi,Andinet,1966-05-13,F,Ethiopian,unemployed,Unemployed,2000,ETB,Addis Ababa,Addis Ababa,Ethiopia,26043abf8cc6198f,4ae43ee44c40b387,2023-01-07T09:32:58.069725
+P000982,Kidist,Abera,1978-02-07,F,Ethiopian,teacher,Employed,29189,ETB,Nekemte,Oromia,Ethiopia,,74f5bf807ea0b357,2023-07-03T09:14:29.303071
+P000983,Hamere,Ezra,2000-06-18,F,Ethiopian,security_guard,Employed,2000,ETB,Bahir Dar,Amhara,Ethiopia,11a4a04484938f79,2804acd96ceaccb4,2024-02-19T19:32:56.973779
+P000984,Rediet,Gizachew,1972-03-13,M,Ethiopian,teacher,Employed,11152,ETB,Addis Ababa,Addis Ababa,Ethiopia,8ab8943ca796b982,3b98d49849cd2e3f,2024-03-13T11:41:28.446730
+P000985,Eyobel,Shewangizaw,1984-01-17,M,Ethiopian,driver,Employed,17323,ETB,Bahir Dar,Amhara,Ethiopia,3e53068a30adebfd,,2022-12-20T16:17:50.289794
+P000986,Naomi,Haile-Selassie,2004-01-12,F,Other,software_engineer,,24923,ETB,Shashamane,Oromia,Ethiopia,635d57f79a171cc5,9b053d3bc8ce320b,2022-09-04T03:04:23.845879
+P000987,Nathnael,Kassahun,1971-11-18,M,Ethiopian,student,Student,2200,ETB,Hawassa,Sidama,Ethiopia,d6fd4256bbb42699,9ed765438647ee95,2025-08-06T19:05:33.661997
+P000988,Sebsebe,Siraj,1995-11-22,M,Other,accountant,Employed,15116,ETB,Hawassa,Sidama,Ethiopia,755e7b766c469224,81061706445c8743,2023-01-22T17:54:36.804638
+P000989,Yitbarek,Yakob,1973-02-04,M,Ethiopian,unemployed,Unemployed,3626,ETB,Addis Ababa,Addis Ababa,Ethiopia,,dc2633969e17cb72,2023-06-11T01:19:06.407877
+P000990,Edom,Bemnet,1969-02-21,F,Ethiopian,software_engineer,Employed,43156,ETB,Addis Ababa,Addis Ababa,Ethiopia,9f7ef728957eec93,7e27183f8b6008ed,2024-12-18T21:02:38.879114
+P000991,Dinknesh,Hailu,1993-08-25,F,Ethiopian,student,Student,3953,ETB,Hawassa,Sidama,Ethiopia,3857c641b191c6fd,3bd22931b88d012b,2024-09-21T08:48:52.819497
+P000992,Roza,Bahiru,1993-11-28,F,Other,software_engineer,Employed,31567,ETB,Dire Dawa,Dire Dawa,Ethiopia,6354db272ea4c66f,1a1026dad45a3bbc,2025-07-14T07:12:09.047244
+P000993,Senedu,Shifferaw,1969-03-08,F,Ethiopian,business_owner,Self-Employed,61008,ETB,Mekelle,Tigray,Ethiopia,bf8bd15fa93ce724,6e3f73fabfe6c826,2024-02-21T01:36:00.733865
+P000994,Aschalew,Hagos,1965-11-23,M,Ethiopian,student,Student,6984,ETB,Nekemte,Oromia,Ethiopia,46b54d7238289240,09da25bf0c5f7a8d,2022-04-30T16:45:16.366900
+P000995,Tinbit,Michael,1983-03-30,F,Ethiopian,student,Student,4867,ETB,Addis Ababa,Addis Ababa,Ethiopia,7954a606a330fd22,e5e4109e250e0ccb,2022-12-22T09:30:46.753650
+P000996,Tariku,Zewdu,1976-08-11,M,Ethiopian,ngo_worker,Employed,39431,ETB,Addis Ababa,Addis Ababa,Ethiopia,,d0ad5a1d135c4a92,2023-03-28T18:07:14.673081
+P000997,Seble-Wongel,Dawit,1976-05-10,F,Ethiopian,security_guard,Employed,18076,ETB,Mekelle,Tigray,Ethiopia,9bd162ad30ed46cf,b01a7f24e1c9af27,2025-09-14T21:09:20.998139
+P000998,Yosef,Andargachew,1982-06-11,M,Ethiopian,freelancer,Self-Employed,32170,ETB,Sodo,SNNPR,Ethiopia,11a9493de5eabe78,002db6af739d034e,2025-07-17T03:24:37.500730
+P000999,Selam,Fikadu,2004-07-18,F,Ethiopian,software_engineer,Employed,47277,ETB,Gondar,Amhara,Ethiopia,eaaa406bb4735c0f,dcb2bd33462ca01c,2022-11-23T19:13:23.426978
+P001000,Surafel,Gedion,1979-05-23,M,Ethiopian,freelancer,Self-Employed,27170,ETB,Sodo,SNNPR,Ethiopia,7fb40a2d89dcd582,0c7ff2b61db0e702,2024-12-09T10:18:18.052955

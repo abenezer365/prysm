@@ -1,0 +1,163 @@
+{
+  "integrity": {
+    "passed": true,
+    "error_count": 0,
+    "warning_count": 0,
+    "errors": [],
+    "warnings": []
+  },
+  "missing_value_rates": {
+    "persons": {
+      "employment_status": 0.0604,
+      "phone_hash": 0.0977,
+      "address_hash": 0.1528
+    },
+    "accounts": {
+      "closed_at": 0.9104
+    },
+    "devices": {
+      "browser": 0.0578
+    },
+    "transactions": {
+      "device_id": 0.0977,
+      "ip_hash": 0.145,
+      "reference_id": 0.7005,
+      "invoice_id": 0.2782
+    },
+    "relationships": {
+      "end_time": 0.75
+    },
+    "ground_truth": {
+      "pattern_end": 0.4128
+    }
+  },
+  "configured_missing_rates": {
+    "phone_hash": 0.05,
+    "address_hash": 0.08,
+    "browser": 0.03,
+    "invoice_id": 0.15,
+    "device_id": 0.05,
+    "closed_at": 0.7,
+    "employment_status": 0.03
+  },
+  "duplicate_rate_configured": 0.01,
+  "schema_columns": {
+    "persons": [
+      "person_id",
+      "first_name",
+      "last_name",
+      "date_of_birth",
+      "gender",
+      "nationality",
+      "occupation",
+      "employment_status",
+      "declared_monthly_income",
+      "income_currency",
+      "city",
+      "region",
+      "country",
+      "phone_hash",
+      "address_hash",
+      "created_at"
+    ],
+    "companies": [
+      "company_id",
+      "company_name",
+      "country",
+      "industry",
+      "company_size",
+      "employee_count",
+      "annual_revenue",
+      "registration_date",
+      "city",
+      "region",
+      "status"
+    ],
+    "banks": [
+      "institution_id",
+      "institution_name",
+      "institution_type",
+      "country",
+      "supported_currencies"
+    ],
+    "accounts": [
+      "account_id",
+      "owner_id",
+      "owner_type",
+      "institution_id",
+      "account_type",
+      "currency",
+      "opened_at",
+      "closed_at",
+      "status",
+      "average_balance",
+      "city",
+      "country"
+    ],
+    "devices": [
+      "device_id",
+      "device_type",
+      "os",
+      "browser",
+      "device_fingerprint",
+      "first_seen",
+      "last_seen",
+      "city",
+      "country"
+    ],
+    "invoices": [
+      "invoice_id",
+      "issuer_id",
+      "issuer_type",
+      "recipient_id",
+      "recipient_type",
+      "issue_date",
+      "due_date",
+      "amount",
+      "currency",
+      "service_type",
+      "status"
+    ],
+    "transactions": [
+      "transaction_id",
+      "timestamp",
+      "sender_account_id",
+      "receiver_account_id",
+      "amount",
+      "currency",
+      "amount_etb",
+      "transaction_type",
+      "channel",
+      "device_id",
+      "city",
+      "country",
+      "ip_hash",
+      "reference_id",
+      "invoice_id",
+      "status"
+    ],
+    "relationships": [
+      "relationship_id",
+      "source_type",
+      "source_id",
+      "relationship_type",
+      "target_type",
+      "target_id",
+      "start_time",
+      "end_time",
+      "confidence"
+    ],
+    "ground_truth": [
+      "ground_truth_id",
+      "entity_type",
+      "entity_id",
+      "behavior_type",
+      "risk_pattern",
+      "is_anomalous",
+      "severity",
+      "pattern_start",
+      "pattern_end",
+      "related_entity_ids"
+    ]
+  }
+}

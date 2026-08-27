@@ -1,0 +1,31 @@
+dataset:
+  persons: 100000
+  companies: 10000
+  accounts: 150000
+  banks: 20
+  devices: 90000
+  invoices: 200000
+  transactions: 700000
+  relationships: 500000
+  ground_truth: 5000
+
+temporal:
+  start_date: "2022-01-01"
+  end_date: "2026-12-31"
+
+seed: 42
+
+output:
+  format: "parquet"
+  compression: "zstd"
+  row_group_size: 100000
+  batch_size: 10000
+
+data_quality:
+  missing_rate: 0.02      # overall target, but column-specific
+  duplicate_rate: 0.01
+
+realism:
+  ethiopian_focus: 0.70
+  foreign_remote_workers: 0.15
+  suspicious_entities: 0.05

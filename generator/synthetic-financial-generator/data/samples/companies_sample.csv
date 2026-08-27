@@ -1,0 +1,1001 @@
+company_id,company_name,country,industry,company_size,employee_count,annual_revenue,registration_date,city,region,status
+C00001,AetherDynamics 1,USA,Logistics,Medium,58,71922,2022-11-25,Addis Ababa,Addis Ababa,Active
+C00002,CobaltCloud 2,USA,Healthcare Tech,Large,2392,8104855,2023-02-11,Dilla,SNNPR,Active
+C00003,StratosWorks 3,USA,Consulting,Small,48,703956,2025-10-12,Bishoftu,Oromia,Suspended
+C00004,Amhara Construction,Ethiopia,Agriculture,Medium,56,281823,2023-05-15,Addis Ababa,Addis Ababa,Active
+C00005,ApexAI 5,USA,Healthcare Tech,Micro,5,28146,2024-01-08,Hawassa,Sidama,Active
+C00006,NexusWorks 6,USA,E-Commerce,Micro,1,42874,2022-05-02,Hawassa,Sidama,Suspended
+C00007,PrismTech 7,USA,Logistics,Small,13,64920,2022-08-10,Addis Ababa,Addis Ababa,Active
+C00008,ZenithSystems 8,USA,EdTech,Medium,164,1990084,2023-04-16,Shashamane,Oromia,Active
+C00009,ZenithLabs 9,USA,Cloud Services,Large,3130,32146621,2023-12-27,Hawassa,Sidama,Active
+C00010,Harar Textile,Ethiopia,Agriculture,Medium,226,555667,2024-09-30,Adama,Oromia,Active
+C00011,SynapseWorks 11,USA,Cloud Services,Small,29,74485,2024-01-05,Arba Minch,SNNPR,Active
+C00012,IonicAI 12,USA,Consulting,Micro,2,61050,2023-06-14,Harar,Harari,Dissolved
+C00013,SynapseNet 13,USA,Consulting,Medium,106,101759,2025-09-25,Jimma,Oromia,Active
+C00014,Harar Construction,Ethiopia,Retail,Medium,90,267726,2023-12-26,Addis Ababa,Addis Ababa,Active
+C00015,VortexCloud 15,USA,FinTech,Medium,178,912333,2025-01-13,Hosaena,SNNPR,Dissolved
+C00016,ZenithData 16,USA,Cloud Services,Medium,140,239876,2023-12-08,Adama,Oromia,Active
+C00017,HelixLabs 17,USA,Cloud Services,Medium,237,734798,2022-07-31,Nekemte,Oromia,Active
+C00018,ZenithTech 18,USA,Technology,Micro,8,165806,2024-07-22,Addis Ababa,Addis Ababa,Active
+C00019,Bale Textile,Ethiopia,Tourism,Micro,6,54130,2022-08-02,Harar,Harari,Active
+C00020,SynapseVentures 20,USA,Healthcare Tech,Small,13,139498,2024-10-10,Adama,Oromia,Active
+C00021,Bale Construction,Ethiopia,Retail,Small,48,99424,2025-06-14,Asella,Oromia,Active
+C00022,ZenithAI 22,USA,FinTech,Small,16,18838,2025-11-01,Mekelle,Tigray,Active
+C00023,EmberDynamics 23,USA,Logistics,Medium,64,452676,2023-08-07,Hawassa,Sidama,Active
+C00024,VortexAI 24,USA,Logistics,Micro,4,124461,2023-03-14,Addis Ababa,Addis Ababa,Active
+C00025,Tigray Trading,Ethiopia,Retail,Enterprise,31447,129056998,2022-05-30,Bishoftu,Oromia,Active
+C00026,FluxWorks 26,USA,E-Commerce,Micro,5,333427,2024-11-19,Jimma,Oromia,Active
+C00027,FluxCloud 27,USA,EdTech,Micro,5,72339,2025-12-07,Gondar,Amhara,Active
+C00028,ApexHub 28,USA,Healthcare Tech,Small,27,153466,2025-04-12,Addis Ababa,Addis Ababa,Active
+C00029,NexusDigital 29,USA,Technology,Small,13,122724,2022-05-25,Bishoftu,Oromia,Suspended
+C00030,StratosTech 30,USA,Logistics,Small,31,115904,2024-09-20,Addis Ababa,Addis Ababa,Active
+C00031,CobaltTech 31,USA,Consulting,Small,48,420915,2023-05-24,Bishoftu,Oromia,Active
+C00032,AxiomDigital 32,USA,Technology,Small,22,121403,2024-01-12,Hawassa,Sidama,Suspended
+C00033,AetherCloud 33,USA,FinTech,Small,18,266118,2024-11-19,Hawassa,Sidama,Active
+C00034,Addis Services,Ethiopia,Real Estate,Micro,6,77260,2024-06-02,Addis  Ababa,Addis Ababa,Active
+C00035,Awash Import Export,Ethiopia,Manufacturing,Medium,235,1529464,2023-09-05,Dire Dawa,Dire Dawa,Active
+C00036,PrismAI 36,USA,EdTech,Medium,205,341255,2023-04-29,Hawassa,Sidama,Active
+C00037,Oromia Manufacturing,Ethiopia,Tourism,Micro,8,138256,2022-03-04,Addis Ababa,Addis Ababa,Active
+C00038,HelixNet 38,USA,E-Commerce,Large,2168,6279065,2023-01-04,Arba Minch,SNNPR,Active
+C00039,Abay Agro,Ethiopia,Construction,Small,42,442838,2024-10-22,Dire Dawa,Dire Dawa,Active
+C00040,Nile Investment,Ethiopia,Retail,Small,23,149391,2024-06-05,Addis Ababa,Addis Ababa,Active
+C00041,Harar Textile,Ethiopia,Real Estate,Small,39,134971,2023-09-17,Addis Ababa,Addis Ababa,Active
+C00042,Addis Manufacturing,Ethiopia,Agriculture,Small,29,357231,2022-10-24,Bahir Dar,Amhara,Active
+C00043,CobaltIO 43,USA,Technology,Small,11,76639,2024-04-02,Gondar,Amhara,Active
+C00044,QuantumWorks 44,USA,EdTech,Micro,3,525314,2022-02-05,Mekelle,Tigray,Active
+C00045,CipherData 45,USA,E-Commerce,Medium,162,1438493,2024-11-29,Dessie,Amhara,Active
+C00046,HelixIO 46,USA,Healthcare Tech,Micro,8,93140,2024-10-15,Addis Ababa,Addis Ababa,Suspended
+C00047,Tigray Textile,Ethiopia,Manufacturing,Small,32,68335,2023-03-09,Shashamane,Oromia,Active
+C00048,Awash Construction,Ethiopia,Agriculture,Small,42,86599,2022-02-13,Addis Ababa,Addis Ababa,Active
+C00049,Nile Investment,Ethiopia,Real Estate,Micro,8,26699,2022-04-16,Hawassa,Sidama,Active
+C00050,Gambella Trading,Ethiopia,Tourism,Large,1584,8539910,2025-08-03,aDDIS aBABA,Addis Ababa,Dissolved
+C00051,Amhara Trading,Ethiopia,Real Estate,Large,2192,2857875,2022-10-14,Shashamane,Oromia,Active
+C00052,Addis Real Estate,Ethiopia,Tourism,Small,28,58718,2025-07-04,Dire Dawa,Dire Dawa,Active
+C00053,VortexAI 53,USA,E-Commerce,Micro,1,93288,2024-10-23,Dire Dawa,Dire Dawa,Active
+C00054,AetherHub 54,USA,Cloud Services,Micro,5,48968,2025-11-07,Addis Ababa,Addis Ababa,Active
+C00055,NexusSolutions 55,USA,Consulting,Micro,7,93870,2024-02-18,Nekemte,Oromia,Active
+C00056,VertexHub 56,USA,FinTech,Small,31,59959,2024-05-24,Dessie,Amhara,Active
+C00057,FluxDigital 57,USA,Cloud Services,Medium,68,160875,2023-12-27,Addis Ababa,Addis Ababa,Active
+C00058,Rift Construction,Ethiopia,Import/Export,Small,10,59128,2025-01-07,Bahir Dar,Amhara,Active
+C00059,ZenithData 59,USA,Technology,Small,12,53132,2024-10-07,Dessie,Amhara,Active
+C00060,ApexTech 60,USA,E-Commerce,Micro,1,161385,2025-04-17,Addis Ababa,Addis Ababa,Active
+C00061,VertexAI 61,USA,EdTech,Micro,1,238421,2023-12-08,Dire Dawa,Dire Dawa,Active
+C00062,CascadeHub 62,USA,FinTech,Small,42,241775,2023-09-02,Addis Ababa,Addis Ababa,Active
+C00063,Simien Textile,Ethiopia,Construction,Micro,5,51863,2022-07-28,Jijiga,Somali,Active
+C00064,StratosSystems 64,USA,Logistics,Medium,180,3180525,2025-01-21,Mekelle,Tigray,Active
+C00065,VertexDynamics 65,USA,Logistics,Large,1971,9521911,2025-12-25,Adama,Oromia,Active
+C00066,CascadeAI 66,USA,E-Commerce,Micro,9,41263,2023-08-15,Jimma,Oromia,Active
+C00067,Addis PLC,Ethiopia,Agriculture,Micro,4,56964,2023-02-14,Addis Ababa,Addis Ababa,Active
+C00068,VertexWorks 68,USA,FinTech,Micro,7,283822,2025-05-02,Mekelle,Tigray,Active
+C00069,Awash Investment,Ethiopia,Construction,Small,18,24404,2022-04-22,Jijiga,Somali,Active
+C00070,Tana Textile,Ethiopia,Retail,Small,37,246097,2022-01-22,Hosaena,SNNPR,Active
+C00071,ZenithSystems 71,USA,Healthcare Tech,Micro,5,47044,2024-10-27,Adama,Oromia,Active
+C00072,Nile Services,Ethiopia,Import/Export,Micro,3,60634,2024-07-20,Addis Ababa,Addis Ababa,Active
+C00073,Awash Agro,Ethiopia,Import/Export,Large,670,1599229,2025-02-08,Addis Ababa,Addis Ababa,Active
+C00074,PrismHub 74,USA,Cloud Services,Small,48,227411,2024-07-03,Bishoftu,Oromia,Active
+C00075,VertexSystems 75,USA,Healthcare Tech,Micro,6,81149,2025-05-24,Mekelle,Tigray,Active
+C00076,AetherDynamics 76,USA,Healthcare Tech,Micro,5,188054,2024-03-24,Bahir Dar,Amhara,Active
+C00077,IonicIO 77,USA,EdTech,Small,19,152756,2022-03-01,Addis Ababa,Addis Ababa,Active
+C00078,StratosNet 78,USA,Healthcare Tech,Medium,218,807702,2025-02-10,Addis Ababa,Addis Ababa,Active
+C00079,Tana Textile,Ethiopia,Manufacturing,Large,1195,4893363,2023-12-29,Debre Birhan,Amhara,Active
+C00080,EmberVentures 80,USA,FinTech,Micro,6,75361,2025-02-22,Dire Dawa,Dire Dawa,Dissolved
+C00081,NovaWorks 81,USA,Cloud Services,Small,11,132201,2024-08-14,Adama,Oromia,Active
+C00082,CobaltData 82,USA,FinTech,Micro,6,185246,2022-04-07,Addis Ababa,Addis Ababa,Active
+C00083,Lalibela Construction,Ethiopia,Import/Export,Small,35,645219,2025-08-24,Addis Ababa,Addis Ababa,Active
+C00084,OrbitLabs 84,USA,Technology,Small,25,145782,2022-01-29,Bishoftu,Oromia,Active
+C00085,Rift Investment,Ethiopia,Tourism,Micro,8,80197,2022-11-21,Adama,Oromia,Active
+C00086,Simien Agro,Ethiopia,Tourism,Large,2211,45485002,2022-12-09,Dire Dawa,Dire Dawa,Active
+C00087,OrbitGroup 87,USA,FinTech,Micro,3,85637,2024-08-10,Addis Ababa,Addis Ababa,Active
+C00088,Nile Textile,Ethiopia,Import/Export,Medium,82,257709,2023-01-30,Addis Ababa,Addis Ababa,Active
+C00089,VortexIO 89,USA,E-Commerce,Micro,1,260478,2025-10-26,Bahir Dar,Amhara,Suspended
+C00090,Gambella Trading,Ethiopia,Import/Export,Small,24,144230,2024-11-19,Harar,Harari,Active
+C00091,NexusNet 91,USA,FinTech,Micro,1,42483,2023-07-05,Dire Dawa,Dire Dawa,Active
+C00092,Amhara PLC,Ethiopia,Agriculture,Enterprise,49325,216497157,2025-03-03,Shashamane,Oromia,Active
+C00093,NovaIO 93,USA,Consulting,Small,45,506798,2024-09-03,Addis Ababa,Addis Ababa,Active
+C00094,VortexAI 94,USA,EdTech,Small,34,139375,2023-06-18,Addis Ababa,Addis Ababa,Active
+C00095,CobaltData 95,USA,Consulting,Large,2294,3971746,2022-08-12,Addis Ababa,Addis Ababa,Active
+C00096,ZenithSystems 96,USA,Healthcare Tech,Small,46,378714,2022-05-24,Dessie,Amhara,Active
+C00097,Addis Investment,Ethiopia,Construction,Medium,203,395455,2022-03-14,Gondar,Amhara,Active
+C00098,NexusGroup 98,USA,EdTech,Small,19,142781,2023-01-25,Nekemte,Oromia,Active
+C00099,HelixLabs 99,USA,EdTech,Small,43,679506,2023-11-10,Dilla,SNNPR,Active
+C00100,Rift Construction,Ethiopia,Manufacturing,Medium,106,843159,2023-04-26,Adama,Oromia,Active
+C00101,Lalibela Services,Ethiopia,Retail,Small,43,66131,2025-07-02,Hosaena,SNNPR,Suspended
+C00102,QuantumAI 102,USA,Consulting,Small,32,278106,2022-03-17,Hawassa,Sidama,Dissolved
+C00103,QuantumAI 103,USA,Logistics,Micro,2,59987,2024-08-29,Dessie,Amhara,Active
+C00104,StratosCloud 104,USA,Logistics,Medium,231,739664,2024-03-01,Dilla,SNNPR,Active
+C00105,QuantumSystems 105,USA,Technology,Micro,4,34767,2025-12-27,Addis Ababa,Addis Ababa,Active
+C00106,Awash Textile,Ethiopia,Retail,Medium,112,525880,2024-07-04,Dire Dawa,Dire Dawa,Active
+C00107,ZenithDigital 107,USA,Technology,Micro,4,45095,2022-12-02,Mekelle,Tigray,Active
+C00108,CipherHub 108,USA,Consulting,Micro,3,156421,2023-12-10,Dire Dawa,Dire Dawa,Active
+C00109,ZenithHub 109,USA,FinTech,Small,33,109586,2022-02-06,Sodo,SNNPR,Active
+C00110,Nile Trading,Ethiopia,Retail,Small,46,231032,2022-05-23,Mekelle,Tigray,Suspended
+C00111,Tigray Textile,Ethiopia,Agriculture,Micro,3,93929,2024-05-31,Bahir Dar,Amhara,Active
+C00112,FluxLabs 112,USA,Cloud Services,Micro,9,20368,2025-08-25,Shashamane,Oromia,Active
+C00113,Gambella Real Estate,Ethiopia,Construction,Micro,6,113772,2024-05-29,Nekemte,Oromia,Active
+C00114,Abay PLC,Ethiopia,Manufacturing,Micro,5,38286,2025-02-07,Mekelle,Tigray,Active
+C00115,VortexLabs 115,USA,FinTech,Micro,5,95229,2025-01-16,Bahir Dar,Amhara,Suspended
+C00116,CascadeTech 116,USA,Logistics,Medium,53,228146,2024-08-23,Dire Dawa,Dire Dawa,Suspended
+C00117,Addis PLC,Ethiopia,Retail,Small,40,59055,2022-01-10,Bishoftu,Oromia,Active
+C00118,HelixGroup 118,USA,Consulting,Medium,119,4144639,2024-02-12,Mekelle,Tigray,Suspended
+C00119,IonicGroup 119,USA,E-Commerce,Large,3744,6911819,2023-09-16,Shashamane,Oromia,Active
+C00120,Abay Trading,Ethiopia,Tourism,Medium,102,388497,2025-12-13,Addis Ababa,Addis Ababa,Active
+C00121,NexusSolutions 121,USA,Technology,Micro,5,66772,2023-08-28,Dire Dawa,Dire Dawa,Active
+C00122,QuantumData 122,USA,Healthcare Tech,Large,3542,28972695,2023-04-27,Sodo,SNNPR,Active
+C00123,ZenithSolutions 123,USA,EdTech,Small,27,119966,2023-11-11,Jimma,Oromia,Active
+C00124,EmberVentures 124,USA,FinTech,Small,20,37229,2024-11-22,Addis Ababa,Addis Ababa,Active
+C00125,Harar Investment,Ethiopia,Agriculture,Small,15,77300,2022-06-08,Addis Ababa,Addis Ababa,Active
+C00126,NexusCloud 126,USA,E-Commerce,Large,4372,51647462,2025-08-26,Jijiga,Somali,Active
+C00127,CobaltGroup 127,USA,Consulting,Large,478,3560930,2025-07-20,Shashamane,Oromia,Active
+C00128,NexusSystems 128,USA,Technology,Small,40,187762,2023-06-15,Addis Ababa,Addis Ababa,Suspended
+C00129,Abay Real Estate,Ethiopia,Tourism,Enterprise,28402,134552813,2023-09-29,Hawassa,Sidama,Suspended
+C00130,NovaSolutions 130,USA,Cloud Services,Small,38,135105,2022-11-26,Adama,Oromia,Active
+C00131,ApexAI 131,USA,Healthcare Tech,Small,36,112879,2025-03-16,Addis Ababa,Addis Ababa,Active
+C00132,ApexNet 132,USA,Cloud Services,Small,29,217633,2024-04-22,Addis Ababa,Addis Ababa,Active
+C00133,CipherAI 133,USA,E-Commerce,Micro,8,47384,2023-01-27,Addis Ababa,Addis Ababa,Active
+C00134,VortexData 134,USA,E-Commerce,Small,14,43485,2023-07-26,Sodo,SNNPR,Active
+C00135,QuantumLabs 135,USA,Technology,Large,3875,86052733,2022-07-11,Hawassa,Sidama,Active
+C00136,QuantumAI 136,USA,Logistics,Medium,191,1226749,2025-04-26,Arba Minch,SNNPR,Active
+C00137,FluxNet 137,USA,Consulting,Micro,4,80322,2024-12-27,Jijiga,Somali,Suspended
+C00138,FluxIO 138,USA,FinTech,Medium,151,337036,2023-04-27,Addis Ababa,Addis Ababa,Active
+C00139,PrismData 139,USA,Technology,Small,11,14677,2023-09-14,Addis Ababa,Addis Ababa,Active
+C00140,ApexNet 140,USA,Consulting,Medium,199,561590,2022-08-20,Dessie,Amhara,Active
+C00141,IonicSystems 141,USA,Cloud Services,Small,49,118930,2022-06-07,Mekelle,Tigray,Active
+C00142,ApexCloud 142,USA,FinTech,Medium,204,830700,2022-09-06,Mekelle,Tigray,Active
+C00143,AxiomTech 143,USA,Technology,Enterprise,6586,66414516,2025-09-11,Adama,Oromia,Active
+C00144,Nile Real Estate,Ethiopia,Manufacturing,Micro,9,213108,2025-09-07,Addis Ababa,Addis Ababa,Active
+C00145,QuantumLabs 145,USA,Healthcare Tech,Medium,161,446988,2024-09-03,Gondar,Amhara,Active
+C00146,EmberSystems 146,USA,E-Commerce,Large,636,12160720,2025-01-11,Addis Ababa,Addis Ababa,Active
+C00147,OrbitNet 147,USA,Technology,Large,723,4673065,2024-01-14,Jimma,Oromia,Active
+C00148,CobaltLabs 148,USA,Logistics,Enterprise,47196,176587595,2024-02-21,Dire Dawa,Dire Dawa,Active
+C00149,Tana Agro,Ethiopia,Retail,Medium,120,661396,2022-06-17,Addis Ababa,Addis Ababa,Active
+C00150,Awash Services,Ethiopia,Manufacturing,Micro,7,117247,2025-09-20,Dire Dawa,Dire Dawa,Active
+C00151,Bale Investment,Ethiopia,Manufacturing,Large,1994,8721719,2025-08-08,Adama,Oromia,Active
+C00152,HelixTech 152,USA,Cloud Services,Small,46,364430,2022-09-21,Addis Ababa,Addis Ababa,Active
+C00153,Rift Trading,Ethiopia,Real Estate,Medium,90,262946,2024-03-31,Shashamane,Oromia,Active
+C00154,Nile Trading,Ethiopia,Real Estate,Micro,3,49299,2024-11-09,Addis Ababa,Addis Ababa,Active
+C00155,EmberWorks 155,USA,FinTech,Micro,6,153702,2024-09-25,Jijiga,Somali,Active
+C00156,AxiomGroup 156,USA,Technology,Micro,9,58270,2023-08-14,  Addis Ababa,Addis Ababa,Dissolved
+C00157,EmberSystems 157,USA,Healthcare Tech,Medium,165,1712569,2022-04-02,Jimma,Oromia,Active
+C00158,CipherSolutions 158,USA,Cloud Services,Small,42,328646,2024-06-16,Addis Ababa,Addis Ababa,Active
+C00159,QuantumGroup 159,USA,Cloud Services,Small,44,269406,2025-09-24,Bishoftu,Oromia,Active
+C00160,Harar Real Estate,Ethiopia,Real Estate,Medium,109,865306,2025-01-23,Addis Ababa,Addis Ababa,Active
+C00161,ApexTech 161,USA,Technology,Enterprise,47417,138683536,2022-11-29,Dire Dawa,Dire Dawa,Dissolved
+C00162,AxiomSystems 162,USA,Healthcare Tech,Small,49,339648,2024-03-08,Addis Ababa,Addis Ababa,Active
+C00163,Helixdigital 163,USA,Consulting,Micro,1,31119,2023-07-05,Gondar,Amhara,Active
+C00164,NovaTech 164,USA,FinTech,Small,49,520663,2024-10-19,Sodo,SNNPR,Active
+C00165,Addis Agro,Ethiopia,Retail,Micro,8,187141,2023-04-27,Harar,Harari,Suspended
+C00166,VortexNet 166,USA,E-Commerce,Medium,237,480691,2025-07-28,Addis Ababa,Addis Ababa,Active
+C00167,AetherSolutions 167,USA,Cloud Services,Small,47,169587,2025-03-17,Jijiga,Somali,Active
+C00168,Awash Services,Ethiopia,Import/Export,Micro,5,110733,2024-08-15,Addis Ababa,Addis Ababa,Active
+C00169,IonicDigital 169,USA,Cloud Services,Small,13,71780,2022-03-10,Adama,Oromia,Active
+C00170,Gambella Manufacturing,Ethiopia,Import/Export,Small,35,43083,2024-06-22,Addis Ababa,Addis Ababa,Active
+C00171,QuantumDigital 171,USA,Technology,Medium,102,1322670,2025-08-28,Nekemte,Oromia,Active
+C00172,VertexDigital 172,USA,EdTech,Small,23,124646,2022-04-21,Addis Ababa,Addis Ababa,Active
+C00173,SynapseSystems 173,USA,Consulting,Micro,8,370916,2025-06-06,Addis Ababa,Addis Ababa,Active
+C00174,CascadeIO 174,USA,Healthcare Tech,Small,32,97478,2025-05-24,Shashamane,Oromia,Active
+C00175,ApexDigital 175,USA,Healthcare Tech,Medium,76,376564,2024-09-01,Addis Ababa,Addis Ababa,Active
+C00176,IonicIO 176,USA,Logistics,Large,4402,32289638,2023-04-04,Jimma,Oromia,Active
+C00177,ZenithDigital 177,USA,Healthcare Tech,Micro,9,28138,2022-09-21,Dire Dawa,Dire Dawa,Active
+C00178,QuantumData 178,USA,Cloud Services,Medium,186,2859193,2022-12-01,Addis Ababa,Addis Ababa,Active
+C00179,Oromia Real Estate,Ethiopia,Manufacturing,Small,44,127520,2024-02-09,Arba Minch,SNNPR,Active
+C00180,IonicLabs 180,USA,Healthcare Tech,Medium,83,208225,2023-04-26,Sodo,SNNPR,Active
+C00181,VortexTech 181,USA,EdTech,Small,34,154027,2024-01-09,Addis Ababa,Addis Ababa,Active
+C00182,sYNAPSEio 182,USA,Logistics,Medium,83,301239,2025-11-17,Addis Ababa,Addis Ababa,Active
+C00183,ZenithTech 183,USA,E-Commerce,Small,43,258934,2025-09-10,Dire Dawa,Dire Dawa,Active
+C00184,StratosCloud 184,USA,Technology,Micro,1,206518,2025-07-24,Addis Ababa,Addis Ababa,Active
+C00185,Abay Construction,Ethiopia,Construction,Medium,134,1983678,2022-04-29,Bahir Dar,Amhara,Active
+C00186,Bale Services,Ethiopia,Agriculture,Large,4830,41935153,2024-02-06,Addis Ababa,Addis Ababa,Active
+C00187,FluxAI 187,USA,Technology,Medium,210,10663321,2024-03-30,Addis Ababa,Addis Ababa,Active
+C00188,Tigray Textile,Ethiopia,Agriculture,Small,45,53490,2024-07-12,Arba Minch,SNNPR,Active
+C00189,NexusDigital 189,USA,Healthcare Tech,Medium,154,611787,2023-04-19,Addis Ababa,Addis Ababa,Active
+C00190,OrbitAI 190,USA,EdTech,Small,28,119566,2024-05-25,Addis Ababa,Addis Ababa,Active
+C00191,CipherDynamics 191,USA,Cloud Services,Small,21,81690,2025-10-25,Addis Ababa,Addis Ababa,Active
+C00192,OrbitGroup 192,USA,Logistics,Micro,8,247935,2024-07-24,Addis Ababa,Addis Ababa,Active
+C00193,AetherCloud 193,USA,Technology,Small,39,741495,2023-04-07,Addis Ababa,Addis Ababa,Active
+C00194,Bale Construction,Ethiopia,Import/Export,Small,15,97092,2025-09-22,Addis Ababa,Addis Ababa,Active
+C00195,SynapseIO 195,USA,Consulting,Micro,5,48192,2022-08-08,Addis Ababa,Addis Ababa,Active
+C00196,FluxLabs 196,USA,EdTech,Small,10,150099,2023-06-10,Addis Ababa,Addis Ababa,Active
+C00197,StratosAI 197,USA,Logistics,Medium,247,1361771,2025-02-01,Dire Dawa,Dire Dawa,Suspended
+C00198,SynapseTech 198,USA,Consulting,Micro,1,87155,2025-01-17,Gondar,Amhara,Active
+C00199,Tigray Trading,Ethiopia,Real Estate,Small,48,168649,2023-08-08,Nekemte,Oromia,Active
+C00200,Simien Services,Ethiopia,Tourism,Small,42,507430,2025-06-14,Addis Ababa,Addis Ababa,Active
+C00201,Harar Services,Ethiopia,Tourism,Small,40,167873,2023-01-06,Addis Ababa,Addis Ababa,Suspended
+C00202,Awash Services,Ethiopia,Manufacturing,Medium,211,546960,2024-11-23,Mekelle,Tigray,Active
+C00203,SynapseIO 203,USA,EdTech,Medium,214,819893,2025-01-27,Addis Ababa,Addis Ababa,Active
+C00204,Oromia Textile,Ethiopia,Agriculture,Small,39,114165,2024-05-15,Addis Ababa,Addis Ababa,Active
+C00205,PrismVentures 205,USA,Healthcare Tech,Micro,2,160268,2024-06-23,Addis Ababa,Addis Ababa,Active
+C00206,NexusLabs 206,USA,Technology,Large,4328,151803575,2022-03-10,Addis Ababa,Addis Ababa,Active
+C00207,AetherAI 207,USA,Logistics,Micro,8,129153,2023-07-29,Hawassa,Sidama,Suspended
+C00208,VortexSolutions 208,USA,Cloud Services,Large,1828,16506448,2023-11-28,Addis Ababa,Addis Ababa,Dissolved
+C00209,CobaltCloud 209,USA,FinTech,Medium,180,3830789,2022-09-02,Asella,Oromia,Active
+C00210,Gambella Services,Ethiopia,Manufacturing,Large,2652,3021308,2024-07-21,Addis Ababa,Addis Ababa,Active
+C00211,Oromia Investment,Ethiopia,Manufacturing,Small,47,149215,2022-08-16,Mekelle,Tigray,Suspended
+C00212,Nile Trading,Ethiopia,Construction,Medium,242,1844389,2024-02-19,Bahir Dar,Amhara,Suspended
+C00213,QuantumCloud 213,USA,E-Commerce,Micro,5,45184,2022-09-11,  Adama,Oromia,Active
+C00214,OrbitSystems 214,USA,EdTech,Large,3295,29893256,2024-04-15,Addis Ababa,Addis Ababa,Active
+C00215,SynapseCloud 215,USA,FinTech,Medium,186,651976,2025-10-25,Addis Ababa,Addis Ababa,Active
+C00216,AetherDigital 216,USA,Healthcare Tech,Small,48,63555,2022-03-29,Hawassa,Sidama,Active
+C00217,AxiomVentures 217,USA,EdTech,Small,33,98785,2022-08-30,Dire Dawa,Dire Dawa,Active
+C00218,NovaHub 218,USA,Consulting,Medium,126,728420,2023-11-09,Mekelle,Tigray,Active
+C00219,IonicNet 219,USA,Healthcare Tech,Medium,80,1070090,2025-11-03,Harar,Harari,Suspended
+C00220,Rift Manufacturing,Ethiopia,Manufacturing,Small,37,130033,2023-12-16,Dire Dawa,Dire Dawa,Active
+C00221,VertexSolutions 221,USA,FinTech,Medium,232,1247570,2024-07-30,Gondar,Amhara,Active
+C00222,AetherDigital 222,USA,Cloud Services,Medium,143,486060,2025-03-02,Addis Ababa,Addis Ababa,Suspended
+C00223,CobaltDynamics 223,USA,Technology,Micro,8,150066,2022-02-11,Addis Ababa,Addis Ababa,Active
+C00224,Simien Construction,Ethiopia,Retail,Micro,4,149161,2022-03-08,Shashamane,Oromia,Active
+C00225,Nile Import Export,Ethiopia,Agriculture,Small,34,241848,2022-06-21,Addis Ababa,Addis Ababa,Active
+C00226,VortexAI 226,USA,Technology,Micro,2,97011,2025-09-03,Jimma,Oromia,Active
+C00227,Rift Trading,Ethiopia,Agriculture,Small,38,337964,2025-10-04,Addis Ababa,Addis Ababa,Active
+C00228,Awash Agro,Ethiopia,Retail,Medium,142,940646,2025-12-15,Asella,Oromia,Active
+C00229,Harar Services,Ethiopia,Tourism,Small,24,63051,2025-02-07,Adama,Oromia,Active
+C00230,Tana Trading,Ethiopia,Agriculture,Large,387,1716909,2023-12-11,Shashamane,Oromia,Active
+C00231,NovaNet 231,USA,Logistics,Micro,8,135439,2025-12-04,Jijiga,Somali,Active
+C00232,Oromia Real Estate,Ethiopia,Import/Export,Micro,6,48236,2023-01-19,Dessie,Amhara,Active
+C00233,Harar PLC,Ethiopia,Import/Export,Micro,1,142508,2022-10-16,Mekelle,Tigray,Active
+C00234,Tigray Textile,Ethiopia,Real Estate,Medium,173,807148,2025-10-29,Shashamane,Oromia,Active
+C00235,VertexCloud 235,USA,Cloud Services,Small,16,33003,2023-09-17,Bishoftu,Oromia,Active
+C00236,HelixSolutions 236,USA,E-Commerce,Medium,211,2682946,2024-10-25,Addis Ababa,Addis Ababa,Dissolved
+C00237,Tigray Investment,Ethiopia,Manufacturing,Micro,4,160812,2024-02-26,Gondar,Amhara,Active
+C00238,CobaltNet 238,USA,E-Commerce,Micro,8,31012,2025-02-19,Addis Ababa,Addis Ababa,Active
+C00239,VertexVentures 239,USA,E-Commerce,Small,18,824015,2022-05-20,Addis Ababa,Addis Ababa,Active
+C00240,Simien Trading,Ethiopia,Retail,Medium,236,1073540,2023-08-20,Bahir Dar,Amhara,Active
+C00241,Harar Services,Ethiopia,Tourism,Enterprise,17306,176381206,2023-04-24,Hawassa,Sidama,Active
+C00242,CipherTech 242,USA,Logistics,Small,43,356107,2024-08-25,Dire Dawa,Dire Dawa,Active
+C00243,Bale Real Estate,Ethiopia,Retail,Small,11,38201,2024-06-14,Jimma,Oromia,Active
+C00244,StratosData 244,USA,FinTech,Small,18,114516,2022-07-30,Dire Dawa,Dire Dawa,Active
+C00245,PrismIO 245,USA,E-Commerce,Small,22,145998,2025-01-24,Gondar,Amhara,Active
+C00246,Rift Real Estate,Ethiopia,Construction,Micro,7,118076,2024-07-19,Bahir Dar,Amhara,Active
+C00247,CobaltDynamics 247,USA,Logistics,Micro,4,86650,2022-11-29,Addis Ababa,Addis Ababa,Active
+C00248,ApexGroup 248,USA,Technology,Small,26,220250,2025-12-05,Hosaena,SNNPR,Dissolved
+C00249,Amhara Real Estate,Ethiopia,Agriculture,Medium,134,2591813,2025-07-30,Shashamane,Oromia,Active
+C00250,EmberNet 250,USA,Technology,Large,1033,5535324,2024-07-25,Addis Ababa,Addis Ababa,Active
+C00251,OrbitAI  251,USA,Healthcare Tech,Micro,7,145425,2022-05-08,Hosaena,SNNPR,Active
+C00252,Amhara Agro,Ethiopia,Manufacturing,Micro,4,67173,2023-02-11,Addis Ababa,Addis Ababa,Active
+C00253,Amhara Agro,Ethiopia,Real Estate,Medium,180,414897,2024-08-02,Gondar,Amhara,Active
+C00254,AetherDynamics 254,USA,Consulting,Small,22,131935,2022-09-14,Addis Ababa,Addis Ababa,Active
+C00255,PrismData 255,USA,Technology,Medium,98,867887,2023-03-21,Dire Dawa,Dire Dawa,Active
+C00256,IonicCloud 256,USA,Logistics,Micro,3,65033,2025-04-02,Hosaena,SNNPR,Active
+C00257,Rift Investment,Ethiopia,Tourism,Small,48,281049,2024-12-31,Mekelle,Tigray,Active
+C00258,CobaltHub 258,USA,Cloud Services,Small,37,146658,2023-11-20,Addis Ababa,Addis Ababa,Active
+C00259,IonicTech 259,USA,EdTech,Medium,124,157526,2025-12-26,Addis Ababa,Addis Ababa,Active
+C00260,CipherGroup 260,USA,Consulting,Micro,5,50196,2022-08-18,Addis Ababa,Addis Ababa,Active
+C00261,VortexVentures 261,USA,EdTech,Small,14,118505,2022-12-11,Bahir Dar,Amhara,Active
+C00262,HelixTech 262,USA,Consulting,Large,4658,66311831,2022-10-26,Dessie,Amhara,Active
+C00263,Nile Services,Ethiopia,Import/Export,Micro,2,272056,2022-01-18,Dire Dawa,Dire Dawa,Dissolved
+C00264,Awash Services,Ethiopia,Real Estate,Micro,9,155106,2023-02-07,Sodo,SNNPR,Active
+C00265,CobaltDigital 265,USA,Cloud Services,Enterprise,21139,59712731,2023-03-09,Harar,Harari,Active
+C00266,Awash Agro,Ethiopia,Real Estate,Micro,3,36726,2024-02-06,Sodo,SNNPR,Active
+C00267,Harar Real Estate,Ethiopia,Construction,Small,30,151493,2023-11-10,Bahir Dar,Amhara,Active
+C00268,ZenithTech 268,USA,Technology,Small,28,211705,2024-05-17,Addis Ababa,Addis Ababa,Active
+C00269,ZenithSolutions 269,USA,Logistics,Micro,1,270020,2022-12-16,Hawassa,Sidama,Dissolved
+C00270,ZenithHub 270,USA,EdTech,Small,10,119613,2025-01-08,Addis Ababa,Addis Ababa,Active
+C00271,CipherVentures 271,USA,E-Commerce,Small,19,159327,2023-01-19,Addis Ababa,Addis Ababa,Active
+C00272,OrbitIO 272,USA,Consulting,Small,36,59124,2023-09-25,Addis Ababa,Addis Ababa,Active
+C00273,Gambella Textile,Ethiopia,Agriculture,Micro,1,92976,2023-12-27,Addis Ababa,Addis Ababa,Active
+C00274,Addis PLC,Ethiopia,Manufacturing,Large,2918,25157730,2024-04-04,Addis Ababa,Addis Ababa,Suspended
+C00275,Lalibela Textile,Ethiopia,Agriculture,Medium,232,1088456,2022-07-31,Hawassa,Sidama,Active
+C00276,Tigray Textile,Ethiopia,Retail,Small,26,211438,2024-08-23,Addis Ababa,Addis Ababa,Active
+C00277,VertexIO 277,USA,Logistics,Enterprise,38546,436973597,2025-04-15,Adama,Oromia,Active
+C00278,Simien Textile,Ethiopia,Construction,Micro,7,206735,2022-04-07,Dire Dawa,Dire Dawa,Active
+C00279,Amhara Real Estate,Ethiopia,Import/Export,Medium,190,1870151,2023-02-13,Addis Ababa,Addis Ababa,Active
+C00280,Rift Real Estate,Ethiopia,Real Estate,Micro,4,174656,2024-01-18,Bahir Dar,Amhara,Active
+C00281,Oromia Construction,Ethiopia,Real Estate,Micro,2,222323,2022-03-16,Bishoftu,Oromia,Active
+C00282,AxiomData 282,USA,Technology,Small,11,135791,2025-12-03,Shashamane,Oromia,Active
+C00283,ApexCloud 283,USA,Logistics,Small,14,115388,2023-06-20,Dessie,Amhara,Active
+C00284,Lalibela Trading,Ethiopia,Retail,Small,47,54227,2022-01-28,Shashamane,Oromia,Active
+C00285,CipherTech 285,USA,Logistics,Small,26,255272,2022-06-13,Arba Minch,SNNPR,Dissolved
+C00286,ApexSolutions 286,USA,FinTech,Large,2494,8105403,2022-04-14,nEKEMTE,Oromia,Active
+C00287,StratosCloud 287,USA,Healthcare Tech,Small,23,101114,2023-10-23,Addis Ababa,Addis Ababa,Active
+C00288,CobaltWorks 288,USA,Logistics,Micro,7,347720,2025-11-04,Addis Ababa,Addis Ababa,Dissolved
+C00289,PrismSystems 289,USA,FinTech,Small,24,358546,2022-03-21,dIRE dAWA,Dire Dawa,Suspended
+C00290,Awash Investment,Ethiopia,Manufacturing,Small,29,187097,2022-10-23,Hawassa,Sidama,Active
+C00291,Harar Real Estate,Ethiopia,Construction,Micro,1,25119,2025-11-18,Dilla,SNNPR,Active
+C00292,ApexLabs 292,USA,Healthcare Tech,Micro,5,506840,2022-07-03,Dire Dawa,Dire Dawa,Active
+C00293,Amhara Real Estate,Ethiopia,Agriculture,Large,543,4448004,2024-07-22,Addis Ababa,Addis Ababa,Active
+C00294,CipherData 294,USA,Technology,Small,37,45807,2022-04-29,Addis Ababa,Addis Ababa,Active
+C00295,CipherCloud 295,USA,Consulting,Small,46,473843,2023-02-06,Mekelle,Tigray,Active
+C00296,AxiomCloud 296,USA,Logistics,Large,1209,21091260,2023-12-30,Nekemte,Oromia,Active
+C00297,Oromia Import Export,Ethiopia,Construction,Medium,151,589954,2025-04-25,Addis Ababa,Addis Ababa,Active
+C00298,ZenithAI 298,USA,Technology,Small,27,109160,2023-07-19,Harar,Harari,Active
+C00299,Lalibela Textile,Ethiopia,Import/Export,Large,3342,3953239,2022-11-10,Addis Ababa,Addis Ababa,Active
+C00300,VortexSystems 300,USA,FinTech,Medium,160,331899,2022-01-18,Addis Ababa,Addis Ababa,Active
+C00301,Tana Manufacturing,Ethiopia,Manufacturing,Large,4176,6290474,2024-12-21,Bahir Dar,Amhara,Active
+C00302,CipherSolutions 302,USA,Consulting,Micro,5,68118,2025-06-11,Addis Ababa,Addis Ababa,Active
+C00303,AxiomData 303,USA,Healthcare Tech,Micro,4,163546,2023-05-12,Addis Ababa,Addis Ababa,Active
+C00304,Awash Real Estate,Ethiopia,Manufacturing,Micro,9,91625,2025-06-04,Addis Ababa,Addis Ababa,Active
+C00305,CipherAI 305,USA,Technology,Micro,6,51421,2023-06-06,Dessie,Amhara,Active
+C00306,EmberWorks 306,USA,EdTech,Small,11,60290,2022-10-24,Addis Ababa,Addis Ababa,Active
+C00307,HelixData 307,USA,E-Commerce,Medium,209,926361,2025-10-09,Mekelle,Tigray,Suspended
+C00308,ApexCloud 308,USA,Consulting,Micro,6,81831,2024-12-22,Dire Dawa,Dire Dawa,Active
+C00309,Abay Trading,Ethiopia,Tourism,Micro,1,32208,2022-01-16,Arba Minch,SNNPR,Suspended
+C00310,PrismGroup 310,USA,Cloud Services,Small,22,67713,2023-05-30,Jimma,Oromia,Active
+C00311,Bale Services,Ethiopia,Tourism,Small,46,156740,2024-03-13,Bahir Dar,Amhara,Active
+C00312,VertexTech 312,USA,Cloud Services,Medium,150,2485701,2024-11-20,Addis Ababa,Addis Ababa,Active
+C00313,VertexSystems 313,USA,Healthcare Tech,Micro,8,43789,2024-04-27,Arba Minch,SNNPR,Active
+C00314,StratosLabs 314,USA,FinTech,Small,35,115514,2024-05-09,Addis Ababa,Addis Ababa,Active
+C00315,Rift Agro,Ethiopia,Real Estate,Medium,124,1127875,2023-04-11,Mekelle,Tigray,Active
+C00316,  OrbitData 316,USA,Technology,Micro,6,233036,2024-02-07,Mekelle,Tigray,Active
+C00317,IonicDigital 317,USA,E-Commerce,Large,1176,4730184,2022-11-28,Bahir Dar,Amhara,Suspended
+C00318,Addis Real Estate,Ethiopia,Import/Export,Small,41,176553,2023-12-26,Mekelle,Tigray,Active
+C00319,NovaDynamics 319,USA,Logistics,Large,1705,780970,2022-12-06,Jimma,Oromia,Active
+C00320,HelixAI 320,USA,E-Commerce,Micro,1,151684,2025-10-19,Dire Dawa,Dire Dawa,Suspended
+C00321,AxiomSystems 321,USA,Healthcare Tech,Small,27,63114,2023-08-18,Addis Ababa,Addis Ababa,Active
+C00322,Tana Import Export,Ethiopia,Import/Export,Small,46,68912,2025-05-17,Addis Ababa,Addis Ababa,Active
+C00323,AetherLabs 323,USA,Logistics,Medium,194,1320106,2022-12-19,Adama,Oromia,Active
+C00324,Awash Services,Ethiopia,Real Estate,Small,15,99622,2024-08-26,Dire Dawa,Dire Dawa,Active
+C00325,QuantumDynamics 325,USA,EdTech,Micro,5,103436,2025-11-14,Harar,Harari,Active
+C00326,CipherSystems 326,USA,Cloud Services,Enterprise,44048,643067721,2022-01-16,Dire Dawa,Dire Dawa,Active
+C00327,AetherCloud 327,USA,EdTech,Medium,144,1180952,2024-06-02,Mekelle,Tigray,Active
+C00328,ZenithVentures 328,USA,Healthcare Tech,Small,16,200831,2025-05-01,Dessie,Amhara,Active
+C00329,Lalibela Construction,Ethiopia,Manufacturing,Enterprise,21170,44777593,2022-05-10,Jimma,Oromia,Active
+C00330,FluxNet 330,USA,Healthcare Tech,Small,48,395261,2022-03-10,Gondar,Amhara,Active
+C00331,SynapseDigital 331,USA,FinTech,Micro,8,280587,2024-10-01,Shashamane,Oromia,Active
+C00332,HelixDigital 332,USA,Consulting,Small,46,378515,2023-04-24,Addis Ababa,Addis Ababa,Suspended
+C00333,OrbitCloud 333,USA,Cloud Services,Small,32,48451,2024-03-07,Bishoftu,Oromia,Active
+C00334,VertexCloud 334,USA,FinTech,Small,19,236536,2023-02-16,Addis Ababa,Addis Ababa,Active
+C00335,QuantumVentures 335,USA,Technology,Medium,140,463128,2025-09-26,Addis Ababa,Addis Ababa,Active
+C00336,ZenithIO 336,USA,Healthcare Tech,Micro,7,53533,2024-02-05,Addis Ababa,Addis Ababa,Active
+C00337,CipherIO 337,USA,Logistics,Small,41,261873,2024-05-06,Dessie,Amhara,Active
+C00338,Bale Investment,Ethiopia,Manufacturing,Enterprise,12859,149350928,2022-02-18,Addis Ababa,Addis Ababa,Active
+C00339,OrbitVentures 339,USA,E-Commerce,Small,31,284507,2022-04-05,Arba Minch,SNNPR,Suspended
+C00340,Gambella Real Estate,Ethiopia,Import/Export,Micro,1,188376,2022-09-23,Hawassa,Sidama,Active
+C00341,QuantumDynamics 341,USA,Logistics,Small,34,109907,2024-02-18,Arba Minch,SNNPR,Active
+C00342,Tana Real Estate,Ethiopia,Agriculture,Small,15,70510,2024-12-08,Addis Ababa,Addis Ababa,Active
+C00343,Simien Trading,Ethiopia,Agriculture,Micro,4,69079,2024-10-29,Nekemte,Oromia,Active
+C00344,PrismLabs 344,USA,Cloud Services,Medium,235,669162,2024-01-20,Addis Ababa,Addis Ababa,Active
+C00345,PrismGroup 345,USA,EdTech,Large,2578,21756816,2024-10-14,Adama,Oromia,Active
+C00346,Simien Manufacturing,Ethiopia,Manufacturing,Small,19,126253,2022-12-09,Addis Ababa,Addis Ababa,Active
+C00347,StratosHub 347,USA,FinTech,Small,28,105351,2023-10-01,Harar,Harari,Active
+C00348,Lalibela Trading,Ethiopia,Tourism,Small,11,235495,2024-11-10,Addis Ababa,Addis Ababa,Active
+C00349,CascadeDynamics 349,USA,Consulting,Micro,1,185257,2023-01-27,Addis Ababa,Addis Ababa,Active
+C00350,AxiomCloud 350,USA,Cloud Services,Medium,192,366431,2024-06-18,Addis  Ababa,Addis Ababa,Active
+C00351,HelixTech 351,USA,Healthcare Tech,Micro,8,104478,2025-05-19,Bahir Dar,Amhara,Active
+C00352,ApexVentures 352,USA,Consulting,Micro,5,41040,2022-09-19,Addis Ababa,Addis Ababa,Active
+C00353,PrismAI 353,USA,Logistics,Micro,8,46429,2025-08-01,Hosaena,SNNPR,Active
+C00354,Tana Agro,Ethiopia,Manufacturing,Enterprise,7301,27794387,2025-09-27,Addis Ababa,Addis Ababa,Active
+C00355,CascadeDynamics 355,USA,FinTech,Micro,1,18592,2022-10-04,Addis Ababa,Addis Ababa,Active
+C00356,OrbitVentures 356,USA,FinTech,Small,40,125219,2024-09-18,Gondar,Amhara,Active
+C00357,AxiomData 357,USA,Technology,Small,24,480195,2023-04-30,Dilla,SNNPR,Suspended
+C00358,Rift Agro,Ethiopia,Manufacturing,Small,23,58204,2024-07-30,Addis Ababa,Addis Ababa,Active
+C00359,OrbitWorks 359,USA,EdTech,Large,4446,61779695,2024-09-07,Jijiga,Somali,Active
+C00360,Nile Services,Ethiopia,Tourism,Micro,4,337134,2023-04-18,Gondar,Amhara,Active
+C00361,StratosDigital 361,USA,Consulting,Micro,2,136171,2024-09-16,Shashamane,Oromia,Active
+C00362,Addis Agro,Ethiopia,Retail,Large,909,18992249,2022-10-30,Dilla,SNNPR,Active
+C00363,NexusVentures 363,USA,E-Commerce,Medium,135,1521160,2022-07-20,Dilla,SNNPR,Active
+C00364,Harar Construction,Ethiopia,Tourism,Micro,6,70974,2022-05-22,Dire Dawa,Dire Dawa,Active
+C00365,CipherVentures 365,USA,Consulting,Small,45,351629,2024-02-02,Dilla,SNNPR,Active
+C00366,ZenithHub 366,USA,Consulting,Small,31,633951,2023-04-23,Addis Ababa,Addis Ababa,Active
+C00367,Oromia Agro,Ethiopia,Manufacturing,Micro,4,139124,2023-07-28,Dessie,Amhara,Active
+C00368,ApexVentures 368,USA,E-Commerce,Small,48,197096,2025-04-14,Bahir Dar,Amhara,Active
+C00369,PrismGroup 369,USA,Consulting,Small,45,71288,2025-01-07,Hawassa,Sidama,Active
+C00370,AetherVentures 370,USA,E-Commerce,Micro,1,224022,2023-10-17,Addis Ababa,Addis Ababa,Active
+C00371,Bale Textile,Ethiopia,Retail,Enterprise,20401,48670914,2023-02-05,Addis Ababa,Addis Ababa,Active
+C00372,VortexIO 372,USA,Logistics,Small,30,148252,2024-05-06,Adama,Oromia,Active
+C00373,PrismIO 373,USA,Logistics,Small,18,140125,2022-07-31,Addis Ababa,Addis Ababa,Active
+C00374,OrbitData 374,USA,Consulting,Large,4192,11656235,2025-07-09,Mekelle,Tigray,Active
+C00375,StratosNet 375,USA,FinTech,Small,10,98269,2023-12-10,Mekelle,Tigray,Active
+C00376,CobaltDigital 376,USA,Logistics,Small,40,93289,2025-11-22,Dire Dawa,Dire Dawa,Active
+C00377,Tigray Services,Ethiopia,Construction,Small,18,202894,2024-06-01,Addis Ababa,Addis Ababa,Active
+C00378,CipherTech 378,USA,Healthcare Tech,Micro,5,66514,2022-04-27,Dire Dawa,Dire Dawa,Active
+C00379,Addis Investment,Ethiopia,Retail,Large,4217,13150719,2025-03-18,Addis Ababa,Addis Ababa,Active
+C00380,PrismData 380,USA,Technology,Micro,6,60830,2025-05-25,Addis Ababa,Addis Ababa,Active
+C00381,Oromia Textile,Ethiopia,Tourism,Micro,5,118384,2022-10-01,Addis Ababa,Addis Ababa,Dissolved
+C00382,CascadeLabs 382,USA,Technology,Large,2943,55935615,2024-10-01,Addis Ababa,Addis Ababa,Suspended
+C00383,CascadeIO 383,USA,EdTech,Large,814,16813180,2023-01-11,Addis Ababa,Addis Ababa,Suspended
+C00384,Rift Trading,Ethiopia,Retail,Small,25,146225,2025-09-02,Adama,Oromia,Active
+C00385,HelixWorks 385,USA,Consulting,Micro,1,135197,2023-08-12,Addis Ababa,Addis Ababa,Active
+C00386,AetherGroup 386,USA,Consulting,Small,38,123901,2022-09-30,Addis Ababa,Addis Ababa,Active
+C00387,PrismData 387,USA,Technology,Micro,8,94052,2025-11-18,Adama,Oromia,Active
+C00388,Addis Construction,Ethiopia,Construction,Micro,1,253973,2023-08-14,Bahir Dar,Amhara,Active
+C00389,EmberVentures 389,USA,Consulting,Small,38,989334,2024-02-10,Arba Minch,SNNPR,Suspended
+C00390,StratosSystems 390,USA,Consulting,Small,25,105743,2025-03-23,Addis Ababa,Addis Ababa,Active
+C00391,QuantumIO 391,USA,Cloud Services,Micro,8,135158,2023-03-20,Asella,Oromia,Active
+C00392,EmberSystems 392,USA,Healthcare Tech,Small,22,103225,2022-07-18,Jijiga,Somali,Active
+C00393,CipherGroup 393,USA,FinTech,Micro,7,17900,2023-12-26,Gondar,Amhara,Active
+C00394,Amhara Import Export,Ethiopia,Real Estate,Small,47,83249,2025-03-13,Dessie,Amhara,Active
+C00395,CobaltDigital 395,USA,Technology,Micro,3,131479,2025-04-29,Dire Dawa,Dire Dawa,Active
+C00396,Rift PLC,Ethiopia,Real Estate,Small,32,302272,2025-09-13,Gondar,Amhara,Active
+C00397,Harar Construction,Ethiopia,Retail,Medium,190,1622136,2023-12-20,Addis Ababa,Addis Ababa,Dissolved
+C00398,Tigray Manufacturing,Ethiopia,Retail,Micro,8,92525,2023-04-30,Addis Ababa,Addis Ababa,Active
+C00399,VortexWorks 399,USA,E-Commerce,Small,25,66161,2023-07-21,Addis Ababa,Addis Ababa,Active
+C00400,EmberDynamics 400,USA,E-Commerce,Medium,51,200460,2025-09-06,Shashamane,Oromia,Active
+C00401,PrismNet 401,USA,E-Commerce,Micro,6,50573,2024-11-25,Addis Ababa,Addis Ababa,Active
+C00402,Gambella Textile,Ethiopia,Agriculture,Small,21,99008,2025-02-15,Addis Ababa,Addis Ababa,Active
+C00403,Bale Agro,Ethiopia,Tourism,Medium,118,455257,2023-12-25,Jijiga,Somali,Active
+C00404,NexusLabs 404,USA,E-Commerce,Medium,96,372193,2025-10-22,Bishoftu,Oromia,Active
+C00405,CipherSystems 405,USA,E-Commerce,Medium,163,2335873,2022-09-23,Addis Ababa,Addis Ababa,Active
+C00406,Tana Investment,Ethiopia,Retail,Micro,7,57470,2024-04-07,Addis Ababa,Addis Ababa,Active
+C00407,Lalibela Import Export,Ethiopia,Agriculture,Micro,2,94192,2025-10-17,Adama,Oromia,Active
+C00408,Oromia Services,Ethiopia,Agriculture,Small,17,38522,2022-04-24,Adama,Oromia,Active
+C00409,Harar Construction,Ethiopia,Construction,Small,26,169424,2022-01-09,Adama,Oromia,Active
+C00410,HelixIO 410,USA,E-Commerce,Small,46,482408,2025-12-10,Hosaena,SNNPR,Active
+C00411,Tigray Trading,Ethiopia,Construction,Small,31,454582,2024-01-05,Addis Ababa,Addis Ababa,Active
+C00412,CipherDynamics 412,USA,EdTech,Micro,1,118874,2022-04-18,Jimma,Oromia,Active
+C00413,Tigray Trading,Ethiopia,Manufacturing,Medium,91,326634,2023-09-07,Addis Ababa,Addis Ababa,Active
+C00414,NovaIO 414,USA,Technology,Small,34,369222,2025-03-21,Dire Dawa,Dire Dawa,Active
+C00415,NovaVentures 415,USA,EdTech,Medium,209,836067,2025-09-22,Addis Ababa,Addis Ababa,Dissolved
+C00416,SynapseVentures 416,USA,E-Commerce,Small,37,143596,2025-03-07,Addis Ababa,Addis Ababa,Active
+C00417,EmberNet 417,USA,Cloud Services,Large,909,16446111,2025-05-10,Nekemte,Oromia,Active
+C00418,Tana PLC,Ethiopia,Agriculture,Micro,2,110629,2022-08-17,Gondar,Amhara,Dissolved
+C00419,CobaltDynamics 419,USA,Cloud Services,Medium,199,638556,2024-05-26,Mekelle,Tigray,Active
+C00420,Bale Investment,Ethiopia,Tourism,Large,4991,57859436,2024-10-02,Dessie,Amhara,Active
+C00421,Addis Construction,Ethiopia,Manufacturing,Medium,78,401639,2024-11-14,Adama,Oromia,Suspended
+C00422,PrismLabs 422,USA,Cloud Services,Small,14,72193,2022-02-22,Hosaena,SNNPR,Active
+C00423,AxiomIO 423,USA,Consulting,Micro,8,141467,2023-01-06,Hawassa,Sidama,Active
+C00424,ApexLabs 424,USA,Technology,Small,17,350600,2022-11-26,Mekelle,Tigray,Active
+C00425,OrbitWorks 425,USA,Logistics,Medium,202,497615,2023-02-15,Addis Ababa,Addis Ababa,Suspended
+C00426,Rift Textile,Ethiopia,Retail,Large,3936,34483492,2022-03-17,Bahir Dar,Amhara,Active
+C00427,EmberTech 427,USA,EdTech,Small,34,283437,2025-01-27,Addis Ababa,Addis Ababa,Active
+C00428,AxiomLabs 428,USA,FinTech,Micro,2,82980,2024-06-09,Bishoftu,Oromia,Active
+C00429,CipherVentures 429,USA,Consulting,Enterprise,29570,110643249,2023-05-26,Dire Dawa,Dire Dawa,Active
+C00430,Tana Manufacturing,Ethiopia,Manufacturing,Large,4434,10173151,2023-12-14,Jimma,Oromia,Active
+C00431,Gambella Textile,Ethiopia,Tourism,Micro,6,97601,2022-12-17,Sodo,SNNPR,Active
+C00432,Abay Import Export,Ethiopia,Tourism,Enterprise,8582,57988990,2022-09-03,Gondar,Amhara,Active
+C00433,VertexAI 433,USA,Cloud Services,Medium,177,285148,2024-02-04,Dire Dawa,Dire Dawa,Active
+C00434,Oromia PLC,Ethiopia,Construction,Large,4673,21635899,2022-02-28,Bahir Dar,Amhara,Active
+C00435,CobaltIO 435,USA,Logistics,Medium,175,320240,2023-02-05,Addis Ababa,Addis Ababa,Active
+C00436,Bale Manufacturing,Ethiopia,Construction,Medium,90,440592,2025-12-06,Addis Ababa,Addis Ababa,Active
+C00437,ZenithData 437,USA,FinTech,Enterprise,27858,213195637,2023-07-20,Adama,Oromia,Active
+C00438,HelixAI 438,USA,Consulting,Medium,188,1660383,2022-03-21,Gondar,Amhara,Active
+C00439,OrbitLabs 439,USA,EdTech,Small,19,125565,2023-06-26,Addis Ababa,Addis Ababa,Active
+C00440,Tana Construction,Ethiopia,Import/Export,Small,23,129000,2025-09-26,Dire Dawa,Dire Dawa,Active
+C00441,QuantumTech 441,USA,Healthcare Tech,Micro,4,66005,2024-04-07,Addis Ababa,Addis Ababa,Active
+C00442,QuantumWorks 442,USA,Healthcare Tech,Small,20,125349,2022-09-25,Addis Ababa,Addis Ababa,Active
+C00443,CascadeDynamics 443,USA,Healthcare Tech,Micro,7,53521,2025-04-18,Gondar,Amhara,Active
+C00444,Oromia Real Estate,Ethiopia,Agriculture,Medium,179,1744436,2023-04-25,Dilla,SNNPR,Dissolved
+C00445,Simien Construction,Ethiopia,Construction,Micro,9,90060,2022-01-16,Dire Dawa,Dire Dawa,Active
+C00446,IonicSystems 446,USA,Healthcare Tech,Large,4531,20092502,2025-08-24,Addis Ababa,Addis Ababa,Active
+C00447,Bale Import Export,Ethiopia,Manufacturing,Small,21,24415,2022-01-26,Addis Ababa,Addis Ababa,Active
+C00448,CipherLabs 448,USA,Consulting,Small,30,174279,2024-10-16,Addis Ababa,Addis Ababa,Dissolved
+C00449,QuantumVentures 449,USA,Technology,Large,3961,71560689,2022-01-21,Hawassa,Sidama,Active
+C00450,StratosSystems 450,USA,Technology,Small,48,66750,2023-02-08,Addis Ababa,Addis Ababa,Active
+C00451,CobaltWorks 451,USA,Consulting,Micro,9,81392,2023-01-28,Debre Birhan,Amhara,Active
+C00452,ZenithHub 452,USA,EdTech,Micro,8,88884,2024-02-23,Dire Dawa,Dire Dawa,Active
+C00453,Rift Trading,Ethiopia,Retail,Micro,8,48282,2025-09-06,Addis Ababa,Addis Ababa,Active
+C00454,Gambella Investment,Ethiopia,Construction,Medium,60,361409,2023-01-23,Bishoftu,Oromia,Active
+C00455,Awash PLC,Ethiopia,Manufacturing,Micro,5,86840,2025-08-31,Addis Ababa,Addis Ababa,Active
+C00456,CipherGroup 456,USA,E-Commerce,Large,844,9510442,2025-05-06,Addis Ababa,Addis Ababa,Active
+C00457,StratosAI 457,USA,FinTech,Micro,9,86375,2022-10-08,Shashamane,Oromia,Active
+C00458,AxiomHub 458,USA,Technology,Medium,189,700087,2023-08-09,Addis Ababa,Addis Ababa,Active
+C00459,VortexDigital 459,USA,Consulting,Small,37,438475,2024-03-01,Dessie,Amhara,Dissolved
+C00460,VertexSystems 460,USA,Cloud Services,Small,34,239342,2025-04-03,Nekemte,Oromia,Active
+C00461,Gambella Import Export,Ethiopia,Real Estate,Medium,76,305426,2023-12-18,Adama,Oromia,Active
+C00462,Abay Textile,Ethiopia,Real Estate,Medium,191,1123211,2024-04-25,Dessie,Amhara,Active
+C00463,AxiomHub 463,USA,E-Commerce,Medium,151,243684,2023-03-25,Addis Ababa,Addis Ababa,Active
+C00464,Lalibela Import Export,Ethiopia,Retail,Large,998,12469846,2022-08-24,Addis Ababa,Addis Ababa,Active
+C00465,CobaltTech 465,USA,Technology,Large,2263,3142092,2025-02-18,Arba Minch,SNNPR,Active
+C00466,AetherSystems 466,USA,E-Commerce,Medium,98,690207,2022-01-09,Addis Ababa,Addis Ababa,Suspended
+C00467,  Awash PLC,Ethiopia,Tourism,Small,19,62801,2023-02-13,Addis Ababa,Addis Ababa,Active
+C00468,SynapseDynamics 468,USA,EdTech,Small,42,430710,2025-09-04,Addis Ababa,Addis Ababa,Active
+C00469,AetherLabs 469,USA,FinTech,Small,19,119153,2023-12-16,Bishoftu,Oromia,Active
+C00470,VertexAI 470,USA,Logistics,Micro,9,143579,2022-01-11,Gondar,Amhara,Active
+C00471,FluxHub 471,USA,FinTech,Small,39,177221,2023-10-08,Addis Ababa,Addis Ababa,Dissolved
+C00472,StratosIO 472,USA,Logistics,Small,30,147417,2023-07-02,Debre Birhan,Amhara,Active
+C00473,HelixDynamics 473,USA,Consulting,Micro,4,182767,2024-02-15,Addis Ababa,Addis Ababa,Active
+C00474,CascadeSolutions 474,USA,Cloud Services,Small,49,230614,2025-02-16,Addis Ababa,Addis Ababa,Active
+C00475,CascadeNet 475,USA,Cloud Services,Medium,165,392301,2022-07-18,Nekemte,Oromia,Active
+C00476,VertexGroup 476,USA,EdTech,Enterprise,14562,62317214,2024-06-23,Jijiga,Somali,Active
+C00477,ApexSolutions 477,USA,Logistics,Small,39,144628,2022-10-21,Gondar,Amhara,Active
+C00478,Awash Services,Ethiopia,Import/Export,Medium,111,198762,2024-07-14,Dire Dawa,Dire Dawa,Dissolved
+C00479,EmberSolutions 479,USA,EdTech,Medium,95,797630,2025-08-14,Adama,Oromia,Active
+C00480,Tigray Agro,Ethiopia,Manufacturing,Small,49,119169,2022-09-08,Bahir Dar,Amhara,Active
+C00481,Tigray PLC,Ethiopia,Tourism,Enterprise,14203,32396390,2022-06-20,Gondar,Amhara,Dissolved
+C00482,Rift Agro,Ethiopia,Agriculture,Medium,171,504526,2024-07-18,Dire Dawa,Dire Dawa,Active
+C00483,CobaltCloud 483,USA,EdTech,Micro,1,233894,2023-07-20,Dire Dawa,Dire Dawa,Active
+C00484,IonicGroup 484,USA,Cloud Services,Small,41,245987,2024-01-02,Addis Ababa,Addis Ababa,Active
+C00485,VortexDynamics 485,USA,Logistics,Small,14,40659,2022-11-09,Mekelle,Tigray,Dissolved
+C00486,IonicGroup 486,USA,FinTech,Enterprise,11773,148576167,2024-09-29,Adama,Oromia,Active
+C00487,Lalibela Services,Ethiopia,Manufacturing,Micro,7,37754,2024-03-22,Addis Ababa,Addis Ababa,Active
+C00488,Lalibela PLC,Ethiopia,Tourism,Micro,2,83244,2022-01-22,Addis Ababa,Addis Ababa,Active
+C00489,Lalibela Manufacturing,Ethiopia,Manufacturing,Medium,245,376077,2025-10-13,Addis Ababa,Addis Ababa,Active
+C00490,HelixAI 490,USA,EdTech,Small,49,253262,2024-01-06,Hawassa,Sidama,Active
+C00491,EmberNet 491,USA,E-Commerce,Medium,234,2246034,2024-07-24,Adama,Oromia,Active
+C00492,StratosNet 492,USA,Logistics,Medium,228,225967,2024-09-15,Dilla,SNNPR,Active
+C00493,IonicNet 493,USA,Cloud Services,Micro,7,120681,2025-04-26,Addis Ababa,Addis Ababa,Active
+C00494,AetherGroup 494,USA,Cloud Services,Large,4750,14181151,2025-05-26,Harar,Harari,Active
+C00495,CascadeIO 495,USA,Consulting,Medium,87,204658,2025-09-16,Nekemte,Oromia,Active
+C00496,Gambella Investment,Ethiopia,Manufacturing,Large,601,1527525,2022-08-12,Asella,Oromia,Active
+C00497,FluxLabs 497,USA,Healthcare Tech,Micro,2,466445,2025-04-26,Addis Ababa,Addis Ababa,Active
+C00498,PrismCloud 498,USA,EdTech,Small,16,40423,2025-09-02,Adama,Oromia,Active
+C00499,Lalibela Agro,Ethiopia,Construction,Medium,117,269155,2025-08-31,Debre Birhan,Amhara,Active
+C00500,AxiomSolutions 500,USA,Cloud Services,Micro,3,64001,2023-12-23,Nekemte,Oromia,Active
+C00501,Amhara Real Estate,Ethiopia,Tourism,Micro,6,170295,2024-10-31,Addis Ababa,Addis Ababa,Active
+C00502,SynapseVentures 502,USA,E-Commerce,Small,25,539096,2025-05-02,Gondar,Amhara,Active
+C00503,CobaltSolutions 503,USA,E-Commerce,Micro,5,114991,2024-10-09,Jijiga,Somali,Active
+C00504,IonicIO 504,USA,Cloud Services,Large,4210,30045988,2024-06-13,Jimma,Oromia,Active
+C00505,Nile Manufacturing,Ethiopia,Manufacturing,Micro,2,127028,2024-05-07,Nekemte,Oromia,Active
+C00506,VortexVentures 506,USA,EdTech,Large,4591,32573869,2023-07-10,Mekelle,Tigray,Active
+C00507,NexusWorks 507,USA,Consulting,Micro,5,158013,2022-09-13,Addis Ababa,Addis Ababa,Suspended
+C00508,CipherSolutions 508,USA,Healthcare Tech,Micro,5,76923,2024-04-14,Mekelle,Tigray,Active
+C00509,QuantumSolutions 509,USA,Cloud Services,Medium,141,1199161,2023-03-28,Gondar,Amhara,Active
+C00510,OrbitLabs 510,USA,Logistics,Small,33,102927,2022-02-03,Hawassa,Sidama,Active
+C00511,Abay Import Export,Ethiopia,Real Estate,Medium,202,1309198,2022-10-12,Addis Ababa,Addis Ababa,Active
+C00512,VertexDigital 512,USA,EdTech,Micro,2,51802,2023-04-20,Adama,Oromia,Dissolved
+C00513,AetherSolutions 513,USA,E-Commerce,Large,1821,6150615,2024-07-15,Addis Ababa,Addis Ababa,Active
+C00514,NexusLabs 514,USA,Healthcare Tech,Medium,158,2367263,2025-04-14,Jimma,Oromia,Active
+C00515,FluxHub 515,USA,FinTech,Small,30,58837,2025-03-26,Addis Ababa,Addis Ababa,Active
+C00516,Tana Services,Ethiopia,Agriculture,Medium,233,422345,2024-02-07,Adama,Oromia,Active
+C00517,ZenithHub 517,USA,Cloud Services,Micro,4,93666,2025-09-03,Addis Ababa,Addis Ababa,Active
+C00518,CobaltNet 518,USA,Consulting,Micro,9,377505,2025-08-26,Nekemte,Oromia,Active
+C00519,VortexLabs 519,USA,E-Commerce,Micro,5,87763,2024-12-03,Adama,Oromia,Active
+C00520,Nile Trading,Ethiopia,Manufacturing,Micro,9,109157,2023-10-31,Bahir Dar,Amhara,Suspended
+C00521,QuantumTech 521,USA,FinTech,Small,17,83258,2025-09-12,Addis Ababa,Addis Ababa,Suspended
+C00522,Awash Import Export,Ethiopia,Retail,Micro,8,71812,2024-12-22,Addis Ababa,Addis Ababa,Active
+C00523,ApexGroup 523,USA,Technology,Medium,189,745468,2022-12-14,Sodo,SNNPR,Suspended
+C00524,QuantumNet 524,USA,E-Commerce,Medium,65,402954,2025-12-06,Adama,Oromia,Active
+C00525,VortexLabs 525,USA,Healthcare Tech,Small,20,191942,2024-08-06,Mekelle,Tigray,Active
+C00526,HelixGroup 526,USA,Healthcare Tech,Medium,154,1136216,2022-10-06,Dessie,Amhara,Active
+C00527,CascadeWorks 527,USA,Technology,Small,15,230095,2025-08-06,Addis Ababa,Addis Ababa,Active
+C00528,Lalibela Real Estate,Ethiopia,Real Estate,Small,44,56425,2022-05-03,Dessie,Amhara,Active
+C00529,Amhara Services,Ethiopia,Import/Export,Micro,9,182263,2023-03-17,Gondar,Amhara,Active
+C00530,CascadeGroup  530,USA,E-Commerce,Medium,92,713183,2023-08-10,Bahir Dar,Amhara,Active
+C00531,IonicHub 531,USA,Logistics,Large,4285,6273053,2022-03-18,Addis Ababa,Addis Ababa,Active
+C00532,Oromia PLC,Ethiopia,Tourism,Large,1367,7121078,2023-12-06,Addis Ababa,Addis Ababa,Active
+C00533,Tana Services,Ethiopia,Real Estate,Micro,6,109553,2022-11-07,Addis Ababa,Addis Ababa,Active
+C00534,StratosGroup 534,USA,FinTech,Small,32,210705,2024-06-21,Addis Ababa,Addis Ababa,Active
+C00535,ZenithLabs 535,USA,Cloud Services,Micro,2,107379,2023-12-21,Dire Dawa,Dire Dawa,Active
+C00536,PrismIO 536,USA,Cloud Services,Micro,9,143476,2022-08-20,Jimma,Oromia,Active
+C00537,PrismWorks 537,USA,Healthcare Tech,Micro,9,109140,2023-04-29,Addis Ababa,Addis Ababa,Active
+C00538,Nile Textile,Ethiopia,Agriculture,Medium,221,431093,2023-03-28,Debre Birhan,Amhara,Active
+C00539,FluxIO 539,USA,Cloud Services,Micro,3,30576,2025-07-10,Hawassa,Sidama,Active
+C00540,IonicWorks 540,USA,FinTech,Medium,66,658186,2022-10-03,Gondar,Amhara,Suspended
+C00541,AxiomWorks 541,USA,Cloud Services,Large,482,5033603,2025-07-26,Jimma,Oromia,Dissolved
+C00542,Rift PLC,Ethiopia,Retail,Micro,9,139564,2025-08-09,Adama,Oromia,Active
+C00543,HelixWorks 543,USA,FinTech,Small,48,426054,2023-03-18,Nekemte,Oromia,Active
+C00544,PrismDigital 544,USA,EdTech,Large,3917,22105864,2022-03-14,Addis Ababa,Addis Ababa,Active
+C00545,ApexVentures 545,USA,Logistics,Medium,176,893422,2023-09-06,Adama,Oromia,Active
+C00546,Abay Import Export,Ethiopia,Tourism,Micro,1,228892,2024-03-12,Shashamane,Oromia,Active
+C00547,ZenithHub 547,USA,Consulting,Micro,1,108427,2024-07-09,Adama,Oromia,Active
+C00548,Bale PLC,Ethiopia,Import/Export,Medium,99,716093,2022-06-01,Addis Ababa,Addis Ababa,Active
+C00549,AetherWorks 549,USA,Consulting,Small,27,256169,2022-03-16,Bishoftu,Oromia,Active
+C00550,Oromia Import Export,Ethiopia,Real Estate,Medium,241,767122,2022-10-28,Addis Ababa,Addis Ababa,Active
+C00551,Abay Manufacturing,Ethiopia,Agriculture,Small,27,84374,2025-08-23,Addis Ababa,Addis Ababa,Active
+C00552,ZenithTech 552,USA,Cloud Services,Small,40,56469,2023-02-04,Jimma,Oromia,Active
+C00553,Awash Real Estate,Ethiopia,Tourism,Small,43,698078,2023-05-13,Bishoftu,Oromia,Active
+C00554,CipherVentures 554,USA,Cloud Services,Small,20,61177,2024-08-14,Jimma,Oromia,Active
+C00555,Tigray Trading,Ethiopia,Tourism,Micro,8,165039,2022-02-15,Addis Ababa,Addis Ababa,Active
+C00556,CobaltSolutions 556,USA,Technology,Small,43,432841,2022-07-31,Dire Dawa,Dire Dawa,Active
+C00557,IonicTech 557,USA,E-Commerce,Micro,6,67716,2023-01-24,Jijiga,Somali,Active
+C00558,StratosLabs 558,USA,E-Commerce,Micro,2,131039,2024-11-24,Addis Ababa,Addis Ababa,Active
+C00559,Amhara Textile,Ethiopia,Import/Export,Micro,6,193879,2025-08-20,Mekelle,Tigray,Active
+C00560,VertexSolutions 560,USA,E-Commerce,Medium,149,130985,2024-12-21,Dire Dawa,Dire Dawa,Active
+C00561,EmberSystems 561,USA,Logistics,Micro,4,58989,2025-01-02,Hawassa,Sidama,Active
+C00562,NovaNet 562,USA,EdTech,Medium,169,827617,2022-04-20,Nekemte,Oromia,Suspended
+C00563,CascadeCloud 563,USA,Consulting,Medium,53,498506,2023-09-30,Gondar,Amhara,Active
+C00564,ApexSystems 564,USA,Healthcare Tech,Enterprise,27965,97655427,2025-10-30,Addis Ababa,Addis Ababa,Active
+C00565,PrismVentures 565,USA,FinTech,Small,33,49163,2022-12-20,Addis Ababa,Addis Ababa,Active
+C00566,VertexWorks 566,USA,Technology,Small,46,805433,2022-08-04,Gondar,Amhara,Active
+C00567,OrbitWorks 567,USA,EdTech,Small,44,161790,2022-03-06,Dire Dawa,Dire Dawa,Active
+C00568,aPEXai 568,USA,E-Commerce,Micro,1,77475,2024-02-19,Bahir Dar,Amhara,Suspended
+C00569,AxiomTech 569,USA,Technology,Micro,8,132871,2025-05-31,Adama,Oromia,Active
+C00570,Simien Services,Ethiopia,Import/Export,Small,37,332812,2024-01-27,Nekemte,Oromia,Active
+C00571,Addis Agro,Ethiopia,Retail,Micro,3,68458,2023-08-26,Nekemte,Oromia,Active
+C00572,NexusSystems 572,USA,EdTech,Small,38,225313,2023-02-07,Addis Ababa,Addis Ababa,Active
+C00573,Rift Services,Ethiopia,Agriculture,Medium,139,471452,2024-04-05,Jimma,Oromia,Active
+C00574,Harar Agro,Ethiopia,Manufacturing,Small,14,166802,2022-10-29,Addis Ababa,Addis Ababa,Active
+C00575,Oromia Manufacturing,Ethiopia,Manufacturing,Medium,98,1916751,2025-01-06,Hawassa,Sidama,Active
+C00576,NexusAI 576,USA,Technology,Enterprise,25997,67028502,2024-05-02,Dilla,SNNPR,Active
+C00577,EmberWorks 577,USA,Consulting,Small,44,311906,2024-01-28,Addis Ababa,Addis Ababa,Suspended
+C00578,PrismGroup 578,USA,E-Commerce,Small,44,439217,2022-06-11,Adama,Oromia,Suspended
+C00579,Simien Trading,Ethiopia,Import/Export,Large,426,1611274,2022-01-18,Addis Ababa,Addis Ababa,Active
+C00580,QuantumNet 580,USA,EdTech,Medium,123,1168176,2025-11-26,Gondar,Amhara,Active
+C00581,Amhara Import Export,Ethiopia,Import/Export,Enterprise,5831,45141915,2022-01-01,Mekelle,Tigray,Active
+C00582,AxiomVentures  582,USA,Consulting,Micro,6,553357,2025-12-11,Dessie,Amhara,Active
+C00583,Awash Agro,Ethiopia,Construction,Small,44,341159,2025-09-27,Bishoftu,Oromia,Active
+C00584,VertexHub 584,USA,FinTech,Micro,9,29065,2023-02-16,Jimma,Oromia,Active
+C00585,VertexDigital 585,USA,Consulting,Medium,208,1310391,2023-04-10,Addis Ababa,Addis Ababa,Dissolved
+C00586,StratosSystems 586,USA,Consulting,Micro,8,52380,2025-09-22,Hosaena,SNNPR,Active
+C00587,Tigray Investment,Ethiopia,Agriculture,Medium,83,306915,2024-06-15,bAHIR dAR,Amhara,Dissolved
+C00588,ApexTech 588,USA,Healthcare Tech,Micro,3,36812,2025-03-19,Bahir Dar,Amhara,Active
+C00589,Oromia Agro,Ethiopia,Retail,Medium,126,401030,2022-04-01,Dessie,Amhara,Active
+C00590,QuantumSolutions 590,USA,E-Commerce,Large,305,2937154,2023-03-17,Bishoftu,Oromia,Active
+C00591,HelixSolutions 591,USA,Consulting,Small,16,168157,2025-12-15,Addis Ababa,Addis Ababa,Active
+C00592,Awash Investment,Ethiopia,Manufacturing,Medium,83,619999,2024-05-04,Addis Ababa,Addis Ababa,Active
+C00593,  Bale Services,Ethiopia,Agriculture,Small,10,332668,2022-11-01,Addis Ababa,Addis Ababa,Active
+C00594,EmberCloud 594,USA,Logistics,Micro,8,129750,2022-07-21,Dessie,Amhara,Active
+C00595,AetherDynamics 595,USA,Technology,Medium,227,1953408,2024-08-21,Bahir Dar,Amhara,Active
+C00596,QuantumCloud 596,USA,Logistics,Medium,196,272973,2023-02-17,Dire Dawa,Dire Dawa,Active
+C00597,aWASH tRADING,Ethiopia,Real Estate,Small,14,131717,2023-09-11,Harar,Harari,Suspended
+C00598,ApexDynamics 598,USA,Cloud Services,Micro,8,88210,2022-09-06,Addis Ababa,Addis Ababa,Active
+C00599,EmberGroup 599,USA,Cloud Services,Micro,2,77906,2025-02-26,Hawassa,Sidama,Active
+C00600,CascadeTech 600,USA,Consulting,Medium,78,966647,2023-10-28,Addis Ababa,Addis Ababa,Active
+C00601,Awash Services,Ethiopia,Real Estate,Small,16,102827,2023-01-21,Hawassa,Sidama,Active
+C00602,Simien Manufacturing,Ethiopia,Manufacturing,Micro,2,68255,2023-12-28,Bishoftu,Oromia,Active
+C00603,CipherTech 603,USA,Logistics,Micro,4,206703,2022-08-14,Dire Dawa,Dire Dawa,Active
+C00604,PrismGroup 604,USA,Technology,Medium,82,282059,2022-10-06,Shashamane,Oromia,Active
+C00605,Gambella PLC,Ethiopia,Import/Export,Small,39,179349,2025-04-20,Addis Ababa,Addis Ababa,Active
+C00606,AetherGroup 606,USA,EdTech,Micro,1,142670,2024-08-05,Addis Ababa,Addis Ababa,Active
+C00607,Harar Real Estate,Ethiopia,Agriculture,Micro,6,81104,2024-08-11,Mekelle,Tigray,Active
+C00608,NexusNet 608,USA,Logistics,Micro,2,200028,2023-11-11,Addis Ababa,Addis Ababa,Active
+C00609,SynapseVentures 609,USA,Consulting,Medium,102,635161,2023-08-17,Jimma,Oromia,Active
+C00610,Tigray PLC,Ethiopia,Tourism,Large,4376,19587228,2022-09-28,Mekelle,Tigray,Active
+C00611,Tigray Real Estate,Ethiopia,Construction,Small,20,136643,2025-07-30,Dessie,Amhara,Active
+C00612,ApexNet 612,USA,Healthcare Tech,Micro,1,62097,2025-09-01,Gondar,Amhara,Active
+C00613,CipherCloud 613,USA,Healthcare Tech,Large,3191,11570976,2022-12-08,Addis Ababa,Addis Ababa,Active
+C00614,Nile Real Estate,Ethiopia,Construction,Medium,149,369915,2025-06-15,Sodo,SNNPR,Active
+C00615,Rift Real Estate,Ethiopia,Retail,Micro,7,72292,2023-02-10,Addis Ababa,Addis Ababa,Active
+C00616,Nile Trading,Ethiopia,Manufacturing,Micro,2,93223,2022-06-09,Jimma,Oromia,Active
+C00617,SynapseNet 617,USA,Logistics,Small,15,112287,2024-09-19,Sodo,SNNPR,Active
+C00618,Addis Real Estate,Ethiopia,Manufacturing,Small,46,541608,2022-03-16,Dessie,Amhara,Active
+C00619,PrismData 619,USA,Consulting,Small,30,67883,2024-08-30,Bishoftu,Oromia,Active
+C00620,ZenithData 620,USA,Healthcare Tech,Medium,169,755245,2023-07-11,Dire Dawa,Dire Dawa,Active
+C00621,CobaltGroup 621,USA,FinTech,Small,47,222707,2024-07-22,Dire Dawa,Dire Dawa,Active
+C00622,Harar Import Export,Ethiopia,Manufacturing,Enterprise,44225,324858483,2024-11-24,Addis Ababa,Addis Ababa,Active
+C00623,Harar Import Export,Ethiopia,Real Estate,Large,4023,9157139,2022-04-25,Adama,Oromia,Active
+C00624,Simien Services,Ethiopia,Construction,Medium,97,358389,2025-07-27,Mekelle,Tigray,Active
+C00625,ApexTech 625,USA,E-Commerce,Small,21,90374,2022-03-15,Gondar,Amhara,Active
+C00626,Addis Manufacturing,Ethiopia,Agriculture,Small,40,310376,2022-09-07,Bishoftu,Oromia,Active
+C00627,AetherHub 627,USA,Technology,Small,16,163352,2024-07-08,Sodo,SNNPR,Active
+C00628,EmberLabs 628,USA,EdTech,Medium,214,1331824,2022-10-17,Bahir Dar,Amhara,Active
+C00629,QuantumLabs 629,USA,Logistics,Micro,6,92120,2024-10-28,Adama,Oromia,Active
+C00630,ZenithAI 630,USA,Consulting,Small,42,163325,2024-03-17,Addis Ababa,Addis Ababa,Active
+C00631,Oromia Import Export,Ethiopia,Construction,Large,4179,36342884,2022-02-06,Addis Ababa,Addis Ababa,Active
+C00632,AxiomDigital 632,USA,FinTech,Large,2893,11187792,2024-11-19,Mekelle,Tigray,Active
+C00633,VertexCloud 633,USA,FinTech,Small,49,264452,2025-02-18,Harar,Harari,Active
+C00634,Awash Import Export,Ethiopia,Agriculture,Micro,6,152536,2023-11-24,Hawassa,Sidama,Active
+C00635,Bale Textile,Ethiopia,Agriculture,Small,36,338282,2024-09-26,Bahir Dar,Amhara,Active
+C00636,Harar Manufacturing,Ethiopia,Real Estate,Small,47,366997,2022-12-27,Harar,Harari,Active
+C00637,CipherIO 637,USA,Healthcare Tech,Medium,60,216852,2025-03-09,Hawassa,Sidama,Dissolved
+C00638,Amhara Investment,Ethiopia,Import/Export,Medium,177,2830667,2024-08-26,Gondar,Amhara,Active
+C00639,OrbitTech 639,USA,EdTech,Micro,7,238722,2024-05-03,Jimma,Oromia,Suspended
+C00640,VertexSystems 640,USA,E-Commerce,Micro,6,69721,2025-04-25,Addis Ababa,Addis Ababa,Active
+C00641,NovaNet 641,USA,FinTech,Small,18,24275,2023-01-17,Debre Birhan,Amhara,Dissolved
+C00642,StratosGroup 642,USA,Healthcare Tech,Large,4038,54105387,2024-03-27,Mekelle,Tigray,Active
+C00643,Rift Textile,Ethiopia,Agriculture,Small,31,132981,2024-07-06,Debre Birhan,Amhara,Active
+C00644,Harar Construction,Ethiopia,Real Estate,Small,26,166914,2023-11-13,Nekemte,Oromia,Active
+C00645,StratosTech 645,USA,E-Commerce,Micro,3,43244,2024-09-06,Gondar,Amhara,Active
+C00646,OrbitLabs 646,USA,EdTech,Micro,9,51791,2024-10-11,Debre Birhan,Amhara,Active
+C00647,ApexData 647,USA,Technology,Small,34,160716,2022-09-09,Adama,Oromia,Active
+C00648,QuantumGroup 648,USA,Cloud Services,Large,4520,13136295,2023-08-31,Addis Ababa,Addis Ababa,Active
+C00649,StratosData 649,USA,Healthcare Tech,Small,33,228734,2025-09-13,Bishoftu,Oromia,Active
+C00650,VortexGroup 650,USA,Healthcare Tech,Micro,2,202611,2024-09-03,Dire Dawa,Dire Dawa,Dissolved
+C00651,AxiomSolutions 651,USA,Healthcare Tech,Small,34,354988,2022-05-05,Addis Ababa,Addis Ababa,Active
+C00652,Addis Agro,Ethiopia,Tourism,Enterprise,6752,36747185,2022-03-19,Hawassa,Sidama,Suspended
+C00653,PrismNet 653,USA,Logistics,Small,28,107383,2025-11-17,Bahir Dar,Amhara,Active
+C00654,VortexData 654,USA,E-Commerce,Micro,6,115077,2025-10-19,Debre Birhan,Amhara,Suspended
+C00655,SynapseSolutions 655,USA,EdTech,Micro,4,81902,2023-09-29,Addis Ababa,Addis Ababa,Suspended
+C00656,NexusCloud 656,USA,E-Commerce,Medium,196,403925,2024-09-29,Addis Ababa,Addis Ababa,Active
+C00657,NexusData 657,USA,Logistics,Small,19,159473,2024-12-19,Debre Birhan,Amhara,Active
+C00658,VertexDigital 658,USA,Logistics,Micro,3,25662,2022-11-23,Addis Ababa,Addis Ababa,Active
+C00659,NovaTech 659,USA,E-Commerce,Micro,7,97460,2025-01-01,Mekelle,Tigray,Dissolved
+C00660,QuantumTech 660,USA,E-Commerce,Small,41,264801,2024-04-09,Jimma,Oromia,Active
+C00661,SynapseSolutions 661,USA,EdTech,Medium,175,1648474,2025-06-02,Addis Ababa,Addis Ababa,Active
+C00662,Tigray Agro,Ethiopia,Import/Export,Small,43,477033,2025-04-26,Addis Ababa,Addis Ababa,Active
+C00663,Lalibela Import Export,Ethiopia,Construction,Large,1383,4070104,2025-06-10,Mekelle,Tigray,Active
+C00664,Harar Textile,Ethiopia,Manufacturing,Medium,222,3139315,2024-10-03,Jijiga,Somali,Active
+C00665,FluxData 665,USA,Consulting,Small,40,342638,2022-12-20,Addis Ababa,Addis Ababa,Active
+C00666,StratosDigital 666,USA,EdTech,Small,13,64271,2025-09-09,Adama,Oromia,Active
+C00667,Abay Trading,Ethiopia,Retail,Small,13,47270,2023-12-21,Dire Dawa,Dire Dawa,Active
+C00668,HelixVentures 668,USA,EdTech,Micro,1,249637,2025-05-26,Dire Dawa,Dire Dawa,Active
+C00669,Tana Services,Ethiopia,Import/Export,Large,3800,5871138,2025-04-11,Addis Ababa,Addis Ababa,Active
+C00670,VertexNet 670,USA,FinTech,Medium,217,3256735,2024-01-04,Addis Ababa,Addis Ababa,Active
+C00671,CobaltDynamics 671,USA,Healthcare Tech,Small,20,68782,2024-12-10,Addis Ababa,Addis Ababa,Active
+C00672,OrbitLabs 672,USA,Cloud Services,Large,3080,19208100,2022-10-02,Hosaena,SNNPR,Active
+C00673,VertexAI 673,USA,EdTech,Medium,57,117518,2022-12-28,Bahir Dar,Amhara,Active
+C00674,Nile PLC,Ethiopia,Import/Export,Micro,1,104417,2025-03-04,Hawassa,Sidama,Active
+C00675,NovaVentures 675,USA,Cloud Services,Small,48,534261,2023-03-31,Dire Dawa,Dire Dawa,Active
+C00676,CascadeLabs 676,USA,EdTech,Micro,1,74951,2023-08-13,Addis Ababa,Addis Ababa,Active
+C00677,nOVAlABS 677,USA,Healthcare Tech,Small,49,472999,2023-11-12,Addis Ababa,Addis Ababa,Active
+C00678,Amhara Manufacturing,Ethiopia,Manufacturing,Medium,139,180576,2022-04-02,Mekelle,Tigray,Active
+C00679,PrismTech 679,USA,FinTech,Small,10,139720,2025-03-30,Addis Ababa,Addis Ababa,Active
+C00680,StratosHub 680,USA,Healthcare Tech,Enterprise,13636,92350062,2024-07-28,Addis Ababa,Addis Ababa,Active
+C00681,AetherTech 681,USA,Logistics,Small,15,275747,2024-04-08,Addis Ababa,Addis Ababa,Active
+C00682,OrbitIO 682,USA,EdTech,Medium,99,2268144,2022-06-11,Bahir Dar,Amhara,Active
+C00683,VortexVentures 683,USA,FinTech,Large,3683,11605378,2022-12-13,Bishoftu,Oromia,Active
+C00684,VortexTech 684,USA,Consulting,Micro,3,48202,2023-01-29,Addis Ababa,Addis Ababa,Active
+C00685,CascadeTech 685,USA,Cloud Services,Micro,5,102174,2023-01-02,Harar,Harari,Active
+C00686,CipherSolutions 686,USA,Cloud Services,Micro,8,76913,2024-01-25,Gondar,Amhara,Active
+C00687,FluxGroup 687,USA,E-Commerce,Medium,169,280140,2023-09-02,Bahir Dar,Amhara,Active
+C00688,VortexNet 688,USA,Cloud Services,Small,27,274027,2025-01-17,Sodo,SNNPR,Dissolved
+C00689,FluxHub 689,USA,Technology,Micro,2,39127,2024-10-07,Hawassa,Sidama,Active
+C00690,Nile PLC,Ethiopia,Agriculture,Micro,4,158948,2023-01-09,Jimma,Oromia,Active
+C00691,EmberVentures 691,USA,Logistics,Micro,6,16937,2022-11-13,Hawassa,Sidama,Active
+C00692,PrismGroup 692,USA,EdTech,Small,42,160730,2023-12-30,Bishoftu,Oromia,Active
+C00693,IonicHub 693,USA,FinTech,Small,44,365873,2025-02-01,Sodo,SNNPR,Active
+C00694,OrbitCloud 694,USA,Healthcare Tech,Medium,214,382479,2024-01-15,Addis Ababa,Addis Ababa,Active
+C00695,NovaCloud 695,USA,E-Commerce,Small,47,187259,2025-05-31,Addis Ababa,Addis Ababa,Active
+C00696,VortexGroup 696,USA,Cloud Services,Small,42,1189581,2024-01-31,Arba Minch,SNNPR,Active
+C00697,StratosLabs 697,USA,EdTech,Large,4422,15998745,2025-10-02,Gondar,Amhara,Active
+C00698,VertexGroup 698,USA,FinTech,Medium,71,82642,2024-12-15,Addis Ababa,Addis Ababa,Active
+C00699,VertexSystems 699,USA,Consulting,Micro,5,33344,2023-02-24,Addis Ababa,Addis Ababa,Active
+C00700,EmberNet 700,USA,FinTech,Micro,5,74029,2025-08-02,Addis Ababa,Addis Ababa,Active
+C00701,NovaCloud 701,USA,Healthcare Tech,Medium,79,280574,2022-02-26,Nekemte,Oromia,Active
+C00702,EmberDynamics 702,USA,E-Commerce,Small,21,107592,2024-01-16,Bahir Dar,Amhara,Active
+C00703,Lalibela Services,Ethiopia,Agriculture,Enterprise,29229,109591305,2022-07-12,Dire Dawa,Dire Dawa,Active
+C00704,PrismVentures 704,USA,EdTech,Small,47,327057,2024-03-09,Gondar,Amhara,Dissolved
+C00705,Addis Investment,Ethiopia,Import/Export,Small,14,117348,2022-06-28,Arba Minch,SNNPR,Active
+C00706,OrbitLabs 706,USA,Consulting,Large,3303,29197683,2022-09-19,Addis Ababa,Addis Ababa,Active
+C00707,CascadeAI 707,USA,Cloud Services,Micro,5,84901,2024-02-16,Nekemte,Oromia,Active
+C00708,ApexHub 708,USA,Technology,Medium,171,2414705,2022-12-25,Bishoftu,Oromia,Active
+C00709,SynapseDigital 709,USA,Technology,Micro,4,160704,2024-03-12,Dire Dawa,Dire Dawa,Active
+C00710,Addis Construction,Ethiopia,Manufacturing,Medium,116,1366329,2023-04-02,Addis Ababa,Addis Ababa,Active
+C00711,FluxVentures 711,USA,Healthcare Tech,Small,41,493316,2025-10-18,Addis Ababa,Addis Ababa,Active
+C00712,HelixDigital 712,USA,Consulting,Small,33,160452,2024-09-17,Mekelle,Tigray,Active
+C00713,Oromia Real Estate,Ethiopia,Import/Export,Medium,80,287675,2023-11-24,Addis Ababa,Addis Ababa,Active
+C00714,IonicGroup 714,USA,Consulting,Small,29,85130,2023-07-10,Bahir Dar,Amhara,Active
+C00715,PrismLabs 715,USA,Logistics,Micro,8,248768,2023-10-08,Mekelle,Tigray,Active
+C00716,HelixAI 716,USA,E-Commerce,Medium,174,461975,2025-09-13,Jimma,Oromia,Active
+C00717,ZenithVentures 717,USA,FinTech,Micro,8,87127,2025-07-14,Gondar,Amhara,Suspended
+C00718,Abay PLC,Ethiopia,Agriculture,Micro,5,76166,2024-03-12,Dire Dawa,Dire Dawa,Active
+C00719,fLUXsYSTEMS 719,USA,Logistics,Micro,6,135651,2025-04-11,Arba Minch,SNNPR,Active
+C00720,OrbitAI 720,USA,Healthcare Tech,Enterprise,14582,137011559,2022-08-04,Adama,Oromia,Active
+C00721,NovaDigital 721,USA,EdTech,Small,41,33429,2025-08-28,Addis Ababa,Addis Ababa,Dissolved
+C00722,Lalibela Construction,Ethiopia,Construction,Medium,232,746525,2023-06-01,Addis Ababa,Addis Ababa,Active
+C00723,QuantumIO 723,USA,Consulting,Small,37,534450,2024-11-14,Asella,Oromia,Active
+C00724,CobaltData 724,USA,Healthcare Tech,Small,30,222133,2022-05-12,Adama,Oromia,Active
+C00725,IonicNet 725,USA,Healthcare Tech,Small,48,238387,2024-12-20,Addis Ababa,Addis Ababa,Active
+C00726,OrbitSolutions  726,USA,E-Commerce,Small,39,201338,2025-04-04,Hawassa,Sidama,Active
+C00727,PrismLabs 727,USA,E-Commerce,Micro,6,161147,2024-11-09,Addis Ababa,Addis Ababa,Active
+C00728,Nile Construction,Ethiopia,Construction,Micro,2,337614,2024-08-31,Hosaena,SNNPR,Active
+C00729,Awash Import Export,Ethiopia,Tourism,Medium,193,841813,2025-04-17,Addis Ababa,Addis Ababa,Active
+C00730,AetherLabs 730,USA,Cloud Services,Small,14,70273,2023-06-02,Nekemte,Oromia,Active
+C00731,EmberNet 731,USA,Consulting,Medium,150,1360300,2023-11-30,Bishoftu,Oromia,Suspended
+C00732,Harar Services,Ethiopia,Import/Export,Medium,189,725930,2022-02-26,Bishoftu,Oromia,Active
+C00733,AetherLabs 733,USA,Healthcare Tech,Large,2643,15902075,2022-11-06,Mekelle,Tigray,Active
+C00734,NexusDynamics 734,USA,Consulting,Micro,3,34483,2025-02-06,Dire Dawa,Dire Dawa,Active
+C00735,FluxWorks 735,USA,E-Commerce,Micro,3,60820,2025-07-20,Gondar,Amhara,Active
+C00736,Amhara Manufacturing,Ethiopia,Agriculture,Medium,87,397715,2023-02-19,Dire Dawa,Dire Dawa,Active
+C00737,SynapseData 737,USA,Technology,Medium,233,4053861,2023-11-19,Addis Ababa,Addis Ababa,Active
+C00738,CascadeIO 738,USA,Consulting,Micro,8,153328,2022-11-17,Addis Ababa,Addis Ababa,Active
+C00739,OrbitIO 739,USA,Logistics,Micro,2,122214,2023-03-27,Jimma,Oromia,Active
+C00740,Oromia Manufacturing,Ethiopia,Construction,Micro,6,188788,2022-06-04,Dire Dawa,Dire Dawa,Active
+C00741,SynapseSystems 741,USA,Cloud Services,Medium,204,1717681,2023-06-11,Gondar,Amhara,Active
+C00742,VertexData 742,USA,EdTech,Micro,2,50167,2024-01-18,Addis Ababa,Addis Ababa,Active
+C00743,EmberSystems 743,USA,E-Commerce,Small,42,153546,2022-10-25,Addis Ababa,Addis Ababa,Active
+C00744,AxiomAI 744,USA,Cloud Services,Medium,113,893856,2024-07-05,Arba Minch,SNNPR,Active
+C00745,CipherSystems 745,USA,Healthcare Tech,Large,2746,5907700,2023-11-03,Addis Ababa,Addis Ababa,Active
+C00746,PrismData 746,USA,Cloud Services,Medium,103,390219,2024-04-23,Addis Ababa,Addis Ababa,Suspended
+C00747,NexusLabs 747,USA,Healthcare Tech,Enterprise,48113,376503073,2022-01-13,Addis Ababa,Addis Ababa,Suspended
+C00748,ZenithIO 748,USA,FinTech,Medium,119,267148,2023-07-02,Adama,Oromia,Active
+C00749,CipherIO 749,USA,FinTech,Medium,247,1191142,2024-05-27,Hawassa,Sidama,Active
+C00750,VortexIO 750,USA,Consulting,Medium,117,1019506,2022-02-02,Addis Ababa,Addis Ababa,Active
+C00751,AxiomData 751,USA,EdTech,Small,35,180913,2025-08-02,Addis Ababa,Addis Ababa,Active
+C00752,AxiomGroup 752,USA,Consulting,Large,2551,25606702,2024-11-18,Adama,Oromia,Active
+C00753,CobaltData 753,USA,Healthcare Tech,Large,2096,7867698,2025-07-03,Hawassa,Sidama,Active
+C00754,ZenithCloud 754,USA,Technology,Small,49,195870,2023-07-08,Bishoftu,Oromia,Active
+C00755,Amhara Construction,Ethiopia,Import/Export,Medium,110,622805,2022-04-07,Addis Ababa,Addis Ababa,Active
+C00756,FluxHub 756,USA,Technology,Medium,88,761066,2025-06-27,Adama,Oromia,Active
+C00757,PrismHub 757,USA,E-Commerce,Large,1759,7581141,2024-06-27,Addis Ababa,Addis Ababa,Active
+C00758,StratosLabs 758,USA,EdTech,Medium,53,373279,2024-11-08,Adama,Oromia,Active
+C00759,PrismCloud 759,USA,E-Commerce,Small,46,214794,2024-06-12,Addis Ababa,Addis Ababa,Active
+C00760,CipherSolutions 760,USA,Technology,Small,23,40227,2023-06-24,Addis Ababa,Addis Ababa,Active
+C00761,NovaTech 761,USA,Logistics,Small,32,106774,2023-04-21,Shashamane,Oromia,Active
+C00762,Rift Investment,Ethiopia,Retail,Micro,1,72969,2023-05-02,Harar,Harari,Dissolved
+C00763,CascadeTech 763,USA,Consulting,Medium,140,1093357,2025-01-26,Jimma,Oromia,Active
+C00764,Nile Investment,Ethiopia,Tourism,Large,2604,9876964,2022-10-08,Dessie,Amhara,Active
+C00765,QuantumNet 765,USA,E-Commerce,Small,18,99429,2024-11-06,Shashamane,Oromia,Active
+C00766,OrbitCloud 766,USA,E-Commerce,Micro,8,70320,2023-01-10,Addis Ababa,Addis Ababa,Active
+C00767,IonicTech 767,USA,Cloud Services,Enterprise,29868,118696598,2024-11-20,Addis Ababa,Addis Ababa,Active
+C00768,ZenithTech 768,USA,FinTech,Large,4615,6174403,2022-06-27,Gondar,Amhara,Active
+C00769,SynapseNet 769,USA,Logistics,Medium,227,1369928,2023-09-02,Addis Ababa,Addis Ababa,Active
+C00770,AxiomHub 770,USA,E-Commerce,Micro,3,172021,2025-06-22,Addis Ababa,Addis Ababa,Active
+C00771,Tana Construction,Ethiopia,Tourism,Small,37,165002,2022-10-04,Arba Minch,SNNPR,Active
+C00772,Harar Services,Ethiopia,Manufacturing,Large,2514,6468225,2024-02-21,Addis Ababa,Addis Ababa,Active
+C00773,PrismGroup 773,USA,EdTech,Micro,5,52352,2025-10-26,Addis Ababa,Addis Ababa,Suspended
+C00774,VortexData 774,USA,Technology,Small,21,92579,2022-12-19,Bahir Dar,Amhara,Active
+C00775,Tana Investment,Ethiopia,Manufacturing,Medium,62,343639,2022-03-25,Mekelle,Tigray,Active
+C00776,EmberSystems 776,USA,Logistics,Small,12,76877,2022-01-24,Jijiga,Somali,Active
+C00777,HelixNet 777,USA,EdTech,Small,25,219557,2023-01-20,Jimma,Oromia,Active
+C00778,IonicNet 778,USA,Logistics,Large,3992,15404032,2022-08-21,Arba Minch,SNNPR,Active
+C00779,AetherTech 779,USA,FinTech,Enterprise,7478,86137880,2023-09-24,Bahir Dar,Amhara,Active
+C00780,AetherData 780,USA,E-Commerce,Large,2660,7496572,2025-07-06,Addis Ababa,Addis Ababa,Active
+C00781,Abay Investment,Ethiopia,Real Estate,Micro,6,106209,2024-12-09,Shashamane,Oromia,Active
+C00782,CobaltDynamics 782,USA,EdTech,Enterprise,27919,230959589,2025-05-05,Hawassa,Sidama,Active
+C00783,NovaDigital 783,USA,Consulting,Micro,2,129022,2023-02-10,Dire Dawa,Dire Dawa,Active
+C00784,CascadeIO 784,USA,Healthcare Tech,Small,17,62259,2024-08-12,Mekelle,Tigray,Active
+C00785,Harar Manufacturing,Ethiopia,Real Estate,Small,12,64858,2024-11-08,Addis Ababa,Addis Ababa,Active
+C00786,FluxNet 786,USA,Logistics,Large,2347,41855501,2024-10-09,Addis Ababa,Addis Ababa,Active
+C00787,VertexHub 787,USA,EdTech,Small,28,83033,2023-07-14,Jimma,Oromia,Active
+C00788,Awash Services,Ethiopia,Construction,Large,3323,10921897,2023-07-31,Hosaena,SNNPR,Active
+C00789,CobaltVentures 789,USA,EdTech,Enterprise,16210,71025177,2023-07-28,Adama,Oromia,Active
+C00790,IonicSystems 790,USA,E-Commerce,Small,22,53979,2025-02-03,Addis Ababa,Addis Ababa,Active
+C00791,CipherSolutions 791,USA,Consulting,Small,30,110285,2024-05-12,Adama,Oromia,Dissolved
+C00792,Awash Construction,Ethiopia,Construction,Micro,8,47634,2024-12-10,Addis Ababa,Addis Ababa,Active
+C00793,Lalibela Agro,Ethiopia,Construction,Small,47,44384,2022-05-05,Addis Ababa,Addis Ababa,Dissolved
+C00794,CascadeDigital 794,USA,Logistics,Medium,129,1011808,2024-08-13,Bahir Dar,Amhara,Active
+C00795,VortexDigital 795,USA,Cloud Services,Small,30,90436,2022-02-19,Dire Dawa,Dire Dawa,Active
+C00796,CascadeTech 796,USA,Consulting,Medium,128,345469,2022-07-04,Addis Ababa,Addis Ababa,Active
+C00797,CobaltNet 797,USA,E-Commerce,Small,36,104214,2022-01-07,Harar,Harari,Active
+C00798,HelixLabs 798,USA,FinTech,Small,10,102453,2025-03-02,Jijiga,Somali,Active
+C00799,QuantumLabs 799,USA,FinTech,Medium,231,1274128,2024-01-29,Nekemte,Oromia,Active
+C00800,OrbitCloud 800,USA,Consulting,Medium,130,708701,2025-10-11,Hawassa,Sidama,Active
+C00801,Gambella Agro,Ethiopia,Manufacturing,Small,30,616905,2024-06-18,Adama,Oromia,Active
+C00802,SynapseSolutions 802,USA,FinTech,Micro,3,88297,2022-05-04,Addis Ababa,Addis Ababa,Active
+C00803,Nile Services,Ethiopia,Construction,Micro,5,200129,2025-10-14,Mekelle,Tigray,Active
+C00804,FluxIO 804,USA,Cloud Services,Large,1823,35338306,2025-02-15,Addis Ababa,Addis Ababa,Active
+C00805,PrismData 805,USA,Cloud Services,Large,2488,18121645,2023-05-17,Mekelle,Tigray,Active
+C00806,IonicTech 806,USA,Cloud Services,Micro,9,67463,2024-08-26,Dessie,Amhara,Active
+C00807,Nile Trading,Ethiopia,Manufacturing,Enterprise,16900,43742177,2022-02-18,Addis Ababa,Addis Ababa,Dissolved
+C00808,IonicDynamics 808,USA,Consulting,Medium,174,780862,2025-10-12,Addis Ababa,Addis Ababa,Active
+C00809,VertexIO 809,USA,Logistics,Large,3105,39627718,2022-07-09,Addis Ababa,Addis Ababa,Active
+C00810,cIPHERwORKS 810,USA,Cloud Services,Medium,73,311157,2022-11-25,Addis Ababa,Addis Ababa,Active
+C00811,Tana Real Estate,Ethiopia,Tourism,Large,303,508292,2022-08-08,Addis Ababa,Addis Ababa,Active
+C00812,Lalibela Real Estate,Ethiopia,Tourism,Medium,61,455219,2022-05-27,Addis Ababa,Addis Ababa,Active
+C00813,Bale Import Export,Ethiopia,Construction,Micro,3,138927,2022-06-08,Hosaena,SNNPR,Active
+C00814,QuantumLabs 814,USA,Technology,Small,25,185762,2024-01-29,Addis Ababa,Addis Ababa,Active
+C00815,AxiomAI 815,USA,E-Commerce,Medium,199,2458915,2025-10-04,Addis Ababa,Addis Ababa,Suspended
+C00816,Amhara PLC,Ethiopia,Retail,Small,37,158418,2023-09-05,Addis Ababa,Addis Ababa,Active
+C00817,AetherLabs 817,USA,EdTech,Micro,2,33529,2024-01-31,Addis Ababa,Addis Ababa,Active
+C00818,Nile Agro,Ethiopia,Construction,Large,3543,134928526,2022-11-27,Hosaena,SNNPR,Active
+C00819,VortexAI 819,USA,EdTech,Micro,5,61689,2025-03-10,Addis Ababa,Addis Ababa,Active
+C00820,HelixHub 820,USA,E-Commerce,Medium,86,215615,2023-11-25,Dire Dawa,Dire Dawa,Active
+C00821,Lalibela Trading,Ethiopia,Import/Export,Small,23,50119,2025-01-28,Dilla,SNNPR,Active
+C00822,StratosLabs 822,USA,FinTech,Medium,144,435173,2023-11-27,Addis Ababa,Addis Ababa,Active
+C00823,VertexData 823,USA,FinTech,Micro,1,164011,2025-02-07,Addis Ababa,Addis Ababa,Active
+C00824,Awash Manufacturing,Ethiopia,Real Estate,Micro,2,111447,2022-05-14,Gondar,Amhara,Active
+C00825,Lalibela Services,Ethiopia,Import/Export,Medium,155,2453534,2024-07-02,Mekelle,Tigray,Active
+C00826,SynapseDigital 826,USA,Logistics,Small,45,221770,2025-01-01,Addis Ababa,Addis Ababa,Active
+C00827,Gambella Real Estate,Ethiopia,Tourism,Medium,67,761741,2024-04-24,Sodo,SNNPR,Active
+C00828,VertexIO 828,USA,Technology,Micro,8,100494,2025-10-02,Addis Ababa,Addis Ababa,Active
+C00829,Amhara Agro,Ethiopia,Retail,Small,45,191151,2025-01-02,Addis Ababa,Addis Ababa,Suspended
+C00830,Awash Real Estate,Ethiopia,Construction,Small,43,153366,2025-11-18,Bishoftu,Oromia,Active
+C00831,NexusLabs 831,USA,E-Commerce,Small,21,199831,2025-01-07,Mekelle,Tigray,Active
+C00832,CobaltTech 832,USA,Healthcare Tech,Small,15,78298,2022-10-08,Dire Dawa,Dire Dawa,Active
+C00833,NovaSolutions 833,USA,Healthcare Tech,Medium,127,1807624,2025-07-10,Sodo,SNNPR,Active
+C00834,Lalibela Textile,Ethiopia,Construction,Small,32,303468,2023-05-10,Addis Ababa,Addis Ababa,Active
+C00835,VortexDigital 835,USA,Cloud Services,Micro,5,207894,2025-11-14,Jimma,Oromia,Active
+C00836,ApexDynamics 836,USA,FinTech,Large,4623,48939039,2022-08-28,Hawassa,Sidama,Active
+C00837,CipherCloud 837,USA,Healthcare Tech,Micro,8,69739,2025-04-20,Addis Ababa,Addis Ababa,Active
+C00838,AetherSystems 838,USA,Consulting,Micro,3,120093,2022-08-02,Mekelle,Tigray,Active
+C00839,NovaGroup 839,USA,EdTech,Small,26,45101,2023-12-23,Addis Ababa,Addis Ababa,Active
+C00840,Rift Import Export,Ethiopia,Import/Export,Micro,6,121097,2023-10-16,Dessie,Amhara,Active
+C00841,SynapseData 841,USA,Cloud Services,Small,37,213055,2025-10-02,Dessie,Amhara,Active
+C00842,VertexWorks 842,USA,Logistics,Medium,235,2467666,2022-10-02,Addis Ababa,Addis Ababa,Suspended
+C00843,CobaltHub 843,USA,Logistics,Medium,244,1677009,2023-10-24,Dire Dawa,Dire Dawa,Active
+C00844,Oromia Agro,Ethiopia,Construction,Small,21,125219,2024-04-29,Addis Ababa,Addis Ababa,Active
+C00845,StratosLabs 845,USA,EdTech,Small,49,236000,2023-09-29,Jijiga,Somali,Active
+C00846,CascadeVentures 846,USA,Cloud Services,Large,1438,10463365,2024-11-21,Hosaena,SNNPR,Active
+C00847,IonicTech 847,USA,E-Commerce,Medium,206,2218185,2025-03-08,Addis Ababa,Addis Ababa,Active
+C00848,EmberAI 848,USA,EdTech,Small,33,116758,2025-12-27,Jimma,Oromia,Active
+C00849,Rift Trading,Ethiopia,Construction,Small,15,134595,2024-08-01,Addis Ababa,Addis Ababa,Dissolved
+C00850,HelixTech 850,USA,Cloud Services,Micro,3,72747,2023-08-25,Bahir Dar,Amhara,Active
+C00851,CascadeVentures 851,USA,Cloud Services,Large,2955,17056782,2022-12-07,Addis Ababa,Addis Ababa,Active
+C00852,VortexData 852,USA,Technology,Small,31,42109,2025-11-25,Mekelle,Tigray,Active
+C00853,ApexWorks 853,USA,FinTech,Micro,5,285763,2023-08-30,Gondar,Amhara,Active
+C00854,OrbitSystems 854,USA,Consulting,Large,3214,15548727,2025-08-05,Adama,Oromia,Active
+C00855,StratosData 855,USA,E-Commerce,Small,42,394676,2025-01-18,Addis Ababa,Addis Ababa,Active
+C00856,NovaSystems 856,USA,EdTech,Small,17,174415,2023-12-22,Addis Ababa,Addis Ababa,Active
+C00857,StratosWorks 857,USA,Cloud Services,Small,37,311454,2022-01-10,Harar,Harari,Active
+C00858,ZenithVentures 858,USA,Healthcare Tech,Medium,150,698414,2024-10-22,Dire Dawa,Dire Dawa,Active
+C00859,CipherIO 859,USA,Healthcare Tech,Small,34,186112,2022-04-23,Dessie,Amhara,Active
+C00860,NovaSystems 860,USA,FinTech,Large,4977,32099429,2022-01-05,Jimma,Oromia,Active
+C00861,CobaltWorks 861,USA,EdTech,Small,42,92781,2024-07-18,Addis Ababa,Addis Ababa,Active
+C00862,FluxNet 862,USA,E-Commerce,Micro,5,109016,2024-02-22,Addis Ababa,Addis Ababa,Active
+C00863,Harar PLC,Ethiopia,Import/Export,Large,1631,4839843,2023-11-15,Dessie,Amhara,Active
+C00864,AxiomSolutions 864,USA,Logistics,Medium,236,542772,2023-02-20,Adama,Oromia,Active
+C00865,IonicGroup 865,USA,Logistics,Micro,8,162635,2023-12-03,Arba  Minch,SNNPR,Active
+C00866,CascadeLabs 866,USA,Technology,Large,1108,6629051,2023-08-30,Asella,Oromia,Active
+C00867,StratosCloud 867,USA,E-Commerce,Small,39,390551,2025-11-12,Mekelle,Tigray,Active
+C00868,ZenithGroup 868,USA,Consulting,Large,2194,9369389,2024-11-04,Harar,Harari,Active
+C00869,Tigray Textile,Ethiopia,Real Estate,Small,40,406470,2022-06-29,Mekelle,Tigray,Active
+C00870,EmberGroup 870,USA,Logistics,Medium,74,317018,2025-06-03,Hawassa,Sidama,Active
+C00871,IonicCloud 871,USA,Logistics,Medium,161,298522,2025-03-22,Hosaena,SNNPR,Active
+C00872,CascadeDigital 872,USA,Logistics,Large,743,3585292,2023-06-30,Dilla,SNNPR,Active
+C00873,SynapseDigital 873,USA,Cloud Services,Small,16,69722,2024-08-30,Arba Minch,SNNPR,Active
+C00874,PrismCloud 874,USA,Consulting,Small,17,82567,2024-12-13,Mekelle,Tigray,Dissolved
+C00875,FluxDigital 875,USA,Healthcare Tech,Medium,124,2207066,2023-12-24,Addis Ababa,Addis Ababa,Active
+C00876,Gambella Trading,Ethiopia,Agriculture,Large,1170,13881338,2024-01-13,Hosaena,SNNPR,Active
+C00877,Bale Investment,Ethiopia,Manufacturing,Micro,3,50476,2023-02-16,Jijiga,Somali,Active
+C00878,ZenithHub 878,USA,Technology,Small,33,99555,2023-08-12,Addis Ababa,Addis Ababa,Suspended
+C00879,Nile Real Estate,Ethiopia,Tourism,Micro,6,45695,2022-10-24,Jijiga,Somali,Active
+C00880,QuantumDynamics 880,USA,Healthcare Tech,Small,31,154977,2024-10-24,Addis Ababa,Addis Ababa,Active
+C00881,VertexTech 881,USA,FinTech,Small,26,204267,2023-06-27,Hawassa,Sidama,Active
+C00882,Nile Services,Ethiopia,Real Estate,Small,13,120500,2022-04-03,Bahir Dar,Amhara,Active
+C00883,CobaltGroup 883,USA,Logistics,Small,22,42168,2025-03-05,Debre Birhan,Amhara,Active
+C00884,FluxVentures 884,USA,Technology,Small,35,69006,2025-10-28,Addis Ababa,Addis Ababa,Active
+C00885,Amhara Import Export,Ethiopia,Agriculture,Large,4371,7132123,2022-01-12,Addis Ababa,Addis Ababa,Active
+C00886,Oromia  PLC,Ethiopia,Retail,Micro,4,76989,2023-10-31,Hawassa,Sidama,Dissolved
+C00887,PrismCloud 887,USA,Consulting,Small,42,103619,2022-01-28,Addis Ababa,Addis Ababa,Active
+C00888,SynapseWorks 888,USA,EdTech,Micro,1,45494,2022-03-30,Dire Dawa,Dire Dawa,Active
+C00889,OrbitSolutions 889,USA,Healthcare Tech,Small,33,55159,2022-08-15,Addis Ababa,Addis Ababa,Active
+C00890,CobaltNet 890,USA,Healthcare Tech,Medium,86,394169,2024-03-07,Dire Dawa,Dire Dawa,Active
+C00891,VortexNet 891,USA,Consulting,Micro,5,254635,2024-08-21,Hawassa,Sidama,Active
+C00892,HelixCloud 892,USA,Healthcare Tech,Micro,1,33472,2024-08-25,Addis Ababa,Addis Ababa,Active
+C00893,StratosTech 893,USA,Technology,Small,45,221790,2023-08-12,Addis Ababa,Addis Ababa,Active
+C00894,Awash Agro,Ethiopia,Real Estate,Micro,9,96568,2024-05-27,Addis Ababa,Addis Ababa,Active
+C00895,HelixDigital 895,USA,Cloud Services,Medium,123,279552,2023-06-26,Bishoftu,Oromia,Active
+C00896,Nile Services,Ethiopia,Manufacturing,Micro,4,346832,2022-12-04,Addis Ababa,Addis Ababa,Active
+C00897,Tana Construction,Ethiopia,Real Estate,Small,46,212452,2022-01-01,Addis Ababa,Addis Ababa,Active
+C00898,ApexAI 898,USA,Cloud Services,Small,17,40183,2022-11-30,Jimma,Oromia,Active
+C00899,VertexIO 899,USA,Consulting,Small,42,538758,2024-06-06,Adama,Oromia,Active
+C00900,AetherTech 900,USA,FinTech,Small,35,138325,2025-11-13,Addis Ababa,Addis Ababa,Suspended
+C00901,Amhara Agro,Ethiopia,Import/Export,Medium,235,3015647,2025-10-03,Sodo,SNNPR,Active
+C00902,ZenithNet 902,USA,Consulting,Micro,7,30683,2023-05-18,Mekelle,Tigray,Active
+C00903,Tigray Import Export,Ethiopia,Real Estate,Small,10,55510,2022-09-01,Bahir Dar,Amhara,Suspended
+C00904,StratosTech 904,USA,Logistics,Medium,84,148758,2024-10-09,Adama,Oromia,Active
+C00905,Addis Trading,Ethiopia,Manufacturing,Small,33,213752,2024-03-09,Hosaena,SNNPR,Active
+C00906,EmberSystems 906,USA,Technology,Small,25,181425,2022-06-23,Jimma,Oromia,Active
+C00907,OrbitSolutions 907,USA,Cloud Services,Micro,3,27437,2025-10-30,Dessie,Amhara,Active
+C00908,CipherIO 908,USA,FinTech,Medium,217,2431077,2025-12-22,Adama,Oromia,Active
+C00909,PrismVentures 909,USA,Consulting,Small,25,28963,2024-07-20,Adama,Oromia,Active
+C00910,PrismTech 910,USA,Consulting,Large,3245,8114253,2022-07-17,Addis Ababa,Addis Ababa,Active
+C00911,HelixDynamics 911,USA,E-Commerce,Small,31,162595,2022-08-01,Jimma,Oromia,Active
+C00912,ZenithCloud 912,USA,Technology,Medium,129,453910,2024-06-18,Hawassa,Sidama,Active
+C00913,Nile Construction,Ethiopia,Real Estate,Micro,2,135371,2022-08-07,Bishoftu,Oromia,Active
+C00914,Amhara Textile,Ethiopia,Construction,Large,3701,8018312,2024-07-14,Dire Dawa,Dire Dawa,Active
+C00915,QuantumIO 915,USA,Logistics,Medium,121,869573,2023-07-17,Addis Ababa,Addis Ababa,Active
+C00916,Bale Services,Ethiopia,Real Estate,Micro,9,70637,2024-06-18,Harar,Harari,Active
+C00917,Nile Construction,Ethiopia,Manufacturing,Small,48,327924,2022-09-21,Addis Ababa,Addis Ababa,Active
+C00918,StratosVentures 918,USA,FinTech,Large,2642,16084862,2022-11-23,Addis Ababa,Addis Ababa,Active
+C00919,Bale Trading,Ethiopia,Retail,Micro,6,104935,2024-05-26,Nekemte,Oromia,Active
+C00920,Awash Manufacturing,Ethiopia,Agriculture,Micro,6,70520,2025-10-13,Addis Ababa,Addis Ababa,Active
+C00921,Tigray Real Estate,Ethiopia,Real Estate,Small,22,96334,2023-11-17,Debre Birhan,Amhara,Active
+C00922,VortexSolutions 922,USA,E-Commerce,Small,27,147432,2024-05-20,Adama,Oromia,Active
+C00923,FluxSystems 923,USA,FinTech,Medium,200,1217606,2023-12-26,Dessie,Amhara,Active
+C00924,HelixHub 924,USA,FinTech,Small,39,197487,2023-06-22,Addis Ababa,Addis Ababa,Active
+C00925,Tigray Services,Ethiopia,Retail,Large,2161,4093898,2022-04-17,Jimma,Oromia,Active
+C00926,VertexAI 926,USA,E-Commerce,Small,37,84694,2022-05-04,Addis Ababa,Addis Ababa,Active
+C00927,Abay Services,Ethiopia,Manufacturing,Large,3913,38003281,2024-12-30,Mekelle,Tigray,Active
+C00928,CobaltDynamics 928,USA,Logistics,Micro,4,63976,2025-10-27,Gondar,Amhara,Suspended
+C00929,NovaVentures 929,USA,E-Commerce,Medium,53,634288,2022-05-30,Addis Ababa,Addis Ababa,Active
+C00930,SynapseVentures 930,USA,E-Commerce,Small,36,116143,2024-12-14,Shashamane,Oromia,Active
+C00931,VertexSolutions 931,USA,Healthcare Tech,Micro,8,26359,2022-05-26,Jimma,Oromia,Active
+C00932,AxiomData 932,USA,Cloud Services,Small,21,128118,2024-08-13,Shashamane,Oromia,Active
+C00933,SynapseLabs 933,USA,Technology,Micro,3,135659,2022-01-03,Adama,Oromia,Active
+C00934,ZenithCloud 934,USA,Technology,Medium,181,1401921,2025-04-01,Harar,Harari,Suspended
+C00935,ZenithNet 935,USA,Consulting,Micro,9,57564,2023-07-05,Hawassa,Sidama,Active
+C00936,EmberAI 936,USA,Consulting,Small,21,47550,2024-09-16,Harar,Harari,Active
+C00937,Bale Investment,Ethiopia,Construction,Micro,3,118860,2025-02-20,Bishoftu,Oromia,Active
+C00938,Tigray Textile,Ethiopia,Manufacturing,Micro,6,137059,2022-01-20,Hosaena,SNNPR,Active
+C00939,Bale Trading,Ethiopia,Real Estate,Small,18,135931,2023-07-11,Mekelle,Tigray,Active
+C00940,CipherWorks 940,USA,Healthcare Tech,Micro,1,101641,2025-03-14,Gondar,Amhara,Active
+C00941,FluxTech 941,USA,Technology,Large,3920,26195983,2025-05-18,Hawassa,Sidama,Active
+C00942,Amhara Investment,Ethiopia,Real Estate,Enterprise,17643,40232450,2023-07-23,Addis Ababa,Addis Ababa,Active
+C00943,ApexNet 943,USA,Cloud Services,Small,17,714388,2024-09-17,Addis Ababa,Addis Ababa,Suspended
+C00944,CipherLabs 944,USA,Consulting,Micro,3,148220,2022-10-24,Bahir Dar,Amhara,Active
+C00945,EmberSystems 945,USA,Cloud Services,Small,30,646030,2024-10-27,Addis Ababa,Addis Ababa,Active
+C00946,Gambella Trading,Ethiopia,Manufacturing,Micro,4,99578,2022-12-20,Sodo,SNNPR,Active
+C00947,VortexGroup 947,USA,FinTech,Micro,1,158960,2023-10-31,Adama,Oromia,Active
+C00948,AetherSystems 948,USA,Consulting,Micro,2,119143,2024-03-01,Addis Ababa,Addis Ababa,Active
+C00949,Harar Textile,Ethiopia,Agriculture,Medium,182,935087,2022-07-13,Jijiga,Somali,Active
+C00950,Tigray Trading,Ethiopia,Construction,Micro,7,369242,2023-03-29,Jimma,Oromia,Active
+C00951,OrbitDynamics 951,USA,Cloud Services,Micro,3,109260,2022-04-23,Harar,Harari,Active
+C00952,SynapseLabs 952,USA,Healthcare Tech,Micro,1,119553,2024-03-28,Addis Ababa,Addis Ababa,Active
+C00953,VortexData 953,USA,Healthcare Tech,Small,29,149526,2022-10-06,Addis Ababa,Addis Ababa,Active
+C00954,FluxCloud 954,USA,Cloud Services,Small,27,183791,2024-11-05,Bahir Dar,Amhara,Active
+C00955,ZenithVentures 955,USA,Cloud Services,Large,745,3110762,2023-11-19,Hawassa,Sidama,Active
+C00956,CascadeTech 956,USA,EdTech,Small,25,267063,2024-04-12,Bishoftu,Oromia,Active
+C00957,CobaltNet 957,USA,Healthcare Tech,Small,24,139586,2025-01-17,Gondar,Amhara,Active
+C00958,Tigray Investment,Ethiopia,Manufacturing,Small,18,118473,2025-03-28,Mekelle,Tigray,Active
+C00959,AetherNet 959,USA,Cloud Services,Micro,5,86742,2022-05-17,Gondar,Amhara,Suspended
+C00960,FluxGroup 960,USA,FinTech,Small,10,129056,2023-05-22,Bishoftu,Oromia,Active
+C00961,FluxSolutions 961,USA,Cloud Services,Large,1264,13712717,2024-04-11,Dessie,Amhara,Active
+C00962,Simien Trading,Ethiopia,Construction,Medium,210,1238591,2023-05-28,Asella,Oromia,Active
+C00963,Tigray Agro,Ethiopia,Tourism,Large,4234,46817553,2023-12-29,Dilla,SNNPR,Suspended
+C00964,HelixDynamics 964,USA,EdTech,Small,29,53750,2025-12-13,Bishoftu,Oromia,Active
+C00965,StratosCloud 965,USA,Logistics,Small,47,120740,2022-05-11,Hawassa,Sidama,Suspended
+C00966,CipherLabs 966,USA,EdTech,Large,4528,27400900,2023-05-24,Addis Ababa,Addis Ababa,Active
+C00967,Simien Investment,Ethiopia,Import/Export,Small,28,54087,2025-12-09,Dessie,Amhara,Active
+C00968,ZenithWorks 968,USA,Consulting,Micro,2,45530,2023-06-09,Addis Ababa,Addis Ababa,Active
+C00969,VortexNet 969,USA,Logistics,Micro,2,142613,2022-02-23,Dilla,SNNPR,Active
+C00970,QuantumDynamics 970,USA,Logistics,Small,22,127787,2024-04-08,Addis Ababa,Addis Ababa,Active
+C00971,AetherData 971,USA,Logistics,Small,47,181777,2024-07-16,Dire Dawa,Dire Dawa,Active
+C00972,Rift Investment,Ethiopia,Manufacturing,Medium,167,1024287,2024-07-09,Dessie,Amhara,Suspended
+C00973,Nile Real Estate,Ethiopia,Import/Export,Micro,7,51985,2024-01-20,Dilla,SNNPR,Active
+C00974,CobaltTech 974,USA,Healthcare Tech,Micro,8,39113,2022-10-25,Dessie,Amhara,Active
+C00975,Addis PLC,Ethiopia,Import/Export,Small,19,671510,2024-06-03,Jijiga,Somali,Active
+C00976,Gambella Agro,Ethiopia,Agriculture,Large,2298,16030507,2024-10-12,Mekelle,Tigray,Active
+C00977,VortexCloud 977,USA,Technology,Micro,3,136903,2024-05-31,Addis Ababa,Addis Ababa,Active
+C00978,EmberSolutions 978,USA,FinTech,Small,24,40460,2025-03-21,Hawassa,Sidama,Active
+C00979,VertexTech 979,USA,FinTech,Micro,6,238883,2025-03-27,Dire Dawa,Dire Dawa,Active
+C00980,CobaltSystems 980,USA,Logistics,Small,36,135412,2022-09-26,Addis Ababa,Addis Ababa,Active
+C00981,HelixNet 981,USA,E-Commerce,Large,2192,10234029,2023-01-11,Dessie,Amhara,Active
+C00982,AetherAI 982,USA,Cloud Services,Medium,95,383841,2022-08-04,Addis Ababa,Addis Ababa,Suspended
+C00983,ApexAI 983,USA,Consulting,Micro,4,65664,2025-10-22,Addis Ababa,Addis Ababa,Suspended
+C00984,EmberCloud 984,USA,FinTech,Small,24,34171,2025-05-06,Addis Ababa,Addis Ababa,Active
+C00985,EmberGroup 985,USA,EdTech,Medium,191,1230771,2022-06-14,Mekelle,Tigray,Active
+C00986,CascadeNet 986,USA,FinTech,Micro,9,105759,2025-06-13,Dire Dawa,Dire Dawa,Active
+C00987,ZenithData 987,USA,Logistics,Small,11,94844,2022-04-30,Mekelle,Tigray,Active
+C00988,Gambella Textile,Ethiopia,Import/Export,Large,581,2404585,2023-07-09,Mekelle,Tigray,Active
+C00989,Simien Manufacturing,Ethiopia,Construction,Enterprise,27843,140499800,2022-12-11,Dilla,SNNPR,Dissolved
+C00990,ApexData 990,USA,FinTech,Small,19,71656,2023-06-01,Addis Ababa,Addis Ababa,Active
+C00991,EmberIO 991,USA,Cloud Services,Small,44,42834,2023-06-20,Bishoftu,Oromia,Active
+C00992,CipherCloud 992,USA,Technology,Medium,180,1918882,2024-07-24,Jijiga,Somali,Active
+C00993,VortexTech 993,USA,E-Commerce,Small,23,118964,2024-03-13,Addis Ababa,Addis Ababa,Active
+C00994,AetherAI 994,USA,E-Commerce,Medium,112,614306,2023-01-10,Addis Ababa,Addis Ababa,Active
+C00995,SynapseLabs 995,USA,E-Commerce,Small,32,43973,2025-02-22,Bahir Dar,Amhara,Active
+C00996,Gambella Textile,Ethiopia,Construction,Small,18,122410,2023-09-08,Hosaena,SNNPR,Active
+C00997,Lalibela Manufacturing,Ethiopia,Real Estate,Micro,7,85872,2022-03-06,Asella,Oromia,Active
+C00998,Addis Textile,Ethiopia,Agriculture,Large,3163,6009444,2022-09-14,Addis Ababa,Addis Ababa,Active
+C00999,Addis PLC,Ethiopia,Import/Export,Micro,9,36978,2022-11-05,Addis Ababa,Addis Ababa,Active
+C01000,EmberWorks 1000,USA,FinTech,Medium,66,242005,2025-03-14,Arba Minch,SNNPR,Active

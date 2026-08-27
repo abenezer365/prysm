@@ -1,0 +1,129 @@
+{
+  "ethiopian_nationality_ratio": 0.9212,
+  "gender_distribution": [
+    {
+      "gender": "F",
+      "count": 52825
+    },
+    {
+      "gender": "M",
+      "count": 48175
+    }
+  ],
+  "top_10_cities_by_population": [
+    {
+      "city": "Addis Ababa",
+      "count": 35109
+    },
+    {
+      "city": "Dire Dawa",
+      "count": 7078
+    },
+    {
+      "city": "Mekelle",
+      "count": 6035
+    },
+    {
+      "city": "Hawassa",
+      "count": 5913
+    },
+    {
+      "city": "Gondar",
+      "count": 5107
+    },
+    {
+      "city": "Bahir Dar",
+      "count": 5051
+    },
+    {
+      "city": "Adama",
+      "count": 4936
+    },
+    {
+      "city": "Dessie",
+      "count": 3982
+    },
+    {
+      "city": "Jimma",
+      "count": 3857
+    },
+    {
+      "city": "Shashamane",
+      "count": 3049
+    }
+  ],
+  "income_statistics_etb": {
+    "mean": 18683.18,
+    "median": 11475.0,
+    "min": 2000,
+    "max": 150000
+  },
+  "transaction_currency_distribution": [
+    {
+      "currency": "EUR",
+      "count": 34588
+    },
+    {
+      "currency": "AED",
+      "count": 14194
+    },
+    {
+      "currency": "USD",
+      "count": 49225
+    },
+    {
+      "currency": "GBP",
+      "count": 20809
+    },
+    {
+      "currency": "ETB",
+      "count": 574129
+    },
+    {
+      "currency": "CHF",
+      "count": 7055
+    }
+  ],
+  "relationship_type_distribution": [
+    {
+      "relationship_type": "employer_employee",
+      "count": 59781
+    },
+    {
+      "relationship_type": "business_partner",
+      "count": 60179
+    },
+    {
+      "relationship_type": "joint_account",
+      "count": 40452
+    },
+    {
+      "relationship_type": "family",
+      "count": 74849
+    },
+    {
+      "relationship_type": "shared_device",
+      "count": 50241
+    },
+    {
+      "relationship_type": "guarantor",
+      "count": 39670
+    },
+    {
+      "relationship_type": "counterpart",
+      "count": 49757
+    },
+    {
+      "relationship_type": "referral",
+      "count": 25308
+    },
+    {
+      "relationship_type": "shared_address",
+      "count": 50190
+    },
+    {
+      "relationship_type": "supplier_customer",
+      "count": 49573
+    }
+  ]
+}

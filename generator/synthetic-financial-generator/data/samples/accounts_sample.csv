@@ -1,0 +1,1001 @@
+account_id,owner_id,owner_type,institution_id,account_type,currency,opened_at,closed_at,status,average_balance,city,country
+ACC0000001,P004531,Person,BNK004,Current,ETB,2025-01-16,,Active,38486,Addis Ababa,Ethiopia
+ACC0000002,P063618,Person,BNK003,Fixed Deposit,ETB,2023-12-22,2025-12-18,Closed,21534,Hosaena,Ethiopia
+ACC0000003,P091189,Person,BNK002,Savings,ETB,2025-02-04,,Active,7699,Debre Birhan,Ethiopia
+ACC0000004,P009394,Person,BNK011,Fixed Deposit,ETB,2023-12-04,2025-08-09,Closed,35268,Addis Ababa,Ethiopia
+ACC0000005,C02987,Company,BNK009,Business,GBP,2024-03-20,,Active,3498,Addis Ababa,Ethiopia
+ACC0000006,P078244,Person,BNK003,Fixed Deposit,ETB,2025-05-04,,Active,40317,Hawassa,Ethiopia
+ACC0000007,P074049,Person,BNK018,Mobile Money,ETB,2022-02-03,,Active,1673,Addis Ababa,Ethiopia
+ACC0000008,C07597,Company,BNK014,Business,ETB,2025-04-29,,Active,7843,Hawassa,Ethiopia
+ACC0000009,P002891,Person,BNK017,Current,AED,2024-02-12,,Active,5520,Dire Dawa,Ethiopia
+ACC0000010,P042633,Person,BNK020,Savings,EUR,2025-06-30,,Active,25548,Addis Ababa,Ethiopia
+ACC0000011,P037455,Person,BNK015,Mobile Money,ETB,2022-08-09,,Closed,7234,Addis Ababa,Ethiopia
+ACC0000012,P072110,Person,BNK018,Business,ETB,2024-07-21,,Active,5026,Addis Ababa,Ethiopia
+ACC0000013,P097870,Person,BNK009,Business,CHF,2022-09-23,,Closed,18575,Addis Ababa,Ethiopia
+ACC0000014,P042297,Person,BNK003,Business,USD,2025-01-13,,Closed,25329,Addis Ababa,Ethiopia
+ACC0000015,P003969,Person,BNK014,Savings,ETB,2022-08-24,,Closed,3985,Addis Ababa,Ethiopia
+ACC0000016,P043362,Person,BNK019,Mobile Money,ETB,2025-02-23,,Closed,46809,Dessie,Ethiopia
+ACC0000017,P002915,Person,BNK014,Current,ETB,2022-07-04,,Active,13978,Addis Ababa,Ethiopia
+ACC0000018,C05721,Company,BNK016,Current,ETB,2022-06-17,,Active,40451,Addis Ababa,Ethiopia
+ACC0000019,P087440,Person,BNK019,Current,ETB,2025-05-10,,Active,35131,Addis Ababa,Ethiopia
+ACC0000020,C04267,Company,BNK014,Business,ETB,2025-11-23,,Active,7188,Addis Ababa,Ethiopia
+ACC0000021,P050447,Person,BNK005,Fixed Deposit,ETB,2024-07-28,,Active,13613,Shashamane,Ethiopia
+ACC0000022,P027197,Person,BNK012,Savings,ETB,2024-10-30,,Closed,14690,Addis Ababa,Ethiopia
+ACC0000023,C00191,Company,BNK012,Current,ETB,2024-01-22,,Active,14246,Dire Dawa,Ethiopia
+ACC0000024,P023508,Person,BNK014,Savings,ETB,2024-04-03,,Closed,13465,Sodo,Ethiopia
+ACC0000025,P028992,Person,BNK001,Fixed Deposit,ETB,2022-01-08,,Active,8898,Addis Ababa,Ethiopia
+ACC0000026,P075436,Person,BNK002,Fixed Deposit,ETB,2024-03-07,,Active,287,Hawassa,Ethiopia
+ACC0000027,P031407,Person,BNK009,Savings,ETB,2024-04-15,,Active,46879,Gondar,Ethiopia
+ACC0000028,C00459,Company,BNK015,Current,ETB,2022-11-30,,Active,60412,Dessie,Ethiopia
+ACC0000029,P019354,Person,BNK009,Current,ETB,2025-07-03,,Active,8532,Addis Ababa,Ethiopia
+ACC0000030,C06931,Company,BNK014,Savings,ETB,2023-05-14,,Active,10668,Bishoftu,Ethiopia
+ACC0000031,P086591,Person,BNK018,Mobile Money,ETB,2025-11-28,,Active,1352,Dire Dawa,Ethiopia
+ACC0000032,P062440,Person,BNK015,Business,ETB,2024-11-23,2025-08-21,Closed,88758,Nekemte,Ethiopia
+ACC0000033,P042931,Person,BNK002,Business,ETB,2024-02-13,,Active,10301,Dessie,Ethiopia
+ACC0000034,P003836,Person,BNK002,Current,ETB,2024-12-29,,Active,2561,Addis Ababa,Ethiopia
+ACC0000035,P039815,Person,BNK001,Fixed Deposit,ETB,2022-10-03,,Active,20335,Shashamane,Ethiopia
+ACC0000036,P059511,Person,BNK005,Current,EUR,2024-03-11,,Active,8385,Dire Dawa,Ethiopia
+ACC0000037,P061118,Person,BNK013,Mobile Money,ETB,2024-12-15,,Active,5710,Addis Ababa,Ethiopia
+ACC0000038,P044247,Person,BNK016,Mobile Money,ETB,2025-10-29,,Closed,7129,Addis Ababa,Ethiopia
+ACC0000039,P084679,Person,BNK011,Fixed Deposit,ETB,2022-01-06,,Active,4981,Addis Ababa,Ethiopia
+ACC0000040,P051938,Person,BNK019,Current,ETB,2024-02-04,,Active,58658,Hawassa,Ethiopia
+ACC0000041,P025868,Person,BNK010,Current,ETB,2024-02-26,,Active,17456,Hosaena,Ethiopia
+ACC0000042,P012468,Person,BNK004,Savings,ETB,2023-05-31,,Closed,74145,Mekelle,Ethiopia
+ACC0000043,P002027,Person,BNK008,Mobile Money,ETB,2023-02-16,2024-01-19,Closed,42244,Hawassa,Ethiopia
+ACC0000044,P085189,Person,BNK017,Fixed Deposit,ETB,2023-08-22,,Closed,43528,Hosaena,Ethiopia
+ACC0000045,P016004,Person,BNK005,Business,EUR,2025-05-20,,Dormant,5862,Mekelle,Ethiopia
+ACC0000046,C07803,Company,BNK017,Mobile Money,ETB,2024-06-22,,Active,34121,Arba Minch,Ethiopia
+ACC0000047,C04941,Company,BNK011,Savings,ETB,2022-08-13,,Active,2988,Bahir Dar,Ethiopia
+ACC0000048,P025468,Person,BNK011,Business,ETB,2024-12-10,,Active,51971,Addis Ababa,Ethiopia
+ACC0000049,C05883,Company,BNK014,Savings,ETB,2025-06-02,,Active,4883,Adama,Ethiopia
+ACC0000050,P095265,Person,BNK020,Current,ETB,2025-06-28,,Active,5177,Dessie,Ethiopia
+ACC0000051,P022211,Person,BNK020,Mobile Money,ETB,2025-06-02,,Active,1549,Mekelle,Ethiopia
+ACC0000052,P006730,Person,BNK007,Savings,ETB,2025-04-26,,Active,48880,Bishoftu,Ethiopia
+ACC0000053,P090295,Person,BNK014,Current,ETB,2024-09-08,,Active,3314,Shashamane,Ethiopia
+ACC0000054,C00684,Company,BNK003,Mobile Money,ETB,2024-07-13,,Dormant,13765,Dessie,Ethiopia
+ACC0000055,P012799,Person,BNK012,Mobile Money,ETB,2024-06-30,,Dormant,7827,Dessie,Ethiopia
+ACC0000056,C02987,Company,BNK015,Savings,ETB,2023-02-08,,Active,12087,Bahir Dar,Ethiopia
+ACC0000057,P016137,Person,BNK005,Savings,ETB,2022-10-07,,Active,8928,Addis Ababa,Ethiopia
+ACC0000058,P094293,Person,BNK012,Mobile Money,ETB,2025-06-16,,Active,10417,Adama,Ethiopia
+ACC0000059,P028600,Person,BNK010,Fixed Deposit,ETB,2023-09-05,,Active,37645,Shashamane,Ethiopia
+ACC0000060,P038017,Person,BNK018,Business,ETB,2024-02-13,,Active,1058,Dessie,Ethiopia
+ACC0000061,P023830,Person,BNK002,Current,ETB,2025-07-20,,Closed,5703,Hawassa,Ethiopia
+ACC0000062,C09176,Company,BNK013,Current,ETB,2023-11-03,,Active,11101,Addis Ababa,Ethiopia
+ACC0000063,P088309,Person,BNK009,Fixed Deposit,ETB,2023-12-05,,Active,15523,Mekelle,Ethiopia
+ACC0000064,P097126,Person,BNK018,Mobile Money,ETB,2022-04-15,,Active,31810,Gondar,Ethiopia
+ACC0000065,P095868,Person,BNK003,Savings,GBP,2024-03-14,,Active,17987,Asella,Ethiopia
+ACC0000066,P046197,Person,BNK018,Business,ETB,2023-05-06,,Closed,3728,Bahir Dar,Ethiopia
+ACC0000067,C09177,Company,BNK007,Business,ETB,2025-03-25,,Active,5025,Gondar,Ethiopia
+ACC0000068,P056150,Person,BNK012,Savings,ETB,2023-07-04,,Closed,14777,Jimma,Ethiopia
+ACC0000069,P069553,Person,BNK005,Business,ETB,2025-06-24,,Active,30613,Bahir Dar,Ethiopia
+ACC0000070,C04583,Company,BNK005,Business,ETB,2023-05-02,,Frozen,15612,Shashamane,Ethiopia
+ACC0000071,P027787,Person,BNK019,Fixed Deposit,ETB,2025-09-10,,Closed,39754,Bishoftu,Ethiopia
+ACC0000072,P040929,Person,BNK009,Current,ETB,2024-07-05,,Dormant,8945,Addis Ababa,Ethiopia
+ACC0000073,C00159,Company,BNK016,Savings,ETB,2025-10-21,,Closed,24118,Dire Dawa,Ethiopia
+ACC0000074,P016459,Person,BNK002,Current,AED,2024-01-29,,Active,12173,Shashamane,Ethiopia
+ACC0000075,P005658,Person,BNK001,Savings,ETB,2025-05-14,2025-09-03,Closed,41298,Adama,Ethiopia
+ACC0000076,P050083,Person,BNK005,Fixed Deposit,ETB,2023-10-23,,Active,10463,Addis Ababa,Ethiopia
+ACC0000077,P025849,Person,BNK014,Mobile Money,ETB,2024-06-05,,Closed,10372,Bahir Dar,Ethiopia
+ACC0000078,P090213,Person,BNK001,Fixed Deposit,ETB,2023-12-21,,Closed,9463,Addis Ababa,Ethiopia
+ACC0000079,P059586,Person,BNK020,Fixed Deposit,ETB,2025-08-06,2025-10-17,Closed,7039,Addis Ababa,Ethiopia
+ACC0000080,P074235,Person,BNK018,Business,ETB,2022-11-23,,Active,37907,Dessie,Ethiopia
+ACC0000081,P050870,Person,BNK003,Business,ETB,2025-07-24,,Active,40974,Addis Ababa,Ethiopia
+ACC0000082,C07497,Company,BNK013,Current,ETB,2023-07-03,,Closed,4429,Bahir Dar,Ethiopia
+ACC0000083,C03219,Company,BNK019,Current,ETB,2023-08-06,,Active,12368,Bahir Dar,Ethiopia
+ACC0000084,C00601,Company,BNK010,Business,ETB,2023-03-01,2025-12-07,Closed,35698,Addis Ababa,Ethiopia
+ACC0000085,C00575,Company,BNK010,Savings,ETB,2024-07-19,,Closed,3463,Addis Ababa,Ethiopia
+ACC0000086,C09802,Company,BNK007,Business,GBP,2025-10-03,,Closed,10956,Harar,Ethiopia
+ACC0000087,P019326,Person,BNK018,Savings,ETB,2022-04-09,,Closed,56900,Jimma,Ethiopia
+ACC0000088,C04528,Company,BNK013,Current,ETB,2023-04-27,,Active,26533,Adama,Ethiopia
+ACC0000089,P021146,Person,BNK011,Fixed Deposit,CHF,2024-09-25,,Dormant,12276,Addis Ababa,Ethiopia
+ACC0000090,P035442,Person,BNK007,Fixed Deposit,EUR,2022-05-08,,Active,26211,Dessie,Ethiopia
+ACC0000091,P018435,Person,BNK007,Business,ETB,2024-04-18,,Active,2451,Adama,Ethiopia
+ACC0000092,P054715,Person,BNK012,Mobile Money,ETB,2024-08-15,,Closed,1103,Addis Ababa,Ethiopia
+ACC0000093,P024746,Person,BNK011,Business,ETB,2023-09-16,2023-10-16,Closed,43242,Addis Ababa,Ethiopia
+ACC0000094,C04825,Company,BNK012,Mobile Money,ETB,2022-07-14,,Closed,11662,Addis Ababa,Ethiopia
+ACC0000095,P020518,Person,BNK020,Savings,ETB,2024-08-04,,Active,10380,Hosaena,Ethiopia
+ACC0000096,P004755,Person,BNK002,Fixed Deposit,ETB,2023-08-11,,Active,324943,Jijiga,Ethiopia
+ACC0000097,C04109,Company,BNK014,Business,ETB,2024-01-19,2025-12-21,Closed,141497,Addis Ababa,Ethiopia
+ACC0000098,P008992,Person,BNK008,Savings,ETB,2023-04-18,,Active,40359,Nekemte,Ethiopia
+ACC0000099,P095242,Person,BNK014,Fixed Deposit,ETB,2022-02-26,,Active,3063,Addis Ababa,Ethiopia
+ACC0000100,C03264,Company,BNK017,Mobile Money,ETB,2023-03-20,,Active,4435,Adama,Ethiopia
+ACC0000101,P053990,Person,BNK003,Current,ETB,2022-03-28,,Closed,4668,Addis Ababa,Ethiopia
+ACC0000102,C08653,Company,BNK001,Savings,ETB,2023-05-26,,Active,8069,Dessie,Ethiopia
+ACC0000103,P037587,Person,BNK001,Business,ETB,2023-06-03,,Active,18422,Addis Ababa,Ethiopia
+ACC0000104,P051789,Person,BNK017,Mobile Money,ETB,2023-09-21,,Active,1422,Gondar,Ethiopia
+ACC0000105,P043799,Person,BNK010,Savings,ETB,2024-10-10,,Active,35624,Bahir Dar,Ethiopia
+ACC0000106,P032638,Person,BNK019,Fixed Deposit,ETB,2022-11-05,,Dormant,5734,Dire Dawa,Ethiopia
+ACC0000107,C07452,Company,BNK014,Current,ETB,2025-11-25,,Active,3173,Hosaena,Ethiopia
+ACC0000108,P021258,Person,BNK001,Business,ETB,2023-11-20,,Active,26978,Gondar,Ethiopia
+ACC0000109,C01348,Company,BNK001,Mobile Money,AED,2025-03-05,,Active,44822,Addis Ababa,Ethiopia
+ACC0000110,P028187,Person,BNK012,Fixed Deposit,ETB,2025-03-19,,Active,19813,Addis Ababa,Ethiopia
+ACC0000111,P038407,Person,BNK011,Business,ETB,2024-02-25,,Active,60592,Addis Ababa,Ethiopia
+ACC0000112,P086180,Person,BNK018,Business,ETB,2025-04-14,,Active,440633,Jijiga,Ethiopia
+ACC0000113,P018393,Person,BNK014,Mobile Money,ETB,2025-01-04,,Active,3588,Hawassa,Ethiopia
+ACC0000114,C04355,Company,BNK012,Mobile Money,ETB,2022-06-17,,Active,5299,Nekemte,Ethiopia
+ACC0000115,P025980,Person,BNK016,Current,ETB,2022-05-13,,Active,29727,Dessie,Ethiopia
+ACC0000116,P004624,Person,BNK009,Savings,ETB,2025-11-13,,Active,16827,Shashamane,Ethiopia
+ACC0000117,P055476,Person,BNK014,Savings,ETB,2024-10-10,2025-07-24,Closed,54310,Addis Ababa,Ethiopia
+ACC0000118,P005712,Person,BNK009,Fixed Deposit,ETB,2024-09-01,,Closed,18263,Addis Ababa,Ethiopia
+ACC0000119,P022812,Person,BNK003,Savings,ETB,2023-09-13,,Active,73466,Addis Ababa,Ethiopia
+ACC0000120,P064254,Person,BNK015,Fixed Deposit,ETB,2024-09-24,,Active,32494,Sodo,Ethiopia
+ACC0000121,P026687,Person,BNK020,Fixed Deposit,AED,2024-12-19,,Closed,15394,Addis Ababa,Ethiopia
+ACC0000122,P020183,Person,BNK018,Savings,ETB,2024-12-01,,Active,299801,Bahir Dar,Ethiopia
+ACC0000123,P053365,Person,BNK010,Mobile Money,ETB,2022-03-14,,Active,3259,Addis Ababa,Ethiopia
+ACC0000124,P010189,Person,BNK005,Mobile Money,ETB,2025-07-05,,Closed,21934,Addis Ababa,Ethiopia
+ACC0000125,P061824,Person,BNK013,Mobile Money,ETB,2025-04-29,,Closed,6668,Adama,Ethiopia
+ACC0000126,P026290,Person,BNK010,Savings,ETB,2025-04-29,,Active,166651,Nekemte,Ethiopia
+ACC0000127,P011617,Person,BNK017,Mobile Money,ETB,2024-06-06,,Dormant,4977,Gondar,Ethiopia
+ACC0000128,C02016,Company,BNK020,Fixed Deposit,ETB,2023-12-18,,Active,81467,Mekelle,Ethiopia
+ACC0000129,C02315,Company,BNK003,Mobile Money,ETB,2025-05-27,,Active,38137,Addis Ababa,Ethiopia
+ACC0000130,P021649,Person,BNK008,Savings,ETB,2023-05-28,,Active,9178,Addis Ababa,Ethiopia
+ACC0000131,P018321,Person,BNK004,Current,ETB,2023-01-07,,Active,24559,Dessie,Ethiopia
+ACC0000132,C02564,Company,BNK017,Mobile Money,ETB,2024-03-25,,Closed,42567,Mekelle,Ethiopia
+ACC0000133,P055813,Person,BNK018,Mobile Money,ETB,2025-08-19,,Active,20889,Addis Ababa,Ethiopia
+ACC0000134,P056233,Person,BNK001,Business,ETB,2022-03-23,,Active,28109,Bishoftu,Ethiopia
+ACC0000135,P013235,Person,BNK011,Mobile Money,ETB,2025-01-12,,Active,1889,Dire Dawa,Ethiopia
+ACC0000136,P039987,Person,BNK004,Current,ETB,2022-07-15,,Active,1138,Addis Ababa,Ethiopia
+ACC0000137,P094708,Person,BNK018,Fixed Deposit,ETB,2025-07-21,,Active,12412,Addis Ababa,Ethiopia
+ACC0000138,P045115,Person,BNK005,Mobile Money,AED,2023-04-10,,Active,37908,Dire Dawa,Ethiopia
+ACC0000139,P022219,Person,BNK020,Fixed Deposit,EUR,2025-01-18,,Active,22534,Addis Ababa,Ethiopia
+ACC0000140,P041942,Person,BNK006,Business,ETB,2022-05-02,,Closed,27235,Bahir Dar,Ethiopia
+ACC0000141,P072244,Person,BNK001,Mobile Money,ETB,2023-01-12,,Active,35097,Addis Ababa,Ethiopia
+ACC0000142,P034859,Person,BNK019,Fixed Deposit,ETB,2025-11-16,2025-12-23,Closed,3512,Addis Ababa,Ethiopia
+ACC0000143,P001554,Person,BNK012,Current,ETB,2022-03-18,2024-01-18,Closed,9647,Bahir Dar,Ethiopia
+ACC0000144,P021218,Person,BNK009,Business,ETB,2024-10-31,2025-02-28,Closed,34075,Addis Ababa,Ethiopia
+ACC0000145,P068814,Person,BNK018,Business,ETB,2025-06-04,,Active,118103,Jijiga,Ethiopia
+ACC0000146,P024419,Person,BNK010,Business,ETB,2023-10-03,,Active,3555,Hosaena,Ethiopia
+ACC0000147,P082230,Person,BNK014,Fixed Deposit,ETB,2023-06-16,,Closed,20282,Mekelle,Ethiopia
+ACC0000148,P058617,Person,BNK004,Fixed Deposit,ETB,2022-09-13,2024-05-17,Closed,14585,Hosaena,Ethiopia
+ACC0000149,P006896,Person,BNK011,Savings,ETB,2025-09-25,,Closed,67167,Addis Ababa,Ethiopia
+ACC0000150,P003967,Person,BNK005,Savings,ETB,2025-12-05,,Active,2427,Jijiga,Ethiopia
+ACC0000151,C04173,Company,BNK011,Savings,ETB,2024-02-22,,Active,45407,Nekemte,Ethiopia
+ACC0000152,P080748,Person,BNK016,Fixed Deposit,ETB,2025-06-17,,Active,12449,Mekelle,Ethiopia
+ACC0000153,P050600,Person,BNK001,Mobile Money,ETB,2022-03-10,,Active,59903,Hawassa,Ethiopia
+ACC0000154,P017377,Person,BNK010,Fixed Deposit,ETB,2023-09-11,,Active,4238,Mekelle,Ethiopia
+ACC0000155,C02875,Company,BNK012,Savings,ETB,2022-02-08,,Active,26336,Dessie,Ethiopia
+ACC0000156,P044661,Person,BNK017,Fixed Deposit,ETB,2024-07-29,,Dormant,24908,Shashamane,Ethiopia
+ACC0000157,C06971,Company,BNK013,Fixed Deposit,ETB,2023-06-16,,Closed,30278,Dilla,Ethiopia
+ACC0000158,P048414,Person,BNK020,Current,ETB,2022-10-17,,Frozen,39255,Shashamane,Ethiopia
+ACC0000159,P078905,Person,BNK010,Savings,ETB,2024-01-06,,Active,1117,Addis Ababa,Ethiopia
+ACC0000160,P047781,Person,BNK020,Mobile Money,USD,2024-09-30,,Dormant,57015,Jijiga,Ethiopia
+ACC0000161,P031313,Person,BNK008,Current,ETB,2023-05-31,,Closed,39891,Jijiga,Ethiopia
+ACC0000162,C05920,Company,BNK016,Fixed Deposit,ETB,2022-12-01,,Active,137857,Addis Ababa,Ethiopia
+ACC0000163,P085961,Person,BNK015,Mobile Money,ETB,2024-04-09,,Active,16248,Addis Ababa,Ethiopia
+ACC0000164,C01234,Company,BNK018,Fixed Deposit,ETB,2023-05-25,,Active,25014,Addis Ababa,Ethiopia
+ACC0000165,C02676,Company,BNK003,Fixed Deposit,ETB,2025-10-10,,Active,17471,Dire Dawa,Ethiopia
+ACC0000166,P051714,Person,BNK011,Fixed Deposit,GBP,2023-12-29,,Active,4028,Shashamane,Ethiopia
+ACC0000167,P059427,Person,BNK020,Savings,ETB,2022-04-23,,Active,3694,Dessie,Ethiopia
+ACC0000168,P035605,Person,BNK017,Fixed Deposit,ETB,2023-10-13,,Closed,40678,Addis Ababa,Ethiopia
+ACC0000169,C02993,Company,BNK001,Business,ETB,2024-05-12,,Closed,5679,Sodo,Ethiopia
+ACC0000170,P073572,Person,BNK010,Savings,ETB,2025-12-30,,Closed,91036,Addis Ababa,Ethiopia
+ACC0000171,P049878,Person,BNK008,Current,ETB,2025-07-26,,Active,10219,Addis Ababa,Ethiopia
+ACC0000172,P035862,Person,BNK006,Fixed Deposit,ETB,2022-11-03,,Active,17541,Addis Ababa,Ethiopia
+ACC0000173,P056061,Person,BNK004,Mobile Money,ETB,2025-09-21,,Frozen,218495,Addis Ababa,Ethiopia
+ACC0000174,P014894,Person,BNK008,Current,ETB,2025-06-24,2025-09-18,Closed,23100,Bishoftu,Ethiopia
+ACC0000175,P094231,Person,BNK006,Current,ETB,2023-07-26,,Active,88201,Jimma,Ethiopia
+ACC0000176,P092896,Person,BNK008,Savings,ETB,2025-03-24,,Active,18419,Dire Dawa,Ethiopia
+ACC0000177,P017104,Person,BNK005,Current,ETB,2022-07-29,,Active,19828,Addis Ababa,Ethiopia
+ACC0000178,P005907,Person,BNK009,Business,ETB,2022-06-24,,Active,22505,Jimma,Ethiopia
+ACC0000179,P058203,Person,BNK007,Current,ETB,2024-05-13,2024-11-27,Closed,33323,Mekelle,Ethiopia
+ACC0000180,C05632,Company,BNK007,Current,ETB,2022-01-08,,Active,11117,Addis Ababa,Ethiopia
+ACC0000181,P056321,Person,BNK019,Current,ETB,2025-04-25,,Closed,4689,Adama,Ethiopia
+ACC0000182,P054259,Person,BNK001,Current,ETB,2025-05-27,,Closed,182145,Bishoftu,Ethiopia
+ACC0000183,P042396,Person,BNK010,Fixed Deposit,ETB,2023-03-05,,Active,25154,Shashamane,Ethiopia
+ACC0000184,P034184,Person,BNK018,Fixed Deposit,ETB,2023-02-18,,Active,72285,Addis Ababa,Ethiopia
+ACC0000185,P032423,Person,BNK017,Mobile Money,ETB,2022-10-29,,Active,13393,Hawassa,Ethiopia
+ACC0000186,P068260,Person,BNK002,Savings,ETB,2025-02-18,,Closed,37051,Addis Ababa,Ethiopia
+ACC0000187,C02883,Company,BNK004,Business,ETB,2022-07-14,,Active,17064,Addis Ababa,Ethiopia
+ACC0000188,P032653,Person,BNK006,Mobile Money,ETB,2024-12-04,,Active,21424,Gondar,Ethiopia
+ACC0000189,P094680,Person,BNK016,Savings,ETB,2025-11-22,2025-12-24,Closed,26715,Bahir Dar,Ethiopia
+ACC0000190,P010130,Person,BNK012,Fixed Deposit,ETB,2024-04-10,,Active,1972,Dire Dawa,Ethiopia
+ACC0000191,P077213,Person,BNK004,Business,ETB,2022-11-24,,Closed,12209,Jimma,Ethiopia
+ACC0000192,P094543,Person,BNK006,Savings,USD,2024-06-25,,Active,16843,Bahir Dar,Ethiopia
+ACC0000193,C06234,Company,BNK019,Mobile Money,ETB,2022-12-07,,Active,1246,Addis Ababa,Ethiopia
+ACC0000194,P063108,Person,BNK018,Mobile Money,AED,2023-05-26,,Active,7711,Shashamane,Ethiopia
+ACC0000195,P038082,Person,BNK007,Fixed Deposit,ETB,2023-07-05,,Active,14548,Shashamane,Ethiopia
+ACC0000196,C05745,Company,BNK016,Fixed Deposit,ETB,2022-05-15,,Active,2949,Gondar,Ethiopia
+ACC0000197,P041094,Person,BNK014,Current,ETB,2024-12-26,,Active,66668,Sodo,Ethiopia
+ACC0000198,P021796,Person,BNK017,Fixed Deposit,ETB,2025-05-29,,Active,37524,Harar,Ethiopia
+ACC0000199,P015174,Person,BNK001,Mobile Money,ETB,2022-05-03,2023-07-04,Closed,5179,Addis Ababa,Ethiopia
+ACC0000200,P068999,Person,BNK020,Savings,ETB,2024-01-31,,Closed,4282,Dilla,Ethiopia
+ACC0000201,P072668,Person,BNK008,Mobile Money,ETB,2024-06-26,,Active,3226,Gondar,Ethiopia
+ACC0000202,P061460,Person,BNK017,Fixed Deposit,ETB,2025-07-24,,Active,8659,Dessie,Ethiopia
+ACC0000203,P053133,Person,BNK004,Business,ETB,2022-07-03,,Active,1694,Addis Ababa,Ethiopia
+ACC0000204,P033800,Person,BNK012,Savings,ETB,2025-12-20,,Active,4442,Addis Ababa,Ethiopia
+ACC0000205,P036351,Person,BNK019,Business,ETB,2025-05-13,,Dormant,101372,Addis Ababa,Ethiopia
+ACC0000206,C06251,Company,BNK001,Current,ETB,2024-01-02,,Active,5550,Addis Ababa,Ethiopia
+ACC0000207,C03498,Company,BNK006,Fixed Deposit,ETB,2025-08-13,,Active,15617,Sodo,Ethiopia
+ACC0000208,P055109,Person,BNK013,Business,ETB,2022-08-05,,Active,5507,Debre Birhan,Ethiopia
+ACC0000209,P086568,Person,BNK001,Savings,ETB,2022-04-06,,Active,2336,Addis Ababa,Ethiopia
+ACC0000210,C04735,Company,BNK019,Business,ETB,2022-03-28,,Active,34709,Addis Ababa,Ethiopia
+ACC0000211,P035500,Person,BNK014,Mobile Money,ETB,2024-10-20,,Active,20586,Addis Ababa,Ethiopia
+ACC0000212,C02637,Company,BNK004,Business,EUR,2025-03-23,2025-09-23,Closed,31837,Nekemte,Ethiopia
+ACC0000213,P048669,Person,BNK001,Savings,ETB,2023-04-29,,Closed,46925,Gondar,Ethiopia
+ACC0000214,P035969,Person,BNK016,Mobile Money,ETB,2025-07-08,2025-08-11,Closed,117865,Adama,Ethiopia
+ACC0000215,P059513,Person,BNK014,Mobile Money,ETB,2022-05-02,,Closed,2755,Jimma,Ethiopia
+ACC0000216,P084079,Person,BNK018,Business,GBP,2022-10-31,,Active,20898,Addis Ababa,Ethiopia
+ACC0000217,C00820,Company,BNK015,Current,ETB,2023-07-06,,Active,3214,Addis Ababa,Ethiopia
+ACC0000218,P067835,Person,BNK008,Business,ETB,2024-09-07,,Active,41776,Bahir Dar,Ethiopia
+ACC0000219,P032982,Person,BNK015,Savings,ETB,2024-08-02,,Active,4140,Dilla,Ethiopia
+ACC0000220,P015727,Person,BNK014,Business,ETB,2022-01-01,,Active,18965,Jimma,Ethiopia
+ACC0000221,P095439,Person,BNK003,Mobile Money,ETB,2024-05-17,,Active,2820,Gondar,Ethiopia
+ACC0000222,P096037,Person,BNK002,Mobile Money,ETB,2025-03-17,,Active,1971,Bahir Dar,Ethiopia
+ACC0000223,P089908,Person,BNK019,Business,USD,2024-04-10,,Active,27163,Gondar,Ethiopia
+ACC0000224,P047733,Person,BNK018,Savings,ETB,2024-02-01,,Active,23159,Addis Ababa,Ethiopia
+ACC0000225,P001603,Person,BNK020,Savings,ETB,2022-01-28,2022-07-21,Closed,299452,Addis Ababa,Ethiopia
+ACC0000226,C07313,Company,BNK016,Business,ETB,2023-09-13,,Active,30675,Mekelle,Ethiopia
+ACC0000227,P078636,Person,BNK015,Business,ETB,2025-05-07,,Active,384424,Hawassa,Ethiopia
+ACC0000228,P035826,Person,BNK012,Business,ETB,2022-08-22,,Active,43476,Addis Ababa,Ethiopia
+ACC0000229,P040432,Person,BNK019,Mobile Money,ETB,2022-12-19,,Active,12077,Addis Ababa,Ethiopia
+ACC0000230,P029496,Person,BNK020,Savings,ETB,2022-07-08,,Closed,14774,Addis Ababa,Ethiopia
+ACC0000231,P049892,Person,BNK013,Business,ETB,2022-12-03,,Closed,91243,Dire Dawa,Ethiopia
+ACC0000232,P054953,Person,BNK018,Fixed Deposit,ETB,2024-11-02,2025-02-19,Closed,49068,Hosaena,Ethiopia
+ACC0000233,P029209,Person,BNK016,Business,ETB,2025-02-21,,Active,18136,Hawassa,Ethiopia
+ACC0000234,P007414,Person,BNK002,Fixed Deposit,ETB,2025-07-30,2025-09-09,Closed,137283,Addis Ababa,Ethiopia
+ACC0000235,C03601,Company,BNK019,Mobile Money,ETB,2022-09-06,,Active,4097,Bishoftu,Ethiopia
+ACC0000236,P081435,Person,BNK007,Savings,ETB,2025-07-30,,Active,18044,Mekelle,Ethiopia
+ACC0000237,P009420,Person,BNK010,Current,ETB,2024-11-10,,Active,13653,Mekelle,Ethiopia
+ACC0000238,P049627,Person,BNK009,Fixed Deposit,ETB,2022-08-31,,Active,15353,Addis Ababa,Ethiopia
+ACC0000239,P071106,Person,BNK012,Mobile Money,ETB,2024-11-18,,Active,17598,Mekelle,Ethiopia
+ACC0000240,C03787,Company,BNK014,Mobile Money,GBP,2023-06-19,,Closed,3338,Addis Ababa,Ethiopia
+ACC0000241,P043985,Person,BNK006,Business,ETB,2022-01-22,,Active,31965,Dire Dawa,Ethiopia
+ACC0000242,C05958,Company,BNK018,Current,ETB,2022-06-22,,Closed,27377,Dire Dawa,Ethiopia
+ACC0000243,P052162,Person,BNK011,Current,ETB,2022-06-14,,Active,21498,Hawassa,Ethiopia
+ACC0000244,P029434,Person,BNK005,Business,ETB,2023-04-24,,Active,3306,Addis Ababa,Ethiopia
+ACC0000245,P026977,Person,BNK011,Mobile Money,ETB,2022-07-04,,Active,117228,Bishoftu,Ethiopia
+ACC0000246,P021854,Person,BNK002,Fixed Deposit,ETB,2022-06-11,,Active,12240,Sodo,Ethiopia
+ACC0000247,C00363,Company,BNK017,Business,ETB,2024-05-17,,Active,28971,Bahir Dar,Ethiopia
+ACC0000248,C03496,Company,BNK002,Business,ETB,2024-01-04,,Dormant,37205,Addis Ababa,Ethiopia
+ACC0000249,P047845,Person,BNK011,Current,ETB,2023-07-07,,Dormant,18920,Addis Ababa,Ethiopia
+ACC0000250,P080473,Person,BNK003,Current,ETB,2023-10-02,,Active,36733,Addis Ababa,Ethiopia
+ACC0000251,P079441,Person,BNK007,Savings,ETB,2024-12-13,,Active,41545,Bahir Dar,Ethiopia
+ACC0000252,P038621,Person,BNK016,Savings,ETB,2023-07-29,,Active,1603,Dessie,Ethiopia
+ACC0000253,P011215,Person,BNK019,Current,ETB,2023-11-14,2024-05-13,Closed,7711,Addis Ababa,Ethiopia
+ACC0000254,C05382,Company,BNK017,Fixed Deposit,ETB,2022-10-15,,Active,40619,Addis Ababa,Ethiopia
+ACC0000255,P006691,Person,BNK003,Current,ETB,2023-06-24,,Closed,10574,Adama,Ethiopia
+ACC0000256,P012965,Person,BNK010,Mobile Money,ETB,2025-03-16,,Closed,3659,Jimma,Ethiopia
+ACC0000257,P096246,Person,BNK013,Business,ETB,2024-12-08,,Active,4846,Bishoftu,Ethiopia
+ACC0000258,P026243,Person,BNK004,Mobile Money,ETB,2023-07-23,,Active,9061,Addis Ababa,Ethiopia
+ACC0000259,P032423,Person,BNK009,Fixed Deposit,ETB,2025-07-07,,Active,46842,Addis Ababa,Ethiopia
+ACC0000260,P018681,Person,BNK002,Mobile Money,ETB,2024-08-15,2025-05-29,Closed,2741,Bishoftu,Ethiopia
+ACC0000261,P023733,Person,BNK010,Business,ETB,2024-07-20,,Active,1865,Jijiga,Ethiopia
+ACC0000262,P015631,Person,BNK013,Fixed Deposit,ETB,2023-06-05,,Active,60468,Gondar,Ethiopia
+ACC0000263,C02522,Company,BNK010,Savings,ETB,2023-11-15,,Active,9023,Addis Ababa,Ethiopia
+ACC0000264,P083892,Person,BNK020,Current,ETB,2024-01-01,,Active,23280,Dilla,Ethiopia
+ACC0000265,C08748,Company,BNK010,Current,ETB,2025-09-25,,Active,15935,Dessie,Ethiopia
+ACC0000266,P095611,Person,BNK009,Business,ETB,2023-10-05,,Active,2176,Sodo,Ethiopia
+ACC0000267,P024095,Person,BNK017,Mobile Money,ETB,2024-09-06,2025-01-22,Closed,1997,Bishoftu,Ethiopia
+ACC0000268,P024777,Person,BNK019,Savings,ETB,2022-08-29,,Active,6699,Bahir Dar,Ethiopia
+ACC0000269,P033097,Person,BNK014,Current,ETB,2022-06-13,,Closed,1376,Mekelle,Ethiopia
+ACC0000270,P071900,Person,BNK001,Business,ETB,2025-08-05,,Active,31360,Dire Dawa,Ethiopia
+ACC0000271,P038556,Person,BNK016,Savings,ETB,2022-01-28,,Active,5389,Addis Ababa,Ethiopia
+ACC0000272,P047031,Person,BNK001,Savings,ETB,2025-12-29,,Active,23897,Asella,Ethiopia
+ACC0000273,P097034,Person,BNK005,Mobile Money,ETB,2023-03-20,,Closed,23647,Mekelle,Ethiopia
+ACC0000274,P020345,Person,BNK012,Business,ETB,2024-12-13,2025-11-06,Closed,2487,Addis Ababa,Ethiopia
+ACC0000275,P095893,Person,BNK003,Current,ETB,2025-01-03,,Active,4033,Addis Ababa,Ethiopia
+ACC0000276,P060259,Person,BNK001,Business,ETB,2023-02-24,2023-04-03,Closed,8333,Addis Ababa,Ethiopia
+ACC0000277,P044274,Person,BNK006,Savings,ETB,2023-05-17,2023-06-28,Closed,11224,Jimma,Ethiopia
+ACC0000278,C09872,Company,BNK007,Mobile Money,ETB,2025-12-07,,Active,6206,Addis Ababa,Ethiopia
+ACC0000279,C03958,Company,BNK005,Savings,ETB,2024-08-14,,Active,98210,Jimma,Ethiopia
+ACC0000280,P052131,Person,BNK008,Savings,EUR,2022-08-29,,Active,31140,Addis Ababa,Ethiopia
+ACC0000281,P001685,Person,BNK003,Savings,ETB,2025-07-08,,Dormant,4213,Dire Dawa,Ethiopia
+ACC0000282,P071296,Person,BNK008,Business,USD,2023-01-01,,Active,2725,Addis Ababa,Ethiopia
+ACC0000283,P071704,Person,BNK020,Fixed Deposit,EUR,2023-07-18,,Active,13324,Mekelle,Ethiopia
+ACC0000284,P081498,Person,BNK015,Savings,ETB,2022-07-28,,Active,3481,Jimma,Ethiopia
+ACC0000285,P093560,Person,BNK014,Fixed Deposit,ETB,2023-01-03,,Active,3494,Addis Ababa,Ethiopia
+ACC0000286,C05456,Company,BNK019,Savings,ETB,2023-04-23,,Closed,57736,Shashamane,Ethiopia
+ACC0000287,P025175,Person,BNK012,Business,ETB,2025-04-09,,Active,2302,Jijiga,Ethiopia
+ACC0000288,P029093,Person,BNK003,Mobile Money,ETB,2022-08-22,,Closed,18876,Addis Ababa,Ethiopia
+ACC0000289,P056694,Person,BNK011,Business,ETB,2022-01-24,,Closed,412925,Dessie,Ethiopia
+ACC0000290,P085925,Person,BNK014,Savings,CHF,2023-12-17,,Active,4962,Addis Ababa,Ethiopia
+ACC0000291,P061268,Person,BNK015,Current,ETB,2023-09-30,,Dormant,69408,Addis Ababa,Ethiopia
+ACC0000292,P062797,Person,BNK017,Fixed Deposit,ETB,2023-08-26,,Dormant,75002,Jijiga,Ethiopia
+ACC0000293,P040356,Person,BNK017,Fixed Deposit,ETB,2025-09-03,2025-11-21,Closed,1953,Addis Ababa,Ethiopia
+ACC0000294,P025434,Person,BNK008,Mobile Money,ETB,2025-01-10,,Active,4821,Bahir Dar,Ethiopia
+ACC0000295,P086822,Person,BNK009,Savings,ETB,2023-11-26,,Closed,6587,Hawassa,Ethiopia
+ACC0000296,P078608,Person,BNK014,Mobile Money,ETB,2025-02-25,,Active,16737,Hawassa,Ethiopia
+ACC0000297,C02129,Company,BNK013,Current,ETB,2022-02-14,,Active,30721,Addis Ababa,Ethiopia
+ACC0000298,P026027,Person,BNK007,Current,ETB,2025-06-02,,Closed,3595,Adama,Ethiopia
+ACC0000299,P023389,Person,BNK007,Business,ETB,2023-09-30,,Active,17817,Jimma,Ethiopia
+ACC0000300,P022713,Person,BNK019,Fixed Deposit,ETB,2025-11-16,,Active,2294,Hawassa,Ethiopia
+ACC0000301,P059739,Person,BNK017,Fixed Deposit,ETB,2025-10-01,,Frozen,34898,Addis Ababa,Ethiopia
+ACC0000302,P056583,Person,BNK002,Mobile Money,ETB,2025-01-05,,Active,8155,Jimma,Ethiopia
+ACC0000303,C07612,Company,BNK020,Savings,ETB,2023-06-09,,Active,510,Arba Minch,Ethiopia
+ACC0000304,P094727,Person,BNK008,Savings,ETB,2023-08-14,,Active,13893,Addis Ababa,Ethiopia
+ACC0000305,P050756,Person,BNK004,Savings,ETB,2024-05-29,2025-05-19,Closed,40945,Bahir Dar,Ethiopia
+ACC0000306,P036741,Person,BNK019,Current,ETB,2023-07-04,,Active,21858,Addis Ababa,Ethiopia
+ACC0000307,P018868,Person,BNK013,Business,ETB,2024-12-28,,Active,1662,Bahir Dar,Ethiopia
+ACC0000308,P025391,Person,BNK011,Business,ETB,2024-09-05,,Active,10093,Adama,Ethiopia
+ACC0000309,C00241,Company,BNK004,Savings,ETB,2023-01-03,,Closed,23319,Bishoftu,Ethiopia
+ACC0000310,P091295,Person,BNK004,Business,ETB,2023-12-06,,Active,24302,Addis Ababa,Ethiopia
+ACC0000311,P099249,Person,BNK020,Current,ETB,2022-02-08,,Active,6851,Arba Minch,Ethiopia
+ACC0000312,P085342,Person,BNK015,Fixed Deposit,ETB,2022-11-07,,Active,150171,Dire Dawa,Ethiopia
+ACC0000313,P049922,Person,BNK017,Business,ETB,2024-04-28,,Closed,17735,Addis Ababa,Ethiopia
+ACC0000314,P065617,Person,BNK018,Mobile Money,ETB,2022-04-14,,Active,25824,Bahir Dar,Ethiopia
+ACC0000315,C07453,Company,BNK017,Business,ETB,2022-12-13,,Closed,1531,Jijiga,Ethiopia
+ACC0000316,P076015,Person,BNK013,Fixed Deposit,ETB,2022-10-22,,Closed,7976,Addis Ababa,Ethiopia
+ACC0000317,P095321,Person,BNK009,Business,ETB,2022-08-23,2025-08-01,Closed,28776,Addis Ababa,Ethiopia
+ACC0000318,P046509,Person,BNK010,Business,CHF,2023-07-30,,Active,25407,Addis Ababa,Ethiopia
+ACC0000319,P083820,Person,BNK006,Mobile Money,ETB,2023-04-01,,Dormant,13532,Dessie,Ethiopia
+ACC0000320,P047077,Person,BNK018,Current,ETB,2025-03-03,,Active,6512,Arba Minch,Ethiopia
+ACC0000321,P015813,Person,BNK020,Mobile Money,ETB,2023-02-10,2023-06-26,Closed,43864,Dessie,Ethiopia
+ACC0000322,P084624,Person,BNK015,Business,ETB,2024-02-22,,Active,25044,Mekelle,Ethiopia
+ACC0000323,P096649,Person,BNK011,Mobile Money,ETB,2023-07-08,,Active,3628,Bahir Dar,Ethiopia
+ACC0000324,P067739,Person,BNK001,Fixed Deposit,ETB,2024-09-08,2025-06-04,Closed,16180,Addis Ababa,Ethiopia
+ACC0000325,P093175,Person,BNK007,Savings,ETB,2025-05-08,,Active,30960,Bahir Dar,Ethiopia
+ACC0000326,P062807,Person,BNK010,Current,ETB,2023-08-12,,Active,4748,Addis Ababa,Ethiopia
+ACC0000327,P082421,Person,BNK013,Business,ETB,2025-08-21,,Active,27099,Jimma,Ethiopia
+ACC0000328,P003136,Person,BNK011,Current,CHF,2023-07-03,,Active,89906,Bahir Dar,Ethiopia
+ACC0000329,P094136,Person,BNK019,Mobile Money,ETB,2023-10-20,,Active,6382,Jimma,Ethiopia
+ACC0000330,P095009,Person,BNK003,Fixed Deposit,ETB,2022-11-01,,Active,3618,Hawassa,Ethiopia
+ACC0000331,P075192,Person,BNK020,Current,ETB,2024-03-17,,Active,14233,Addis Ababa,Ethiopia
+ACC0000332,P022387,Person,BNK014,Current,ETB,2025-03-05,2025-10-23,Closed,62970,Addis Ababa,Ethiopia
+ACC0000333,C07425,Company,BNK003,Savings,ETB,2025-08-03,,Active,9619,Addis Ababa,Ethiopia
+ACC0000334,P063346,Person,BNK006,Mobile Money,ETB,2025-01-08,,Active,128512,Harar,Ethiopia
+ACC0000335,P008918,Person,BNK020,Fixed Deposit,USD,2024-04-21,,Closed,16452,Addis Ababa,Ethiopia
+ACC0000336,P028871,Person,BNK007,Business,ETB,2023-01-26,,Closed,33187,Hawassa,Ethiopia
+ACC0000337,P052048,Person,BNK006,Mobile Money,ETB,2024-06-06,,Active,9494,Shashamane,Ethiopia
+ACC0000338,P083365,Person,BNK009,Current,ETB,2022-09-08,,Closed,7633,Addis Ababa,Ethiopia
+ACC0000339,C02636,Company,BNK013,Mobile Money,ETB,2023-08-29,,Active,10560,Addis Ababa,Ethiopia
+ACC0000340,C05450,Company,BNK017,Savings,ETB,2023-12-20,,Closed,33313,Addis Ababa,Ethiopia
+ACC0000341,P080500,Person,BNK015,Savings,GBP,2025-06-24,,Closed,13018,Addis Ababa,Ethiopia
+ACC0000342,C00556,Company,BNK016,Fixed Deposit,ETB,2023-06-09,,Closed,99367,Bishoftu,Ethiopia
+ACC0000343,P073895,Person,BNK019,Fixed Deposit,ETB,2025-02-28,,Closed,3820,Gondar,Ethiopia
+ACC0000344,P010257,Person,BNK004,Business,ETB,2024-07-13,,Active,19475,Addis Ababa,Ethiopia
+ACC0000345,P057606,Person,BNK003,Mobile Money,ETB,2023-09-05,,Active,57810,Addis Ababa,Ethiopia
+ACC0000346,P009172,Person,BNK010,Fixed Deposit,ETB,2025-10-26,,Active,10275,Addis Ababa,Ethiopia
+ACC0000347,P066220,Person,BNK010,Fixed Deposit,ETB,2024-11-16,,Active,6212,Hawassa,Ethiopia
+ACC0000348,P077349,Person,BNK015,Business,ETB,2025-11-15,,Active,17272,Asella,Ethiopia
+ACC0000349,P047511,Person,BNK013,Savings,ETB,2022-10-27,,Active,5164,Bishoftu,Ethiopia
+ACC0000350,P064496,Person,BNK013,Fixed Deposit,ETB,2022-08-11,,Active,10437,Addis Ababa,Ethiopia
+ACC0000351,P076132,Person,BNK004,Savings,ETB,2023-11-09,,Active,13483,Jimma,Ethiopia
+ACC0000352,P075818,Person,BNK011,Fixed Deposit,ETB,2022-11-15,,Active,9819,Bishoftu,Ethiopia
+ACC0000353,P043332,Person,BNK019,Savings,ETB,2023-01-18,,Active,18153,Addis Ababa,Ethiopia
+ACC0000354,P091959,Person,BNK019,Business,ETB,2022-11-01,,Active,5592,Addis Ababa,Ethiopia
+ACC0000355,P082653,Person,BNK020,Fixed Deposit,ETB,2022-07-28,,Active,19487,Bishoftu,Ethiopia
+ACC0000356,C06001,Company,BNK005,Business,ETB,2025-08-21,,Active,6677,Addis Ababa,Ethiopia
+ACC0000357,P070346,Person,BNK020,Fixed Deposit,ETB,2022-03-21,,Dormant,9739,Addis Ababa,Ethiopia
+ACC0000358,P003883,Person,BNK016,Business,ETB,2022-01-24,,Active,38705,Jijiga,Ethiopia
+ACC0000359,P027163,Person,BNK001,Fixed Deposit,ETB,2022-11-04,,Dormant,13099,Dire Dawa,Ethiopia
+ACC0000360,P088684,Person,BNK005,Fixed Deposit,ETB,2024-08-24,,Active,15256,Hosaena,Ethiopia
+ACC0000361,C04030,Company,BNK011,Savings,ETB,2024-10-19,,Active,109113,Addis Ababa,Ethiopia
+ACC0000362,P002993,Person,BNK002,Business,ETB,2023-11-19,,Closed,102716,Addis Ababa,Ethiopia
+ACC0000363,P036739,Person,BNK006,Fixed Deposit,ETB,2023-12-31,,Closed,41163,Addis Ababa,Ethiopia
+ACC0000364,P039283,Person,BNK014,Business,AED,2022-10-03,,Closed,24935,Bishoftu,Ethiopia
+ACC0000365,P086340,Person,BNK014,Mobile Money,ETB,2025-05-31,,Active,2252,Addis Ababa,Ethiopia
+ACC0000366,P095487,Person,BNK015,Business,ETB,2024-02-21,,Active,292381,Addis Ababa,Ethiopia
+ACC0000367,P051933,Person,BNK016,Current,ETB,2023-07-23,,Active,9040,Addis Ababa,Ethiopia
+ACC0000368,P089729,Person,BNK011,Fixed Deposit,ETB,2024-11-21,,Active,10584,Dire Dawa,Ethiopia
+ACC0000369,P063502,Person,BNK013,Mobile Money,ETB,2023-11-30,,Closed,41724,Adama,Ethiopia
+ACC0000370,C04299,Company,BNK006,Current,ETB,2024-06-16,,Active,202962,Addis Ababa,Ethiopia
+ACC0000371,P037609,Person,BNK001,Mobile Money,ETB,2023-02-08,,Active,10637,Addis Ababa,Ethiopia
+ACC0000372,P074121,Person,BNK020,Savings,ETB,2024-02-14,,Active,2654,Bahir Dar,Ethiopia
+ACC0000373,P001455,Person,BNK002,Current,ETB,2022-07-11,2025-05-03,Closed,25014,Addis Ababa,Ethiopia
+ACC0000374,P083211,Person,BNK018,Mobile Money,ETB,2022-09-30,2025-11-21,Closed,46253,Addis Ababa,Ethiopia
+ACC0000375,P063714,Person,BNK018,Current,ETB,2023-07-07,,Active,22740,Bahir Dar,Ethiopia
+ACC0000376,C04123,Company,BNK003,Business,ETB,2025-08-16,2025-11-24,Closed,37790,Addis Ababa,Ethiopia
+ACC0000377,C02455,Company,BNK010,Mobile Money,CHF,2023-05-25,,Active,21472,Gondar,Ethiopia
+ACC0000378,P092602,Person,BNK013,Savings,ETB,2025-11-22,,Active,9241,Gondar,Ethiopia
+ACC0000379,P098389,Person,BNK005,Savings,ETB,2023-05-16,,Active,8034,Addis Ababa,Ethiopia
+ACC0000380,P015331,Person,BNK008,Mobile Money,ETB,2022-05-31,,Active,27451,Hawassa,Ethiopia
+ACC0000381,C08286,Company,BNK016,Fixed Deposit,EUR,2025-04-07,,Active,7541,Addis Ababa,Ethiopia
+ACC0000382,P064933,Person,BNK006,Current,ETB,2022-03-13,,Active,73000,Mekelle,Ethiopia
+ACC0000383,C05731,Company,BNK002,Savings,ETB,2022-06-11,,Active,10029,Addis Ababa,Ethiopia
+ACC0000384,P072451,Person,BNK018,Fixed Deposit,ETB,2024-04-08,,Active,41270,Hosaena,Ethiopia
+ACC0000385,P065048,Person,BNK007,Fixed Deposit,ETB,2023-03-03,,Active,85467,Arba Minch,Ethiopia
+ACC0000386,P019840,Person,BNK002,Fixed Deposit,ETB,2024-01-24,2025-07-10,Closed,66643,Addis Ababa,Ethiopia
+ACC0000387,P077438,Person,BNK017,Current,CHF,2024-05-17,,Active,15882,Bahir Dar,Ethiopia
+ACC0000388,P067179,Person,BNK010,Fixed Deposit,CHF,2022-01-03,,Active,11276,Dessie,Ethiopia
+ACC0000389,P001706,Person,BNK017,Mobile Money,ETB,2024-02-03,,Active,22185,Addis Ababa,Ethiopia
+ACC0000390,P002917,Person,BNK019,Current,ETB,2025-10-14,2025-12-20,Closed,19785,Addis Ababa,Ethiopia
+ACC0000391,P050947,Person,BNK016,Mobile Money,ETB,2022-01-19,,Active,6624,Addis Ababa,Ethiopia
+ACC0000392,C00684,Company,BNK016,Business,ETB,2022-07-14,,Closed,9659,Addis Ababa,Ethiopia
+ACC0000393,P087316,Person,BNK014,Mobile Money,ETB,2024-05-27,,Active,6917,Dilla,Ethiopia
+ACC0000394,P059153,Person,BNK002,Mobile Money,ETB,2024-03-24,,Closed,9371,Bishoftu,Ethiopia
+ACC0000395,P033096,Person,BNK012,Business,ETB,2025-02-07,,Closed,3807,Addis Ababa,Ethiopia
+ACC0000396,P014146,Person,BNK014,Mobile Money,ETB,2023-11-05,,Active,38479,Hawassa,Ethiopia
+ACC0000397,P073170,Person,BNK005,Current,ETB,2023-09-01,,Active,30995,Addis Ababa,Ethiopia
+ACC0000398,C02722,Company,BNK016,Mobile Money,ETB,2025-02-21,,Active,148307,Gondar,Ethiopia
+ACC0000399,P070159,Person,BNK001,Business,ETB,2025-02-17,,Active,83262,Nekemte,Ethiopia
+ACC0000400,P004303,Person,BNK017,Mobile Money,ETB,2022-09-13,,Active,59096,Addis Ababa,Ethiopia
+ACC0000401,P028355,Person,BNK007,Business,ETB,2022-10-09,,Active,48409,Hosaena,Ethiopia
+ACC0000402,P084062,Person,BNK009,Business,ETB,2025-08-18,,Active,117068,Addis Ababa,Ethiopia
+ACC0000403,P071193,Person,BNK009,Savings,ETB,2022-05-23,,Active,657,Sodo,Ethiopia
+ACC0000404,P049165,Person,BNK019,Current,ETB,2024-08-08,,Active,11272,Arba Minch,Ethiopia
+ACC0000405,P009020,Person,BNK017,Mobile Money,ETB,2025-01-11,,Closed,48845,Addis Ababa,Ethiopia
+ACC0000406,P044784,Person,BNK015,Mobile Money,ETB,2024-05-25,,Active,18092,Addis Ababa,Ethiopia
+ACC0000407,P058137,Person,BNK014,Savings,ETB,2024-08-31,,Closed,38594,Dessie,Ethiopia
+ACC0000408,P027676,Person,BNK007,Savings,ETB,2025-02-05,,Active,20829,Shashamane,Ethiopia
+ACC0000409,P025023,Person,BNK001,Savings,ETB,2025-10-24,,Closed,2984,Shashamane,Ethiopia
+ACC0000410,P046132,Person,BNK008,Savings,ETB,2024-03-30,,Active,34049,Gondar,Ethiopia
+ACC0000411,P082208,Person,BNK011,Mobile Money,ETB,2022-05-13,,Closed,14422,Jimma,Ethiopia
+ACC0000412,C00023,Company,BNK003,Fixed Deposit,AED,2025-06-18,,Active,16692,Mekelle,Ethiopia
+ACC0000413,C01241,Company,BNK018,Current,ETB,2025-01-15,,Active,1199,Hawassa,Ethiopia
+ACC0000414,P054165,Person,BNK012,Business,ETB,2025-05-20,2025-11-30,Closed,5808,Dessie,Ethiopia
+ACC0000415,P033894,Person,BNK017,Savings,ETB,2023-12-09,,Active,21911,Addis Ababa,Ethiopia
+ACC0000416,P086375,Person,BNK005,Savings,ETB,2024-11-12,,Active,40151,Bishoftu,Ethiopia
+ACC0000417,P040910,Person,BNK020,Current,ETB,2023-08-20,,Dormant,17407,Adama,Ethiopia
+ACC0000418,P053718,Person,BNK013,Current,ETB,2022-10-25,,Closed,58100,Dilla,Ethiopia
+ACC0000419,P002758,Person,BNK013,Current,CHF,2024-12-29,,Dormant,70488,Addis Ababa,Ethiopia
+ACC0000420,P059790,Person,BNK019,Current,ETB,2022-11-07,,Active,29416,Adama,Ethiopia
+ACC0000421,P046439,Person,BNK002,Mobile Money,ETB,2022-10-02,,Closed,8149,Addis Ababa,Ethiopia
+ACC0000422,P051949,Person,BNK004,Current,ETB,2022-08-16,,Active,4783,Nekemte,Ethiopia
+ACC0000423,P039659,Person,BNK002,Fixed Deposit,GBP,2023-10-23,,Closed,15000,Bishoftu,Ethiopia
+ACC0000424,P088877,Person,BNK017,Business,ETB,2022-02-28,,Active,39007,Addis Ababa,Ethiopia
+ACC0000425,P024778,Person,BNK007,Mobile Money,ETB,2022-11-24,,Active,4543,Nekemte,Ethiopia
+ACC0000426,P073075,Person,BNK013,Current,ETB,2022-06-01,,Active,7357,Addis Ababa,Ethiopia
+ACC0000427,P090725,Person,BNK005,Fixed Deposit,ETB,2024-07-14,,Active,24696,Mekelle,Ethiopia
+ACC0000428,P002496,Person,BNK001,Fixed Deposit,ETB,2023-01-13,,Closed,10831,Addis Ababa,Ethiopia
+ACC0000429,P099736,Person,BNK004,Business,ETB,2025-09-29,,Active,19547,Nekemte,Ethiopia
+ACC0000430,P097295,Person,BNK001,Savings,ETB,2024-08-19,,Active,11190,Addis Ababa,Ethiopia
+ACC0000431,P063878,Person,BNK003,Mobile Money,ETB,2024-06-27,,Closed,84140,Arba Minch,Ethiopia
+ACC0000432,C01025,Company,BNK015,Savings,ETB,2022-11-09,,Active,8248,Harar,Ethiopia
+ACC0000433,P098397,Person,BNK014,Current,ETB,2023-02-21,,Active,2315,Addis Ababa,Ethiopia
+ACC0000434,C05172,Company,BNK009,Savings,ETB,2022-06-29,,Dormant,5452,Hawassa,Ethiopia
+ACC0000435,P098933,Person,BNK005,Savings,GBP,2023-11-07,,Active,19383,Mekelle,Ethiopia
+ACC0000436,P020384,Person,BNK011,Current,ETB,2023-04-12,,Closed,17309,Debre Birhan,Ethiopia
+ACC0000437,P033255,Person,BNK016,Fixed Deposit,ETB,2024-09-23,,Active,3783,Addis Ababa,Ethiopia
+ACC0000438,P028819,Person,BNK012,Mobile Money,ETB,2022-09-19,,Active,22921,Jimma,Ethiopia
+ACC0000439,P020980,Person,BNK003,Fixed Deposit,ETB,2022-07-13,,Active,14396,Shashamane,Ethiopia
+ACC0000440,P016801,Person,BNK006,Savings,ETB,2023-09-19,,Dormant,3116,Addis Ababa,Ethiopia
+ACC0000441,P031895,Person,BNK009,Mobile Money,ETB,2025-03-05,,Active,3360,Mekelle,Ethiopia
+ACC0000442,P097602,Person,BNK002,Current,ETB,2024-05-08,,Frozen,35649,Dire Dawa,Ethiopia
+ACC0000443,P077053,Person,BNK003,Fixed Deposit,ETB,2023-07-11,,Active,90378,Jimma,Ethiopia
+ACC0000444,C07630,Company,BNK005,Fixed Deposit,ETB,2024-11-29,,Closed,16724,Addis Ababa,Ethiopia
+ACC0000445,C03891,Company,BNK008,Mobile Money,ETB,2024-02-28,,Dormant,5533,Gondar,Ethiopia
+ACC0000446,P055715,Person,BNK009,Current,ETB,2024-09-23,,Active,22436,Addis Ababa,Ethiopia
+ACC0000447,P050794,Person,BNK007,Fixed Deposit,ETB,2023-05-24,,Closed,82329,Addis Ababa,Ethiopia
+ACC0000448,P040221,Person,BNK002,Fixed Deposit,ETB,2023-02-09,,Active,3811,Adama,Ethiopia
+ACC0000449,P022629,Person,BNK020,Business,AED,2025-04-20,,Closed,108753,Addis Ababa,Ethiopia
+ACC0000450,P007582,Person,BNK013,Current,ETB,2025-03-22,,Dormant,19156,Hosaena,Ethiopia
+ACC0000451,P003647,Person,BNK019,Savings,ETB,2022-10-22,,Active,11177,Gondar,Ethiopia
+ACC0000452,P050964,Person,BNK005,Fixed Deposit,ETB,2022-06-14,,Dormant,32738,Addis Ababa,Ethiopia
+ACC0000453,P084299,Person,BNK007,Savings,ETB,2022-09-30,,Active,31815,Addis Ababa,Ethiopia
+ACC0000454,P016684,Person,BNK007,Business,ETB,2023-01-12,,Active,61362,Addis Ababa,Ethiopia
+ACC0000455,C06070,Company,BNK020,Fixed Deposit,ETB,2025-06-12,,Active,40936,Harar,Ethiopia
+ACC0000456,P019485,Person,BNK005,Savings,ETB,2025-06-12,,Active,24347,Mekelle,Ethiopia
+ACC0000457,P081231,Person,BNK007,Business,ETB,2022-07-18,,Active,6191,Addis Ababa,Ethiopia
+ACC0000458,P033137,Person,BNK009,Mobile Money,ETB,2023-06-10,,Active,7478,Jijiga,Ethiopia
+ACC0000459,P054728,Person,BNK005,Fixed Deposit,ETB,2022-06-03,,Active,55074,Jijiga,Ethiopia
+ACC0000460,P061674,Person,BNK017,Savings,ETB,2024-02-07,,Active,7754,Addis Ababa,Ethiopia
+ACC0000461,P072880,Person,BNK013,Fixed Deposit,ETB,2023-11-15,,Closed,39675,Addis Ababa,Ethiopia
+ACC0000462,P074465,Person,BNK006,Current,ETB,2024-05-06,,Active,10518,Addis Ababa,Ethiopia
+ACC0000463,P089194,Person,BNK004,Savings,ETB,2022-07-15,,Closed,8471,Jimma,Ethiopia
+ACC0000464,P001048,Person,BNK006,Savings,ETB,2022-04-06,2024-11-02,Closed,4889,Dire Dawa,Ethiopia
+ACC0000465,C06181,Company,BNK015,Fixed Deposit,ETB,2023-10-26,,Active,22944,Jimma,Ethiopia
+ACC0000466,C07395,Company,BNK015,Savings,ETB,2024-05-10,,Active,37420,Addis Ababa,Ethiopia
+ACC0000467,C04862,Company,BNK006,Savings,ETB,2023-12-17,,Closed,23992,Mekelle,Ethiopia
+ACC0000468,P031865,Person,BNK015,Business,ETB,2025-05-27,,Frozen,15317,Addis Ababa,Ethiopia
+ACC0000469,P021463,Person,BNK013,Savings,ETB,2023-05-20,,Active,70961,Dilla,Ethiopia
+ACC0000470,C00613,Company,BNK011,Current,ETB,2025-12-07,2026-01-01,Closed,11937,Sodo,Ethiopia
+ACC0000471,P080226,Person,BNK018,Mobile Money,CHF,2025-07-18,,Active,53717,Addis Ababa,Ethiopia
+ACC0000472,P045484,Person,BNK015,Current,ETB,2023-07-14,,Active,19115,Hawassa,Ethiopia
+ACC0000473,P023473,Person,BNK007,Business,ETB,2023-09-28,2024-01-01,Closed,63306,Addis Ababa,Ethiopia
+ACC0000474,P048158,Person,BNK006,Fixed Deposit,ETB,2022-03-28,,Active,14740,Dilla,Ethiopia
+ACC0000475,C02694,Company,BNK009,Current,ETB,2023-09-07,,Active,20281,Addis Ababa,Ethiopia
+ACC0000476,C09067,Company,BNK010,Business,ETB,2025-03-01,,Active,11978,Addis Ababa,Ethiopia
+ACC0000477,C03719,Company,BNK004,Fixed Deposit,ETB,2024-03-26,,Active,7297,Adama,Ethiopia
+ACC0000478,P048920,Person,BNK001,Business,ETB,2022-03-26,2025-11-05,Closed,4506,Gondar,Ethiopia
+ACC0000479,P013430,Person,BNK013,Fixed Deposit,ETB,2022-03-19,,Active,13563,Addis Ababa,Ethiopia
+ACC0000480,P067281,Person,BNK012,Current,ETB,2022-07-26,,Active,19280,Addis Ababa,Ethiopia
+ACC0000481,P079634,Person,BNK020,Savings,ETB,2025-09-03,2025-11-01,Closed,15304,Dire Dawa,Ethiopia
+ACC0000482,P024002,Person,BNK017,Business,ETB,2023-01-06,,Closed,8261,Dire Dawa,Ethiopia
+ACC0000483,P042893,Person,BNK018,Business,ETB,2022-03-20,2023-09-03,Closed,6114,Addis Ababa,Ethiopia
+ACC0000484,P047664,Person,BNK010,Fixed Deposit,ETB,2023-08-17,,Frozen,7525,Addis Ababa,Ethiopia
+ACC0000485,P065858,Person,BNK003,Current,ETB,2025-08-21,,Closed,16058,Adama,Ethiopia
+ACC0000486,C02246,Company,BNK017,Fixed Deposit,ETB,2023-06-22,2024-04-04,Closed,5056,Dire Dawa,Ethiopia
+ACC0000487,P081353,Person,BNK008,Savings,ETB,2023-01-01,,Closed,4707,Gondar,Ethiopia
+ACC0000488,C04653,Company,BNK001,Savings,ETB,2025-10-24,,Closed,15454,Hawassa,Ethiopia
+ACC0000489,P045779,Person,BNK018,Mobile Money,ETB,2022-12-06,,Active,748,Hawassa,Ethiopia
+ACC0000490,P015121,Person,BNK004,Current,ETB,2025-04-07,,Active,37320,Dire Dawa,Ethiopia
+ACC0000491,P093614,Person,BNK013,Business,ETB,2023-11-28,,Frozen,72195,Jimma,Ethiopia
+ACC0000492,P038567,Person,BNK001,Mobile Money,ETB,2024-07-22,,Active,16664,Sodo,Ethiopia
+ACC0000493,P008333,Person,BNK018,Business,ETB,2022-06-10,,Active,1136,Dilla,Ethiopia
+ACC0000494,P045250,Person,BNK016,Savings,ETB,2025-03-21,,Closed,3120,Jijiga,Ethiopia
+ACC0000495,C03649,Company,BNK005,Mobile Money,AED,2023-08-13,,Active,3460,Addis Ababa,Ethiopia
+ACC0000496,P074034,Person,BNK018,Business,ETB,2025-12-08,,Active,18347,Addis Ababa,Ethiopia
+ACC0000497,C04146,Company,BNK007,Savings,ETB,2022-08-08,,Closed,79158,Arba Minch,Ethiopia
+ACC0000498,P039887,Person,BNK017,Fixed Deposit,ETB,2022-12-14,,Active,41012,Addis Ababa,Ethiopia
+ACC0000499,P074360,Person,BNK012,Current,ETB,2023-01-14,,Closed,32883,Bahir Dar,Ethiopia
+ACC0000500,P040464,Person,BNK010,Current,ETB,2025-06-20,,Active,12624,Gondar,Ethiopia
+ACC0000501,P059420,Person,BNK010,Current,EUR,2025-07-21,,Closed,29163,Dire Dawa,Ethiopia
+ACC0000502,P048910,Person,BNK020,Mobile Money,ETB,2024-11-06,,Active,400754,Shashamane,Ethiopia
+ACC0000503,P038557,Person,BNK018,Fixed Deposit,ETB,2024-10-27,,Active,8223,Dessie,Ethiopia
+ACC0000504,P040265,Person,BNK008,Business,ETB,2022-03-24,,Active,8508,Nekemte,Ethiopia
+ACC0000505,P059972,Person,BNK010,Current,ETB,2022-02-18,,Active,32359,Jimma,Ethiopia
+ACC0000506,C01537,Company,BNK019,Mobile Money,ETB,2024-05-04,,Active,76383,Mekelle,Ethiopia
+ACC0000507,P024086,Person,BNK020,Current,ETB,2025-07-30,,Active,6251,Bishoftu,Ethiopia
+ACC0000508,P068597,Person,BNK005,Mobile Money,ETB,2022-09-30,,Active,4769,Hosaena,Ethiopia
+ACC0000509,P075794,Person,BNK013,Current,ETB,2022-04-15,,Active,11290,Bahir Dar,Ethiopia
+ACC0000510,P056969,Person,BNK004,Business,ETB,2025-05-27,,Active,59085,Gondar,Ethiopia
+ACC0000511,P090793,Person,BNK012,Savings,ETB,2023-05-26,2025-12-12,Closed,5991,Addis Ababa,Ethiopia
+ACC0000512,P032815,Person,BNK003,Business,ETB,2023-07-22,,Active,22456,Addis Ababa,Ethiopia
+ACC0000513,P021719,Person,BNK009,Fixed Deposit,ETB,2022-01-14,,Active,43049,Dilla,Ethiopia
+ACC0000514,P006641,Person,BNK007,Business,GBP,2023-08-31,,Active,74733,Bahir Dar,Ethiopia
+ACC0000515,C04648,Company,BNK014,Business,ETB,2023-03-21,,Closed,149681,Bishoftu,Ethiopia
+ACC0000516,P084457,Person,BNK015,Fixed Deposit,ETB,2025-08-14,,Active,19859,Dire Dawa,Ethiopia
+ACC0000517,P091478,Person,BNK009,Fixed Deposit,CHF,2022-05-25,,Active,139981,Arba Minch,Ethiopia
+ACC0000518,P082962,Person,BNK013,Mobile Money,ETB,2022-04-11,,Active,12184,Jimma,Ethiopia
+ACC0000519,P051279,Person,BNK015,Business,ETB,2025-02-04,,Active,62399,Addis Ababa,Ethiopia
+ACC0000520,P024172,Person,BNK002,Business,ETB,2022-05-10,,Active,5870,Mekelle,Ethiopia
+ACC0000521,P063760,Person,BNK002,Current,ETB,2024-09-26,,Active,20129,Hawassa,Ethiopia
+ACC0000522,P044385,Person,BNK005,Current,ETB,2025-03-30,,Active,4369,Dire Dawa,Ethiopia
+ACC0000523,P021031,Person,BNK019,Current,ETB,2024-03-16,,Active,51840,Mekelle,Ethiopia
+ACC0000524,P091593,Person,BNK001,Mobile Money,ETB,2023-08-13,,Closed,3148,Gondar,Ethiopia
+ACC0000525,P046522,Person,BNK002,Current,ETB,2025-01-20,,Active,112801,Jijiga,Ethiopia
+ACC0000526,P083980,Person,BNK013,Business,ETB,2025-01-27,,Active,17612,Addis Ababa,Ethiopia
+ACC0000527,P019734,Person,BNK011,Current,ETB,2023-07-09,2025-09-28,Closed,27523,Bahir Dar,Ethiopia
+ACC0000528,C05767,Company,BNK016,Savings,ETB,2022-10-30,,Closed,6762,Dessie,Ethiopia
+ACC0000529,C08187,Company,BNK016,Mobile Money,ETB,2024-01-02,,Active,39166,Addis Ababa,Ethiopia
+ACC0000530,C08981,Company,BNK008,Fixed Deposit,ETB,2023-08-22,,Active,18536,Hawassa,Ethiopia
+ACC0000531,P066510,Person,BNK008,Mobile Money,ETB,2025-03-13,,Active,54022,Addis Ababa,Ethiopia
+ACC0000532,P049224,Person,BNK017,Current,ETB,2022-12-26,,Active,35481,Dire Dawa,Ethiopia
+ACC0000533,P013186,Person,BNK010,Fixed Deposit,ETB,2022-02-03,2023-06-12,Closed,31480,Addis Ababa,Ethiopia
+ACC0000534,C06349,Company,BNK014,Business,ETB,2025-09-01,,Active,16237,Addis Ababa,Ethiopia
+ACC0000535,P030135,Person,BNK012,Business,ETB,2022-05-08,,Frozen,302092,Hawassa,Ethiopia
+ACC0000536,P013262,Person,BNK007,Fixed Deposit,EUR,2025-06-25,,Active,49547,Bishoftu,Ethiopia
+ACC0000537,C01045,Company,BNK013,Business,ETB,2022-06-02,,Active,10955,Jimma,Ethiopia
+ACC0000538,C01398,Company,BNK003,Mobile Money,ETB,2025-05-14,,Active,10108,Dire Dawa,Ethiopia
+ACC0000539,P005791,Person,BNK009,Savings,ETB,2023-06-27,,Closed,13349,Bishoftu,Ethiopia
+ACC0000540,P078226,Person,BNK020,Savings,ETB,2022-11-18,,Active,5806,Addis Ababa,Ethiopia
+ACC0000541,P095166,Person,BNK013,Business,ETB,2022-11-04,,Active,3206,Hawassa,Ethiopia
+ACC0000542,P092774,Person,BNK014,Current,ETB,2024-06-22,,Active,2843,Addis Ababa,Ethiopia
+ACC0000543,P033582,Person,BNK016,Mobile Money,ETB,2025-12-29,,Active,2884,Dessie,Ethiopia
+ACC0000544,P010602,Person,BNK003,Business,ETB,2025-01-23,,Dormant,15672,Adama,Ethiopia
+ACC0000545,P044263,Person,BNK007,Mobile Money,ETB,2022-08-04,,Active,11064,Dilla,Ethiopia
+ACC0000546,P012500,Person,BNK001,Savings,ETB,2022-02-24,,Active,6932,Addis Ababa,Ethiopia
+ACC0000547,C06111,Company,BNK018,Current,ETB,2024-03-01,,Active,7656,Hawassa,Ethiopia
+ACC0000548,P061220,Person,BNK005,Savings,ETB,2025-02-02,,Active,11137,Asella,Ethiopia
+ACC0000549,P041736,Person,BNK004,Fixed Deposit,ETB,2024-11-17,2025-05-09,Closed,14478,Addis Ababa,Ethiopia
+ACC0000550,C08599,Company,BNK017,Current,ETB,2025-06-06,,Active,14543,Mekelle,Ethiopia
+ACC0000551,P007657,Person,BNK018,Mobile Money,USD,2023-02-08,,Active,13260,Hawassa,Ethiopia
+ACC0000552,C09798,Company,BNK011,Business,ETB,2023-12-20,,Active,4064,Addis Ababa,Ethiopia
+ACC0000553,P030857,Person,BNK020,Business,ETB,2024-04-10,,Active,12763,Dire Dawa,Ethiopia
+ACC0000554,P088302,Person,BNK004,Mobile Money,ETB,2023-04-16,,Active,19029,Addis Ababa,Ethiopia
+ACC0000555,P016588,Person,BNK005,Fixed Deposit,ETB,2024-10-29,,Active,3681,Dilla,Ethiopia
+ACC0000556,P047462,Person,BNK005,Mobile Money,ETB,2024-10-27,,Active,8479,Adama,Ethiopia
+ACC0000557,C02523,Company,BNK017,Business,ETB,2025-07-05,2025-10-01,Closed,26299,Mekelle,Ethiopia
+ACC0000558,P088376,Person,BNK016,Fixed Deposit,ETB,2025-08-30,,Active,17732,Hosaena,Ethiopia
+ACC0000559,P011613,Person,BNK006,Mobile Money,ETB,2024-07-14,,Active,35706,Addis Ababa,Ethiopia
+ACC0000560,P027171,Person,BNK020,Business,ETB,2024-06-29,,Active,15622,Addis Ababa,Ethiopia
+ACC0000561,C02976,Company,BNK003,Current,ETB,2023-05-28,,Active,8408,Arba Minch,Ethiopia
+ACC0000562,C04146,Company,BNK015,Fixed Deposit,ETB,2023-12-28,,Active,6803,Addis Ababa,Ethiopia
+ACC0000563,C07001,Company,BNK006,Fixed Deposit,ETB,2024-10-29,,Active,3787,Dire Dawa,Ethiopia
+ACC0000564,P070051,Person,BNK009,Savings,ETB,2023-10-03,,Active,1011,Hosaena,Ethiopia
+ACC0000565,P038762,Person,BNK015,Business,ETB,2023-09-12,,Closed,93159,Gondar,Ethiopia
+ACC0000566,C01096,Company,BNK013,Business,ETB,2022-03-01,,Closed,41465,Hawassa,Ethiopia
+ACC0000567,P020200,Person,BNK008,Fixed Deposit,ETB,2022-12-17,,Active,28338,Mekelle,Ethiopia
+ACC0000568,P031291,Person,BNK013,Current,ETB,2024-01-09,,Active,4929,Bishoftu,Ethiopia
+ACC0000569,P080477,Person,BNK010,Fixed Deposit,ETB,2024-02-29,2024-04-12,Closed,3020,Dire Dawa,Ethiopia
+ACC0000570,P080018,Person,BNK007,Mobile Money,ETB,2025-06-16,2025-08-28,Closed,97609,Dire Dawa,Ethiopia
+ACC0000571,P086207,Person,BNK012,Current,CHF,2025-08-14,,Active,24691,Jimma,Ethiopia
+ACC0000572,P067736,Person,BNK006,Fixed Deposit,ETB,2023-04-12,,Active,99889,Addis Ababa,Ethiopia
+ACC0000573,C02179,Company,BNK020,Fixed Deposit,ETB,2023-08-15,,Active,27369,Addis Ababa,Ethiopia
+ACC0000574,P025821,Person,BNK010,Business,ETB,2022-12-30,,Active,186318,Shashamane,Ethiopia
+ACC0000575,P071500,Person,BNK006,Savings,ETB,2024-11-15,,Frozen,40005,Addis Ababa,Ethiopia
+ACC0000576,P036532,Person,BNK019,Business,ETB,2022-04-10,,Frozen,27190,Hawassa,Ethiopia
+ACC0000577,P029236,Person,BNK009,Mobile Money,ETB,2022-10-07,,Active,8626,Dire Dawa,Ethiopia
+ACC0000578,P096724,Person,BNK012,Current,GBP,2024-02-05,,Active,30308,Addis Ababa,Ethiopia
+ACC0000579,P036394,Person,BNK017,Current,ETB,2025-05-21,,Active,6265,Addis Ababa,Ethiopia
+ACC0000580,P021693,Person,BNK011,Current,ETB,2023-02-03,,Closed,64852,Mekelle,Ethiopia
+ACC0000581,P067987,Person,BNK005,Fixed Deposit,ETB,2024-11-21,,Active,54488,Addis Ababa,Ethiopia
+ACC0000582,P004961,Person,BNK001,Mobile Money,ETB,2025-03-13,,Closed,92575,Addis Ababa,Ethiopia
+ACC0000583,P066350,Person,BNK020,Mobile Money,GBP,2024-03-19,,Active,3445,Gondar,Ethiopia
+ACC0000584,P055333,Person,BNK005,Fixed Deposit,ETB,2025-11-22,,Active,15223,Mekelle,Ethiopia
+ACC0000585,P088733,Person,BNK014,Business,ETB,2024-01-16,,Active,47961,Addis Ababa,Ethiopia
+ACC0000586,P059860,Person,BNK001,Business,ETB,2022-09-02,,Active,2814,Addis Ababa,Ethiopia
+ACC0000587,P017198,Person,BNK008,Mobile Money,ETB,2023-05-15,2024-04-04,Closed,29426,Addis Ababa,Ethiopia
+ACC0000588,C06291,Company,BNK007,Business,ETB,2022-11-16,,Active,5443,Addis Ababa,Ethiopia
+ACC0000589,P011667,Person,BNK005,Business,ETB,2023-11-28,,Dormant,86042,Addis Ababa,Ethiopia
+ACC0000590,P091579,Person,BNK010,Savings,ETB,2023-10-21,,Active,47979,Adama,Ethiopia
+ACC0000591,P091202,Person,BNK007,Savings,GBP,2023-12-01,,Active,2151,Addis Ababa,Ethiopia
+ACC0000592,P081171,Person,BNK020,Savings,ETB,2025-04-28,,Active,67780,Addis Ababa,Ethiopia
+ACC0000593,P036513,Person,BNK005,Business,ETB,2024-05-27,,Active,20009,Dire Dawa,Ethiopia
+ACC0000594,C01116,Company,BNK017,Savings,ETB,2024-02-28,2025-09-18,Closed,54333,Hawassa,Ethiopia
+ACC0000595,P059531,Person,BNK008,Savings,ETB,2022-06-24,2025-06-28,Closed,33550,Hosaena,Ethiopia
+ACC0000596,C07525,Company,BNK008,Business,ETB,2022-03-16,,Active,20000,Addis Ababa,Ethiopia
+ACC0000597,C04588,Company,BNK004,Fixed Deposit,ETB,2022-08-22,,Active,8239,Harar,Ethiopia
+ACC0000598,C03257,Company,BNK013,Current,ETB,2022-05-23,2023-01-28,Closed,28214,Harar,Ethiopia
+ACC0000599,P010450,Person,BNK006,Current,ETB,2022-04-03,,Active,13921,Gondar,Ethiopia
+ACC0000600,P032842,Person,BNK007,Mobile Money,ETB,2025-12-27,,Active,2052,Dire Dawa,Ethiopia
+ACC0000601,C05425,Company,BNK020,Mobile Money,ETB,2023-11-13,,Closed,10972,Addis Ababa,Ethiopia
+ACC0000602,P053272,Person,BNK003,Business,ETB,2022-12-05,,Active,9076,Addis Ababa,Ethiopia
+ACC0000603,P065413,Person,BNK006,Fixed Deposit,ETB,2025-04-27,2025-09-10,Closed,2712,Addis Ababa,Ethiopia
+ACC0000604,P008106,Person,BNK014,Business,ETB,2025-04-21,,Closed,5039,Addis Ababa,Ethiopia
+ACC0000605,P076435,Person,BNK017,Fixed Deposit,ETB,2024-02-15,,Active,36925,Mekelle,Ethiopia
+ACC0000606,P020881,Person,BNK015,Mobile Money,ETB,2025-03-07,,Dormant,21269,Adama,Ethiopia
+ACC0000607,C09719,Company,BNK001,Savings,ETB,2024-03-06,,Active,8790,Addis Ababa,Ethiopia
+ACC0000608,P029121,Person,BNK012,Current,ETB,2022-09-10,,Closed,8224,Bishoftu,Ethiopia
+ACC0000609,P091502,Person,BNK012,Business,GBP,2023-07-24,,Active,8119,Dessie,Ethiopia
+ACC0000610,C00547,Company,BNK002,Business,ETB,2024-09-24,,Closed,17142,Shashamane,Ethiopia
+ACC0000611,C03550,Company,BNK008,Savings,ETB,2023-04-16,,Active,16535,Addis Ababa,Ethiopia
+ACC0000612,P042100,Person,BNK004,Mobile Money,ETB,2022-01-17,,Active,1623,Dessie,Ethiopia
+ACC0000613,P072856,Person,BNK019,Business,USD,2022-08-18,,Closed,36698,Bishoftu,Ethiopia
+ACC0000614,P087669,Person,BNK002,Current,ETB,2025-04-13,,Active,22741,Dessie,Ethiopia
+ACC0000615,P013371,Person,BNK002,Mobile Money,ETB,2025-03-16,,Active,20017,Dire Dawa,Ethiopia
+ACC0000616,P021251,Person,BNK001,Savings,ETB,2023-02-10,,Active,57422,Addis Ababa,Ethiopia
+ACC0000617,P006642,Person,BNK010,Current,AED,2023-01-11,,Active,3986,Addis Ababa,Ethiopia
+ACC0000618,C09335,Company,BNK010,Fixed Deposit,ETB,2025-06-16,,Active,3397,Dire Dawa,Ethiopia
+ACC0000619,P003665,Person,BNK008,Fixed Deposit,ETB,2023-08-05,,Active,4362,Adama,Ethiopia
+ACC0000620,P004618,Person,BNK020,Fixed Deposit,ETB,2024-06-20,,Dormant,89989,Shashamane,Ethiopia
+ACC0000621,P070074,Person,BNK019,Current,AED,2023-07-26,,Active,17419,Addis Ababa,Ethiopia
+ACC0000622,P013645,Person,BNK011,Business,ETB,2025-04-12,,Dormant,78826,Addis Ababa,Ethiopia
+ACC0000623,P047648,Person,BNK011,Savings,ETB,2023-03-12,,Active,127302,Addis Ababa,Ethiopia
+ACC0000624,P061349,Person,BNK002,Mobile Money,ETB,2024-05-31,,Closed,4234,Jijiga,Ethiopia
+ACC0000625,P073038,Person,BNK018,Current,ETB,2024-11-05,,Closed,81606,Addis Ababa,Ethiopia
+ACC0000626,P001253,Person,BNK008,Current,ETB,2025-05-18,,Active,11014,Addis Ababa,Ethiopia
+ACC0000627,P095870,Person,BNK013,Business,ETB,2022-12-14,,Active,86761,Jimma,Ethiopia
+ACC0000628,P026068,Person,BNK009,Business,ETB,2022-04-15,,Active,9024,Mekelle,Ethiopia
+ACC0000629,C05384,Company,BNK011,Fixed Deposit,ETB,2024-11-12,,Active,14448,Bishoftu,Ethiopia
+ACC0000630,P028530,Person,BNK014,Business,ETB,2025-08-27,,Closed,46895,Jijiga,Ethiopia
+ACC0000631,C04209,Company,BNK004,Business,ETB,2025-10-18,,Active,35212,Addis Ababa,Ethiopia
+ACC0000632,P001877,Person,BNK007,Mobile Money,ETB,2022-10-13,2023-08-03,Closed,71192,Hosaena,Ethiopia
+ACC0000633,P058729,Person,BNK007,Current,ETB,2025-02-03,,Closed,13197,Adama,Ethiopia
+ACC0000634,P031717,Person,BNK020,Mobile Money,ETB,2025-02-19,2025-09-11,Closed,23603,Jimma,Ethiopia
+ACC0000635,P041284,Person,BNK007,Savings,ETB,2022-11-30,,Active,67909,Addis Ababa,Ethiopia
+ACC0000636,P073148,Person,BNK004,Current,ETB,2023-02-28,,Active,4778,Harar,Ethiopia
+ACC0000637,P010238,Person,BNK001,Savings,ETB,2023-05-26,,Active,64568,Jijiga,Ethiopia
+ACC0000638,P043021,Person,BNK005,Current,ETB,2024-01-02,,Active,17583,Dire Dawa,Ethiopia
+ACC0000639,P069759,Person,BNK012,Current,ETB,2022-02-11,,Active,49188,Jimma,Ethiopia
+ACC0000640,P035812,Person,BNK007,Business,ETB,2025-10-15,,Active,25701,Sodo,Ethiopia
+ACC0000641,P012526,Person,BNK012,Mobile Money,ETB,2024-04-24,,Active,39511,Addis Ababa,Ethiopia
+ACC0000642,P081145,Person,BNK019,Current,ETB,2025-09-04,,Closed,62281,Hawassa,Ethiopia
+ACC0000643,C05743,Company,BNK020,Fixed Deposit,ETB,2024-02-28,,Active,27166,Addis Ababa,Ethiopia
+ACC0000644,P069410,Person,BNK001,Current,ETB,2022-02-23,,Active,18179,Addis Ababa,Ethiopia
+ACC0000645,C00440,Company,BNK010,Current,ETB,2022-10-20,,Closed,4373,Dessie,Ethiopia
+ACC0000646,P059868,Person,BNK019,Mobile Money,ETB,2023-11-03,,Frozen,3034,Adama,Ethiopia
+ACC0000647,P046846,Person,BNK008,Current,USD,2023-02-20,,Active,60373,Addis Ababa,Ethiopia
+ACC0000648,C06458,Company,BNK005,Mobile Money,ETB,2024-06-13,,Active,89320,Hawassa,Ethiopia
+ACC0000649,P028007,Person,BNK002,Savings,ETB,2025-06-27,,Active,4911,Hosaena,Ethiopia
+ACC0000650,P003729,Person,BNK018,Savings,ETB,2023-10-14,2025-05-22,Closed,11794,Bishoftu,Ethiopia
+ACC0000651,C09885,Company,BNK007,Savings,ETB,2024-05-29,,Active,8156,Dessie,Ethiopia
+ACC0000652,P050764,Person,BNK002,Current,ETB,2022-07-13,,Active,272722,Jijiga,Ethiopia
+ACC0000653,C01720,Company,BNK015,Savings,ETB,2024-01-11,,Closed,11633,Addis Ababa,Ethiopia
+ACC0000654,C05637,Company,BNK020,Fixed Deposit,ETB,2024-09-15,,Closed,18807,Harar,Ethiopia
+ACC0000655,P030524,Person,BNK011,Current,ETB,2022-08-17,,Active,10366,Addis Ababa,Ethiopia
+ACC0000656,P033464,Person,BNK014,Business,ETB,2023-09-13,2024-12-29,Closed,7994,Addis Ababa,Ethiopia
+ACC0000657,P070474,Person,BNK019,Savings,ETB,2022-11-12,,Active,22960,Arba Minch,Ethiopia
+ACC0000658,C08688,Company,BNK012,Mobile Money,GBP,2025-11-21,,Active,34174,Jimma,Ethiopia
+ACC0000659,P010840,Person,BNK011,Business,ETB,2022-03-24,,Closed,7992,Adama,Ethiopia
+ACC0000660,P038595,Person,BNK004,Savings,ETB,2023-01-07,,Active,3162,Hawassa,Ethiopia
+ACC0000661,C08049,Company,BNK011,Business,ETB,2023-05-19,2024-02-19,Closed,50540,Addis Ababa,Ethiopia
+ACC0000662,P099551,Person,BNK002,Business,ETB,2023-07-14,,Closed,17637,Shashamane,Ethiopia
+ACC0000663,P062551,Person,BNK012,Savings,ETB,2025-05-11,,Dormant,35837,Addis Ababa,Ethiopia
+ACC0000664,P095622,Person,BNK002,Current,ETB,2022-10-21,,Frozen,18126,Addis Ababa,Ethiopia
+ACC0000665,P037080,Person,BNK020,Business,ETB,2025-09-01,,Active,39616,Hawassa,Ethiopia
+ACC0000666,P073221,Person,BNK001,Mobile Money,ETB,2025-01-08,,Closed,23331,Gondar,Ethiopia
+ACC0000667,P094099,Person,BNK003,Current,ETB,2024-08-07,2025-07-16,Closed,6602,Nekemte,Ethiopia
+ACC0000668,P024988,Person,BNK008,Current,USD,2023-01-18,,Active,53789,Addis Ababa,Ethiopia
+ACC0000669,P093646,Person,BNK005,Savings,ETB,2023-12-18,,Closed,19949,Hosaena,Ethiopia
+ACC0000670,P002405,Person,BNK002,Savings,ETB,2022-05-22,,Active,24266,Nekemte,Ethiopia
+ACC0000671,P089690,Person,BNK013,Business,ETB,2025-03-02,2025-07-02,Closed,2248,Adama,Ethiopia
+ACC0000672,P068557,Person,BNK017,Savings,GBP,2025-07-06,,Active,4349,Hawassa,Ethiopia
+ACC0000673,P032259,Person,BNK012,Fixed Deposit,USD,2023-02-08,,Active,151877,Debre Birhan,Ethiopia
+ACC0000674,C05383,Company,BNK005,Current,ETB,2024-09-03,,Dormant,6595,Hawassa,Ethiopia
+ACC0000675,P003177,Person,BNK019,Current,ETB,2022-03-22,,Active,6807,Addis Ababa,Ethiopia
+ACC0000676,P018711,Person,BNK007,Current,ETB,2022-01-04,,Active,15755,Addis Ababa,Ethiopia
+ACC0000677,P021240,Person,BNK015,Fixed Deposit,ETB,2023-03-27,,Closed,15701,Gondar,Ethiopia
+ACC0000678,P029056,Person,BNK015,Fixed Deposit,ETB,2025-07-14,2025-11-07,Closed,8173,Addis Ababa,Ethiopia
+ACC0000679,P070645,Person,BNK009,Business,ETB,2024-08-26,,Active,2598,Hawassa,Ethiopia
+ACC0000680,P067234,Person,BNK005,Current,ETB,2023-06-19,,Active,25652,Adama,Ethiopia
+ACC0000681,P085873,Person,BNK020,Current,ETB,2025-12-14,,Active,8145,Bahir Dar,Ethiopia
+ACC0000682,P051231,Person,BNK006,Current,ETB,2025-01-26,,Active,18518,Mekelle,Ethiopia
+ACC0000683,P069426,Person,BNK012,Current,ETB,2023-05-27,2024-10-10,Closed,5042,Addis Ababa,Ethiopia
+ACC0000684,C05404,Company,BNK017,Current,ETB,2022-11-04,,Active,6092,Addis Ababa,Ethiopia
+ACC0000685,P068682,Person,BNK007,Savings,ETB,2024-10-14,,Active,1781,Dire Dawa,Ethiopia
+ACC0000686,P092219,Person,BNK006,Business,USD,2022-08-14,,Closed,36509,Arba Minch,Ethiopia
+ACC0000687,P041921,Person,BNK012,Business,ETB,2024-11-26,,Active,96289,Addis Ababa,Ethiopia
+ACC0000688,P027878,Person,BNK009,Business,ETB,2024-09-24,,Closed,49835,Bahir Dar,Ethiopia
+ACC0000689,P039201,Person,BNK007,Current,ETB,2024-02-27,,Dormant,31559,Dessie,Ethiopia
+ACC0000690,P005914,Person,BNK009,Business,ETB,2022-11-03,,Active,61665,Mekelle,Ethiopia
+ACC0000691,P036381,Person,BNK008,Current,ETB,2023-10-19,,Active,16772,Addis Ababa,Ethiopia
+ACC0000692,P078992,Person,BNK004,Business,ETB,2025-01-02,,Closed,15751,Addis Ababa,Ethiopia
+ACC0000693,C09737,Company,BNK017,Business,ETB,2024-10-03,,Active,47963,Mekelle,Ethiopia
+ACC0000694,P040358,Person,BNK013,Savings,ETB,2023-04-24,,Active,14003,Bishoftu,Ethiopia
+ACC0000695,P013120,Person,BNK007,Savings,ETB,2025-07-29,,Active,31047,Shashamane,Ethiopia
+ACC0000696,P067885,Person,BNK002,Business,ETB,2024-03-12,,Active,10498,Hawassa,Ethiopia
+ACC0000697,P070039,Person,BNK013,Mobile Money,ETB,2023-08-07,,Active,31087,Addis Ababa,Ethiopia
+ACC0000698,C08486,Company,BNK007,Fixed Deposit,ETB,2024-12-28,,Active,25269,Addis Ababa,Ethiopia
+ACC0000699,C09724,Company,BNK008,Business,ETB,2024-01-02,,Active,49806,Addis Ababa,Ethiopia
+ACC0000700,P093385,Person,BNK020,Business,ETB,2025-12-20,2026-01-01,Closed,4910,Dire Dawa,Ethiopia
+ACC0000701,P017756,Person,BNK005,Fixed Deposit,AED,2025-04-13,,Closed,84954,Sodo,Ethiopia
+ACC0000702,P068525,Person,BNK008,Current,ETB,2023-06-20,,Closed,156977,Addis Ababa,Ethiopia
+ACC0000703,P045748,Person,BNK013,Current,ETB,2022-07-07,,Closed,4908,Addis Ababa,Ethiopia
+ACC0000704,P012872,Person,BNK001,Business,ETB,2025-01-24,,Closed,43135,Jimma,Ethiopia
+ACC0000705,P035611,Person,BNK014,Business,AED,2025-09-28,,Closed,85965,Dire Dawa,Ethiopia
+ACC0000706,P085407,Person,BNK020,Current,ETB,2023-01-26,,Active,1740,Asella,Ethiopia
+ACC0000707,P070812,Person,BNK001,Fixed Deposit,USD,2023-08-12,,Closed,8262,Gondar,Ethiopia
+ACC0000708,P008217,Person,BNK018,Mobile Money,ETB,2025-12-08,,Active,2929,Dessie,Ethiopia
+ACC0000709,P071593,Person,BNK019,Mobile Money,ETB,2022-05-29,,Active,80251,Addis Ababa,Ethiopia
+ACC0000710,C05556,Company,BNK005,Business,ETB,2023-10-07,,Active,14552,Addis Ababa,Ethiopia
+ACC0000711,P068108,Person,BNK012,Savings,ETB,2025-06-11,,Dormant,207876,Dessie,Ethiopia
+ACC0000712,P097204,Person,BNK008,Mobile Money,ETB,2023-08-27,2025-09-04,Closed,3661,Adama,Ethiopia
+ACC0000713,C05051,Company,BNK015,Current,ETB,2023-06-13,,Dormant,19892,Addis Ababa,Ethiopia
+ACC0000714,P032829,Person,BNK016,Mobile Money,ETB,2023-08-04,,Active,22121,Addis Ababa,Ethiopia
+ACC0000715,C06587,Company,BNK001,Fixed Deposit,ETB,2024-02-09,2024-08-06,Closed,18439,Sodo,Ethiopia
+ACC0000716,P058996,Person,BNK018,Business,ETB,2022-03-12,,Closed,202326,Addis Ababa,Ethiopia
+ACC0000717,P061184,Person,BNK016,Fixed Deposit,ETB,2024-01-12,2025-07-27,Closed,29184,Addis Ababa,Ethiopia
+ACC0000718,P073319,Person,BNK017,Savings,ETB,2024-03-24,2024-12-05,Closed,4651,Jijiga,Ethiopia
+ACC0000719,C06488,Company,BNK003,Fixed Deposit,ETB,2022-04-14,,Active,41889,Addis Ababa,Ethiopia
+ACC0000720,P094117,Person,BNK015,Mobile Money,ETB,2022-04-22,,Frozen,82767,Bishoftu,Ethiopia
+ACC0000721,P067642,Person,BNK001,Current,ETB,2024-07-01,,Active,16559,Nekemte,Ethiopia
+ACC0000722,C07830,Company,BNK003,Savings,ETB,2022-08-27,,Active,3360,Mekelle,Ethiopia
+ACC0000723,P091593,Person,BNK014,Current,ETB,2025-01-01,,Closed,4360,Adama,Ethiopia
+ACC0000724,P060390,Person,BNK007,Fixed Deposit,ETB,2025-08-20,,Active,20076,Gondar,Ethiopia
+ACC0000725,P021857,Person,BNK017,Business,ETB,2025-03-07,,Dormant,20908,Hawassa,Ethiopia
+ACC0000726,P010264,Person,BNK008,Mobile Money,ETB,2024-07-30,,Active,98875,Addis Ababa,Ethiopia
+ACC0000727,P032452,Person,BNK015,Current,ETB,2024-06-23,,Active,8907,Dire Dawa,Ethiopia
+ACC0000728,P012753,Person,BNK016,Current,ETB,2022-03-20,,Active,12570,Shashamane,Ethiopia
+ACC0000729,P032967,Person,BNK017,Mobile Money,ETB,2025-06-06,,Active,11298,Addis Ababa,Ethiopia
+ACC0000730,P097218,Person,BNK011,Mobile Money,ETB,2023-12-10,,Closed,6520,Dire Dawa,Ethiopia
+ACC0000731,P000134,Person,BNK004,Savings,ETB,2023-04-24,,Closed,18014,Jimma,Ethiopia
+ACC0000732,P021841,Person,BNK008,Current,ETB,2022-05-28,,Closed,11964,Jijiga,Ethiopia
+ACC0000733,P088679,Person,BNK007,Mobile Money,EUR,2025-10-16,,Closed,8083,Bahir Dar,Ethiopia
+ACC0000734,C05853,Company,BNK004,Business,ETB,2025-06-01,,Active,29236,Bishoftu,Ethiopia
+ACC0000735,P009996,Person,BNK004,Business,ETB,2023-07-07,,Active,47897,Harar,Ethiopia
+ACC0000736,P038577,Person,BNK009,Mobile Money,USD,2025-10-22,,Active,4010,Addis Ababa,Ethiopia
+ACC0000737,P053512,Person,BNK018,Business,ETB,2022-10-15,,Closed,220118,Dire Dawa,Ethiopia
+ACC0000738,P060507,Person,BNK008,Fixed Deposit,ETB,2023-12-03,,Active,67788,Addis Ababa,Ethiopia
+ACC0000739,P027965,Person,BNK014,Current,ETB,2025-02-08,,Closed,174526,Addis Ababa,Ethiopia
+ACC0000740,P033006,Person,BNK006,Mobile Money,ETB,2022-01-05,,Active,1461,Hawassa,Ethiopia
+ACC0000741,P054250,Person,BNK016,Fixed Deposit,AED,2024-06-21,,Active,1602,Gondar,Ethiopia
+ACC0000742,P082353,Person,BNK004,Savings,ETB,2025-05-27,,Closed,110725,Addis Ababa,Ethiopia
+ACC0000743,C07397,Company,BNK011,Savings,ETB,2022-06-20,,Active,15842,Addis Ababa,Ethiopia
+ACC0000744,P033672,Person,BNK001,Savings,ETB,2023-02-24,,Active,42019,Dessie,Ethiopia
+ACC0000745,P063711,Person,BNK010,Mobile Money,ETB,2023-05-17,2023-11-15,Closed,39375,Nekemte,Ethiopia
+ACC0000746,P037404,Person,BNK017,Savings,ETB,2022-02-25,,Closed,7124,Addis Ababa,Ethiopia
+ACC0000747,P019369,Person,BNK017,Fixed Deposit,ETB,2024-01-20,,Active,14227,Jijiga,Ethiopia
+ACC0000748,C06567,Company,BNK001,Current,ETB,2023-10-07,,Active,17856,Gondar,Ethiopia
+ACC0000749,P011290,Person,BNK014,Business,ETB,2023-08-27,2024-03-25,Closed,4209,Addis Ababa,Ethiopia
+ACC0000750,P008138,Person,BNK002,Savings,ETB,2023-01-16,,Active,15775,Hawassa,Ethiopia
+ACC0000751,P000245,Person,BNK019,Business,AED,2024-08-30,,Closed,42535,Addis Ababa,Ethiopia
+ACC0000752,P048088,Person,BNK013,Business,ETB,2025-03-10,,Closed,3038,Adama,Ethiopia
+ACC0000753,P075950,Person,BNK003,Fixed Deposit,ETB,2022-05-10,2023-06-13,Closed,77540,Jimma,Ethiopia
+ACC0000754,P019835,Person,BNK001,Mobile Money,ETB,2022-04-24,,Active,4070,Addis Ababa,Ethiopia
+ACC0000755,P014010,Person,BNK015,Savings,ETB,2025-02-13,,Active,17343,Dire Dawa,Ethiopia
+ACC0000756,P025763,Person,BNK007,Business,ETB,2024-07-11,,Active,7727,Dire Dawa,Ethiopia
+ACC0000757,P032394,Person,BNK014,Savings,ETB,2025-12-01,,Active,3677,Adama,Ethiopia
+ACC0000758,P080173,Person,BNK018,Mobile Money,ETB,2023-06-09,,Active,8940,Adama,Ethiopia
+ACC0000759,C01468,Company,BNK011,Mobile Money,ETB,2024-10-05,,Active,89737,Hawassa,Ethiopia
+ACC0000760,C06936,Company,BNK020,Savings,ETB,2022-06-07,,Dormant,311939,Dessie,Ethiopia
+ACC0000761,P070052,Person,BNK012,Current,ETB,2022-09-04,,Active,19823,Gondar,Ethiopia
+ACC0000762,P069819,Person,BNK003,Fixed Deposit,ETB,2024-05-29,,Closed,33242,Bahir Dar,Ethiopia
+ACC0000763,P062528,Person,BNK006,Business,ETB,2025-06-26,,Active,28368,Addis Ababa,Ethiopia
+ACC0000764,P038689,Person,BNK014,Savings,ETB,2025-01-22,,Active,26954,Mekelle,Ethiopia
+ACC0000765,P088682,Person,BNK010,Fixed Deposit,CHF,2025-01-23,,Active,10249,Nekemte,Ethiopia
+ACC0000766,C09484,Company,BNK010,Savings,ETB,2022-03-24,,Active,10644,Addis Ababa,Ethiopia
+ACC0000767,P061825,Person,BNK004,Savings,ETB,2022-07-11,2024-01-26,Closed,37689,Hawassa,Ethiopia
+ACC0000768,C03554,Company,BNK016,Savings,ETB,2025-05-22,,Active,8788,Mekelle,Ethiopia
+ACC0000769,P094322,Person,BNK004,Business,ETB,2024-06-06,,Active,14140,Shashamane,Ethiopia
+ACC0000770,P001686,Person,BNK010,Savings,ETB,2024-04-26,,Active,42650,Hawassa,Ethiopia
+ACC0000771,P059219,Person,BNK012,Mobile Money,USD,2022-05-01,,Closed,35655,Addis Ababa,Ethiopia
+ACC0000772,P083542,Person,BNK013,Mobile Money,ETB,2022-07-12,,Active,133447,Addis Ababa,Ethiopia
+ACC0000773,P033360,Person,BNK018,Fixed Deposit,ETB,2024-04-19,,Active,65778,Addis Ababa,Ethiopia
+ACC0000774,P013002,Person,BNK006,Mobile Money,ETB,2023-06-30,,Active,9071,Addis Ababa,Ethiopia
+ACC0000775,P059460,Person,BNK003,Current,ETB,2022-09-19,,Active,24914,Addis Ababa,Ethiopia
+ACC0000776,P045868,Person,BNK002,Mobile Money,ETB,2023-10-26,,Closed,581,Dessie,Ethiopia
+ACC0000777,P076535,Person,BNK014,Fixed Deposit,ETB,2025-07-20,,Frozen,45198,Jimma,Ethiopia
+ACC0000778,P000477,Person,BNK006,Current,CHF,2024-10-31,,Active,34098,Dessie,Ethiopia
+ACC0000779,P005004,Person,BNK006,Business,ETB,2024-09-19,,Closed,1570,Dire Dawa,Ethiopia
+ACC0000780,C08802,Company,BNK004,Business,ETB,2023-02-09,,Active,37555,Adama,Ethiopia
+ACC0000781,C08374,Company,BNK001,Current,ETB,2024-08-10,,Active,17571,Addis Ababa,Ethiopia
+ACC0000782,C09007,Company,BNK008,Fixed Deposit,ETB,2024-09-16,,Active,23942,Adama,Ethiopia
+ACC0000783,P095358,Person,BNK006,Mobile Money,ETB,2022-02-08,,Active,24402,Mekelle,Ethiopia
+ACC0000784,P088481,Person,BNK003,Mobile Money,ETB,2024-11-09,,Closed,3396,Addis Ababa,Ethiopia
+ACC0000785,C05141,Company,BNK004,Fixed Deposit,ETB,2024-11-20,,Closed,55460,Addis Ababa,Ethiopia
+ACC0000786,C05852,Company,BNK008,Current,ETB,2023-04-30,,Closed,15221,Shashamane,Ethiopia
+ACC0000787,P093776,Person,BNK019,Business,ETB,2023-07-08,,Active,30167,Dessie,Ethiopia
+ACC0000788,P099178,Person,BNK003,Current,ETB,2024-02-29,,Closed,20672,Hosaena,Ethiopia
+ACC0000789,P011187,Person,BNK015,Savings,ETB,2023-05-14,,Closed,72709,Hawassa,Ethiopia
+ACC0000790,P027615,Person,BNK018,Current,ETB,2022-02-08,,Active,13011,Addis Ababa,Ethiopia
+ACC0000791,P015467,Person,BNK015,Mobile Money,ETB,2025-08-29,,Active,2802,Mekelle,Ethiopia
+ACC0000792,P003568,Person,BNK011,Savings,ETB,2022-05-31,,Active,1516,Gondar,Ethiopia
+ACC0000793,P065195,Person,BNK017,Current,ETB,2025-03-12,,Closed,4677,Addis Ababa,Ethiopia
+ACC0000794,P022184,Person,BNK020,Current,ETB,2024-06-16,,Active,143923,Jijiga,Ethiopia
+ACC0000795,C08628,Company,BNK005,Business,ETB,2025-09-15,2025-12-09,Closed,8512,Dire Dawa,Ethiopia
+ACC0000796,C09782,Company,BNK017,Current,ETB,2024-12-31,,Active,14089,Addis Ababa,Ethiopia
+ACC0000797,C04665,Company,BNK018,Fixed Deposit,ETB,2024-03-16,2025-07-15,Closed,8102,Hawassa,Ethiopia
+ACC0000798,P016144,Person,BNK010,Fixed Deposit,USD,2025-10-15,,Active,35963,Addis Ababa,Ethiopia
+ACC0000799,C06530,Company,BNK012,Mobile Money,ETB,2022-04-20,,Closed,12978,Bahir Dar,Ethiopia
+ACC0000800,C08847,Company,BNK006,Current,ETB,2022-08-17,,Active,28752,Addis Ababa,Ethiopia
+ACC0000801,C09209,Company,BNK009,Fixed Deposit,ETB,2025-06-21,,Closed,9670,Adama,Ethiopia
+ACC0000802,P067096,Person,BNK018,Business,ETB,2024-04-27,,Dormant,3479,Addis Ababa,Ethiopia
+ACC0000803,P076910,Person,BNK012,Fixed Deposit,ETB,2022-11-24,,Closed,22010,Nekemte,Ethiopia
+ACC0000804,P027669,Person,BNK007,Current,ETB,2024-06-16,,Closed,4694,Bishoftu,Ethiopia
+ACC0000805,C02176,Company,BNK004,Savings,ETB,2023-04-14,,Active,50094,Addis Ababa,Ethiopia
+ACC0000806,P076793,Person,BNK010,Fixed Deposit,ETB,2025-01-24,2025-10-22,Closed,1336,Addis Ababa,Ethiopia
+ACC0000807,P069691,Person,BNK002,Business,ETB,2023-07-19,,Closed,49742,Addis Ababa,Ethiopia
+ACC0000808,P035889,Person,BNK003,Fixed Deposit,ETB,2023-05-20,,Active,15275,Debre Birhan,Ethiopia
+ACC0000809,P072394,Person,BNK020,Mobile Money,USD,2024-12-14,,Active,14689,Addis Ababa,Ethiopia
+ACC0000810,P012345,Person,BNK010,Savings,ETB,2025-08-28,,Closed,4647,Gondar,Ethiopia
+ACC0000811,P008530,Person,BNK016,Business,ETB,2025-05-31,,Active,3580,Addis Ababa,Ethiopia
+ACC0000812,C09088,Company,BNK016,Mobile Money,ETB,2022-07-15,,Active,49836,Shashamane,Ethiopia
+ACC0000813,P094509,Person,BNK008,Fixed Deposit,ETB,2023-07-07,2025-08-25,Closed,12228,Jimma,Ethiopia
+ACC0000814,C05742,Company,BNK012,Fixed Deposit,ETB,2023-09-28,,Active,22960,Addis Ababa,Ethiopia
+ACC0000815,C03401,Company,BNK010,Business,ETB,2025-12-25,,Active,17663,Addis Ababa,Ethiopia
+ACC0000816,P076514,Person,BNK009,Current,ETB,2024-08-17,,Closed,2791,Nekemte,Ethiopia
+ACC0000817,C01534,Company,BNK019,Current,ETB,2025-08-18,,Active,14417,Dire Dawa,Ethiopia
+ACC0000818,P062821,Person,BNK017,Mobile Money,ETB,2023-10-23,,Active,6535,Addis Ababa,Ethiopia
+ACC0000819,P034482,Person,BNK001,Savings,ETB,2022-07-18,,Active,9285,Mekelle,Ethiopia
+ACC0000820,C04882,Company,BNK016,Savings,ETB,2024-12-27,,Closed,81067,Addis Ababa,Ethiopia
+ACC0000821,P099492,Person,BNK005,Current,ETB,2025-01-28,,Closed,9057,Dire Dawa,Ethiopia
+ACC0000822,P001668,Person,BNK002,Current,ETB,2024-01-15,,Active,8440,Jimma,Ethiopia
+ACC0000823,P007794,Person,BNK006,Fixed Deposit,ETB,2023-01-27,,Active,58146,Sodo,Ethiopia
+ACC0000824,P047541,Person,BNK004,Business,ETB,2024-06-28,,Active,7474,Hosaena,Ethiopia
+ACC0000825,P065259,Person,BNK012,Savings,ETB,2024-08-21,,Dormant,20780,Dire Dawa,Ethiopia
+ACC0000826,P043504,Person,BNK016,Current,ETB,2025-08-17,,Active,6354,Adama,Ethiopia
+ACC0000827,C05982,Company,BNK006,Business,ETB,2024-06-03,,Active,16576,Jimma,Ethiopia
+ACC0000828,C02565,Company,BNK005,Savings,AED,2022-09-20,,Active,3737,Bahir Dar,Ethiopia
+ACC0000829,P073332,Person,BNK017,Current,CHF,2022-12-06,,Active,2859,Adama,Ethiopia
+ACC0000830,C05807,Company,BNK002,Current,ETB,2024-01-29,2025-12-13,Closed,138480,Debre Birhan,Ethiopia
+ACC0000831,C05566,Company,BNK003,Savings,ETB,2024-02-27,,Active,29509,Jimma,Ethiopia
+ACC0000832,C09352,Company,BNK012,Current,ETB,2025-06-11,,Active,32905,Debre Birhan,Ethiopia
+ACC0000833,P092730,Person,BNK002,Fixed Deposit,ETB,2024-12-23,2025-05-25,Closed,12696,Addis Ababa,Ethiopia
+ACC0000834,P013357,Person,BNK019,Current,ETB,2025-01-26,,Active,33008,Adama,Ethiopia
+ACC0000835,P061681,Person,BNK003,Business,ETB,2022-11-16,,Active,54148,Dire Dawa,Ethiopia
+ACC0000836,P069263,Person,BNK006,Business,ETB,2023-12-19,,Closed,41708,Addis Ababa,Ethiopia
+ACC0000837,C07887,Company,BNK008,Current,ETB,2023-10-29,,Closed,16688,Addis Ababa,Ethiopia
+ACC0000838,P009462,Person,BNK015,Current,ETB,2025-04-26,,Closed,18806,Addis Ababa,Ethiopia
+ACC0000839,P039614,Person,BNK018,Current,ETB,2023-04-21,,Active,22827,Addis Ababa,Ethiopia
+ACC0000840,P016507,Person,BNK019,Savings,ETB,2024-10-31,2025-12-13,Closed,15269,Dessie,Ethiopia
+ACC0000841,P031656,Person,BNK006,Mobile Money,ETB,2024-06-08,,Active,30924,Sodo,Ethiopia
+ACC0000842,P006038,Person,BNK001,Current,ETB,2023-04-13,,Active,23291,Addis Ababa,Ethiopia
+ACC0000843,P003551,Person,BNK018,Current,ETB,2022-04-15,,Active,7186,Dilla,Ethiopia
+ACC0000844,P032365,Person,BNK002,Business,ETB,2025-03-10,2025-05-31,Closed,31138,Harar,Ethiopia
+ACC0000845,C08827,Company,BNK007,Fixed Deposit,ETB,2024-10-03,,Active,33014,Mekelle,Ethiopia
+ACC0000846,P067585,Person,BNK011,Business,ETB,2024-03-20,,Active,944,Addis Ababa,Ethiopia
+ACC0000847,P017968,Person,BNK020,Fixed Deposit,ETB,2025-06-18,,Active,13259,Addis Ababa,Ethiopia
+ACC0000848,P052865,Person,BNK011,Savings,ETB,2022-08-09,,Closed,3087,Debre Birhan,Ethiopia
+ACC0000849,P065721,Person,BNK004,Mobile Money,ETB,2022-02-07,,Active,16713,Mekelle,Ethiopia
+ACC0000850,P029128,Person,BNK013,Current,ETB,2022-02-11,,Active,3327,Addis Ababa,Ethiopia
+ACC0000851,P081048,Person,BNK011,Current,ETB,2024-11-13,,Active,5118,Mekelle,Ethiopia
+ACC0000852,P020977,Person,BNK008,Savings,USD,2025-10-01,2025-11-29,Closed,20271,Asella,Ethiopia
+ACC0000853,P095983,Person,BNK015,Mobile Money,ETB,2023-10-03,,Closed,13962,Nekemte,Ethiopia
+ACC0000854,P003514,Person,BNK020,Fixed Deposit,CHF,2023-08-22,,Closed,19579,Nekemte,Ethiopia
+ACC0000855,P069425,Person,BNK009,Savings,ETB,2024-04-04,,Active,28239,Hawassa,Ethiopia
+ACC0000856,P080167,Person,BNK010,Mobile Money,EUR,2023-07-24,,Closed,3328,Addis Ababa,Ethiopia
+ACC0000857,C06503,Company,BNK016,Mobile Money,ETB,2023-03-31,,Closed,53615,Adama,Ethiopia
+ACC0000858,P092167,Person,BNK007,Mobile Money,ETB,2025-12-11,2026-01-01,Closed,25173,Jimma,Ethiopia
+ACC0000859,P020434,Person,BNK014,Business,ETB,2022-09-12,,Active,33106,Jijiga,Ethiopia
+ACC0000860,C00264,Company,BNK017,Savings,ETB,2022-06-28,,Frozen,12477,Addis Ababa,Ethiopia
+ACC0000861,C00005,Company,BNK017,Business,ETB,2023-05-05,,Closed,10683,Shashamane,Ethiopia
+ACC0000862,P011284,Person,BNK007,Current,ETB,2024-02-17,,Active,4454,Addis Ababa,Ethiopia
+ACC0000863,C04398,Company,BNK004,Mobile Money,ETB,2023-08-22,,Active,32993,Sodo,Ethiopia
+ACC0000864,P012940,Person,BNK006,Mobile Money,ETB,2022-10-26,,Active,21641,Mekelle,Ethiopia
+ACC0000865,C04721,Company,BNK015,Mobile Money,ETB,2023-03-05,,Active,7936,Shashamane,Ethiopia
+ACC0000866,C09452,Company,BNK014,Fixed Deposit,ETB,2022-10-30,,Closed,3727,Harar,Ethiopia
+ACC0000867,P017708,Person,BNK005,Mobile Money,ETB,2023-06-28,,Active,17794,Addis Ababa,Ethiopia
+ACC0000868,P086199,Person,BNK015,Savings,ETB,2023-12-10,2025-03-18,Closed,20997,Dire Dawa,Ethiopia
+ACC0000869,P035722,Person,BNK006,Current,AED,2023-03-23,2025-02-27,Closed,3614,Jijiga,Ethiopia
+ACC0000870,P041383,Person,BNK012,Mobile Money,ETB,2024-04-19,,Active,106618,Addis Ababa,Ethiopia
+ACC0000871,P063397,Person,BNK003,Fixed Deposit,ETB,2025-07-12,,Active,2117,Addis Ababa,Ethiopia
+ACC0000872,P072606,Person,BNK001,Savings,EUR,2023-05-18,,Closed,77920,Jimma,Ethiopia
+ACC0000873,P051125,Person,BNK008,Fixed Deposit,ETB,2024-12-04,,Active,4811,Arba Minch,Ethiopia
+ACC0000874,P041623,Person,BNK016,Savings,ETB,2022-09-04,,Active,17806,Harar,Ethiopia
+ACC0000875,P078676,Person,BNK014,Savings,ETB,2023-02-16,,Closed,35883,Adama,Ethiopia
+ACC0000876,C00798,Company,BNK009,Mobile Money,ETB,2023-02-21,,Active,20008,Mekelle,Ethiopia
+ACC0000877,P055549,Person,BNK019,Mobile Money,ETB,2022-03-14,,Active,4615,Addis Ababa,Ethiopia
+ACC0000878,C01431,Company,BNK010,Business,ETB,2023-11-13,,Active,7971,Hawassa,Ethiopia
+ACC0000879,C04548,Company,BNK015,Business,ETB,2025-08-03,2025-12-26,Closed,2386,Mekelle,Ethiopia
+ACC0000880,P024328,Person,BNK019,Business,ETB,2024-09-23,,Active,2268,Jimma,Ethiopia
+ACC0000881,C06122,Company,BNK004,Current,ETB,2025-03-31,,Frozen,8839,Jimma,Ethiopia
+ACC0000882,P009193,Person,BNK018,Fixed Deposit,ETB,2025-07-09,,Active,32822,Dessie,Ethiopia
+ACC0000883,P064380,Person,BNK014,Business,AED,2023-01-10,,Active,43601,Mekelle,Ethiopia
+ACC0000884,P063513,Person,BNK016,Business,ETB,2024-01-11,,Active,6657,Hawassa,Ethiopia
+ACC0000885,P038939,Person,BNK001,Current,ETB,2022-07-20,,Active,19880,Addis Ababa,Ethiopia
+ACC0000886,P069912,Person,BNK012,Fixed Deposit,ETB,2023-02-05,,Active,10830,Bishoftu,Ethiopia
+ACC0000887,P093317,Person,BNK012,Savings,ETB,2023-04-28,,Active,10096,Gondar,Ethiopia
+ACC0000888,P006087,Person,BNK009,Savings,EUR,2025-05-14,,Active,10287,Dire Dawa,Ethiopia
+ACC0000889,P077909,Person,BNK010,Current,ETB,2025-07-16,,Active,67014,Addis Ababa,Ethiopia
+ACC0000890,C01844,Company,BNK017,Mobile Money,CHF,2024-06-18,,Active,167560,Bahir Dar,Ethiopia
+ACC0000891,P078606,Person,BNK020,Mobile Money,ETB,2024-01-15,,Closed,20010,Addis Ababa,Ethiopia
+ACC0000892,P070591,Person,BNK016,Mobile Money,ETB,2022-06-07,,Active,14213,Dire Dawa,Ethiopia
+ACC0000893,C05766,Company,BNK018,Savings,ETB,2025-07-17,,Active,2823,Bahir Dar,Ethiopia
+ACC0000894,P094464,Person,BNK007,Current,ETB,2023-12-25,,Active,11610,Gondar,Ethiopia
+ACC0000895,P013564,Person,BNK020,Savings,ETB,2022-08-21,2024-10-06,Closed,7390,Addis Ababa,Ethiopia
+ACC0000896,P091316,Person,BNK010,Mobile Money,ETB,2022-08-25,,Active,51300,Bishoftu,Ethiopia
+ACC0000897,P026673,Person,BNK001,Mobile Money,ETB,2022-11-03,,Closed,7936,Harar,Ethiopia
+ACC0000898,P057832,Person,BNK011,Mobile Money,ETB,2023-11-12,,Active,13386,Addis Ababa,Ethiopia
+ACC0000899,C00423,Company,BNK006,Mobile Money,ETB,2022-10-29,,Closed,10797,Addis Ababa,Ethiopia
+ACC0000900,P098705,Person,BNK012,Mobile Money,ETB,2023-07-20,,Active,62297,Gondar,Ethiopia
+ACC0000901,P018387,Person,BNK006,Savings,ETB,2025-01-24,,Closed,5657,Gondar,Ethiopia
+ACC0000902,P012417,Person,BNK006,Current,USD,2024-12-01,,Closed,4395,Harar,Ethiopia
+ACC0000903,P094708,Person,BNK008,Fixed Deposit,ETB,2024-07-31,,Closed,1351,Addis Ababa,Ethiopia
+ACC0000904,P041091,Person,BNK015,Current,ETB,2022-03-23,,Active,4471,Adama,Ethiopia
+ACC0000905,P029027,Person,BNK008,Savings,ETB,2022-12-21,,Closed,6480,Dire Dawa,Ethiopia
+ACC0000906,P065184,Person,BNK007,Fixed Deposit,ETB,2024-01-25,,Closed,14974,Adama,Ethiopia
+ACC0000907,P064066,Person,BNK017,Mobile Money,ETB,2025-05-03,,Active,26592,Dilla,Ethiopia
+ACC0000908,C01111,Company,BNK001,Fixed Deposit,ETB,2022-08-24,2025-11-17,Closed,59190,Addis Ababa,Ethiopia
+ACC0000909,P027719,Person,BNK010,Savings,ETB,2025-07-04,,Active,5390,Jimma,Ethiopia
+ACC0000910,P007571,Person,BNK008,Fixed Deposit,ETB,2023-03-24,,Closed,40740,Shashamane,Ethiopia
+ACC0000911,P059078,Person,BNK020,Current,ETB,2022-11-01,,Active,2287,Addis Ababa,Ethiopia
+ACC0000912,P078236,Person,BNK005,Savings,ETB,2022-01-01,,Active,51982,Addis Ababa,Ethiopia
+ACC0000913,P048906,Person,BNK005,Fixed Deposit,AED,2024-10-27,,Active,27412,Addis Ababa,Ethiopia
+ACC0000914,P099343,Person,BNK018,Business,ETB,2023-07-03,,Active,19327,Addis Ababa,Ethiopia
+ACC0000915,P089610,Person,BNK012,Mobile Money,ETB,2022-01-28,,Active,2040,Addis Ababa,Ethiopia
+ACC0000916,P053725,Person,BNK009,Mobile Money,ETB,2024-03-11,,Closed,2000,Sodo,Ethiopia
+ACC0000917,P020079,Person,BNK009,Current,ETB,2023-10-15,2025-07-19,Closed,20196,Addis Ababa,Ethiopia
+ACC0000918,P059882,Person,BNK002,Savings,ETB,2023-11-14,,Closed,11453,Addis Ababa,Ethiopia
+ACC0000919,P095389,Person,BNK017,Fixed Deposit,ETB,2023-06-04,,Active,45217,Hosaena,Ethiopia
+ACC0000920,P074861,Person,BNK013,Current,ETB,2022-06-15,,Active,92177,Jimma,Ethiopia
+ACC0000921,C04988,Company,BNK008,Current,ETB,2022-06-21,,Closed,26969,Dire Dawa,Ethiopia
+ACC0000922,C01730,Company,BNK009,Mobile Money,ETB,2025-05-24,,Active,2086,Addis Ababa,Ethiopia
+ACC0000923,P013418,Person,BNK012,Savings,ETB,2024-02-27,,Active,9048,Addis Ababa,Ethiopia
+ACC0000924,P031303,Person,BNK016,Mobile Money,ETB,2022-03-30,,Active,27158,Adama,Ethiopia
+ACC0000925,P050631,Person,BNK017,Fixed Deposit,ETB,2022-06-22,,Active,7973,Bishoftu,Ethiopia
+ACC0000926,C07994,Company,BNK016,Fixed Deposit,ETB,2022-03-21,,Dormant,53265,Hawassa,Ethiopia
+ACC0000927,P094545,Person,BNK004,Business,ETB,2022-01-01,,Active,34436,Bishoftu,Ethiopia
+ACC0000928,P057350,Person,BNK010,Savings,ETB,2025-11-12,,Active,4651,Sodo,Ethiopia
+ACC0000929,P080797,Person,BNK006,Savings,ETB,2022-11-24,,Active,173034,Bishoftu,Ethiopia
+ACC0000930,P051918,Person,BNK006,Business,ETB,2023-03-30,,Active,7979,Addis Ababa,Ethiopia
+ACC0000931,P026424,Person,BNK012,Current,ETB,2024-02-21,,Closed,17075,Bishoftu,Ethiopia
+ACC0000932,C05991,Company,BNK019,Business,ETB,2025-12-26,,Closed,39309,Mekelle,Ethiopia
+ACC0000933,P040300,Person,BNK011,Business,ETB,2022-02-10,,Active,48070,Mekelle,Ethiopia
+ACC0000934,P009684,Person,BNK013,Mobile Money,ETB,2022-03-04,,Closed,30521,Addis Ababa,Ethiopia
+ACC0000935,P039776,Person,BNK008,Fixed Deposit,ETB,2025-08-07,,Active,14873,Hawassa,Ethiopia
+ACC0000936,P092688,Person,BNK013,Current,ETB,2022-04-16,,Dormant,13195,Arba Minch,Ethiopia
+ACC0000937,P089444,Person,BNK004,Fixed Deposit,ETB,2022-03-23,,Active,9019,Jijiga,Ethiopia
+ACC0000938,C08926,Company,BNK005,Fixed Deposit,ETB,2022-12-10,,Closed,5642,Addis Ababa,Ethiopia
+ACC0000939,P002240,Person,BNK004,Mobile Money,ETB,2025-01-16,,Active,34467,Dire Dawa,Ethiopia
+ACC0000940,P044160,Person,BNK011,Fixed Deposit,ETB,2024-03-14,,Dormant,21256,Addis Ababa,Ethiopia
+ACC0000941,C07540,Company,BNK001,Savings,ETB,2025-03-14,,Dormant,3515,Addis Ababa,Ethiopia
+ACC0000942,P041543,Person,BNK002,Business,ETB,2022-12-18,,Active,6815,Bishoftu,Ethiopia
+ACC0000943,C01903,Company,BNK018,Business,ETB,2025-03-11,,Active,69679,Addis Ababa,Ethiopia
+ACC0000944,P003779,Person,BNK001,Business,ETB,2025-04-22,,Active,6459,Addis Ababa,Ethiopia
+ACC0000945,P094746,Person,BNK009,Current,ETB,2023-05-03,,Closed,3441,Adama,Ethiopia
+ACC0000946,P017792,Person,BNK019,Current,ETB,2023-06-10,,Active,3714,Adama,Ethiopia
+ACC0000947,P065379,Person,BNK001,Current,ETB,2023-07-09,,Active,30492,Addis Ababa,Ethiopia
+ACC0000948,C01662,Company,BNK019,Fixed Deposit,ETB,2025-12-13,,Active,79391,Addis Ababa,Ethiopia
+ACC0000949,P075028,Person,BNK012,Fixed Deposit,ETB,2022-03-12,,Dormant,20772,Dessie,Ethiopia
+ACC0000950,C09609,Company,BNK019,Savings,ETB,2022-09-30,,Closed,18612,Debre Birhan,Ethiopia
+ACC0000951,P041573,Person,BNK015,Business,ETB,2024-09-08,,Active,5525,Addis Ababa,Ethiopia
+ACC0000952,P026064,Person,BNK014,Mobile Money,USD,2022-09-04,,Closed,10187,Bishoftu,Ethiopia
+ACC0000953,P050361,Person,BNK019,Fixed Deposit,ETB,2025-05-15,,Frozen,12269,Addis Ababa,Ethiopia
+ACC0000954,P014147,Person,BNK011,Mobile Money,ETB,2025-04-29,2025-11-25,Closed,5659,Dessie,Ethiopia
+ACC0000955,P071974,Person,BNK020,Fixed Deposit,AED,2025-11-29,,Active,10899,Addis Ababa,Ethiopia
+ACC0000956,C02014,Company,BNK008,Savings,USD,2024-09-17,,Closed,4623,Addis Ababa,Ethiopia
+ACC0000957,P014800,Person,BNK003,Fixed Deposit,CHF,2022-05-18,,Active,5517,Hawassa,Ethiopia
+ACC0000958,P089975,Person,BNK009,Savings,ETB,2023-06-24,,Active,60748,Adama,Ethiopia
+ACC0000959,P057055,Person,BNK003,Business,ETB,2025-09-02,,Closed,36474,Addis Ababa,Ethiopia
+ACC0000960,P042207,Person,BNK020,Business,ETB,2025-02-25,,Active,10143,Addis Ababa,Ethiopia
+ACC0000961,C03201,Company,BNK002,Current,ETB,2023-12-23,,Active,8694,Mekelle,Ethiopia
+ACC0000962,P023168,Person,BNK018,Fixed Deposit,ETB,2022-07-02,2023-05-29,Closed,35423,Dire Dawa,Ethiopia
+ACC0000963,P018478,Person,BNK015,Mobile Money,ETB,2025-05-29,,Active,18337,Addis Ababa,Ethiopia
+ACC0000964,C00217,Company,BNK002,Savings,GBP,2023-04-06,,Active,19870,Jijiga,Ethiopia
+ACC0000965,P068620,Person,BNK007,Business,ETB,2022-08-18,,Active,4706,Gondar,Ethiopia
+ACC0000966,P099015,Person,BNK004,Current,ETB,2022-02-03,,Closed,15866,Addis Ababa,Ethiopia
+ACC0000967,P064703,Person,BNK018,Savings,ETB,2023-06-08,,Active,4574,Jimma,Ethiopia
+ACC0000968,P056218,Person,BNK017,Business,ETB,2024-01-28,,Closed,7701,Bishoftu,Ethiopia
+ACC0000969,P077025,Person,BNK005,Current,ETB,2022-09-13,,Active,8711,Shashamane,Ethiopia
+ACC0000970,P034416,Person,BNK013,Current,ETB,2024-07-10,,Active,44907,Jimma,Ethiopia
+ACC0000971,C00772,Company,BNK019,Savings,ETB,2025-04-17,,Closed,22095,Addis Ababa,Ethiopia
+ACC0000972,P016266,Person,BNK020,Fixed Deposit,ETB,2024-10-24,,Dormant,14813,Addis Ababa,Ethiopia
+ACC0000973,P026613,Person,BNK019,Current,ETB,2023-10-31,,Dormant,21619,Addis Ababa,Ethiopia
+ACC0000974,P073307,Person,BNK006,Savings,ETB,2025-02-16,,Active,2852,Jijiga,Ethiopia
+ACC0000975,P050928,Person,BNK019,Savings,ETB,2024-01-08,,Active,13512,Hawassa,Ethiopia
+ACC0000976,P008687,Person,BNK012,Savings,ETB,2022-07-25,,Active,7722,Addis Ababa,Ethiopia
+ACC0000977,P069843,Person,BNK006,Mobile Money,ETB,2025-03-29,,Closed,223625,Hawassa,Ethiopia
+ACC0000978,P073516,Person,BNK001,Current,ETB,2024-10-09,,Active,41210,Addis Ababa,Ethiopia
+ACC0000979,P048533,Person,BNK006,Savings,ETB,2023-05-22,,Active,10477,Jijiga,Ethiopia
+ACC0000980,P097520,Person,BNK019,Current,ETB,2023-09-03,,Active,9736,Gondar,Ethiopia
+ACC0000981,P005356,Person,BNK015,Fixed Deposit,ETB,2025-01-30,,Closed,5028,Addis Ababa,Ethiopia
+ACC0000982,P093173,Person,BNK014,Mobile Money,ETB,2024-08-06,,Active,11237,Hawassa,Ethiopia
+ACC0000983,P025522,Person,BNK006,Mobile Money,ETB,2025-07-25,,Active,16389,Jijiga,Ethiopia
+ACC0000984,C06372,Company,BNK001,Mobile Money,ETB,2023-03-21,,Active,13743,Hawassa,Ethiopia
+ACC0000985,P014997,Person,BNK005,Business,ETB,2024-01-25,,Closed,197172,Addis Ababa,Ethiopia
+ACC0000986,P006558,Person,BNK012,Business,ETB,2024-11-14,,Closed,13509,Addis Ababa,Ethiopia
+ACC0000987,P094496,Person,BNK016,Current,ETB,2023-06-11,2024-12-21,Closed,5814,Addis Ababa,Ethiopia
+ACC0000988,P073375,Person,BNK004,Mobile Money,ETB,2023-10-27,,Active,43271,Jimma,Ethiopia
+ACC0000989,P025755,Person,BNK003,Fixed Deposit,ETB,2025-03-29,,Active,23243,Shashamane,Ethiopia
+ACC0000990,P068150,Person,BNK017,Fixed Deposit,EUR,2025-11-28,,Active,5918,Dessie,Ethiopia
+ACC0000991,P072132,Person,BNK013,Savings,ETB,2022-11-09,,Active,58813,Hosaena,Ethiopia
+ACC0000992,P017792,Person,BNK010,Savings,ETB,2024-03-10,,Active,4282,Arba Minch,Ethiopia
+ACC0000993,P031847,Person,BNK004,Business,ETB,2025-01-23,,Active,47392,Addis Ababa,Ethiopia
+ACC0000994,P008630,Person,BNK006,Current,ETB,2025-10-08,,Active,5791,Addis Ababa,Ethiopia
+ACC0000995,P066694,Person,BNK006,Fixed Deposit,ETB,2024-12-10,,Active,5589,Hawassa,Ethiopia
+ACC0000996,P092017,Person,BNK012,Fixed Deposit,EUR,2025-09-19,2025-11-05,Closed,5526,Nekemte,Ethiopia
+ACC0000997,P084585,Person,BNK002,Current,ETB,2023-07-04,,Active,43823,Adama,Ethiopia
+ACC0000998,P027821,Person,BNK018,Fixed Deposit,AED,2024-05-27,,Closed,20491,Jimma,Ethiopia
+ACC0000999,P032122,Person,BNK011,Fixed Deposit,ETB,2022-01-07,,Active,3769,Addis Ababa,Ethiopia
+ACC0001000,P091920,Person,BNK020,Fixed Deposit,ETB,2023-07-12,,Active,8238,Addis Ababa,Ethiopia

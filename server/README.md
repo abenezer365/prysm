@@ -20,7 +20,7 @@ python scripts/export_operational_slice.py --subject Company:C04166 --cutoff 202
 npm run ingest:slice -- data/operational-slice.json
 ```
 
-The liveness endpoint does not require dependencies. Readiness requires PostgreSQL. AI analysis calls the separately running FastAPI boundary; failures return sanitized `503` errors. RAG remains a future integration. API contracts are documented in `docs/openapi.yaml` and `docs/API.md`.
+The liveness endpoint does not require dependencies. Readiness requires PostgreSQL. AI analysis calls the separately running FastAPI boundary; failures return sanitized `503` errors. RAG is integrated through backend-mediated public/authorized HTTP chat, protected ingestion, dependency health, and an authorized WebSocket relay. API contracts are documented in `BACKEND_API.md`, `docs/openapi.yaml`, and `docs/API.md`; the system design is in `../ARCHITECTURE.md`.
 
 ## Security and scientific boundaries
 

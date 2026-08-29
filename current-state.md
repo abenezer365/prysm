@@ -1,48 +1,42 @@
 # Prysm Current State
 
-## System architecture
+Audited against repository code, Prisma migrations/schema, environment examples, API contracts, integration reports, and tests on 2026-08-29. See `ARCHITECTURE.md` for design; this file records only what exists and works now.
 
-Prysm now has three explicit specialist runtime domains behind one trusted backend:
+## Status summary
 
-- `ai-engine/` owns feature engineering, rules, anomaly/supervised signals, graph/GNN representations, evidence, fusion, and the stable investigation result contract.
-- `server/` owns authentication, live authorization, operational PostgreSQL state, bounded context construction, orchestration, persistence, auditing, and frontend-safe `/api/v1` DTOs.
-- `chatbot/` owns knowledge retrieval and Gemini-backed explanation. Public access is knowledge-only; protected explanation accepts only backend-authenticated context.
+| Area | State | Current reality |
+|---|---|---|
+| PostgreSQL | Working | Local PostgreSQL 18 service is running. Prisma models and both migrations cover access/session, operational facts, graph/GNN mappings, investigations, analysis/evidence, RAG interactions, models, and audit. Local migration, seed, bounded ingestion, analysis persistence, and chat persistence were exercised. |
+| Backend | Working | Express 5/TypeScript builds and exposes `/api/v1`; security middleware, request validation, stable errors, request IDs, rate limiting, redacted logs, AI/RAG adapters, audit, and WebSocket relay are implemented. No backend process is currently listening on port 4000. |
+| AI Engine | Working | FastAPI exposes `/health`, `/ready`, and `/v1/analyze` over the existing Python `InvestigationEngine`. Real Express → AI → PostgreSQL analysis previously succeeded with persisted findings/evidence. No AI process is currently listening on port 8100. |
+| GNN | Working with scientific limits | Typed temporal graph, graph features, cutoff-filtered bounded inference, self-supervised GraphSAGE artifacts, evidence, and fusion exist. Retrospective embeddings are reference-only; no validated supervised cutoff-safe GNN risk head exists. |
+| RAG/retrieval | Working | Existing knowledge store, lightweight retrieval, `/health`, GET/POST `/ask`, protected `/ingest`, and `/ws/chat` work. Express HTTP/WebSocket integration, protected ingestion, authorized context, sources, request correlation, and persistence were validated. No RAG process is currently listening on port 8200. |
+| Gemini generation | Degraded | Keys are configured locally, but the last real provider attempt ended with safe classification `ConnectionError`; RAG used its local evidence-grounded fallback. RAG dependency health remains degraded until an actual Gemini response succeeds. |
+| Internal RAG authentication | Blocked by configuration | `RAG_API_KEY` is blank in both local `.env` files. Normal coordinated startup deliberately fails closed. The same strong secret must be supplied to `server/.env` and `chatbot/.env`. |
+| Frontend | Pending | No React/Next.js application exists. The frontend-facing HTTP/WebSocket contract is documented and implementation can begin, with chat feature-gated until RAG dependency health is `ok`. |
+| Production deployment | Pending | No container/orchestrator/cloud deployment, durable analysis queue, broad operational ingestion, load/query-plan baseline, or production security validation exists. |
 
-The backend never retrains models, copies AI/RAG logic into TypeScript, or allows the frontend to supply trusted clearance/context. RAG remains independently deployable behind a typed adapter and backend-relayed WebSocket.
+## Implemented API and integration
 
-## Backend implementation status
+- Backend HTTP groups: liveness/readiness/dependencies; account application; login/logout/current user; permissions/clearance; subject search/profile; investigation create/list/detail/analyze/run; bounded graph; evidence; models; audit; public chat; authorized chat; protected RAG ingestion.
+- Backend realtime endpoint: `/api/v1/ws/chat`; it requires first-message access-token authentication, then applies live permission, clearance, and investigation resource checks before relaying trusted context to RAG.
+- Public chat rejects protected context fields and persists a `PUBLIC` interaction. Authorized chat requires `investigationId`, constructs current permitted AI/GNN/findings/evidence context, and persists an `AUTHORIZED` interaction with sources and a minimal manifest.
+- Dependency health performs real PostgreSQL, AI Engine, and provider-aware RAG checks. The overall status is degraded unless all three report `ok`.
+- Coordinated Windows startup is `npm run dev:stack` from `server/`; it uses readiness polling and requires matching non-empty RAG service keys.
 
-Implemented:
+## Data and scientific state
 
-- Express 5 and strict TypeScript foundation with validated environment configuration.
-- Helmet, explicit CORS, 1 MB JSON limit, rate limiting, request IDs, Pino structured logging/redaction, and a stable error envelope.
-- Prisma PostgreSQL schema plus additive initial migration for access, sessions, applications, operational subjects/transactions, graph/GNN mappings, evidence, investigations/findings/runs, RAG interactions, models, and audit events.
-- Argon2id passwords, hashed refresh-token storage, short-lived JWT access tokens, and a live PostgreSQL session/user/role/clearance check on each protected request.
-- Central permission, clearance, and resource-ownership enforcement; sensitive subject profiles require a separate permission and higher clearance.
-- Cutoff-aware `InvestigationContext` v1 with fixed lookback, future-event exclusion, interval-valid graph edges, and hard graph bounds of three hops/250 nodes.
-- Typed/sanitized AI Engine and RAG adapters, isolated public/authorized chat, persisted interaction scope, versioned analysis runs, model metadata, evidence lookup, and audit querying.
-- OpenAPI 3.1, developer setup, idempotent access seed, and implementation report.
-- Validated RAG adapter, public/authorized chat, protected ingestion, curated investigation context, backend WebSocket relay, correlated PostgreSQL chat persistence, and readiness-gated coordinated startup.
+- Canonical graph artifacts: 549,947 nodes and 3,036,895 temporal edges with zero invalid endpoints recorded in the manifest.
+- Scenario run: 7,000 leakage-audited synthetic observations over 747,582 transactions. Supervised and anomaly discrimination are weak; rules rank better but have low recall. All outputs remain synthetic benchmark evidence and non-probabilistic decision support.
+- PostgreSQL contains a bounded representative operational slice rather than the full Parquet corpus. Raw/derived Parquet artifacts remain the analytical source of truth.
 
-Validated:
+## Verification baseline
 
-- Prisma schema: valid.
-- Initial SQL migration: generated; includes `citext` extension and indexed relational tables.
-- TypeScript: clean build.
-- Automated tests: 10 passed across authorization, clearance, IDOR, public-context isolation, authentication enforcement, payload limits, errors, and liveness.
-- AI tests: 24 passed, including FastAPI health/readiness, optional API-key enforcement, invalid-context rejection, and real existing-engine inference through the HTTP boundary.
-- RAG tests: 8 passed. Real ingestion→retrieval, public/authorized HTTP, WebSocket, and chat persistence passed. The provider-aware health check correctly reports RAG degraded because Gemini generation ended in `ConnectionError` and used fallback.
+- Backend: TypeScript build passed; Prisma schema validated; 10 Vitest tests passed.
+- AI Engine: 24 pytest tests previously passed, including real FastAPI inference through the existing engine.
+- RAG: 8 pytest tests passed; real protected ingestion→retrieval, public/authorized HTTP chat, backend WebSocket relay, and database persistence were exercised.
+- OpenAPI YAML parses successfully. The test suite does not yet provide disposable-database migration rollback, full live repository authorization coverage, load testing, or frontend tests.
 
-## Integration readiness
+## Readiness decision
 
-The local PostgreSQL/Express/AI/RAG integration is operational through retrieval, authorization, relay, and persistence. Normal startup is blocked until one matching strong `RAG_API_KEY` is placed in both environment files, and full Gemini readiness additionally requires resolving the observed provider `ConnectionError`. Frontend work can begin against the documented API, but chat should remain feature-gated until dependency health is `ok`.
-
-The AI Engine's scenario result remains a valid controlled synthetic benchmark only: supervised ROC-AUC 0.470444 and anomaly ROC-AUC 0.487010 are weak; rules ROC-AUC is 0.816098 at low recall. Backend responses preserve `isFraudProbability: false`, evidence, cutoff, version, confidence, availability, and limitations.
-
-## Immediate next engineering sequence
-
-1. Add disposable-database migration rollback, live repository/security tests, query-plan baselines, and ingestion reconciliation checks.
-2. Convert synchronous analysis execution to a durable job/outbox flow without changing the analysis-run contract.
-3. Supply the matching internal RAG secret in both local `.env` files and re-run `npm run dev:stack`; the contract, isolation, timeout, ingestion, WebSocket, and persistence paths are implemented.
-4. Finish refresh rotation and remaining administrative/session/workflow endpoints before frontend production integration.
-5. Resolve the Prisma CLI development advisory against a safe patched current release; do not apply npm's proposed blind downgrade.
+The backend, AI/GNN boundary, retrieval integration, persistence contracts, and frontend API documentation are sufficiently complete to start the frontend phase. Non-chat screens can integrate now. Chat must remain feature-gated until a matching internal `RAG_API_KEY` is configured and Gemini health changes from `degraded` to `ok`. Production readiness is not claimed.

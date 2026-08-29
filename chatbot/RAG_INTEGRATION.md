@@ -1,102 +1,38 @@
 # Prysm RAG Integration
 
-## Folder structure
+The RAG service is an independently runnable FastAPI knowledge-retrieval and explanation service. It does not authorize users, query arbitrary protected PostgreSQL data, calculate risk, or invent evidence. Express is the browser-facing trust boundary; see `../ARCHITECTURE.md` and `../server/BACKEND_API.md`.
 
-The service is intentionally small and replacable. The root folder holds the FastAPI app, environment file, and tests, while the `rag` area contains the knowledge base and future retrieval logic. The `llm`/client responsibilities are isolated so Gemini can be swapped later without rewriting the rest of the app. The `tests` folder validates the public and authorized behaviors required for a clean integration.
+## Internal API
 
-## API
+- `GET /health`: public process, knowledge-base, and real Gemini provider status (`not_configured`, `configured_not_verified`, `degraded`, or `ok`).
+- `GET /ask?message=...`: public knowledge-only retrieval. It cannot accept authenticated context.
+- `POST /ask`: authorized explanation using backend-supplied identity/resource fields and trusted context. Requires `Authorization: Bearer <RAG_API_KEY>` and fails closed if the key is absent.
+- `POST /ingest`: knowledge document ingestion, not model training. Requires the same internal bearer key. The frontend-facing backend additionally requires `rag:ingest` and clearance rank 4.
+- `WS /ws/chat?api_key=<RAG_API_KEY>`: protected realtime use of the same pipeline. Browser clients use the backend WebSocket, never this socket directly.
 
-### GET /health
-- Purpose: health check for the RAG service.
-- Request: no body.
-- Response: `status`, `service`, `llm`, and `knowledgeBase` fields.
-- Authentication: none.
-- Example: `GET /health`
-- Errors: returns a simple JSON error only if the service is unavailable.
+Answers contain `answer`, `mode`, versioned `sources`, `conversationId`, and `requestId`; authorized answers may also return curated finding/evidence summaries supplied by the backend.
 
-### GET /ask
-- Purpose: answer a public or trusted investigator question with knowledge retrieval and optional backend context.
-- Request: `?message=...&authenticated=true|false`
-- Response: `answer`, `mode`, `sources`, `conversationId`, and `requestId`.
-- Authentication: public mode does not require auth; investigator mode expects trusted backend-supplied context.
-- Example: `GET /ask?message=What%20is%20Prysm%20AI`
-- Errors: `400` for empty messages, `401` for invalid investigator context.
+## Request flows
 
-### POST /ingest
-- Purpose: add a new knowledge item to the local vector-like knowledge store.
-- Request: JSON with `title`, `content`, `source`, `category`, `version`, and optional `metadata`.
-- Response: `success`, `documentId`, and `chunks`.
-- Authentication: none for local ingestion; protect this in the Node backend if it is exposed externally.
-- Example: `POST /ingest` with a document payload.
-- Errors: invalid document payloads return validation errors.
+Public requests are Browser → Express `/api/v1/chat/public` → RAG public retrieval → Gemini or evidence-grounded fallback → Express persistence → Browser. No investigation, database, AI, GNN, or protected evidence context is attached.
 
-### WS /ws/chat
-- Purpose: real-time chat using the same ask pipeline.
-- Request: JSON message with `message` and optional `authenticated`, `context`, `userId`.
-- Response: sequence of `token` and `done` events.
-- Authentication: same rule as `/ask`; only trusted backend context is accepted.
-- Example: WebSocket connection to `/ws/chat` with a JSON message.
-- Errors: invalid message payloads trigger structured error events.
-
-## Architecture
-
-Public users hit the knowledge RAG flow: the request is classified, relevant documents are retrieved from the local knowledge base, and the answer is explained by Gemini. Authorized investigators are routed through the backend-first trust model: the backend builds a bounded context from the authenticated investigation, passes it to the RAG service, and the service combines that evidence with local knowledge before generating a careful explanation.
-
-## Backend integration
-
-The Node backend is the trust boundary. It authenticates the user, checks clearance and access, builds a minimal investigation context, and sends it to the RAG service as a backend-supplied context object. The RAG service never decides authorization itself. A typical request passes `authenticated: true`, `userId`, `subjectId`, `investigationId`, and the trusted context payload.
+Authorized requests are Investigator → Express live session/RBAC/clearance/resource check → server-built `prysm-authorized-rag-context-v1` → protected RAG HTTP/WebSocket → Gemini or fallback → Express persistence/audit → Investigator. The RAG service trusts the internal credential and supplied context for explanation only; authorization remains an Express responsibility.
 
 ## Environment
 
-Required variables:
-
-- `GOOGLE_API_KEYS` — comma-separated list of Gemini API keys
-- `GEMINI_MODELS` — optional comma-separated model list; defaults to `GEMINI_MODEL`
-- `GEMINI_MODEL` — default model, such as `gemini-1.5-flash`
-- `GEMINI_API_BASE_URL` — default Google Gemini endpoint
-- `RAG_HOST` and `RAG_PORT`
-- `RAG_API_KEY` — optional service-level secret
-- `DATABASE_URL` — optional if the RAG service is kept local-only
+- `GOOGLE_API_KEYS`: configured Gemini keys, comma-separated.
+- `GEMINI_MODELS` or `GEMINI_MODEL`: configured model rotation/default.
+- `GEMINI_API_BASE_URL`: Gemini REST model endpoint.
+- `RAG_HOST`, `RAG_PORT`: local bind configuration.
+- `RAG_API_KEY`: required internal secret; must match `server/.env` and stay out of Git.
+- `MAX_RETRIEVAL_DOCS`, `REQUEST_TIMEOUT_SECONDS`, `LOG_LEVEL`: retrieval/runtime controls where consumed.
+- `DATABASE_URL`: present in the example but the current file-backed RAG implementation does not query PostgreSQL directly.
 
 ## Startup
 
-Start the service with:
-
-```bash
+```powershell
 cd chatbot
-python -m uvicorn main:app --host 127.0.0.1 --port 8200 --reload
+python -m uvicorn main:app --host 127.0.0.1 --port 8200
 ```
 
-## Frontend integration
-
-```javascript
-const res = await fetch('http://127.0.0.1:8200/ask?message=What%20is%20Prysm%20AI');
-const data = await res.json();
-console.log(data.answer);
-```
-
-```javascript
-const res = await fetch('http://127.0.0.1:8200/ingest', {
-  method: 'POST',
-  headers: {'Content-Type': 'application/json'},
-  body: JSON.stringify({
-    title: 'Rapid Outflow',
-    content: 'Rapid outflow is a short-duration pattern of unusually fast movement of funds away from a source account.',
-    source: 'methodology',
-    category: 'concepts',
-    version: '1.0'
-  })
-});
-const result = await res.json();
-console.log(result.documentId);
-```
-
-```javascript
-const ws = new WebSocket('ws://127.0.0.1:8200/ws/chat');
-ws.onopen = () => ws.send(JSON.stringify({ message: 'What is rapid outflow?' }));
-ws.onmessage = (event) => {
-  const msg = JSON.parse(event.data);
-  if (msg.type === 'token') console.log(msg.text);
-  if (msg.type === 'done') console.log('done', msg.sources);
-};
-```
+For the complete local system, use `npm run dev:stack` from `server/`; it verifies matching non-empty RAG keys and starts services in dependency order with readiness polling.

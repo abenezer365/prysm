@@ -17,7 +17,7 @@ Every HTTP response has `x-request-id`. Errors use `{"error":{"code":"...","mess
 | GET | `/auth/me` | Authenticated | Safe current identity. | User DTO |
 | GET | `/me/permissions` | Authenticated | Live permission codes for UI gates. | Permission data |
 | GET | `/me/clearance` | Authenticated | Live clearance; never infer client-side. | Clearance data |
-| POST | `/search` | `subject:read` | `{query,limit?}`; limit ≤100. | `{data,page}` |
+| POST | `/search` | `subject:read` | `{query,limit?}`; limit 1–50, default 20. | `{data,page}` |
 | GET | `/subjects/:id` | `subject:read` + classification | UUID path. | Redacted summary |
 | GET | `/subjects/:id/profile` | `subject:sensitive:read`, rank ≥3 | UUID path. | Sensitive profile |
 | POST | `/investigations` | `investigation:create`, rank ≥2 | `{subjectId,title?,purpose?,cutoffAt,predictionHorizonStart?,predictionHorizonEnd?}`. | `201` investigation |

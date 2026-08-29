@@ -1,0 +1,11 @@
+Metadata-Version: 2.4
+Name: prysm-ai-engine
+Version: 0.2.0
+Summary: Prysm financial intelligence engine
+Requires-Python: >=3.11
+Requires-Dist: numpy>=2.0
+Requires-Dist: pandas>=2.2
+Requires-Dist: pyarrow>=15
+Requires-Dist: fastapi<0.120,>=0.115
+Requires-Dist: pydantic<2,>=1.10
+Requires-Dist: uvicorn<1,>=0.35

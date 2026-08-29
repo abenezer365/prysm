@@ -4,6 +4,15 @@
 
 ## Current state
 
+- Step 8 connects the existing RAG/Gemini service through Express without changing domain ownership. Public chat is knowledge-only; authorized HTTP/WebSocket chat uses live auth plus a server-built, cutoff-aware investigation/AI/GNN/findings/evidence context. Ingestion is ADMIN-only (`rag:ingest`, rank 4), protected RAG operations fail closed, and chat request/conversation IDs, users, modes, answers, sources, and minimal metadata persist in PostgreSQL.
+- Real Step 8 integration paths passed: protected ingestion retrieved the unique `cobalt-lantern-829` sentinel; public and authorized HTTP chat persisted; backend WebSocket completed `ready → authenticated → token → done` and persisted. Chatbot tests are 8/8, backend tests 10/10, and TypeScript builds.
+- Local `RAG_API_KEY` is missing in both `.env` files. A matching ephemeral key proved internal integration, but the user must supply one strong matching secret. Gemini keys are configured, yet the final provider probe returned safe status `degraded` / `ConnectionError`, so generated answers used local fallback and the full Gemini chain is not ready.
+- Step 7 completes the first real local intelligence workflow. FastAPI exposes the existing Python `InvestigationEngine` at `/health`, `/ready`, and `/v1/analyze`; Express sends the canonical cutoff-aware context, validates the response, and transactionally persists runs, nine available-component findings, evidence links, versions, and audit events.
+- Local PostgreSQL migration/seed and bounded canonical ingestion succeeded. The representative slice contains 250 deterministic subjects/graph nodes, 249 cutoff-valid edges, 3 transfers, and a reproducible GNN snapshot; retrospective embeddings are explicitly reference-only.
+- Real AI validation for `Company:C04166` at `2025-06-16T00:00:00Z` produced run `58256eab-d472-4389-81c9-a8e98915e7d6`: `SUCCEEDED`, strength 0.103182, confidence 0.687733, and `isFraudProbability=false`. Step 8 subsequently connected and validated RAG while preserving this run.
+- The Step 6 backend foundation is implemented under `server/` as the trusted Node.js/Express/TypeScript orchestration boundary. PostgreSQL is modeled with Prisma; API v1 contracts, centralized live-session/role/clearance/resource authorization, request validation, structured errors/logging, rate limits, audit records, cutoff-aware bounded graph context, and typed AI/RAG adapters are in place.
+- Backend validation currently passes: Prisma schema/migrations current, TypeScript build clean, 10 backend tests pass, 24 AI tests pass, and 8 RAG tests pass. Local PostgreSQL, AI Engine, RAG HTTP/WebSocket, and persistence were validated end to end; production infrastructure remains future work.
+- The backend does not duplicate Parquet data or AI/RAG logic. `InvestigationContext` v1 excludes future events, bounds graph traversal to three hops/250 nodes, records snapshot/cutoff provenance, and retains the synthetic-benchmark/non-probability scientific status.
 - Phases 1, 2, 2.5, and 3 of the Prysm AI engine are implemented under `ai-engine/`; raw Parquet files in `data/raw/` remain immutable.
 - Canonical identity is always `EntityType:entity_id`. Polymorphic references must be joined with both entity type and ID; raw IDs are not globally unique.
 - Source temporal inconsistencies are preserved and surfaced with validity flags. Historical computation must use as-of logic and must never silently repair or drop conflicting source facts.
@@ -37,11 +46,12 @@
 - Account/invoice lifecycle chronology includes known synthetic inconsistencies.
 - Disk-backed neighborhood scans are reproducible but require indexing, predicate pushdown, or caching before interactive production use.
 - Fusion weights/scales are initial engineering parameters and are not empirically calibrated.
-- No Phase 4 API, frontend, LLM, RAG, persistence, or service boundary has been implemented.
+- Backend/API/persistence, bounded operational ingestion, and local RAG connectivity now exist; frontend, deployed infrastructure, and broad product ingestion are not implemented.
 
-## Phase 4 starting point
+## Backend next steps
 
-- Build a typed application/service boundary around `InvestigationEngine` and the stable `InvestigationResult` contract.
-- Optimize bounded neighborhood retrieval before promising interactive latency, then add deterministic schema validation plus investigation persistence/versioning.
-- Expose availability, confidence, provenance, and limitations; keep raw data and model internals behind the engine and do not present the assessment as a probability.
-- Preserve the label-validity gate and synthetic-only scope. Improve scenario causal precursors and implement cutoff-safe batched GNN evaluation before making predictive graph claims.
+- Supply the same strong internal `RAG_API_KEY` in `server/.env` and `chatbot/.env`; then `npm run dev:stack` is the readiness-gated coordinated startup command.
+- Provision a disposable PostgreSQL test instance, apply/rollback the migration, run seeds, and add repository/integration tests against real query plans.
+- Build idempotent mappings from existing AI-engine canonical Parquet artifacts into operational PostgreSQL tables without duplicating source ownership.
+- Add durable asynchronous AI execution/retries; keep the validated RAG contract stable.
+- Complete refresh rotation, application/admin workflows, cursor pagination, durable asynchronous analysis, denial auditing, dashboards, and model-download policy before production/frontend sign-off.

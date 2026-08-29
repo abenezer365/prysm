@@ -14,6 +14,7 @@ export const notFoundHandler: RequestHandler = (_req, _res, next) => next(new Ap
 export const errorHandler: ErrorRequestHandler = (error, req, res, _next) => {
   const requestId = (req as AuthRequest).requestId;
   if (error instanceof ZodError) return res.status(400).json({ error: { code: "VALIDATION_ERROR", message: "Request validation failed", details: error.issues, requestId } });
+  if (error?.type === "entity.too.large") return res.status(413).json({ error: { code: "PAYLOAD_TOO_LARGE", message: "Request payload exceeds the allowed size", requestId } });
   const known = error instanceof AppError;
   const status = known ? error.status : 500;
   return res.status(status).json({ error: { code: known ? error.code : "INTERNAL_ERROR", message: known ? error.message : "Internal server error", ...(known && error.details ? { details: error.details } : {}), requestId } });

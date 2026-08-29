@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "dev": "npm run build && node --env-file=.env --watch dist/src/server.js",
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/server.js",
+    "start": "node --env-file=.env dist/src/server.js",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint src tests",
@@ -14,9 +14,15 @@
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev",
-    "db:seed": "tsx prisma/seed.ts"
+    "db:seed": "node --experimental-strip-types prisma/seed.ts",
+    "ingest:slice": "node --experimental-strip-types scripts/ingest-operational-slice.ts",
+    "verify:integration": "node --experimental-strip-types scripts/verify-integration.ts",
+    "verify:chat-ws": "node scripts/verify-chat-ws.mjs",
+    "dev:stack": "powershell -ExecutionPolicy Bypass -File scripts/start-local.ps1"
   },
-  "prisma": { "seed": "tsx prisma/seed.ts" },
+  "prisma": {
+    "seed": "node --experimental-strip-types prisma/seed.ts"
+  },
   "dependencies": {
     "@prisma/client": "^6.15.0",
     "argon2": "^0.44.0",
@@ -27,6 +33,7 @@
     "jose": "^6.1.0",
     "pino": "^9.9.0",
     "pino-http": "^10.5.0",
+    "ws": "^8.21.3",
     "zod": "^4.1.5"
   },
   "devDependencies": {
@@ -34,6 +41,7 @@
     "@types/express": "^5.0.3",
     "@types/node": "^24.3.0",
     "@types/supertest": "^6.0.3",
+    "@types/ws": "^8.18.1",
     "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^9.34.0",
     "prettier": "^3.6.2",

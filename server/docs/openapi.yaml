@@ -1,0 +1,84 @@
+openapi: 3.1.0
+info:
+  title: Prysm Backend API
+  version: 0.1.0
+  description: Trusted orchestration boundary. Intelligence assessments are not calibrated fraud probabilities.
+servers: [{ url: /api/v1 }]
+components:
+  securitySchemes:
+    bearerAuth: { type: http, scheme: bearer, bearerFormat: JWT }
+  schemas:
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message, requestId]
+          properties: { code: { type: string }, message: { type: string }, details: {}, requestId: { type: string } }
+    InvestigationCreate:
+      type: object
+      required: [subjectId, cutoffAt]
+      properties: { subjectId: { type: string, format: uuid }, title: { type: string }, purpose: { type: string }, cutoffAt: { type: string, format: date-time }, predictionHorizonStart: { type: string, format: date-time }, predictionHorizonEnd: { type: string, format: date-time } }
+    ChatRequest:
+      type: object
+      required: [question]
+      properties: { question: { type: string, maxLength: 4000 }, conversationId: { type: string, format: uuid } }
+    AuthorizedChatRequest:
+      allOf:
+        - $ref: '#/components/schemas/ChatRequest'
+        - type: object
+          required: [investigationId]
+          properties: { investigationId: { type: string, format: uuid } }
+    RagDocument:
+      type: object
+      required: [title, content]
+      properties: { title: { type: string, maxLength: 300 }, content: { type: string, maxLength: 100000 }, source: { type: string, maxLength: 500 }, category: { type: string, maxLength: 100 }, version: { type: string, maxLength: 100 }, metadata: { type: object, additionalProperties: true } }
+paths:
+  /health:
+    get: { operationId: health, responses: { '200': { description: Process is alive } } }
+  /health/ready:
+    get: { operationId: readiness, responses: { '200': { description: PostgreSQL is ready }, '503': { description: Not ready } } }
+  /health/dependencies:
+    get: { operationId: dependencyHealth, security: [{ bearerAuth: [] }], responses: { '200': { description: Real PostgreSQL, AI Engine, and RAG state }, '503': { description: One or more dependencies unavailable } } }
+  /auth/login:
+    post: { operationId: login, requestBody: { required: true, content: { application/json: { schema: { type: object, required: [email, password], properties: { email: { type: string, format: email }, password: { type: string, format: password } } } } } }, responses: { '200': { description: Access and refresh token pair }, '401': { description: Invalid credentials } } }
+  /auth/logout:
+    post: { operationId: logout, security: [{ bearerAuth: [] }], responses: { '204': { description: Session revoked } } }
+  /auth/me:
+    get: { operationId: getCurrentUser, security: [{ bearerAuth: [] }], responses: { '200': { description: Safe current-user DTO } } }
+  /me/permissions:
+    get: { operationId: getCurrentPermissions, security: [{ bearerAuth: [] }], responses: { '200': { description: Live permission codes } } }
+  /me/clearance:
+    get: { operationId: getCurrentClearance, security: [{ bearerAuth: [] }], responses: { '200': { description: Live clearance rank } } }
+  /applications:
+    post: { operationId: applyForAccount, responses: { '202': { description: Application accepted } } }
+  /search:
+    post: { operationId: searchSubjects, security: [{ bearerAuth: [] }], responses: { '200': { description: Clearance-filtered subject page }, '403': { description: Access denied } } }
+  /subjects/{id}:
+    get: { operationId: getSubject, security: [{ bearerAuth: [] }], parameters: [{ name: id, in: path, required: true, schema: { type: string, format: uuid } }], responses: { '200': { description: Redacted subject DTO }, '403': { description: Access denied } } }
+  /subjects/{id}/profile:
+    get: { operationId: getSubjectProfile, security: [{ bearerAuth: [] }], parameters: [{ name: id, in: path, required: true, schema: { type: string, format: uuid } }], responses: { '200': { description: Clearance-controlled sensitive profile }, '403': { description: Access denied } } }
+  /investigations:
+    get: { operationId: listInvestigations, security: [{ bearerAuth: [] }], responses: { '200': { description: Authorized investigation page } } }
+    post: { operationId: createInvestigation, security: [{ bearerAuth: [] }], requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/InvestigationCreate' } } } }, responses: { '201': { description: Investigation created } } }
+  /investigations/{id}:
+    get: { operationId: getInvestigation, security: [{ bearerAuth: [] }], parameters: [{ name: id, in: path, required: true, schema: { type: string, format: uuid } }], responses: { '200': { description: Frontend-safe investigation response }, '403': { description: Resource or clearance denial } } }
+  /investigations/{id}/analyze:
+    post: { operationId: analyzeInvestigation, security: [{ bearerAuth: [] }], parameters: [{ name: id, in: path, required: true, schema: { type: string, format: uuid } }], responses: { '202': { description: Versioned analysis run }, '503': { description: AI Engine unavailable } } }
+  /investigations/{id}/analysis-runs/{runId}:
+    get: { operationId: getAnalysisRun, security: [{ bearerAuth: [] }], parameters: [{ name: id, in: path, required: true, schema: { type: string, format: uuid } }, { name: runId, in: path, required: true, schema: { type: string, format: uuid } }], responses: { '200': { description: Immutable versioned analysis run }, '403': { description: Resource denial } } }
+  /graph/subjects/{id}/subgraph:
+    get: { operationId: getBoundedSubgraph, security: [{ bearerAuth: [] }], parameters: [{ name: id, in: path, required: true, schema: { type: string, format: uuid } }, { name: maxHops, in: query, schema: { type: integer, minimum: 1, maximum: 3 } }, { name: maxNodes, in: query, schema: { type: integer, minimum: 1, maximum: 250 } }, { name: cutoffAt, in: query, schema: { type: string, format: date-time } }], responses: { '200': { description: Cutoff-valid bounded graph } } }
+  /evidence/{id}:
+    get: { operationId: getEvidence, security: [{ bearerAuth: [] }], parameters: [{ name: id, in: path, required: true, schema: { type: string, format: uuid } }], responses: { '200': { description: Source/evidence reference }, '403': { description: Access denied } } }
+  /chat/public:
+    post: { operationId: publicChat, requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ChatRequest' } } } }, responses: { '200': { description: Public-knowledge answer }, '503': { description: RAG unavailable } } }
+  /chat/authorized:
+    post: { operationId: authorizedChat, security: [{ bearerAuth: [] }], requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/AuthorizedChatRequest' } } } }, responses: { '200': { description: Authorized bounded-context answer with sources and evidence }, '400': { description: Investigation identifier required }, '403': { description: Permission, clearance, ownership, or sharing denial }, '503': { description: RAG unavailable } } }
+  /rag/ingest:
+    post: { operationId: ingestRagDocument, security: [{ bearerAuth: [] }], requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/RagDocument' } } } }, responses: { '201': { description: Knowledge document ingested }, '403': { description: Requires rag:ingest and clearance rank 4 }, '503': { description: RAG unavailable } } }
+  /models:
+    get: { operationId: listModels, security: [{ bearerAuth: [] }], responses: { '200': { description: Model metadata without artifact secrets } } }
+  /audit/events:
+    get: { operationId: listAuditEvents, security: [{ bearerAuth: [] }], responses: { '200': { description: Administrative audit page }, '403': { description: Access denied } } }

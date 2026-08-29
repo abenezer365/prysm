@@ -1,0 +1,504 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+  DISABLED
+  REJECTED
+}
+
+enum ApplicationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum InvestigationStatus {
+  OPEN
+  IN_REVIEW
+  CLOSED
+}
+
+enum AnalysisStatus {
+  QUEUED
+  RUNNING
+  SUCCEEDED
+  FAILED
+}
+
+enum ChatScope {
+  PUBLIC
+  AUTHORIZED
+}
+
+model Role {
+  id           String               @id @default(uuid()) @db.Uuid
+  code         String               @unique
+  name         String
+  description  String?
+  createdAt    DateTime             @default(now()) @map("created_at")
+  users        User[]
+  permissions  RolePermission[]
+  applications AccountApplication[] @relation("RequestedRole")
+
+  @@map("roles")
+}
+
+model ClearanceLevel {
+  id           String               @id @default(uuid()) @db.Uuid
+  code         String               @unique
+  name         String
+  rank         Int                  @unique
+  description  String?
+  createdAt    DateTime             @default(now()) @map("created_at")
+  users        User[]
+  applications AccountApplication[] @relation("RequestedClearance")
+
+  @@map("clearance_levels")
+}
+
+model Permission {
+  id          String           @id @default(uuid()) @db.Uuid
+  code        String           @unique
+  description String?
+  roles       RolePermission[]
+
+  @@map("permissions")
+}
+
+model RolePermission {
+  roleId       String     @map("role_id") @db.Uuid
+  permissionId String     @map("permission_id") @db.Uuid
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+model User {
+  id                   String               @id @default(uuid()) @db.Uuid
+  email                String               @unique @db.Citext
+  passwordHash         String               @map("password_hash")
+  displayName          String               @map("display_name")
+  profileImageUrl      String?              @map("profile_image_url")
+  preferences          Json?
+  status               UserStatus           @default(PENDING)
+  roleId               String               @map("role_id") @db.Uuid
+  clearanceLevelId     String               @map("clearance_level_id") @db.Uuid
+  lastLoginAt          DateTime?            @map("last_login_at")
+  createdAt            DateTime             @default(now()) @map("created_at")
+  updatedAt            DateTime             @updatedAt @map("updated_at")
+  role                 Role                 @relation(fields: [roleId], references: [id])
+  clearance            ClearanceLevel       @relation(fields: [clearanceLevelId], references: [id])
+  sessions             AuthSession[]
+  investigations       Investigation[]
+  queries              InvestigationQuery[]
+  auditEvents          AuditEvent[]
+  analysisRuns         AnalysisRun[]
+  reviewedApplications AccountApplication[] @relation("ApplicationReviewer")
+
+  @@index([status])
+  @@map("users")
+}
+
+model AuthSession {
+  id               String    @id @default(uuid()) @db.Uuid
+  userId           String    @map("user_id") @db.Uuid
+  refreshTokenHash String    @unique @map("refresh_token_hash")
+  deviceInfo       String?   @map("device_info")
+  ipHash           String?   @map("ip_hash")
+  userAgentHash    String?   @map("user_agent_hash")
+  expiresAt        DateTime  @map("expires_at")
+  revokedAt        DateTime? @map("revoked_at")
+  createdAt        DateTime  @default(now()) @map("created_at")
+  lastUsedAt       DateTime? @map("last_used_at")
+  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, revokedAt])
+  @@map("auth_sessions")
+}
+
+model AccountApplication {
+  id                        String            @id @default(uuid()) @db.Uuid
+  email                     String            @db.Citext
+  displayName               String            @map("display_name")
+  organization              String?
+  requestedRoleId           String?           @map("requested_role_id") @db.Uuid
+  requestedClearanceLevelId String?           @map("requested_clearance_level_id") @db.Uuid
+  reason                    String?
+  status                    ApplicationStatus @default(PENDING)
+  reviewedBy                String?           @map("reviewed_by") @db.Uuid
+  reviewedAt                DateTime?         @map("reviewed_at")
+  reviewReason              String?           @map("review_reason")
+  createdAt                 DateTime          @default(now()) @map("created_at")
+  updatedAt                 DateTime          @updatedAt @map("updated_at")
+  requestedRole             Role?             @relation("RequestedRole", fields: [requestedRoleId], references: [id])
+  requestedClearance        ClearanceLevel?   @relation("RequestedClearance", fields: [requestedClearanceLevelId], references: [id])
+  reviewer                  User?             @relation("ApplicationReviewer", fields: [reviewedBy], references: [id])
+
+  @@index([status, createdAt])
+  @@map("account_applications")
+}
+
+model Subject {
+  id                   String          @id @default(uuid()) @db.Uuid
+  subjectType          String          @map("subject_type")
+  externalRef          String?         @map("external_ref")
+  displayLabel         String          @map("display_label")
+  classificationRank   Int             @default(1) @map("classification_rank")
+  status               String?
+  createdAt            DateTime        @default(now()) @map("created_at")
+  updatedAt            DateTime        @updatedAt @map("updated_at")
+  profile              SubjectProfile?
+  graphNodes           GraphNode[]
+  investigations       Investigation[]
+  outgoingTransactions Transaction[]   @relation("TransactionFromSubject")
+  incomingTransactions Transaction[]   @relation("TransactionToSubject")
+  outgoingAccounts     Transaction[]   @relation("TransactionFromAccount")
+  incomingAccounts     Transaction[]   @relation("TransactionToAccount")
+  deviceTransactions   Transaction[]   @relation("TransactionDevice")
+
+  @@unique([subjectType, externalRef])
+  @@index([displayLabel])
+  @@map("subjects")
+}
+
+model SubjectProfile {
+  subjectId           String    @id @map("subject_id") @db.Uuid
+  fullName            String?   @map("full_name")
+  dateOfBirth         DateTime? @map("date_of_birth") @db.Date
+  countryCode         String?   @map("country_code") @db.Char(2)
+  riskCategory        String?   @map("risk_category")
+  sensitiveAttributes Json?     @map("sensitive_attributes")
+  createdAt           DateTime  @default(now()) @map("created_at")
+  updatedAt           DateTime  @updatedAt @map("updated_at")
+  subject             Subject   @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+
+  @@map("subject_profiles")
+}
+
+model Transaction {
+  id                  String   @id @default(uuid()) @db.Uuid
+  sourceTransactionId String?  @unique @map("source_transaction_id")
+  fromSubjectId       String?  @map("from_subject_id") @db.Uuid
+  toSubjectId         String?  @map("to_subject_id") @db.Uuid
+  fromAccountId       String?  @map("from_account_id") @db.Uuid
+  toAccountId         String?  @map("to_account_id") @db.Uuid
+  amount              Decimal  @db.Decimal(24, 8)
+  currency            String   @db.Char(3)
+  timestamp           DateTime
+  transactionType     String?  @map("transaction_type")
+  countryFrom         String?  @map("country_from") @db.Char(2)
+  countryTo           String?  @map("country_to") @db.Char(2)
+  channel             String?
+  deviceSubjectId     String?  @map("device_subject_id") @db.Uuid
+  sourceSystem        String?  @map("source_system")
+  rawMetadata         Json?    @map("raw_metadata")
+  createdAt           DateTime @default(now()) @map("created_at")
+  fromSubject         Subject? @relation("TransactionFromSubject", fields: [fromSubjectId], references: [id])
+  toSubject           Subject? @relation("TransactionToSubject", fields: [toSubjectId], references: [id])
+  fromAccount         Subject? @relation("TransactionFromAccount", fields: [fromAccountId], references: [id])
+  toAccount           Subject? @relation("TransactionToAccount", fields: [toAccountId], references: [id])
+  deviceSubject       Subject? @relation("TransactionDevice", fields: [deviceSubjectId], references: [id])
+
+  @@index([timestamp])
+  @@index([fromSubjectId])
+  @@index([toSubjectId])
+  @@index([fromAccountId, timestamp])
+  @@index([toAccountId, timestamp])
+  @@index([currency])
+  @@index([transactionType])
+  @@map("transactions")
+}
+
+model GraphNode {
+  id                    String         @id @default(uuid()) @db.Uuid
+  subjectId             String?        @map("subject_id") @db.Uuid
+  nodeType              String         @map("node_type")
+  externalKey           String?        @unique @map("external_key")
+  labelHash             String?        @map("label_hash")
+  features              Json?
+  embedding             Json?
+  embeddingModelVersion String?        @map("embedding_model_version")
+  createdAt             DateTime       @default(now()) @map("created_at")
+  updatedAt             DateTime       @updatedAt @map("updated_at")
+  subject               Subject?       @relation(fields: [subjectId], references: [id])
+  outgoingEdges         GraphEdge[]    @relation("GraphEdgeSource")
+  incomingEdges         GraphEdge[]    @relation("GraphEdgeTarget")
+  snapshotNodes         GnnNode[]
+  embeddings            GnnEmbedding[]
+
+  @@index([subjectId])
+  @@index([nodeType])
+  @@map("graph_nodes")
+}
+
+model GraphEdge {
+  id              String    @id @default(uuid()) @db.Uuid
+  sourceNodeId    String    @map("source_node_id") @db.Uuid
+  targetNodeId    String    @map("target_node_id") @db.Uuid
+  edgeType        String    @map("edge_type")
+  weight          Float?
+  firstSeenAt     DateTime? @map("first_seen_at")
+  lastSeenAt      DateTime? @map("last_seen_at")
+  validFrom       DateTime? @map("valid_from")
+  validTo         DateTime? @map("valid_to")
+  sourceReference String?   @map("source_reference")
+  properties      Json?
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+  source          GraphNode @relation("GraphEdgeSource", fields: [sourceNodeId], references: [id])
+  target          GraphNode @relation("GraphEdgeTarget", fields: [targetNodeId], references: [id])
+  snapshotEdges   GnnEdge[]
+
+  @@index([sourceNodeId, edgeType])
+  @@index([targetNodeId, edgeType])
+  @@index([lastSeenAt])
+  @@map("graph_edges")
+}
+
+model GnnGraphSnapshot {
+  id                   String         @id @default(uuid()) @db.Uuid
+  graphVersion         String         @map("graph_version")
+  cutoffAt             DateTime       @map("cutoff_at")
+  nodeCount            BigInt         @map("node_count")
+  edgeCount            BigInt         @map("edge_count")
+  featureSchemaVersion String         @map("feature_schema_version")
+  createdAt            DateTime       @default(now()) @map("created_at")
+  metadata             Json?
+  nodes                GnnNode[]
+  edges                GnnEdge[]
+  embeddings           GnnEmbedding[]
+
+  @@unique([graphVersion, cutoffAt, featureSchemaVersion])
+  @@map("gnn_graph_snapshots")
+}
+
+model GnnNode {
+  snapshotId     String           @map("snapshot_id") @db.Uuid
+  graphNodeId    String           @map("graph_node_id") @db.Uuid
+  gnnIndex       BigInt           @map("gnn_index")
+  nodeType       String           @map("node_type")
+  featureVersion String           @map("feature_version")
+  snapshot       GnnGraphSnapshot @relation(fields: [snapshotId], references: [id], onDelete: Cascade)
+  graphNode      GraphNode        @relation(fields: [graphNodeId], references: [id])
+
+  @@id([snapshotId, graphNodeId])
+  @@unique([snapshotId, gnnIndex])
+  @@map("gnn_nodes")
+}
+
+model GnnEdge {
+  snapshotId     String           @map("snapshot_id") @db.Uuid
+  graphEdgeId    String           @map("graph_edge_id") @db.Uuid
+  sourceGnnIndex BigInt           @map("source_gnn_index")
+  targetGnnIndex BigInt           @map("target_gnn_index")
+  edgeType       String           @map("edge_type")
+  snapshot       GnnGraphSnapshot @relation(fields: [snapshotId], references: [id], onDelete: Cascade)
+  graphEdge      GraphEdge        @relation(fields: [graphEdgeId], references: [id])
+
+  @@id([snapshotId, graphEdgeId])
+  @@map("gnn_edges")
+}
+
+model GnnEmbedding {
+  id           String           @id @default(uuid()) @db.Uuid
+  snapshotId   String           @map("snapshot_id") @db.Uuid
+  graphNodeId  String           @map("graph_node_id") @db.Uuid
+  modelVersion String           @map("model_version")
+  embedding    Json
+  generatedAt  DateTime         @map("generated_at")
+  metadata     Json?
+  snapshot     GnnGraphSnapshot @relation(fields: [snapshotId], references: [id])
+  graphNode    GraphNode        @relation(fields: [graphNodeId], references: [id])
+
+  @@unique([snapshotId, graphNodeId, modelVersion])
+  @@map("gnn_embeddings")
+}
+
+model EvidenceReference {
+  id          String            @id @default(uuid()) @db.Uuid
+  sourceType  String            @map("source_type")
+  sourceId    String            @map("source_id")
+  sourceTable String?           @map("source_table")
+  eventTime   DateTime?         @map("event_time")
+  label       String
+  excerpt     String?
+  metadata    Json?
+  createdAt   DateTime          @default(now()) @map("created_at")
+  findings    FindingEvidence[]
+
+  @@unique([sourceType, sourceId])
+  @@index([eventTime])
+  @@map("evidence_references")
+}
+
+model Investigation {
+  id                     String                 @id @default(uuid()) @db.Uuid
+  createdBy              String                 @map("created_by") @db.Uuid
+  subjectId              String                 @map("subject_id") @db.Uuid
+  status                 InvestigationStatus    @default(OPEN)
+  title                  String?
+  purpose                String?
+  cutoffAt               DateTime?              @map("cutoff_at")
+  predictionHorizonStart DateTime?              @map("prediction_horizon_start")
+  predictionHorizonEnd   DateTime?              @map("prediction_horizon_end")
+  contextVersion         String?                @map("context_version")
+  aiEngineVersion        String?                @map("ai_engine_version")
+  minimumClearanceRank   Int                    @default(1) @map("minimum_clearance_rank")
+  shared                 Boolean                @default(false)
+  createdAt              DateTime               @default(now()) @map("created_at")
+  updatedAt              DateTime               @updatedAt @map("updated_at")
+  closedAt               DateTime?              @map("closed_at")
+  creator                User                   @relation(fields: [createdBy], references: [id])
+  subject                Subject                @relation(fields: [subjectId], references: [id])
+  queries                InvestigationQuery[]
+  findings               InvestigationFinding[]
+  runs                   AnalysisRun[]
+
+  @@index([createdBy, status])
+  @@index([subjectId])
+  @@map("investigations")
+}
+
+model InvestigationQuery {
+  id              String        @id @default(uuid()) @db.Uuid
+  investigationId String        @map("investigation_id") @db.Uuid
+  userId          String        @map("user_id") @db.Uuid
+  queryText       String        @map("query_text")
+  normalizedQuery String?       @map("normalized_query")
+  queryType       String?       @map("query_type")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  investigation   Investigation @relation(fields: [investigationId], references: [id], onDelete: Cascade)
+  user            User          @relation(fields: [userId], references: [id])
+
+  @@map("investigation_queries")
+}
+
+model InvestigationFinding {
+  id              String            @id @default(uuid()) @db.Uuid
+  investigationId String            @map("investigation_id") @db.Uuid
+  findingType     String            @map("finding_type")
+  severity        String?
+  score           Float?
+  confidence      Float?
+  title           String
+  summary         String?
+  sourceComponent String            @map("source_component")
+  modelVersion    String?           @map("model_version")
+  metadata        Json?
+  createdAt       DateTime          @default(now()) @map("created_at")
+  investigation   Investigation     @relation(fields: [investigationId], references: [id], onDelete: Cascade)
+  evidence        FindingEvidence[]
+
+  @@index([investigationId, createdAt])
+  @@map("investigation_findings")
+}
+
+model FindingEvidence {
+  findingId  String               @map("finding_id") @db.Uuid
+  evidenceId String               @map("evidence_id") @db.Uuid
+  relevance  String?
+  createdAt  DateTime             @default(now()) @map("created_at")
+  finding    InvestigationFinding @relation(fields: [findingId], references: [id], onDelete: Cascade)
+  evidence   EvidenceReference    @relation(fields: [evidenceId], references: [id])
+
+  @@id([findingId, evidenceId])
+  @@map("finding_evidence")
+}
+
+model AnalysisRun {
+  id              String         @id @default(uuid()) @db.Uuid
+  investigationId String         @map("investigation_id") @db.Uuid
+  requestedBy     String         @map("requested_by") @db.Uuid
+  status          AnalysisStatus @default(QUEUED)
+  contextVersion  String         @map("context_version")
+  dataSnapshot    String         @map("data_snapshot")
+  cutoffAt        DateTime       @map("cutoff_at")
+  graphSnapshotId String?        @map("graph_snapshot_id") @db.Uuid
+  aiEngineVersion String?        @map("ai_engine_version")
+  modelVersions   Json?          @map("model_versions")
+  requestPayload  Json           @map("request_payload")
+  responsePayload Json?          @map("response_payload")
+  errorCode       String?        @map("error_code")
+  startedAt       DateTime?      @map("started_at")
+  completedAt     DateTime?      @map("completed_at")
+  createdAt       DateTime       @default(now()) @map("created_at")
+  investigation   Investigation  @relation(fields: [investigationId], references: [id], onDelete: Cascade)
+  requester       User           @relation(fields: [requestedBy], references: [id])
+
+  @@index([investigationId, createdAt])
+  @@index([requestedBy, createdAt])
+  @@map("analysis_runs")
+}
+
+model RagInteraction {
+  id              String    @id @default(uuid()) @db.Uuid
+  conversationId  String    @map("conversation_id") @db.Uuid
+  requestId       String    @map("request_id")
+  ragRequestId    String?   @map("rag_request_id")
+  userId          String?   @map("user_id") @db.Uuid
+  scope           ChatScope
+  question        String
+  answer          String?
+  sources         Json?
+  accessScope     Json      @map("access_scope")
+  contextManifest Json?     @map("context_manifest")
+  ragVersion      String?   @map("rag_version")
+  latencyMs       Int?      @map("latency_ms")
+  status          String
+  feedback        Json?
+  createdAt       DateTime  @default(now()) @map("created_at")
+
+  @@index([conversationId, createdAt])
+  @@index([userId, createdAt])
+  @@index([requestId])
+  @@map("rag_interactions")
+}
+
+model ModelRegistry {
+  id                      String   @id @default(uuid()) @db.Uuid
+  code                    String
+  version                 String
+  modelType               String   @map("model_type")
+  status                  String
+  artifactUri             String?  @map("artifact_uri")
+  checksum                String?
+  evaluationScope         String   @map("evaluation_scope")
+  isCalibratedProbability Boolean  @default(false) @map("is_calibrated_probability")
+  metadata                Json?
+  createdAt               DateTime @default(now()) @map("created_at")
+
+  @@unique([code, version])
+  @@map("models")
+}
+
+model AuditEvent {
+  id            String   @id @default(uuid()) @db.Uuid
+  actorUserId   String?  @map("actor_user_id") @db.Uuid
+  action        String
+  resourceType  String   @map("resource_type")
+  resourceId    String?  @map("resource_id")
+  decision      String
+  reasonCode    String?  @map("reason_code")
+  requestId     String?  @map("request_id")
+  ipHash        String?  @map("ip_hash")
+  userAgentHash String?  @map("user_agent_hash")
+  metadata      Json?
+  createdAt     DateTime @default(now()) @map("created_at")
+  actor         User?    @relation(fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([actorUserId, createdAt])
+  @@index([resourceType, resourceId])
+  @@index([action, createdAt])
+  @@map("audit_events")
+}

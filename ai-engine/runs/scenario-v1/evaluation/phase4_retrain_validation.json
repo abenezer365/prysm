@@ -1,0 +1,1859 @@
+{
+  "alignment": {
+    "affiliated_transaction_values": 46094,
+    "affiliation_rate": 1.0,
+    "after": {
+      "anomaly_roc_auc": 0.48700952380952384,
+      "feature_group_test": {
+        "foreign_currency": {
+          "accuracy": 0.5047619047619047,
+          "confusion_matrix": {
+            "fn": 194,
+            "fp": 326,
+            "tn": 199,
+            "tp": 331
+          },
+          "f1": 0.560067681895093,
+          "pr_auc": 0.7693109505008007,
+          "pr_auc_lift_over_prevalence": 0.26931095050080067,
+          "precision": 0.5038051750380518,
+          "prevalence": 0.5,
+          "recall": 0.6304761904761905,
+          "roc_auc": 0.742595918367347,
+          "rows": 1050
+        },
+        "relationships": {
+          "accuracy": 0.5076190476190476,
+          "confusion_matrix": {
+            "fn": 219,
+            "fp": 298,
+            "tn": 227,
+            "tp": 306
+          },
+          "f1": 0.5420726306465898,
+          "pr_auc": 0.5014380625735514,
+          "pr_auc_lift_over_prevalence": 0.0014380625735513908,
+          "precision": 0.5066225165562914,
+          "prevalence": 0.5,
+          "recall": 0.5828571428571429,
+          "roc_auc": 0.5062675736961451,
+          "rows": 1050
+        },
+        "transaction_behavior": {
+          "accuracy": 0.49142857142857144,
+          "confusion_matrix": {
+            "fn": 222,
+            "fp": 312,
+            "tn": 213,
+            "tp": 303
+          },
+          "f1": 0.5315789473684212,
+          "pr_auc": 0.49357211458722944,
+          "pr_auc_lift_over_prevalence": -0.006427885412770562,
+          "precision": 0.4926829268292683,
+          "prevalence": 0.5,
+          "recall": 0.5771428571428572,
+          "roc_auc": 0.4877024943310657,
+          "rows": 1050
+        },
+        "velocity": {
+          "accuracy": 0.4961904761904762,
+          "confusion_matrix": {
+            "fn": 132,
+            "fp": 397,
+            "tn": 128,
+            "tp": 393
+          },
+          "f1": 0.5977186311787072,
+          "pr_auc": 0.629902489259329,
+          "pr_auc_lift_over_prevalence": 0.129902489259329,
+          "precision": 0.49746835443037973,
+          "prevalence": 0.5,
+          "recall": 0.7485714285714286,
+          "roc_auc": 0.6755011337868482,
+          "rows": 1050
+        }
+      },
+      "prevalence": 0.5,
+      "reason": "Aligned predictive population contains both classes and may be evaluated with leakage-safe temporal/entity splits.",
+      "rows": 7000,
+      "rules_roc_auc": 0.8160979591836733,
+      "scenario_test": {
+        "anomaly": {
+          "behavioral_shift": {
+            "detected": 0,
+            "detection_rate": 0.0,
+            "rows": 75
+          },
+          "counterparty_change": {
+            "detected": 4,
+            "detection_rate": 0.05333333333333334,
+            "rows": 75
+          },
+          "foreign_currency_change": {
+            "detected": 5,
+            "detection_rate": 0.06666666666666667,
+            "rows": 75
+          },
+          "normal": {
+            "detected": 42,
+            "detection_rate": 0.08,
+            "rows": 525
+          },
+          "rapid_movement": {
+            "detected": 8,
+            "detection_rate": 0.10666666666666667,
+            "rows": 75
+          },
+          "shared_device": {
+            "detected": 4,
+            "detection_rate": 0.05333333333333334,
+            "rows": 75
+          },
+          "structuring": {
+            "detected": 7,
+            "detection_rate": 0.09333333333333334,
+            "rows": 75
+          },
+          "transaction_burst": {
+            "detected": 3,
+            "detection_rate": 0.04,
+            "rows": 75
+          }
+        },
+        "rules": {
+          "behavioral_shift": {
+            "detected": 15,
+            "detection_rate": 0.2,
+            "rows": 75
+          },
+          "counterparty_change": {
+            "detected": 14,
+            "detection_rate": 0.18666666666666668,
+            "rows": 75
+          },
+          "foreign_currency_change": {
+            "detected": 18,
+            "detection_rate": 0.24,
+            "rows": 75
+          },
+          "normal": {
+            "detected": 128,
+            "detection_rate": 0.2438095238095238,
+            "rows": 525
+          },
+          "rapid_movement": {
+            "detected": 28,
+            "detection_rate": 0.37333333333333335,
+            "rows": 75
+          },
+          "shared_device": {
+            "detected": 17,
+            "detection_rate": 0.22666666666666666,
+            "rows": 75
+          },
+          "structuring": {
+            "detected": 21,
+            "detection_rate": 0.28,
+            "rows": 75
+          },
+          "transaction_burst": {
+            "detected": 16,
+            "detection_rate": 0.21333333333333335,
+            "rows": 75
+          }
+        },
+        "supervised": {
+          "behavioral_shift": {
+            "detected": 42,
+            "detection_rate": 0.56,
+            "rows": 75
+          },
+          "counterparty_change": {
+            "detected": 45,
+            "detection_rate": 0.6,
+            "rows": 75
+          },
+          "foreign_currency_change": {
+            "detected": 50,
+            "detection_rate": 0.6666666666666666,
+            "rows": 75
+          },
+          "normal": {
+            "detected": 317,
+            "detection_rate": 0.6038095238095238,
+            "rows": 525
+          },
+          "rapid_movement": {
+            "detected": 36,
+            "detection_rate": 0.48,
+            "rows": 75
+          },
+          "shared_device": {
+            "detected": 41,
+            "detection_rate": 0.5466666666666666,
+            "rows": 75
+          },
+          "structuring": {
+            "detected": 44,
+            "detection_rate": 0.5866666666666667,
+            "rows": 75
+          },
+          "transaction_burst": {
+            "detected": 44,
+            "detection_rate": 0.5866666666666667,
+            "rows": 75
+          }
+        }
+      },
+      "scope": "synthetic scenario benchmark only",
+      "status": "valid_synthetic_scenario_evaluation",
+      "supervised_pr_auc": 0.4672398201339974,
+      "supervised_pr_auc_lift": -0.0327601798660026,
+      "supervised_roc_auc": 0.4704435374149659
+    },
+    "before": {
+      "anomaly_roc_auc": 0.4768697614442295,
+      "label_prevalence": 0.7650050864699899,
+      "rules_roc_auc": 0.48538961038961037,
+      "supervised_pr_auc": 0.7744014173734868,
+      "supervised_pr_auc_lift": 0.009396330903496897,
+      "supervised_roc_auc": 0.5222609836971539,
+      "valid_predictive_rows": 0,
+      "validity": "invalid_unaligned_diagnostic_only"
+    },
+    "decision": "Permit supervised evaluation only on predictive_population.parquet.",
+    "event_window_status": {
+      "bounded": 7000
+    },
+    "evidence_status": {
+      "aligned_future_event": 7000
+    },
+    "exclusion_reasons_are_nonexclusive": {
+      "cold_or_insufficient_history": 0,
+      "no_affiliated_transaction_evidence": 0,
+      "no_aligned_future_event": 0,
+      "unbounded_event_window": 0
+    },
+    "generated_at_utc": "2026-08-29T09:08:11.417755+00:00",
+    "history_status": {
+      "history_eligible": 7000
+    },
+    "history_status_positive_rate": {
+      "history_eligible": 0.5
+    },
+    "prediction_unit": "typed entity + pattern_start cutoff + observable history + affiliated future transaction inside bounded pattern window",
+    "predictive_eligible_rows": 7000,
+    "related_transaction_timing": {
+      "after_source_window": 0,
+      "before_cutoff": 0,
+      "inside_source_window": 46094,
+      "median_first_related_offset_days": 1.2083333333333333
+    },
+    "related_transaction_values": 46094,
+    "repeated_labels": {
+      "entities": 0,
+      "entities_with_both_classes": 0,
+      "overlapping_later_rows": 0,
+      "rows": 0
+    },
+    "scenario_timing": {
+      "behavioral_shift": {
+        "after_source_window": 0,
+        "before_cutoff": 0,
+        "history_eligible_rate": 1.0,
+        "inside_source_window": 6968,
+        "labels": 500,
+        "positive_rate": 1.0,
+        "related_transactions": 6968
+      },
+      "counterparty_change": {
+        "after_source_window": 0,
+        "before_cutoff": 0,
+        "history_eligible_rate": 1.0,
+        "inside_source_window": 3990,
+        "labels": 500,
+        "positive_rate": 1.0,
+        "related_transactions": 3990
+      },
+      "foreign_currency_change": {
+        "after_source_window": 0,
+        "before_cutoff": 0,
+        "history_eligible_rate": 1.0,
+        "inside_source_window": 2001,
+        "labels": 500,
+        "positive_rate": 1.0,
+        "related_transactions": 2001
+      },
+      "normal": {
+        "after_source_window": 0,
+        "before_cutoff": 0,
+        "history_eligible_rate": 1.0,
+        "inside_source_window": 10551,
+        "labels": 3500,
+        "positive_rate": 0.0,
+        "related_transactions": 10551
+      },
+      "rapid_movement": {
+        "after_source_window": 0,
+        "before_cutoff": 0,
+        "history_eligible_rate": 1.0,
+        "inside_source_window": 1983,
+        "labels": 500,
+        "positive_rate": 1.0,
+        "related_transactions": 1983
+      },
+      "shared_device": {
+        "after_source_window": 0,
+        "before_cutoff": 0,
+        "history_eligible_rate": 1.0,
+        "inside_source_window": 1988,
+        "labels": 500,
+        "positive_rate": 1.0,
+        "related_transactions": 1988
+      },
+      "structuring": {
+        "after_source_window": 0,
+        "before_cutoff": 0,
+        "history_eligible_rate": 1.0,
+        "inside_source_window": 4533,
+        "labels": 500,
+        "positive_rate": 1.0,
+        "related_transactions": 4533
+      },
+      "transaction_burst": {
+        "after_source_window": 0,
+        "before_cutoff": 0,
+        "history_eligible_rate": 1.0,
+        "inside_source_window": 14080,
+        "labels": 500,
+        "positive_rate": 1.0,
+        "related_transactions": 14080
+      }
+    },
+    "source_labels_modified": 0,
+    "source_positive": 3500,
+    "source_prevalence": 0.5,
+    "source_rows": 7000
+  },
+  "comparison": {
+    "original": {
+      "anomaly_roc_auc": 0.4768697614442295,
+      "label_prevalence": 0.7650050864699899,
+      "rules_roc_auc": 0.48538961038961037,
+      "supervised_pr_auc": 0.7744014173734868,
+      "supervised_pr_auc_lift": 0.009396330903496897,
+      "supervised_roc_auc": 0.5222609836971539,
+      "valid_predictive_rows": 0,
+      "validity": "invalid_unaligned_diagnostic_only"
+    },
+    "scenario": {
+      "anomaly_roc_auc": 0.48700952380952384,
+      "label_prevalence": 0.5,
+      "rules_roc_auc": 0.8160979591836733,
+      "supervised_pr_auc": 0.4672398201339974,
+      "supervised_pr_auc_lift": -0.0327601798660026,
+      "supervised_roc_auc": 0.4704435374149659,
+      "valid_predictive_rows": 7000,
+      "validity": "valid_aligned_synthetic_scenario_evaluation"
+    }
+  },
+  "dataset_integration": {
+    "boundary": {
+      "original_data_overwritten": false,
+      "original_raw": "data/raw",
+      "run_root": "ai-engine/runs/scenario-v1",
+      "scenario_manifest": "generator/ground-truth-scenario-generation/output/MANIFEST.json",
+      "scenario_manifest_sha256": "1acd92341913992c2d66274900e750af181bc2b2c643d04b7126e946ad49d692",
+      "scenario_raw": "generator/ground-truth-scenario-generation/output/data",
+      "version": "prysm-scenario-integration-v1"
+    },
+    "status": "READY",
+    "verification": {
+      "account_endpoint_errors": 0,
+      "after_window_evidence": 0,
+      "evidence_values": 46094,
+      "invalid_evidence_affiliations": 0,
+      "invalid_labeled_entities": 0,
+      "label_rows": 7000,
+      "manifest_errors": [],
+      "manifest_sha256": "1acd92341913992c2d66274900e750af181bc2b2c643d04b7126e946ad49d692",
+      "missing_evidence_transactions": 0,
+      "negative": 3500,
+      "positive": 3500,
+      "pre_or_at_cutoff_evidence": 0,
+      "scenario_counts": {
+        "behavioral_shift": 500,
+        "counterparty_change": 500,
+        "foreign_currency_change": 500,
+        "normal": 3500,
+        "rapid_movement": 500,
+        "shared_device": 500,
+        "structuring": 500,
+        "transaction_burst": 500
+      },
+      "schema_compatible": true,
+      "transaction_id_duplicates": 0,
+      "transaction_rows": 747582,
+      "verified": true
+    }
+  },
+  "evidence": {
+    "cases": [
+      {
+        "assessment": {
+          "confidence": {
+            "component_coverage": 1.0,
+            "score": 0.6877333333333334,
+            "status": "sufficient"
+          },
+          "is_fraud_probability": false,
+          "strength": 0.10318236986354633,
+          "tier": "minimal",
+          "type": "uncalibrated_attention_assessment",
+          "weights": {
+            "anomaly": 0.8,
+            "behavior": 1.0,
+            "foreign_currency": 0.7,
+            "gnn": 0.6,
+            "graph": 1.2,
+            "rule": 1.2,
+            "supervised_prediction": 0.0,
+            "transaction": 1.0,
+            "velocity": 1.0
+          }
+        },
+        "cutoff": "2025-06-16T00:00:00+00:00",
+        "evidence_items": 7,
+        "ground_truth_id": "GT00201",
+        "investigation_id": "INV:9d6962859aa5c2ce",
+        "model_probability": 0.53115869451619,
+        "path": "investigations/scenarios/behavioral_shift.json",
+        "scenario": "behavioral_shift",
+        "subject": "Company:C04166"
+      },
+      {
+        "assessment": {
+          "confidence": {
+            "component_coverage": 1.0,
+            "score": 0.7837333333333334,
+            "status": "sufficient"
+          },
+          "is_fraud_probability": false,
+          "strength": 0.33861326200391717,
+          "tier": "low",
+          "type": "uncalibrated_attention_assessment",
+          "weights": {
+            "anomaly": 0.8,
+            "behavior": 1.0,
+            "foreign_currency": 0.7,
+            "gnn": 0.6,
+            "graph": 1.2,
+            "rule": 1.2,
+            "supervised_prediction": 0.0,
+            "transaction": 1.0,
+            "velocity": 1.0
+          }
+        },
+        "cutoff": "2025-06-07T00:00:00+00:00",
+        "evidence_items": 8,
+        "ground_truth_id": "GT00068",
+        "investigation_id": "INV:b6f286393cbcd32f",
+        "model_probability": 0.537235783191547,
+        "path": "investigations/scenarios/counterparty_change.json",
+        "scenario": "counterparty_change",
+        "subject": "Company:C01523"
+      },
+      {
+        "assessment": {
+          "confidence": {
+            "component_coverage": 1.0,
+            "score": 0.8221333333333334,
+            "status": "sufficient"
+          },
+          "is_fraud_probability": false,
+          "strength": 0.47843790215776383,
+          "tier": "low",
+          "type": "uncalibrated_attention_assessment",
+          "weights": {
+            "anomaly": 0.8,
+            "behavior": 1.0,
+            "foreign_currency": 0.7,
+            "gnn": 0.6,
+            "graph": 1.2,
+            "rule": 1.2,
+            "supervised_prediction": 0.0,
+            "transaction": 1.0,
+            "velocity": 1.0
+          }
+        },
+        "cutoff": "2025-04-27T00:00:00+00:00",
+        "evidence_items": 8,
+        "ground_truth_id": "GT00147",
+        "investigation_id": "INV:30603012b376e61e",
+        "model_probability": 0.5717425432143937,
+        "path": "investigations/scenarios/foreign_currency_change.json",
+        "scenario": "foreign_currency_change",
+        "subject": "Company:C03114"
+      },
+      {
+        "assessment": {
+          "confidence": {
+            "component_coverage": 1.0,
+            "score": 0.7645333333333333,
+            "status": "sufficient"
+          },
+          "is_fraud_probability": false,
+          "strength": 0.20561680755106546,
+          "tier": "minimal",
+          "type": "uncalibrated_attention_assessment",
+          "weights": {
+            "anomaly": 0.8,
+            "behavior": 1.0,
+            "foreign_currency": 0.7,
+            "gnn": 0.6,
+            "graph": 1.2,
+            "rule": 1.2,
+            "supervised_prediction": 0.0,
+            "transaction": 1.0,
+            "velocity": 1.0
+          }
+        },
+        "cutoff": "2025-04-14T00:00:00+00:00",
+        "evidence_items": 7,
+        "ground_truth_id": "GT00500",
+        "investigation_id": "INV:0cb537ebab15ed42",
+        "model_probability": 0.5377422213693622,
+        "path": "investigations/scenarios/rapid_movement.json",
+        "scenario": "rapid_movement",
+        "subject": "Company:C09682"
+      },
+      {
+        "assessment": {
+          "confidence": {
+            "component_coverage": 1.0,
+            "score": 0.7453333333333333,
+            "status": "sufficient"
+          },
+          "is_fraud_probability": false,
+          "strength": 0.5871078870030871,
+          "tier": "moderate",
+          "type": "uncalibrated_attention_assessment",
+          "weights": {
+            "anomaly": 0.8,
+            "behavior": 1.0,
+            "foreign_currency": 0.7,
+            "gnn": 0.6,
+            "graph": 1.2,
+            "rule": 1.2,
+            "supervised_prediction": 0.0,
+            "transaction": 1.0,
+            "velocity": 1.0
+          }
+        },
+        "cutoff": "2025-07-08T00:00:00+00:00",
+        "evidence_items": 9,
+        "ground_truth_id": "GT00129",
+        "investigation_id": "INV:13db21fe02cbe2d5",
+        "model_probability": 0.5402481036259543,
+        "path": "investigations/scenarios/shared_device.json",
+        "scenario": "shared_device",
+        "subject": "Company:C02816"
+      },
+      {
+        "assessment": {
+          "confidence": {
+            "component_coverage": 1.0,
+            "score": 0.7837333333333334,
+            "status": "sufficient"
+          },
+          "is_fraud_probability": false,
+          "strength": 0.2622793531267373,
+          "tier": "low",
+          "type": "uncalibrated_attention_assessment",
+          "weights": {
+            "anomaly": 0.8,
+            "behavior": 1.0,
+            "foreign_currency": 0.7,
+            "gnn": 0.6,
+            "graph": 1.2,
+            "rule": 1.2,
+            "supervised_prediction": 0.0,
+            "transaction": 1.0,
+            "velocity": 1.0
+          }
+        },
+        "cutoff": "2025-05-08T00:00:00+00:00",
+        "evidence_items": 8,
+        "ground_truth_id": "GT00494",
+        "investigation_id": "INV:c973906b53b07099",
+        "model_probability": 0.5496617196661994,
+        "path": "investigations/scenarios/structuring.json",
+        "scenario": "structuring",
+        "subject": "Company:C09550"
+      },
+      {
+        "assessment": {
+          "confidence": {
+            "component_coverage": 1.0,
+            "score": 0.7645333333333333,
+            "status": "sufficient"
+          },
+          "is_fraud_probability": false,
+          "strength": 0.16752914249745057,
+          "tier": "minimal",
+          "type": "uncalibrated_attention_assessment",
+          "weights": {
+            "anomaly": 0.8,
+            "behavior": 1.0,
+            "foreign_currency": 0.7,
+            "gnn": 0.6,
+            "graph": 1.2,
+            "rule": 1.2,
+            "supervised_prediction": 0.0,
+            "transaction": 1.0,
+            "velocity": 1.0
+          }
+        },
+        "cutoff": "2025-06-07T00:00:00+00:00",
+        "evidence_items": 7,
+        "ground_truth_id": "GT00121",
+        "investigation_id": "INV:e1e69a1cb8c7a94c",
+        "model_probability": 0.5425735662721907,
+        "path": "investigations/scenarios/transaction_burst.json",
+        "scenario": "transaction_burst",
+        "subject": "Company:C02646"
+      }
+    ],
+    "validation": {
+      "duplicate_evidence_ids": 0,
+      "invalid_edge_references": 0,
+      "invalid_entity_references": 0,
+      "invalid_relationship_references": 0,
+      "invalid_transaction_references": 0,
+      "representative_investigations": 7,
+      "scenario_count": 7,
+      "status": "PASS"
+    }
+  },
+  "foundation": {
+    "processed_manifest": "data/processed/MANIFEST.json",
+    "source": {
+      "accounts": {
+        "columns": 12,
+        "rows": 150000,
+        "sha256": "2d20c7f9c3626de2ffd437788c94c87472bf10c704ddf65098d9d790de64f661"
+      },
+      "banks": {
+        "columns": 5,
+        "rows": 20,
+        "sha256": "cc0c68caccdfaf5c4438995e264edeee9182a4c36368d1c52b693afbd61655e5"
+      },
+      "companies": {
+        "columns": 11,
+        "rows": 10000,
+        "sha256": "712cb8ec7fd6a3a90f7a2c4770498a875a4b927b2003bcf810cf78c7decaadb5"
+      },
+      "devices": {
+        "columns": 9,
+        "rows": 90000,
+        "sha256": "ef32a4b878bfd052447d54dcd33ddf40328581e1ef8e8cf88a25a14666455ffd"
+      },
+      "ground_truth": {
+        "columns": 10,
+        "rows": 7000,
+        "sha256": "3bf53e53f4c096224013e734b7172c60d053044f2b0109675529f013d87d7c41"
+      },
+      "invoices": {
+        "columns": 11,
+        "rows": 200000,
+        "sha256": "e63aac7ffdb151f53d9d9f11e5588b83b31dff05e5724f1c1fa96542d72690f0"
+      },
+      "persons": {
+        "columns": 16,
+        "rows": 101000,
+        "sha256": "ce42af30d8cded3911fc781c661ca6295c42f1dbe8aa433fbc3d768b8250a254"
+      },
+      "relationships": {
+        "columns": 9,
+        "rows": 500000,
+        "sha256": "32f09330fc2a8c8c8bf8c38bf36ad2e8f9e3eab5888b21963c95eba79fa386ab"
+      },
+      "transactions": {
+        "columns": 16,
+        "rows": 747582,
+        "sha256": "5121ad5fb1f04c45b1e9df97a7cfdb82d034f5930dfc7033dad34fcda7799254"
+      }
+    }
+  },
+  "fusion": {
+    "assessment_type": "uncalibrated_attention_assessment",
+    "calibrated": false,
+    "representative_cases": 7,
+    "status": "PASS"
+  },
+  "generated_at_utc": "2026-08-29T09:10:58.447753+00:00",
+  "gnn": {
+    "evaluation_validity": "valid for structural link reconstruction only; NOT VALID FOR PREDICTIVE RISK CLAIMS",
+    "link_reconstruction_roc_auc": 0.5150433625,
+    "reason": "Labels are valid, but the stored full-graph embeddings are retrospective and cannot train a predictive head without future-edge leakage; a batched cutoff-safe GNN training path is not implemented.",
+    "status": "self_supervised_structural_signal",
+    "supervised_metrics": null,
+    "supervised_status": "NOT_RUN_CUTOFF_SAFE_HEAD_REQUIRED"
+  },
+  "graph": {
+    "manifest": {
+      "edges": {
+        "held_at": {
+          "by_type": {
+            "held_at": 150000
+          },
+          "rows": 150000,
+          "sha256": "00e70036bdca14e960fdadcb4ba06fcfcab185b4b9bba476c56217ed20bba7d1"
+        },
+        "invoice_issuer": {
+          "by_type": {
+            "issued_invoice": 200000
+          },
+          "rows": 200000,
+          "sha256": "307b38f6bf731681a085a496aeb08eab156f02e15a5182f6ee38bfc25ac7a2d4"
+        },
+        "invoice_recipient": {
+          "by_type": {
+            "received_invoice": 200000
+          },
+          "rows": 200000,
+          "sha256": "81acdd20195d43ef0cbeb63a94ec37fbff278078b00e971c37ad397659ce7165"
+        },
+        "linked_invoice": {
+          "by_type": {
+            "transaction_linked_invoice": 505266
+          },
+          "rows": 505266,
+          "sha256": "fd2f439efa1b3f294b20047e9259b8c695581dcb7cb6e86385bb366deb11d5dc"
+        },
+        "ownership": {
+          "by_type": {
+            "owns": 150000
+          },
+          "rows": 150000,
+          "sha256": "e8c1b1962f0242adde95005a3b9b08fd893dbfcd4712f992d1f974f02326bf4d"
+        },
+        "relationships": {
+          "by_type": {
+            "relationship:business_partner": 60179,
+            "relationship:counterpart": 49757,
+            "relationship:employer_employee": 59781,
+            "relationship:family": 74849,
+            "relationship:guarantor": 39670,
+            "relationship:joint_account": 40452,
+            "relationship:referral": 25308,
+            "relationship:shared_address": 50190,
+            "relationship:shared_device": 50241,
+            "relationship:supplier_customer": 49573
+          },
+          "rows": 500000,
+          "sha256": "968cb12c862f51fa466e4a6f4001708e0a6a358182e599d3ce6e6879a41fa833"
+        },
+        "transfers": {
+          "by_type": {
+            "transfers": 747582
+          },
+          "rows": 747582,
+          "sha256": "f2887c22896228da48dc5c3e25326308e9c7383be00cb886d83e8e35daee0749"
+        },
+        "uses_device": {
+          "by_type": {
+            "uses_device": 679211
+          },
+          "rows": 679211,
+          "sha256": "fbebf6d37949ed1bb07a1fc319660158a08b3b3ea4190d02017169270ce1e9d2"
+        }
+      },
+      "generated_at_utc": "2026-08-29T09:09:52.459664+00:00",
+      "graph_version": "prysm-financial-graph-v1",
+      "invalid_endpoints": 0,
+      "nodes": {
+        "by_type": {
+          "Account": 150000,
+          "Bank": 20,
+          "Company": 10000,
+          "Device": 89927,
+          "Invoice": 200000,
+          "Person": 100000
+        },
+        "rows": 549947,
+        "sha256": "9b98ad25373cec9500ab4867e5cc6454dfc5ffa4968041bb6a5961728d20b3b2"
+      },
+      "source_labels_used": false
+    },
+    "status": "PASS",
+    "validation": {
+      "confidence_range": [
+        0.30000001192092896,
+        1.0
+      ],
+      "connected_components": 21,
+      "dense_entities_are_context_not_risk": [
+        {
+          "degree": 7701,
+          "node_key": "Bank:BNK020",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7595,
+          "node_key": "Bank:BNK011",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7587,
+          "node_key": "Bank:BNK008",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7556,
+          "node_key": "Bank:BNK010",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7556,
+          "node_key": "Bank:BNK018",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7544,
+          "node_key": "Bank:BNK009",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7542,
+          "node_key": "Bank:BNK001",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7533,
+          "node_key": "Bank:BNK004",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7528,
+          "node_key": "Bank:BNK002",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7526,
+          "node_key": "Bank:BNK013",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7515,
+          "node_key": "Bank:BNK017",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7506,
+          "node_key": "Bank:BNK015",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7505,
+          "node_key": "Bank:BNK016",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7504,
+          "node_key": "Bank:BNK005",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7504,
+          "node_key": "Bank:BNK007",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7404,
+          "node_key": "Bank:BNK019",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7370,
+          "node_key": "Bank:BNK003",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7357,
+          "node_key": "Bank:BNK012",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7344,
+          "node_key": "Bank:BNK014",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        },
+        {
+          "degree": 7323,
+          "node_key": "Bank:BNK006",
+          "node_type": "Bank",
+          "transaction_volume_etb": 0.0
+        }
+      ],
+      "duplicate_edge_id_rows": 0,
+      "duplicate_semantic_edge_rows": 0,
+      "edge_count": 3132059,
+      "edge_counts": {
+        "held_at": 150000,
+        "issued_invoice": 200000,
+        "owns": 150000,
+        "received_invoice": 200000,
+        "relationship:business_partner": 60179,
+        "relationship:counterpart": 49757,
+        "relationship:employer_employee": 59781,
+        "relationship:family": 74849,
+        "relationship:guarantor": 39670,
+        "relationship:joint_account": 40452,
+        "relationship:referral": 25308,
+        "relationship:shared_address": 50190,
+        "relationship:shared_device": 50241,
+        "relationship:supplier_customer": 49573,
+        "transaction_linked_invoice": 505266,
+        "transfers": 747582,
+        "uses_device": 679211
+      },
+      "expected_account_ownership_edges": 150000,
+      "generated_at_utc": "2026-08-29T09:10:21.431388+00:00",
+      "graph_version": "prysm-financial-graph-v1",
+      "invalid_endpoints": 0,
+      "largest_component": 549927,
+      "node_count": 549947,
+      "node_counts": {
+        "Account": 150000,
+        "Bank": 20,
+        "Company": 10000,
+        "Device": 89927,
+        "Invoice": 200000,
+        "Person": 100000
+      },
+      "orphan_nodes": 20,
+      "ownership_edge_count": 150000,
+      "self_loops": 0,
+      "supervised_labels_used": false,
+      "temporal_end_before_start": 0
+    }
+  },
+  "leakage_audit": {
+    "cutoff_only_roc_auc": 0.5331229024943311,
+    "hard_failures": {
+      "entity_split_overlap": 0,
+      "forbidden_model_columns": [],
+      "future_evidence_ids_in_pre_cutoff_features": 0,
+      "generated_scenario_transactions_in_pre_cutoff_features": 0
+    },
+    "interpretation": "High univariate ranking is reviewed as possible generator structure; only forbidden/future information constitutes a contract failure.",
+    "status": "PASS",
+    "strongest_single_feature_absolute_roc_auc": {
+      "failed_rate_30d": 0.9467718820861677,
+      "foreign_inflow_count_30d": 0.9503673469387756,
+      "foreign_inflow_etb_30d": 0.9493986394557824,
+      "foreign_recent_to_history_ratio": 0.9494820861678005,
+      "inflow_etb_1d": 0.9962013605442177,
+      "inflow_etb_7d": 0.9273578231292517,
+      "outflow_etb_1d": 0.9962049886621315,
+      "outflow_etb_7d": 0.9536979591836734,
+      "outflow_ratio_7d": 0.953556462585034,
+      "tx_count_1d": 0.9924680272108843
+    }
+  },
+  "limitations": [
+    "The target is controlled synthetic future-scenario occurrence, not observed real-world fraud or AML outcome.",
+    "Scenario assignment may not be predictable from pre-cutoff behavior; near-random predictive performance is a valid result.",
+    "The final fusion remains uncalibrated and is not a fraud probability.",
+    "Supervised GNN evaluation is withheld until a batched cutoff-safe training path exists; retrospective embeddings contain future edges.",
+    "GraphStore remains disk-scan based and is not optimized for interactive latency."
+  ],
+  "phase2": {
+    "anomaly": {
+      "test": {
+        "accuracy": 0.4895238095238095,
+        "confusion_matrix": {
+          "fn": 494,
+          "fp": 42,
+          "tn": 483,
+          "tp": 31
+        },
+        "f1": 0.10367892976588629,
+        "pr_auc": 0.4850190479918917,
+        "pr_auc_lift_over_prevalence": -0.014980952008108284,
+        "precision": 0.4246575342465753,
+        "prevalence": 0.5,
+        "recall": 0.05904761904761905,
+        "roc_auc": 0.48700952380952384,
+        "rows": 1050
+      },
+      "train": {
+        "accuracy": 0.49714285714285716,
+        "confusion_matrix": {
+          "fn": 2212,
+          "fp": 252,
+          "tn": 2198,
+          "tp": 238
+        },
+        "f1": 0.1619047619047619,
+        "pr_auc": 0.49128105197054234,
+        "pr_auc_lift_over_prevalence": -0.008718948029457663,
+        "precision": 0.4857142857142857,
+        "prevalence": 0.5,
+        "recall": 0.09714285714285714,
+        "roc_auc": 0.4900086630570596,
+        "rows": 4900
+      },
+      "validation": {
+        "accuracy": 0.49523809523809526,
+        "confusion_matrix": {
+          "fn": 487,
+          "fp": 43,
+          "tn": 482,
+          "tp": 38
+        },
+        "f1": 0.1254125412541254,
+        "pr_auc": 0.5088813495591407,
+        "pr_auc_lift_over_prevalence": 0.008881349559140661,
+        "precision": 0.4691358024691358,
+        "prevalence": 0.5,
+        "recall": 0.07238095238095238,
+        "roc_auc": 0.5287873015873016,
+        "rows": 1050
+      }
+    },
+    "entity_overlap": {
+      "train_test": 0,
+      "train_validation": 0,
+      "validation_test": 0
+    },
+    "evaluation_validity": "valid_aligned_synthetic_scenario_evaluation",
+    "feature_count": 32,
+    "feature_group_test": {
+      "foreign_currency": {
+        "accuracy": 0.5047619047619047,
+        "confusion_matrix": {
+          "fn": 194,
+          "fp": 326,
+          "tn": 199,
+          "tp": 331
+        },
+        "f1": 0.560067681895093,
+        "pr_auc": 0.7693109505008007,
+        "pr_auc_lift_over_prevalence": 0.26931095050080067,
+        "precision": 0.5038051750380518,
+        "prevalence": 0.5,
+        "recall": 0.6304761904761905,
+        "roc_auc": 0.742595918367347,
+        "rows": 1050
+      },
+      "relationships": {
+        "accuracy": 0.5076190476190476,
+        "confusion_matrix": {
+          "fn": 219,
+          "fp": 298,
+          "tn": 227,
+          "tp": 306
+        },
+        "f1": 0.5420726306465898,
+        "pr_auc": 0.5014380625735514,
+        "pr_auc_lift_over_prevalence": 0.0014380625735513908,
+        "precision": 0.5066225165562914,
+        "prevalence": 0.5,
+        "recall": 0.5828571428571429,
+        "roc_auc": 0.5062675736961451,
+        "rows": 1050
+      },
+      "transaction_behavior": {
+        "accuracy": 0.49142857142857144,
+        "confusion_matrix": {
+          "fn": 222,
+          "fp": 312,
+          "tn": 213,
+          "tp": 303
+        },
+        "f1": 0.5315789473684212,
+        "pr_auc": 0.49357211458722944,
+        "pr_auc_lift_over_prevalence": -0.006427885412770562,
+        "precision": 0.4926829268292683,
+        "prevalence": 0.5,
+        "recall": 0.5771428571428572,
+        "roc_auc": 0.4877024943310657,
+        "rows": 1050
+      },
+      "velocity": {
+        "accuracy": 0.4961904761904762,
+        "confusion_matrix": {
+          "fn": 132,
+          "fp": 397,
+          "tn": 128,
+          "tp": 393
+        },
+        "f1": 0.5977186311787072,
+        "pr_auc": 0.629902489259329,
+        "pr_auc_lift_over_prevalence": 0.129902489259329,
+        "precision": 0.49746835443037973,
+        "prevalence": 0.5,
+        "recall": 0.7485714285714286,
+        "roc_auc": 0.6755011337868482,
+        "rows": 1050
+      }
+    },
+    "feature_names": [
+      "history_tx_count",
+      "history_inflow_etb",
+      "history_outflow_etb",
+      "history_median_amount_etb",
+      "history_mean_amount_etb",
+      "history_std_amount_etb",
+      "tx_count_1d",
+      "tx_count_7d",
+      "tx_count_30d",
+      "inflow_etb_1d",
+      "inflow_etb_7d",
+      "inflow_etb_30d",
+      "outflow_etb_1d",
+      "outflow_etb_7d",
+      "outflow_etb_30d",
+      "foreign_inflow_etb_30d",
+      "foreign_inflow_count_30d",
+      "currency_diversity_30d",
+      "counterparty_count_30d",
+      "device_count_30d",
+      "invoice_link_rate_30d",
+      "failed_rate_30d",
+      "outflow_ratio_7d",
+      "recent_amount_z",
+      "recent_to_history_count_ratio",
+      "foreign_recent_to_history_ratio",
+      "relationship_degree",
+      "company_connection_count",
+      "employer_relationship_count",
+      "shared_device_relationship_count",
+      "shared_address_relationship_count",
+      "mean_relationship_confidence"
+    ],
+    "generated_at_utc": "2026-08-29T09:08:21.038068+00:00",
+    "leakage_exclusions": [
+      "ground_truth_id",
+      "entity_key",
+      "target",
+      "scenario",
+      "as_of",
+      "behavior_type",
+      "risk_pattern",
+      "severity",
+      "related_entity_ids"
+    ],
+    "purged_repeated_entity_rows": 0,
+    "rules": {
+      "finding_count": 2837,
+      "test": {
+        "accuracy": 0.5009523809523809,
+        "confusion_matrix": {
+          "fn": 396,
+          "fp": 128,
+          "tn": 397,
+          "tp": 129
+        },
+        "f1": 0.32992327365728896,
+        "pr_auc": 0.7729347578805337,
+        "pr_auc_lift_over_prevalence": 0.2729347578805337,
+        "precision": 0.5019455252918288,
+        "prevalence": 0.5,
+        "recall": 0.24571428571428572,
+        "roc_auc": 0.8160979591836733,
+        "rows": 1050
+      },
+      "train": {
+        "accuracy": 0.4936734693877551,
+        "confusion_matrix": {
+          "fn": 1742,
+          "fp": 739,
+          "tn": 1711,
+          "tp": 708
+        },
+        "f1": 0.36335642802155504,
+        "pr_auc": 0.7617022957426544,
+        "pr_auc_lift_over_prevalence": 0.26170229574265436,
+        "precision": 0.4892881824464409,
+        "prevalence": 0.5,
+        "recall": 0.2889795918367347,
+        "roc_auc": 0.7855330279050395,
+        "rows": 4900
+      },
+      "validation": {
+        "accuracy": 0.5152380952380953,
+        "confusion_matrix": {
+          "fn": 381,
+          "fp": 128,
+          "tn": 397,
+          "tp": 144
+        },
+        "f1": 0.3613550815558344,
+        "pr_auc": 0.7867389670624166,
+        "pr_auc_lift_over_prevalence": 0.28673896706241664,
+        "precision": 0.5294117647058824,
+        "prevalence": 0.5,
+        "recall": 0.2742857142857143,
+        "roc_auc": 0.8230639455782311,
+        "rows": 1050
+      }
+    },
+    "scenario_test": {
+      "anomaly": {
+        "behavioral_shift": {
+          "detected": 0,
+          "detection_rate": 0.0,
+          "rows": 75
+        },
+        "counterparty_change": {
+          "detected": 4,
+          "detection_rate": 0.05333333333333334,
+          "rows": 75
+        },
+        "foreign_currency_change": {
+          "detected": 5,
+          "detection_rate": 0.06666666666666667,
+          "rows": 75
+        },
+        "normal": {
+          "detected": 42,
+          "detection_rate": 0.08,
+          "rows": 525
+        },
+        "rapid_movement": {
+          "detected": 8,
+          "detection_rate": 0.10666666666666667,
+          "rows": 75
+        },
+        "shared_device": {
+          "detected": 4,
+          "detection_rate": 0.05333333333333334,
+          "rows": 75
+        },
+        "structuring": {
+          "detected": 7,
+          "detection_rate": 0.09333333333333334,
+          "rows": 75
+        },
+        "transaction_burst": {
+          "detected": 3,
+          "detection_rate": 0.04,
+          "rows": 75
+        }
+      },
+      "rules": {
+        "behavioral_shift": {
+          "detected": 15,
+          "detection_rate": 0.2,
+          "rows": 75
+        },
+        "counterparty_change": {
+          "detected": 14,
+          "detection_rate": 0.18666666666666668,
+          "rows": 75
+        },
+        "foreign_currency_change": {
+          "detected": 18,
+          "detection_rate": 0.24,
+          "rows": 75
+        },
+        "normal": {
+          "detected": 128,
+          "detection_rate": 0.2438095238095238,
+          "rows": 525
+        },
+        "rapid_movement": {
+          "detected": 28,
+          "detection_rate": 0.37333333333333335,
+          "rows": 75
+        },
+        "shared_device": {
+          "detected": 17,
+          "detection_rate": 0.22666666666666666,
+          "rows": 75
+        },
+        "structuring": {
+          "detected": 21,
+          "detection_rate": 0.28,
+          "rows": 75
+        },
+        "transaction_burst": {
+          "detected": 16,
+          "detection_rate": 0.21333333333333335,
+          "rows": 75
+        }
+      },
+      "supervised": {
+        "behavioral_shift": {
+          "detected": 42,
+          "detection_rate": 0.56,
+          "rows": 75
+        },
+        "counterparty_change": {
+          "detected": 45,
+          "detection_rate": 0.6,
+          "rows": 75
+        },
+        "foreign_currency_change": {
+          "detected": 50,
+          "detection_rate": 0.6666666666666666,
+          "rows": 75
+        },
+        "normal": {
+          "detected": 317,
+          "detection_rate": 0.6038095238095238,
+          "rows": 525
+        },
+        "rapid_movement": {
+          "detected": 36,
+          "detection_rate": 0.48,
+          "rows": 75
+        },
+        "shared_device": {
+          "detected": 41,
+          "detection_rate": 0.5466666666666666,
+          "rows": 75
+        },
+        "structuring": {
+          "detected": 44,
+          "detection_rate": 0.5866666666666667,
+          "rows": 75
+        },
+        "transaction_burst": {
+          "detected": 44,
+          "detection_rate": 0.5866666666666667,
+          "rows": 75
+        }
+      }
+    },
+    "split": {
+      "test": {
+        "max_as_of": "2025-08-15T00:00:00+00:00",
+        "min_as_of": "2025-04-01T00:00:00+00:00",
+        "positive": 525,
+        "rows": 1050
+      },
+      "train": {
+        "max_as_of": "2024-10-15T00:00:00+00:00",
+        "min_as_of": "2024-06-01T00:00:00+00:00",
+        "positive": 2450,
+        "rows": 4900
+      },
+      "validation": {
+        "max_as_of": "2025-03-15T00:00:00+00:00",
+        "min_as_of": "2024-11-01T00:00:00+00:00",
+        "positive": 525,
+        "rows": 1050
+      }
+    },
+    "split_method": "declared_forward_entity_disjoint",
+    "supervised": {
+      "coefficients": {
+        "company_connection_count": -0.04084988729741379,
+        "counterparty_count_30d": 0.016144162798299732,
+        "currency_diversity_30d": -0.04307493818805436,
+        "device_count_30d": 0.01143636489527733,
+        "employer_relationship_count": 0.024698069388796307,
+        "failed_rate_30d": 0.03801391901007839,
+        "foreign_inflow_count_30d": -0.013442188037441655,
+        "foreign_inflow_etb_30d": 0.0202206927825755,
+        "foreign_recent_to_history_ratio": -0.023880113618226503,
+        "history_inflow_etb": 0.03562406797158127,
+        "history_mean_amount_etb": -0.002336766162348168,
+        "history_median_amount_etb": 0.01745662913162402,
+        "history_outflow_etb": -0.04911244947355975,
+        "history_std_amount_etb": -0.013230011609590604,
+        "history_tx_count": -0.01724424530500553,
+        "inflow_etb_1d": -0.029605040400072783,
+        "inflow_etb_30d": 0.025037856948497115,
+        "inflow_etb_7d": -0.019847480513039754,
+        "invoice_link_rate_30d": -0.015521612771654182,
+        "mean_relationship_confidence": 0.002109419148205589,
+        "outflow_etb_1d": -0.006065660343858181,
+        "outflow_etb_30d": -0.06337655746182869,
+        "outflow_etb_7d": 0.007315761103178758,
+        "outflow_ratio_7d": -0.010527700697879597,
+        "recent_amount_z": 0.01661554211278691,
+        "recent_to_history_count_ratio": 0.012287517460896694,
+        "relationship_degree": -0.01872504706450941,
+        "shared_address_relationship_count": 0.03733733662186639,
+        "shared_device_relationship_count": -0.01594451909945297,
+        "tx_count_1d": 0.0009369677048418042,
+        "tx_count_30d": 0.016144162798299732,
+        "tx_count_7d": 0.033434045510876316
+      },
+      "test": {
+        "accuracy": 0.4857142857142857,
+        "confusion_matrix": {
+          "fn": 223,
+          "fp": 317,
+          "tn": 208,
+          "tp": 302
+        },
+        "f1": 0.5279720279720279,
+        "pr_auc": 0.4672398201339974,
+        "pr_auc_lift_over_prevalence": -0.0327601798660026,
+        "precision": 0.4878836833602585,
+        "prevalence": 0.5,
+        "recall": 0.5752380952380952,
+        "roc_auc": 0.4704435374149659,
+        "rows": 1050
+      },
+      "train": {
+        "accuracy": 0.5242857142857142,
+        "confusion_matrix": {
+          "fn": 1005,
+          "fp": 1326,
+          "tn": 1124,
+          "tp": 1445
+        },
+        "f1": 0.5535338057843325,
+        "pr_auc": 0.521990754570573,
+        "pr_auc_lift_over_prevalence": 0.02199075457057298,
+        "precision": 0.5214723926380368,
+        "prevalence": 0.5,
+        "recall": 0.5897959183673469,
+        "roc_auc": 0.5323243648479801,
+        "rows": 4900
+      },
+      "validation": {
+        "accuracy": 0.4990476190476191,
+        "confusion_matrix": {
+          "fn": 214,
+          "fp": 312,
+          "tn": 213,
+          "tp": 311
+        },
+        "f1": 0.5418118466898955,
+        "pr_auc": 0.5225360521426328,
+        "pr_auc_lift_over_prevalence": 0.022536052142632768,
+        "precision": 0.49919743178170145,
+        "prevalence": 0.5,
+        "recall": 0.5923809523809523,
+        "roc_auc": 0.5053931972789115,
+        "rows": 1050
+      }
+    }
+  },
+  "recommendation": "Use these results as the valid synthetic benchmark baseline. Improve scenario causal precursors and add a batched cutoff-safe GNN training/evaluation path before claiming predictive graph performance; do not tune thresholds or models solely to inflate scores.",
+  "reproducibility": {
+    "feature_set_sha256": "4538555d7c5283965e7291f8a3df6b589d2f35ae58f334dbb6a1d5ec6f8e723a",
+    "gnn_artifact_sha256": "06c5e80259e16d35d5ad1f2ae6e99416590cca412a13f25f72140054893f103d",
+    "graph_manifest_sha256": "fae4120130a979c6e14990a648651605f88542edf51df9b6c4c01136a510e183",
+    "intelligence_config_sha256": "4ded354c3784dbf7404d3b7668145d9ec3a4b4f11c4e58ac6c63584206313538",
+    "phase2_retraining_metrics_identical": true,
+    "scenario_manifest_sha256": "1acd92341913992c2d66274900e750af181bc2b2c643d04b7126e946ad49d692",
+    "supervised_model_sha256": "1c845d81ddb6f02e8e7c8df977fcc9497d8fbcd321c55915edce7d001ab879c5"
+  },
+  "scenario_performance": {
+    "behavioral_shift": {
+      "anomaly": {
+        "accuracy": 0.805,
+        "confusion_matrix": {
+          "fn": 75,
+          "fp": 42,
+          "tn": 483,
+          "tp": 0
+        },
+        "f1": 0.0,
+        "pr_auc": 0.10806540529244539,
+        "pr_auc_lift_over_prevalence": -0.01693459470755461,
+        "precision": 0.0,
+        "prevalence": 0.125,
+        "recall": 0.0,
+        "roc_auc": 0.45572063492063497,
+        "rows": 600
+      },
+      "positive_rows": 75,
+      "rows": 600,
+      "rules": {
+        "accuracy": 0.6866666666666666,
+        "confusion_matrix": {
+          "fn": 60,
+          "fp": 128,
+          "tn": 397,
+          "tp": 15
+        },
+        "f1": 0.13761467889908258,
+        "pr_auc": 0.07469854837066611,
+        "pr_auc_lift_over_prevalence": -0.05030145162933389,
+        "precision": 0.1048951048951049,
+        "prevalence": 0.125,
+        "recall": 0.2,
+        "roc_auc": 0.15123809523809523,
+        "rows": 600
+      },
+      "supervised": {
+        "accuracy": 0.4166666666666667,
+        "confusion_matrix": {
+          "fn": 33,
+          "fp": 317,
+          "tn": 208,
+          "tp": 42
+        },
+        "f1": 0.1935483870967742,
+        "pr_auc": 0.11241567818579087,
+        "pr_auc_lift_over_prevalence": -0.012584321814209126,
+        "precision": 0.116991643454039,
+        "prevalence": 0.125,
+        "recall": 0.56,
+        "roc_auc": 0.4802793650793651,
+        "rows": 600
+      }
+    },
+    "counterparty_change": {
+      "anomaly": {
+        "accuracy": 0.8116666666666666,
+        "confusion_matrix": {
+          "fn": 71,
+          "fp": 42,
+          "tn": 483,
+          "tp": 4
+        },
+        "f1": 0.06611570247933883,
+        "pr_auc": 0.12322066004854997,
+        "pr_auc_lift_over_prevalence": -0.0017793399514500347,
+        "precision": 0.08695652173913043,
+        "prevalence": 0.125,
+        "recall": 0.05333333333333334,
+        "roc_auc": 0.5003682539682539,
+        "rows": 600
+      },
+      "positive_rows": 75,
+      "rows": 600,
+      "rules": {
+        "accuracy": 0.685,
+        "confusion_matrix": {
+          "fn": 61,
+          "fp": 128,
+          "tn": 397,
+          "tp": 14
+        },
+        "f1": 0.12903225806451613,
+        "pr_auc": 0.07367031734243508,
+        "pr_auc_lift_over_prevalence": -0.05132968265756492,
+        "precision": 0.09859154929577464,
+        "prevalence": 0.125,
+        "recall": 0.18666666666666668,
+        "roc_auc": 0.14115555555555556,
+        "rows": 600
+      },
+      "supervised": {
+        "accuracy": 0.4216666666666667,
+        "confusion_matrix": {
+          "fn": 30,
+          "fp": 317,
+          "tn": 208,
+          "tp": 45
+        },
+        "f1": 0.2059496567505721,
+        "pr_auc": 0.11968595343029209,
+        "pr_auc_lift_over_prevalence": -0.005314046569707909,
+        "precision": 0.12430939226519337,
+        "prevalence": 0.125,
+        "recall": 0.6,
+        "roc_auc": 0.4841396825396826,
+        "rows": 600
+      }
+    },
+    "foreign_currency_change": {
+      "anomaly": {
+        "accuracy": 0.8133333333333334,
+        "confusion_matrix": {
+          "fn": 70,
+          "fp": 42,
+          "tn": 483,
+          "tp": 5
+        },
+        "f1": 0.08196721311475409,
+        "pr_auc": 0.1399439933997664,
+        "pr_auc_lift_over_prevalence": 0.014943993399766403,
+        "precision": 0.10638297872340426,
+        "prevalence": 0.125,
+        "recall": 0.06666666666666667,
+        "roc_auc": 0.5216253968253968,
+        "rows": 600
+      },
+      "positive_rows": 75,
+      "rows": 600,
+      "rules": {
+        "accuracy": 0.6916666666666667,
+        "confusion_matrix": {
+          "fn": 57,
+          "fp": 128,
+          "tn": 397,
+          "tp": 18
+        },
+        "f1": 0.16289592760180993,
+        "pr_auc": 0.07813255924216798,
+        "pr_auc_lift_over_prevalence": -0.046867440757832016,
+        "precision": 0.1232876712328767,
+        "prevalence": 0.125,
+        "recall": 0.24,
+        "roc_auc": 0.1814857142857143,
+        "rows": 600
+      },
+      "supervised": {
+        "accuracy": 0.43,
+        "confusion_matrix": {
+          "fn": 25,
+          "fp": 317,
+          "tn": 208,
+          "tp": 50
+        },
+        "f1": 0.22624434389140274,
+        "pr_auc": 0.13457031322426094,
+        "pr_auc_lift_over_prevalence": 0.00957031322426094,
+        "precision": 0.1362397820163488,
+        "prevalence": 0.125,
+        "recall": 0.6666666666666666,
+        "roc_auc": 0.5019936507936509,
+        "rows": 600
+      }
+    },
+    "rapid_movement": {
+      "anomaly": {
+        "accuracy": 0.8183333333333334,
+        "confusion_matrix": {
+          "fn": 67,
+          "fp": 42,
+          "tn": 483,
+          "tp": 8
+        },
+        "f1": 0.128,
+        "pr_auc": 0.14285156215590597,
+        "pr_auc_lift_over_prevalence": 0.01785156215590597,
+        "precision": 0.16,
+        "prevalence": 0.125,
+        "recall": 0.10666666666666667,
+        "roc_auc": 0.518273015873016,
+        "rows": 600
+      },
+      "positive_rows": 75,
+      "rows": 600,
+      "rules": {
+        "accuracy": 0.7083333333333334,
+        "confusion_matrix": {
+          "fn": 47,
+          "fp": 128,
+          "tn": 397,
+          "tp": 28
+        },
+        "f1": 0.24242424242424243,
+        "pr_auc": 0.09306506042453354,
+        "pr_auc_lift_over_prevalence": -0.03193493957546646,
+        "precision": 0.1794871794871795,
+        "prevalence": 0.125,
+        "recall": 0.37333333333333335,
+        "roc_auc": 0.2823111111111112,
+        "rows": 600
+      },
+      "supervised": {
+        "accuracy": 0.4066666666666667,
+        "confusion_matrix": {
+          "fn": 39,
+          "fp": 317,
+          "tn": 208,
+          "tp": 36
+        },
+        "f1": 0.16822429906542055,
+        "pr_auc": 0.09995778958644226,
+        "pr_auc_lift_over_prevalence": -0.02504221041355774,
+        "precision": 0.10198300283286119,
+        "prevalence": 0.125,
+        "recall": 0.48,
+        "roc_auc": 0.4112253968253968,
+        "rows": 600
+      }
+    },
+    "shared_device": {
+      "anomaly": {
+        "accuracy": 0.8116666666666666,
+        "confusion_matrix": {
+          "fn": 71,
+          "fp": 42,
+          "tn": 483,
+          "tp": 4
+        },
+        "f1": 0.06611570247933883,
+        "pr_auc": 0.11172754337002533,
+        "pr_auc_lift_over_prevalence": -0.013272456629974672,
+        "precision": 0.08695652173913043,
+        "prevalence": 0.125,
+        "recall": 0.05333333333333334,
+        "roc_auc": 0.4604952380952381,
+        "rows": 600
+      },
+      "positive_rows": 75,
+      "rows": 600,
+      "rules": {
+        "accuracy": 0.69,
+        "confusion_matrix": {
+          "fn": 58,
+          "fp": 128,
+          "tn": 397,
+          "tp": 17
+        },
+        "f1": 0.15454545454545454,
+        "pr_auc": 0.07693071257600587,
+        "pr_auc_lift_over_prevalence": -0.048069287423994134,
+        "precision": 0.11724137931034483,
+        "prevalence": 0.125,
+        "recall": 0.22666666666666666,
+        "roc_auc": 0.1714031746031746,
+        "rows": 600
+      },
+      "supervised": {
+        "accuracy": 0.415,
+        "confusion_matrix": {
+          "fn": 34,
+          "fp": 317,
+          "tn": 208,
+          "tp": 41
+        },
+        "f1": 0.18937644341801385,
+        "pr_auc": 0.10694077339571831,
+        "pr_auc_lift_over_prevalence": -0.018059226604281692,
+        "precision": 0.11452513966480447,
+        "prevalence": 0.125,
+        "recall": 0.5466666666666666,
+        "roc_auc": 0.43923809523809526,
+        "rows": 600
+      }
+    },
+    "structuring": {
+      "anomaly": {
+        "accuracy": 0.8166666666666667,
+        "confusion_matrix": {
+          "fn": 68,
+          "fp": 42,
+          "tn": 483,
+          "tp": 7
+        },
+        "f1": 0.11290322580645161,
+        "pr_auc": 0.12286229605982738,
+        "pr_auc_lift_over_prevalence": -0.002137703940172625,
+        "precision": 0.14285714285714285,
+        "prevalence": 0.125,
+        "recall": 0.09333333333333334,
+        "roc_auc": 0.4660063492063492,
+        "rows": 600
+      },
+      "positive_rows": 75,
+      "rows": 600,
+      "rules": {
+        "accuracy": 0.6966666666666667,
+        "confusion_matrix": {
+          "fn": 54,
+          "fp": 128,
+          "tn": 397,
+          "tp": 21
+        },
+        "f1": 0.18749999999999997,
+        "pr_auc": 0.08206910826049663,
+        "pr_auc_lift_over_prevalence": -0.042930891739503374,
+        "precision": 0.14093959731543623,
+        "prevalence": 0.125,
+        "recall": 0.28,
+        "roc_auc": 0.21173333333333333,
+        "rows": 600
+      },
+      "supervised": {
+        "accuracy": 0.42,
+        "confusion_matrix": {
+          "fn": 31,
+          "fp": 317,
+          "tn": 208,
+          "tp": 44
+        },
+        "f1": 0.2018348623853211,
+        "pr_auc": 0.13019301315429327,
+        "pr_auc_lift_over_prevalence": 0.005193013154293269,
+        "precision": 0.12188365650969529,
+        "prevalence": 0.125,
+        "recall": 0.5866666666666667,
+        "roc_auc": 0.49338412698412704,
+        "rows": 600
+      }
+    },
+    "transaction_burst": {
+      "anomaly": {
+        "accuracy": 0.81,
+        "confusion_matrix": {
+          "fn": 72,
+          "fp": 42,
+          "tn": 483,
+          "tp": 3
+        },
+        "f1": 0.05,
+        "pr_auc": 0.12208211140641169,
+        "pr_auc_lift_over_prevalence": -0.002917888593588311,
+        "precision": 0.06666666666666667,
+        "prevalence": 0.125,
+        "recall": 0.04,
+        "roc_auc": 0.4865777777777778,
+        "rows": 600
+      },
+      "positive_rows": 75,
+      "rows": 600,
+      "rules": {
+        "accuracy": 0.6883333333333334,
+        "confusion_matrix": {
+          "fn": 59,
+          "fp": 128,
+          "tn": 397,
+          "tp": 16
+        },
+        "f1": 0.1461187214611872,
+        "pr_auc": 0.0757856983672431,
+        "pr_auc_lift_over_prevalence": -0.049214301632756904,
+        "precision": 0.1111111111111111,
+        "prevalence": 0.125,
+        "recall": 0.21333333333333335,
+        "roc_auc": 0.16132063492063492,
+        "rows": 600
+      },
+      "supervised": {
+        "accuracy": 0.42,
+        "confusion_matrix": {
+          "fn": 31,
+          "fp": 317,
+          "tn": 208,
+          "tp": 44
+        },
+        "f1": 0.2018348623853211,
+        "pr_auc": 0.11617726707913612,
+        "pr_auc_lift_over_prevalence": -0.008822732920863885,
+        "precision": 0.12188365650969529,
+        "prevalence": 0.125,
+        "recall": 0.5866666666666667,
+        "roc_auc": 0.4828444444444444,
+        "rows": 600
+      }
+    }
+  },
+  "version": "prysm-phase4-retrain-validation-v1"
+}

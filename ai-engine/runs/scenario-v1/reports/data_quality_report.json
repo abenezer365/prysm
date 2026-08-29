@@ -1,0 +1,337 @@
+{
+  "financial": {
+    "account_currency_not_supported_by_bank": 6272,
+    "account_negative_average_balance": 0,
+    "currency_domain": [
+      "AED",
+      "CHF",
+      "ETB",
+      "EUR",
+      "GBP",
+      "USD"
+    ],
+    "etb_rate_by_currency": [
+      {
+        "count": 14194,
+        "currency": "AED",
+        "max": 15.607843137254902,
+        "median": 15.6,
+        "min": 15.592592592592593
+      },
+      {
+        "count": 7055,
+        "currency": "CHF",
+        "max": 65.0,
+        "median": 65.0,
+        "min": 65.0
+      },
+      {
+        "count": 619710,
+        "currency": "ETB",
+        "max": 1.0,
+        "median": 1.0,
+        "min": 1.0
+      },
+      {
+        "count": 35263,
+        "currency": "EUR",
+        "max": 62.09177215189873,
+        "median": 62.0,
+        "min": 61.929245283018865
+      },
+      {
+        "count": 21309,
+        "currency": "GBP",
+        "max": 72.11111111111111,
+        "median": 72.0,
+        "min": 71.88380281690141
+      },
+      {
+        "count": 50051,
+        "currency": "USD",
+        "max": 57.58899676375405,
+        "median": 57.5,
+        "min": 57.41444866920152
+      }
+    ],
+    "invoice_nonpositive_amount": 0,
+    "transaction_currency_not_in_sender_account_currency": 187010,
+    "transaction_nonpositive_amount": 0,
+    "transaction_nonpositive_amount_etb": 0
+  },
+  "generated_at_utc": "2026-08-29T09:01:14.831941+00:00",
+  "labels": {
+    "class_counts": {
+      "False": 3500,
+      "True": 3500
+    },
+    "duplicate_primary_keys": 0,
+    "entities_with_both_labels_across_time": 0,
+    "exact_semantic_duplicate_rows": 0,
+    "related_entity_id_values": 46094,
+    "rows": 7000,
+    "same_window_conflicting_label_groups": 0,
+    "severity_by_label": {
+      "False": {
+        "high": 0,
+        "info": 3500,
+        "low": 0,
+        "medium": 0
+      },
+      "True": {
+        "high": 1159,
+        "info": 0,
+        "low": 1179,
+        "medium": 1162
+      }
+    },
+    "unresolved_related_entity_id_values": 0
+  },
+  "missingness": {
+    "accounts": {
+      "closed_at": {
+        "count": 136559,
+        "rate": 0.9103933333333334
+      }
+    },
+    "banks": {},
+    "companies": {},
+    "devices": {
+      "browser": {
+        "count": 5202,
+        "rate": 0.0578
+      }
+    },
+    "ground_truth": {},
+    "invoices": {},
+    "persons": {
+      "address_hash": {
+        "count": 15429,
+        "rate": 0.15276237623762376
+      },
+      "employment_status": {
+        "count": 6101,
+        "rate": 0.060405940594059404
+      },
+      "phone_hash": {
+        "count": 9865,
+        "rate": 0.09767326732673268
+      }
+    },
+    "relationships": {
+      "end_time": {
+        "count": 374996,
+        "rate": 0.749992
+      }
+    },
+    "semantics": {
+      "accounts.closed_at": "mixed: structural for non-Closed accounts, but missing/invalid lifecycle data when status is Closed",
+      "devices.browser": "conditional: some device types/clients have no browser",
+      "ground_truth.pattern_end": "structural: null means ongoing/open-ended label window",
+      "persons.address_hash": "unknown identifier; never impute",
+      "persons.employment_status": "unknown attribute; retain explicit missing indicator",
+      "persons.phone_hash": "unknown identifier; never impute",
+      "relationships.end_time": "structural: null means open-ended relationship",
+      "transactions.device_id": "conditional: non-device channels can legitimately lack a device",
+      "transactions.invoice_id": "conditional: only invoice-linked transactions need an invoice",
+      "transactions.ip_hash": "conditional: non-IP channels can legitimately lack an IP",
+      "transactions.reference_id": "conditional/operational: channel or transaction type may not emit a reference"
+    },
+    "transactions": {
+      "device_id": {
+        "count": 68371,
+        "rate": 0.09145618808371524
+      },
+      "invoice_id": {
+        "count": 242316,
+        "rate": 0.3241330048074994
+      },
+      "ip_hash": {
+        "count": 101500,
+        "rate": 0.13577105922828533
+      },
+      "reference_id": {
+        "count": 490358,
+        "rate": 0.6559253700597393
+      }
+    }
+  },
+  "person_canonicalization": {
+    "conflicting_duplicate_person_ids": 1000,
+    "duplicate_person_ids": 1000,
+    "rows_with_duplicate_person_id": 2000
+  },
+  "primary_keys": {
+    "duplicate_rows_by_table": {
+      "accounts": 0,
+      "banks": 0,
+      "companies": 0,
+      "devices": 0,
+      "ground_truth": 0,
+      "invoices": 0,
+      "persons": 2000,
+      "relationships": 0,
+      "transactions": 0
+    }
+  },
+  "references": {
+    "accounts.institution_id->banks": {
+      "invalid_non_null": 0,
+      "null": 0,
+      "nullable_by_contract": false,
+      "rows": 150000
+    },
+    "accounts.owner": {
+      "invalid_typed_reference": 0,
+      "null_id": 0,
+      "rows": 150000,
+      "types": [
+        "Company",
+        "Person"
+      ],
+      "unknown_type": 0
+    },
+    "ground_truth.entity": {
+      "invalid_typed_reference": 0,
+      "null_id": 0,
+      "rows": 7000,
+      "types": [
+        "Company"
+      ],
+      "unknown_type": 0
+    },
+    "invoices.issuer": {
+      "invalid_typed_reference": 0,
+      "null_id": 0,
+      "rows": 200000,
+      "types": [
+        "Company",
+        "Person"
+      ],
+      "unknown_type": 0
+    },
+    "invoices.recipient": {
+      "invalid_typed_reference": 0,
+      "null_id": 0,
+      "rows": 200000,
+      "types": [
+        "Company",
+        "Person"
+      ],
+      "unknown_type": 0
+    },
+    "relationships.source": {
+      "invalid_typed_reference": 0,
+      "null_id": 0,
+      "rows": 500000,
+      "types": [
+        "Account",
+        "Company",
+        "Person"
+      ],
+      "unknown_type": 0
+    },
+    "relationships.target": {
+      "invalid_typed_reference": 0,
+      "null_id": 0,
+      "rows": 500000,
+      "types": [
+        "Account",
+        "Company",
+        "Person"
+      ],
+      "unknown_type": 0
+    },
+    "transactions.device->devices": {
+      "invalid_non_null": 0,
+      "null": 68371,
+      "nullable_by_contract": true,
+      "rows": 747582
+    },
+    "transactions.invoice->invoices": {
+      "invalid_non_null": 0,
+      "null": 242316,
+      "nullable_by_contract": true,
+      "rows": 747582
+    },
+    "transactions.receiver->accounts": {
+      "invalid_non_null": 0,
+      "null": 0,
+      "nullable_by_contract": false,
+      "rows": 747582
+    },
+    "transactions.sender->accounts": {
+      "invalid_non_null": 0,
+      "null": 0,
+      "nullable_by_contract": false,
+      "rows": 747582
+    }
+  },
+  "relationship_intervals": {
+    "exact_duplicate_interval_rows": 0,
+    "note": "Open-ended prior intervals count as possible overlaps; domain resolution is deferred.",
+    "possible_overlapping_interval_rows": 0,
+    "repeated_typed_edge_rows": 0
+  },
+  "source": {
+    "accounts": {
+      "columns": 12,
+      "rows": 150000,
+      "sha256": "2d20c7f9c3626de2ffd437788c94c87472bf10c704ddf65098d9d790de64f661"
+    },
+    "banks": {
+      "columns": 5,
+      "rows": 20,
+      "sha256": "cc0c68caccdfaf5c4438995e264edeee9182a4c36368d1c52b693afbd61655e5"
+    },
+    "companies": {
+      "columns": 11,
+      "rows": 10000,
+      "sha256": "712cb8ec7fd6a3a90f7a2c4770498a875a4b927b2003bcf810cf78c7decaadb5"
+    },
+    "devices": {
+      "columns": 9,
+      "rows": 90000,
+      "sha256": "ef32a4b878bfd052447d54dcd33ddf40328581e1ef8e8cf88a25a14666455ffd"
+    },
+    "ground_truth": {
+      "columns": 10,
+      "rows": 7000,
+      "sha256": "3bf53e53f4c096224013e734b7172c60d053044f2b0109675529f013d87d7c41"
+    },
+    "invoices": {
+      "columns": 11,
+      "rows": 200000,
+      "sha256": "e63aac7ffdb151f53d9d9f11e5588b83b31dff05e5724f1c1fa96542d72690f0"
+    },
+    "persons": {
+      "columns": 16,
+      "rows": 101000,
+      "sha256": "ce42af30d8cded3911fc781c661ca6295c42f1dbe8aa433fbc3d768b8250a254"
+    },
+    "relationships": {
+      "columns": 9,
+      "rows": 500000,
+      "sha256": "32f09330fc2a8c8c8bf8c38bf36ad2e8f9e3eab5888b21963c95eba79fa386ab"
+    },
+    "transactions": {
+      "columns": 16,
+      "rows": 747582,
+      "sha256": "5121ad5fb1f04c45b1e9df97a7cfdb82d034f5930dfc7033dad34fcda7799254"
+    }
+  },
+  "temporal": {
+    "accounts_closed_before_opened": 0,
+    "closed_status_without_closed_at": 31603,
+    "devices_last_before_first": 0,
+    "ground_truth_end_before_start": 0,
+    "invoice_linked_transactions_before_issue": 252649,
+    "invoices_due_before_issue": 0,
+    "nonclosed_status_with_closed_at": 0,
+    "relationships_end_before_start": 0,
+    "transactions_after_receiver_close": 14974,
+    "transactions_after_sender_close": 14966,
+    "transactions_before_receiver_open": 350914,
+    "transactions_before_sender_open": 351237
+  }
+}

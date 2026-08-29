@@ -1,0 +1,170 @@
+{
+  "confidence_range": [
+    0.30000001192092896,
+    1.0
+  ],
+  "connected_components": 21,
+  "dense_entities_are_context_not_risk": [
+    {
+      "degree": 7701,
+      "node_key": "Bank:BNK020",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7595,
+      "node_key": "Bank:BNK011",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7587,
+      "node_key": "Bank:BNK008",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7556,
+      "node_key": "Bank:BNK010",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7556,
+      "node_key": "Bank:BNK018",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7544,
+      "node_key": "Bank:BNK009",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7542,
+      "node_key": "Bank:BNK001",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7533,
+      "node_key": "Bank:BNK004",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7528,
+      "node_key": "Bank:BNK002",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7526,
+      "node_key": "Bank:BNK013",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7515,
+      "node_key": "Bank:BNK017",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7506,
+      "node_key": "Bank:BNK015",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7505,
+      "node_key": "Bank:BNK016",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7504,
+      "node_key": "Bank:BNK005",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7504,
+      "node_key": "Bank:BNK007",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7404,
+      "node_key": "Bank:BNK019",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7370,
+      "node_key": "Bank:BNK003",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7357,
+      "node_key": "Bank:BNK012",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7344,
+      "node_key": "Bank:BNK014",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    },
+    {
+      "degree": 7323,
+      "node_key": "Bank:BNK006",
+      "node_type": "Bank",
+      "transaction_volume_etb": 0.0
+    }
+  ],
+  "duplicate_edge_id_rows": 0,
+  "duplicate_semantic_edge_rows": 0,
+  "edge_count": 3036895,
+  "edge_counts": {
+    "held_at": 150000,
+    "issued_invoice": 200000,
+    "owns": 150000,
+    "received_invoice": 200000,
+    "relationship:business_partner": 60179,
+    "relationship:counterpart": 49757,
+    "relationship:employer_employee": 59781,
+    "relationship:family": 74849,
+    "relationship:guarantor": 39670,
+    "relationship:joint_account": 40452,
+    "relationship:referral": 25308,
+    "relationship:shared_address": 50190,
+    "relationship:shared_device": 50241,
+    "relationship:supplier_customer": 49573,
+    "transaction_linked_invoice": 505266,
+    "transfers": 700000,
+    "uses_device": 631629
+  },
+  "expected_account_ownership_edges": 150000,
+  "generated_at_utc": "2026-08-28T18:12:38.584891+00:00",
+  "graph_version": "prysm-financial-graph-v1",
+  "invalid_endpoints": 0,
+  "largest_component": 549927,
+  "node_count": 549947,
+  "node_counts": {
+    "Account": 150000,
+    "Bank": 20,
+    "Company": 10000,
+    "Device": 89927,
+    "Invoice": 200000,
+    "Person": 100000
+  },
+  "orphan_nodes": 20,
+  "ownership_edge_count": 150000,
+  "self_loops": 0,
+  "supervised_labels_used": false,
+  "temporal_end_before_start": 0
+}

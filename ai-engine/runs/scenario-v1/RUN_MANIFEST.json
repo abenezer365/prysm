@@ -1,0 +1,18 @@
+{
+  "dataset_manifest_sha256": "1acd92341913992c2d66274900e750af181bc2b2c643d04b7126e946ad49d692",
+  "files": {
+    "DATA_BOUNDARY.json": "24a85384e690c9a78f948f9abe50390ebc7ae82358f4ec9d6a3e23db0f924964",
+    "PHASE_4_RETRAIN_VALIDATION_REPORT.md": "72b1c0dfa7a3f1b6c31ca766904f811c90cfe413853475830fb7aeeb7afe510d",
+    "artifacts/anomaly_model.json": "26af6f918cd1eb78e732ceec6b707192841bf4d37c9b54185568355478291e45",
+    "artifacts/gnn_encoder.json": "06c5e80259e16d35d5ad1f2ae6e99416590cca412a13f25f72140054893f103d",
+    "artifacts/supervised_model.json": "1c845d81ddb6f02e8e7c8df977fcc9497d8fbcd321c55915edce7d001ab879c5",
+    "data/alignment/predictive_population.parquet": "4538555d7c5283965e7291f8a3df6b589d2f35ae58f334dbb6a1d5ec6f8e723a",
+    "data/intelligence/FEATURESET.json": "37624327ce5b3917466a4924324eb793d1aa3cadd17ef0d80c6cbebdb1f1c0e4",
+    "data/processed/MANIFEST.json": "90412932a64ae536c8a2eb799f9928a115b8e89e93f8cb7abfb288c4696f699f",
+    "evaluation/alignment_evaluation.json": "84cee5727bc42c22b8d3a98574a18ba4e0ddf144775d2541d06ed07fc4ba2c96",
+    "evaluation/evaluation.json": "5fc56563da6f1942dff122fc0d49715e7c05f7e8db17d724c29b52f07614d521",
+    "evaluation/phase3_evaluation.json": "4d441d5d5ebb72322af96410b29c1fb99694f15323f459820911fdfeca20218b",
+    "evaluation/phase4_retrain_validation.json": "ddea9eb4ff9255b6e5ced356bcdfc9f41cc77a2e3c3e013733d9bc12ee3de16f"
+  },
+  "version": "prysm-phase4-retrain-validation-v1"
+}

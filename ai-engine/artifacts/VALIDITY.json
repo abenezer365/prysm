@@ -1,0 +1,27 @@
+{
+  "aligned_supervised_model": {
+    "reason": "No source label has affiliated future transaction evidence; training/evaluation would fabricate a target.",
+    "status": "not_trained"
+  },
+  "anomaly_and_rule_signals": {
+    "label_evaluation_status": "invalid because source labels lack event provenance",
+    "status": "operational_patterns_only"
+  },
+  "generated_at_utc": "2026-08-28T17:38:15.369169+00:00",
+  "graph_gnn": {
+    "artifact": "artifacts/gnn_encoder.json",
+    "labels_used": false,
+    "status": "self_supervised_structural_signal",
+    "supervised_metrics": "not_estimable"
+  },
+  "legacy_model_predictions": {
+    "path": "signals/model_predictions.parquet",
+    "status": "invalid_for_predictive_use"
+  },
+  "legacy_supervised_model": {
+    "allowed_use": "before-alignment diagnostic reproduction only",
+    "path": "artifacts/supervised_model.json",
+    "status": "invalid_for_predictive_use"
+  },
+  "required_gate": "Consumers must require data/alignment/label_alignment.parquet predictive_eligible=true before supervised training or label-based evaluation."
+}

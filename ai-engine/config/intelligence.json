@@ -1,0 +1,54 @@
+{
+  "random_seed": 42,
+  "windows_days": [1, 7, 30],
+  "minimum_history_transactions": 5,
+  "label_alignment": {
+    "minimum_history_transactions": 5,
+    "require_bounded_event_window": true,
+    "require_affiliated_transaction_evidence": true,
+    "require_event_after_cutoff": true
+  },
+  "rules": {
+    "unusual_amount": {"enabled": true, "z_threshold": 3.0, "minimum_etb": 100000.0},
+    "transaction_burst": {"enabled": true, "count_24h": 5},
+    "unusual_frequency": {"enabled": true, "minimum_count_30d": 2, "recent_to_history_ratio": 2.0},
+    "rapid_outflow": {"enabled": true, "minimum_inflow_etb_7d": 10000.0, "outflow_ratio": 0.9},
+    "foreign_income_increase": {"enabled": true, "minimum_etb_30d": 25000.0, "recent_to_history_ratio": 2.0},
+    "counterparty_change": {"enabled": true, "minimum_counterparties_30d": 3, "recent_to_history_ratio": 2.0},
+    "shared_identifiers": {"enabled": true, "minimum_connections": 2},
+    "invoice_chronology": {"enabled": true, "minimum_invalid_events_30d": 1}
+  },
+  "anomaly": {"trees": 64, "sample_size": 256, "contamination": 0.1},
+  "supervised": {"learning_rate": 0.05, "iterations": 800, "l2": 0.01, "threshold": 0.5}
+  ,"graph": {
+    "default_cutoff": "2025-12-31T23:59:59Z",
+    "default_lookback_days": 365,
+    "max_hops": 2,
+    "max_nodes": 200,
+    "minimum_confidence": 0.3,
+    "allowed_edge_types": [],
+    "signal_scales": {"degree": 10.0, "edge_type_diversity": 5.0, "neighborhood_nodes": 50.0}
+  },
+  "gnn": {
+    "architecture": "deterministic_relational_graphsage",
+    "input_features": ["degree", "in_degree", "out_degree", "edge_type_diversity", "network_transaction_count", "network_transaction_volume_etb", "network_unique_counterparties", "connected_account_count", "connected_company_count", "shared_device_count", "shared_address_count", "component_size"],
+    "embedding_size": 16,
+    "layers": 2,
+    "dropout": 0.0,
+    "learning_rate": 0.01,
+    "epochs": 3,
+    "batch_size": 200000,
+    "contrastive_batch_size": 4096,
+    "contrastive_training_edges": 100000,
+    "contrastive_validation_edges": 20000,
+    "l2": 0.0001,
+    "random_seed": 42
+  },
+  "fusion": {
+    "weights": {"transaction": 1.0, "behavior": 1.0, "velocity": 1.0, "foreign_currency": 0.7, "rule": 1.2, "anomaly": 0.8, "graph": 1.2, "gnn": 0.6},
+    "scales": {"transaction_count_30d": 5.0, "transaction_volume_etb_30d": 1000000.0, "behavior_z": 3.0, "velocity_ratio": 2.0, "foreign_inflow_etb_30d": 100000.0, "history_transactions": 5.0},
+    "attention_thresholds": {"low": 0.25, "moderate": 0.5, "elevated": 0.75},
+    "minimum_confidence": 0.2
+  },
+  "evidence": {"maximum_items": 25, "minimum_signal_strength": 0.25}
+}

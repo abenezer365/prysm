@@ -1,0 +1,33 @@
+{
+  "files": {
+    "accounts.parquet": {
+      "rows": 150000,
+      "sha256": "211ff77f4f03953ecab07bed20d06364b19dd0ccd2d86138f8ed7603d2e7024f"
+    },
+    "ground_truth_labels.parquet": {
+      "rows": 5000,
+      "sha256": "790ff74e7fb4bba1afaaa11804ca90f363373643f58ed199c95e8354bb50ec12"
+    },
+    "invoices.parquet": {
+      "rows": 200000,
+      "sha256": "ac398f8f20efb4020ef90fc2e9cb388800731444eaa3e4585ec0924c4ce5bb93"
+    },
+    "person_duplicate_lineage.parquet": {
+      "rows": 2000,
+      "sha256": "3e7c03cd8f0a0d5317885b5e6160fdadec60c9fa156595304eea3879fe7f6c00"
+    },
+    "persons.parquet": {
+      "rows": 100000,
+      "sha256": "9dd719b5bb5c57f4443327fb875d34cf487565a682c5401f7678b757fb640cab"
+    },
+    "relationship_edges.parquet": {
+      "rows": 500000,
+      "sha256": "e2453f0f092101d408b3f777799e3930163769099b6522268574852cd4ed6c48"
+    },
+    "transaction_edges.parquet": {
+      "rows": 700000,
+      "sha256": "1b8f50b7e199e06a4d87c0543fb34ecabb232ac0b12be42cd0d68ea79655de31"
+    }
+  },
+  "generated_at_utc": "2026-08-28T16:19:33.651896+00:00"
+}

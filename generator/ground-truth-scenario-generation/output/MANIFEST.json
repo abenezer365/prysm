@@ -1,0 +1,52 @@
+{
+  "deterministic": true,
+  "files": {
+    "config.json": {
+      "bytes": 1001,
+      "sha256": "dae971d81f509652b3956490b32964c49b0670416da1dfde20cc88013e7ff25f"
+    },
+    "data/accounts.parquet": {
+      "bytes": 1959210,
+      "sha256": "2d20c7f9c3626de2ffd437788c94c87472bf10c704ddf65098d9d790de64f661"
+    },
+    "data/banks.parquet": {
+      "bytes": 2290,
+      "sha256": "cc0c68caccdfaf5c4438995e264edeee9182a4c36368d1c52b693afbd61655e5"
+    },
+    "data/companies.parquet": {
+      "bytes": 191795,
+      "sha256": "712cb8ec7fd6a3a90f7a2c4770498a875a4b927b2003bcf810cf78c7decaadb5"
+    },
+    "data/devices.parquet": {
+      "bytes": 3556384,
+      "sha256": "ef32a4b878bfd052447d54dcd33ddf40328581e1ef8e8cf88a25a14666455ffd"
+    },
+    "data/ground_truth.parquet": {
+      "bytes": 69511,
+      "sha256": "3bf53e53f4c096224013e734b7172c60d053044f2b0109675529f013d87d7c41"
+    },
+    "data/invoices.parquet": {
+      "bytes": 3483015,
+      "sha256": "e63aac7ffdb151f53d9d9f11e5588b83b31dff05e5724f1c1fa96542d72690f0"
+    },
+    "data/persons.parquet": {
+      "bytes": 3924059,
+      "sha256": "ce42af30d8cded3911fc781c661ca6295c42f1dbe8aa433fbc3d768b8250a254"
+    },
+    "data/relationships.parquet": {
+      "bytes": 12800829,
+      "sha256": "32f09330fc2a8c8c8bf8c38bf36ad2e8f9e3eab5888b21963c95eba79fa386ab"
+    },
+    "data/transactions.parquet": {
+      "bytes": 32196394,
+      "sha256": "5121ad5fb1f04c45b1e9df97a7cfdb82d034f5930dfc7033dad34fcda7799254"
+    },
+    "scenario_metadata.parquet": {
+      "bytes": 437163,
+      "sha256": "aa41f124827da9be9b8807eaad79c17198056d6dbec53bdf455623f7aa5334f3"
+    }
+  },
+  "seed": 20260828,
+  "source_directory": "generator/synthetic-financial-generator/data/raw",
+  "version": "prysm-ground-truth-scenarios-v1"
+}

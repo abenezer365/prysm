@@ -1,0 +1,9 @@
+{
+  "original_data_overwritten": false,
+  "original_raw": "data/raw",
+  "run_root": "ai-engine/runs/scenario-v1",
+  "scenario_manifest": "generator/ground-truth-scenario-generation/output/MANIFEST.json",
+  "scenario_manifest_sha256": "1acd92341913992c2d66274900e750af181bc2b2c643d04b7126e946ad49d692",
+  "scenario_raw": "generator/ground-truth-scenario-generation/output/data",
+  "version": "prysm-scenario-integration-v1"
+}

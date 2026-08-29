@@ -1,0 +1,344 @@
+{
+  "affiliated_transaction_values": 0,
+  "affiliation_rate": 0.0,
+  "after": {
+    "anomaly_roc_auc": null,
+    "feature_group_test": {},
+    "prevalence": null,
+    "reason": "No source label has affiliated future transaction evidence; training/evaluation would fabricate a target.",
+    "rows": 0,
+    "rules_roc_auc": null,
+    "scenario_test": {},
+    "status": "not_estimable",
+    "supervised_pr_auc": null,
+    "supervised_pr_auc_lift": null,
+    "supervised_roc_auc": null
+  },
+  "before": {
+    "anomaly_roc_auc": 0.4768697614442295,
+    "evaluation_file": "evaluation/evaluation.json",
+    "feature_group_test": {
+      "foreign_currency": {
+        "accuracy": 0.24720244150559512,
+        "confusion_matrix": {
+          "fn": 739,
+          "fp": 1,
+          "tn": 230,
+          "tp": 13
+        },
+        "f1": 0.033942558746736295,
+        "pr_auc": 0.7812213766829966,
+        "pr_auc_lift_over_prevalence": 0.016216290213006745,
+        "precision": 0.9285714285714286,
+        "prevalence": 0.7650050864699899,
+        "recall": 0.017287234042553192,
+        "roc_auc": 0.5201425347701943,
+        "rows": 983
+      },
+      "relationships": {
+        "accuracy": 0.6581892166836215,
+        "confusion_matrix": {
+          "fn": 173,
+          "fp": 163,
+          "tn": 68,
+          "tp": 579
+        },
+        "f1": 0.7751004016064258,
+        "pr_auc": 0.7781084398985607,
+        "pr_auc_lift_over_prevalence": 0.01310335342857083,
+        "precision": 0.7803234501347709,
+        "prevalence": 0.7650050864699899,
+        "recall": 0.7699468085106383,
+        "roc_auc": 0.516308602744773,
+        "rows": 983
+      },
+      "transaction_behavior": {
+        "accuracy": 0.7009155645981688,
+        "confusion_matrix": {
+          "fn": 95,
+          "fp": 199,
+          "tn": 32,
+          "tp": 657
+        },
+        "f1": 0.8171641791044776,
+        "pr_auc": 0.7695215438041443,
+        "pr_auc_lift_over_prevalence": 0.0045164573341544,
+        "precision": 0.7675233644859814,
+        "prevalence": 0.7650050864699899,
+        "recall": 0.8736702127659575,
+        "roc_auc": 0.5104828681956342,
+        "rows": 983
+      },
+      "velocity": {
+        "accuracy": 0.2980671414038657,
+        "confusion_matrix": {
+          "fn": 661,
+          "fp": 29,
+          "tn": 202,
+          "tp": 91
+        },
+        "f1": 0.20871559633027523,
+        "pr_auc": 0.7557425300856835,
+        "pr_auc_lift_over_prevalence": -0.009262556384306397,
+        "precision": 0.7583333333333333,
+        "prevalence": 0.7650050864699899,
+        "recall": 0.12101063829787234,
+        "roc_auc": 0.4980830339872893,
+        "rows": 983
+      }
+    },
+    "rules_roc_auc": 0.48538961038961037,
+    "scenario_test": {
+      "anomaly": {
+        "false_invoice": {
+          "detected": 6,
+          "detection_rate": 0.061855670103092786,
+          "rows": 97
+        },
+        "layering": {
+          "detected": 15,
+          "detection_rate": 0.13392857142857142,
+          "rows": 112
+        },
+        "normal": {
+          "detected": 35,
+          "detection_rate": 0.15151515151515152,
+          "rows": 231
+        },
+        "rapid_movement": {
+          "detected": 14,
+          "detection_rate": 0.12962962962962962,
+          "rows": 108
+        },
+        "round_tripping": {
+          "detected": 18,
+          "detection_rate": 0.18947368421052632,
+          "rows": 95
+        },
+        "shell_company": {
+          "detected": 19,
+          "detection_rate": 0.19387755102040816,
+          "rows": 98
+        },
+        "smurfing": {
+          "detected": 26,
+          "detection_rate": 0.20967741935483872,
+          "rows": 124
+        },
+        "structuring": {
+          "detected": 23,
+          "detection_rate": 0.19491525423728814,
+          "rows": 118
+        }
+      },
+      "rules": {
+        "false_invoice": {
+          "detected": 3,
+          "detection_rate": 0.030927835051546393,
+          "rows": 97
+        },
+        "layering": {
+          "detected": 13,
+          "detection_rate": 0.11607142857142858,
+          "rows": 112
+        },
+        "normal": {
+          "detected": 39,
+          "detection_rate": 0.16883116883116883,
+          "rows": 231
+        },
+        "rapid_movement": {
+          "detected": 17,
+          "detection_rate": 0.1574074074074074,
+          "rows": 108
+        },
+        "round_tripping": {
+          "detected": 16,
+          "detection_rate": 0.16842105263157894,
+          "rows": 95
+        },
+        "shell_company": {
+          "detected": 20,
+          "detection_rate": 0.20408163265306123,
+          "rows": 98
+        },
+        "smurfing": {
+          "detected": 21,
+          "detection_rate": 0.1693548387096774,
+          "rows": 124
+        },
+        "structuring": {
+          "detected": 18,
+          "detection_rate": 0.15254237288135594,
+          "rows": 118
+        }
+      },
+      "supervised": {
+        "false_invoice": {
+          "detected": 79,
+          "detection_rate": 0.8144329896907216,
+          "rows": 97
+        },
+        "layering": {
+          "detected": 94,
+          "detection_rate": 0.8392857142857143,
+          "rows": 112
+        },
+        "normal": {
+          "detected": 178,
+          "detection_rate": 0.7705627705627706,
+          "rows": 231
+        },
+        "rapid_movement": {
+          "detected": 88,
+          "detection_rate": 0.8148148148148148,
+          "rows": 108
+        },
+        "round_tripping": {
+          "detected": 78,
+          "detection_rate": 0.8210526315789474,
+          "rows": 95
+        },
+        "shell_company": {
+          "detected": 75,
+          "detection_rate": 0.7653061224489796,
+          "rows": 98
+        },
+        "smurfing": {
+          "detected": 96,
+          "detection_rate": 0.7741935483870968,
+          "rows": 124
+        },
+        "structuring": {
+          "detected": 92,
+          "detection_rate": 0.7796610169491526,
+          "rows": 118
+        }
+      }
+    },
+    "supervised_pr_auc": 0.7744014173734868,
+    "supervised_pr_auc_lift": 0.009396330903496897,
+    "supervised_roc_auc": 0.5222609836971539,
+    "test_prevalence": 0.7650050864699899,
+    "test_rows": 983
+  },
+  "decision": "Preserve labels as retrospective synthetic metadata only; exclude them from predictive model evaluation until event provenance is repaired upstream.",
+  "event_window_status": {
+    "bounded": 2936,
+    "unbounded": 2064
+  },
+  "evidence_status": {
+    "no_transaction_evidence": 138,
+    "unaffiliated_transaction_evidence": 4862
+  },
+  "exclusion_reasons_are_nonexclusive": {
+    "cold_or_insufficient_history": 2739,
+    "no_affiliated_transaction_evidence": 5000,
+    "no_aligned_future_event": 5000,
+    "unbounded_event_window": 2064
+  },
+  "generated_at_utc": "2026-08-28T17:38:15.369169+00:00",
+  "history_status": {
+    "cold_start_no_history": 1006,
+    "history_eligible": 2261,
+    "insufficient_history": 1733
+  },
+  "history_status_positive_rate": {
+    "cold_start_no_history": 0.7395626242544732,
+    "history_eligible": 0.7669172932330827,
+    "insufficient_history": 0.7634160415464513
+  },
+  "prediction_unit": "typed entity + pattern_start cutoff + observable history + affiliated future transaction inside bounded pattern window",
+  "predictive_eligible_rows": 0,
+  "related_transaction_timing": {
+    "after_source_window": 4402,
+    "before_cutoff": 8259,
+    "inside_source_window": 3973,
+    "median_first_related_offset_days": -337.7815472318287
+  },
+  "related_transaction_values": 16634,
+  "repeated_labels": {
+    "entities": 40,
+    "entities_with_both_classes": 7,
+    "overlapping_later_rows": 21,
+    "rows": 80
+  },
+  "scenario_timing": {
+    "false_invoice": {
+      "after_source_window": 396,
+      "before_cutoff": 771,
+      "history_eligible_rate": 0.42948717948717946,
+      "inside_source_window": 404,
+      "labels": 468,
+      "positive_rate": 1.0,
+      "related_transactions": 1571
+    },
+    "layering": {
+      "after_source_window": 469,
+      "before_cutoff": 914,
+      "history_eligible_rate": 0.44661921708185054,
+      "inside_source_window": 460,
+      "labels": 562,
+      "positive_rate": 1.0,
+      "related_transactions": 1843
+    },
+    "normal": {
+      "after_source_window": 1146,
+      "before_cutoff": 1967,
+      "history_eligible_rate": 0.4395329441201001,
+      "inside_source_window": 950,
+      "labels": 1199,
+      "positive_rate": 0.0,
+      "related_transactions": 4063
+    },
+    "rapid_movement": {
+      "after_source_window": 428,
+      "before_cutoff": 862,
+      "history_eligible_rate": 0.49242424242424243,
+      "inside_source_window": 407,
+      "labels": 528,
+      "positive_rate": 1.0,
+      "related_transactions": 1697
+    },
+    "round_tripping": {
+      "after_source_window": 496,
+      "before_cutoff": 850,
+      "history_eligible_rate": 0.44861660079051385,
+      "inside_source_window": 358,
+      "labels": 506,
+      "positive_rate": 1.0,
+      "related_transactions": 1704
+    },
+    "shell_company": {
+      "after_source_window": 384,
+      "before_cutoff": 842,
+      "history_eligible_rate": 0.46825396825396826,
+      "inside_source_window": 400,
+      "labels": 504,
+      "positive_rate": 1.0,
+      "related_transactions": 1626
+    },
+    "smurfing": {
+      "after_source_window": 542,
+      "before_cutoff": 1042,
+      "history_eligible_rate": 0.445859872611465,
+      "inside_source_window": 516,
+      "labels": 628,
+      "positive_rate": 1.0,
+      "related_transactions": 2100
+    },
+    "structuring": {
+      "after_source_window": 541,
+      "before_cutoff": 1011,
+      "history_eligible_rate": 0.46115702479338844,
+      "inside_source_window": 478,
+      "labels": 605,
+      "positive_rate": 1.0,
+      "related_transactions": 2030
+    }
+  },
+  "source_labels_modified": 0,
+  "source_positive": 3801,
+  "source_prevalence": 0.7602,
+  "source_rows": 5000
+}

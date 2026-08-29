@@ -1,0 +1,46 @@
+{
+  "version": "prysm-ground-truth-scenarios-v1",
+  "seed": 20260828,
+  "minimum_history_transactions": 5,
+  "scenario_horizon_days": 14,
+  "structuring_limit_etb": 200000,
+  "scenarios": [
+    "rapid_movement",
+    "transaction_burst",
+    "structuring",
+    "foreign_currency_change",
+    "behavioral_shift",
+    "counterparty_change",
+    "shared_device"
+  ],
+  "positive_per_scenario_by_split": {
+    "train": 350,
+    "validation": 75,
+    "test": 75
+  },
+  "negative_ratio": 1.0,
+  "splits": {
+    "train": {
+      "cutoff_start": "2024-06-01",
+      "cutoff_end": "2024-10-15"
+    },
+    "validation": {
+      "cutoff_start": "2024-11-01",
+      "cutoff_end": "2025-03-15"
+    },
+    "test": {
+      "cutoff_start": "2025-04-01",
+      "cutoff_end": "2025-08-15"
+    }
+  },
+  "intensities": ["low", "medium", "high"],
+  "foreign_currencies": ["USD", "EUR", "GBP"],
+  "fx_rates_to_etb": {
+    "ETB": 1.0,
+    "USD": 57.5,
+    "EUR": 62.0,
+    "GBP": 72.0,
+    "AED": 15.6,
+    "CHF": 65.0
+  }
+}

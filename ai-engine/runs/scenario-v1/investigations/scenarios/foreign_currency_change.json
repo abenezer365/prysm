@@ -1,0 +1,655 @@
+{
+  "assessment": {
+    "confidence": {
+      "component_coverage": 1.0,
+      "score": 0.8221333333333334,
+      "status": "sufficient"
+    },
+    "is_fraud_probability": false,
+    "strength": 0.47843790215776383,
+    "tier": "low",
+    "type": "uncalibrated_attention_assessment",
+    "weights": {
+      "anomaly": 0.8,
+      "behavior": 1.0,
+      "foreign_currency": 0.7,
+      "gnn": 0.6,
+      "graph": 1.2,
+      "rule": 1.2,
+      "supervised_prediction": 0.0,
+      "transaction": 1.0,
+      "velocity": 1.0
+    }
+  },
+  "confidence": {
+    "component_coverage": 1.0,
+    "score": 0.8221333333333334,
+    "status": "sufficient"
+  },
+  "evidence": [
+    {
+      "confidence": 1.0,
+      "description": "Recent frequency and outflow ratios relative to history.",
+      "entity_id": "Company:C03114",
+      "evidence_id": "EVD:038c366aafa3a001",
+      "measurements": {
+        "activity_ratio": 1.0,
+        "outflow_ratio_7d": 0.0
+      },
+      "provenance": {
+        "derivation": "inclusive as-of temporal aggregation",
+        "source": "data/intelligence/label_feature_set.parquet"
+      },
+      "severity": "info",
+      "signal_source": "phase2_features",
+      "signal_type": "velocity",
+      "supporting_edge_ids": [],
+      "supporting_entity_ids": [],
+      "supporting_relationship_ids": [],
+      "supporting_transaction_ids": [
+        "TX00118004"
+      ],
+      "timestamps": [
+        "2025-04-27T00:00:00+00:00"
+      ]
+    },
+    {
+      "confidence": 1.0,
+      "description": "Thirty-day transaction activity available at cutoff.",
+      "entity_id": "Company:C03114",
+      "evidence_id": "EVD:343bc08fec3f02cf",
+      "measurements": {
+        "count_30d": 1.0,
+        "volume_etb_30d": 70680.0
+      },
+      "provenance": {
+        "derivation": "inclusive as-of temporal aggregation",
+        "source": "data/intelligence/label_feature_set.parquet"
+      },
+      "severity": "info",
+      "signal_source": "phase2_features",
+      "signal_type": "transaction_activity",
+      "supporting_edge_ids": [],
+      "supporting_entity_ids": [],
+      "supporting_relationship_ids": [],
+      "supporting_transaction_ids": [
+        "TX00118004"
+      ],
+      "timestamps": [
+        "2025-04-27T00:00:00+00:00"
+      ]
+    },
+    {
+      "confidence": 1.0,
+      "description": "Recent transaction amount deviation from entity history.",
+      "entity_id": "Company:C03114",
+      "evidence_id": "EVD:9425b3cc5aa3630b",
+      "measurements": {
+        "history_transactions": 20.0,
+        "recent_amount_z": -0.13556913271050428
+      },
+      "provenance": {
+        "derivation": "inclusive as-of temporal aggregation",
+        "source": "data/intelligence/label_feature_set.parquet"
+      },
+      "severity": "info",
+      "signal_source": "phase2_features",
+      "signal_type": "behavior_change",
+      "supporting_edge_ids": [],
+      "supporting_entity_ids": [],
+      "supporting_relationship_ids": [],
+      "supporting_transaction_ids": [
+        "TX00118004"
+      ],
+      "timestamps": [
+        "2025-04-27T00:00:00+00:00"
+      ]
+    },
+    {
+      "confidence": 0.9,
+      "description": "Bounded temporal neighborhood and source-backed structural measurements.",
+      "entity_id": "Company:C03114",
+      "evidence_id": "EVD:3e6bb2d25ede17ba",
+      "measurements": {
+        "bounded_subgraph_edges": 74,
+        "bounded_subgraph_nodes": 74,
+        "component_size": 74.0,
+        "connected_account_count": 8.0,
+        "connected_company_count": 0.0,
+        "degree": 9.0,
+        "edge_type_diversity": 4.0,
+        "gnn_neighborhood_novelty": 0.19759777188301086,
+        "network_outflow_ratio": null,
+        "network_transaction_count": 5.0,
+        "network_transaction_volume_etb": 85415.0,
+        "network_unique_counterparties": 5.0,
+        "network_unique_destinations": null,
+        "network_unique_sources": null,
+        "structural_anomaly_score": 0.9
+      },
+      "provenance": {
+        "derivation": "typed temporal degree, component, transaction, and neighborhood aggregation",
+        "source": "graph node/edge artifacts"
+      },
+      "severity": "info",
+      "signal_source": "graph_intelligence",
+      "signal_type": "network_structure",
+      "supporting_edge_ids": [
+        "BANK:ACC0040563",
+        "BANK:ACC0052436",
+        "BANK:ACC0061349",
+        "BANK:ACC0092968",
+        "BANK:ACC0104684",
+        "BANK:ACC0115113",
+        "BANK:ACC0123680",
+        "DEV:TX00065626",
+        "DEV:TX00111674",
+        "DEV:TX00209966",
+        "DEV:TX00385862",
+        "DEV:TX00523556",
+        "DEV:TX00586338",
+        "INVTX:TX00065626",
+        "INVTX:TX00209966",
+        "INVTX:TX00312291",
+        "INVTX:TX00333293",
+        "INVTX:TX00385862",
+        "INVTX:TX00523556",
+        "ISSUER:INV0015115",
+        "OWN:ACC0009304",
+        "OWN:ACC0040563",
+        "OWN:ACC0052436",
+        "OWN:ACC0061349",
+        "OWN:ACC0092968",
+        "OWN:ACC0104684",
+        "OWN:ACC0115113",
+        "OWN:ACC0123680",
+        "RECIPIENT:INV0052512",
+        "RECIPIENT:INV0053968",
+        "REL:REL0020365",
+        "REL:REL0059744",
+        "REL:REL0061881",
+        "REL:REL0063104",
+        "REL:REL0082464",
+        "REL:REL0090047",
+        "REL:REL0091641",
+        "REL:REL0103753",
+        "REL:REL0136549",
+        "REL:REL0145435",
+        "REL:REL0146906",
+        "REL:REL0186666",
+        "REL:REL0206894",
+        "REL:REL0212787",
+        "REL:REL0219835",
+        "REL:REL0266021",
+        "REL:REL0278349",
+        "REL:REL0278453",
+        "REL:REL0304339",
+        "REL:REL0314242",
+        "REL:REL0315840",
+        "REL:REL0347983",
+        "REL:REL0350001",
+        "REL:REL0357767",
+        "REL:REL0358065",
+        "REL:REL0385196",
+        "REL:REL0399602",
+        "REL:REL0403894",
+        "REL:REL0428905",
+        "REL:REL0478405",
+        "REL:REL0482450",
+        "TX:TX00065626",
+        "TX:TX00103269",
+        "TX:TX00111674",
+        "TX:TX00118004",
+        "TX:TX00185607",
+        "TX:TX00209966",
+        "TX:TX00312291",
+        "TX:TX00333293",
+        "TX:TX00385862",
+        "TX:TX00418967",
+        "TX:TX00523556",
+        "TX:TX00565684",
+        "TX:TX00586338"
+      ],
+      "supporting_entity_ids": [
+        "Account:ACC0001155",
+        "Account:ACC0004044",
+        "Account:ACC0006262",
+        "Account:ACC0009304",
+        "Account:ACC0026434",
+        "Account:ACC0037526",
+        "Account:ACC0038674",
+        "Account:ACC0040563",
+        "Account:ACC0042336",
+        "Account:ACC0044288",
+        "Account:ACC0046110",
+        "Account:ACC0052436",
+        "Account:ACC0060320",
+        "Account:ACC0061349",
+        "Account:ACC0061953",
+        "Account:ACC0063452",
+        "Account:ACC0068010",
+        "Account:ACC0071181",
+        "Account:ACC0092966",
+        "Account:ACC0092968",
+        "Account:ACC0094233",
+        "Account:ACC0097175",
+        "Account:ACC0101323",
+        "Account:ACC0103480",
+        "Account:ACC0104684",
+        "Account:ACC0115113",
+        "Account:ACC0117587",
+        "Account:ACC0123547",
+        "Account:ACC0123680",
+        "Account:ACC0129229",
+        "Account:ACC0131260",
+        "Account:ACC0138798",
+        "Account:ACC0143045",
+        "Account:ACC0145003",
+        "Bank:BNK002",
+        "Bank:BNK005",
+        "Bank:BNK012",
+        "Bank:BNK013",
+        "Bank:BNK018",
+        "Bank:BNK019",
+        "Company:C02055",
+        "Company:C02376",
+        "Company:C02921",
+        "Device:DEV0005101",
+        "Device:DEV0007392",
+        "Device:DEV0022151",
+        "Device:DEV0028274",
+        "Device:DEV0047629",
+        "Device:DEV0074653",
+        "Invoice:INV0002216",
+        "Invoice:INV0015115",
+        "Invoice:INV0039876",
+        "Invoice:INV0046710",
+        "Invoice:INV0052512",
+        "Invoice:INV0053968",
+        "Invoice:INV0118222",
+        "Invoice:INV0125698",
+        "Invoice:INV0142428",
+        "Person:P016328",
+        "Person:P024462",
+        "Person:P024996",
+        "Person:P030220",
+        "Person:P040952",
+        "Person:P048137",
+        "Person:P050440",
+        "Person:P050983",
+        "Person:P055532",
+        "Person:P059667",
+        "Person:P064060",
+        "Person:P072344",
+        "Person:P075524",
+        "Person:P086576",
+        "Person:P097256"
+      ],
+      "supporting_relationship_ids": [
+        "REL0020365",
+        "REL0059744",
+        "REL0061881",
+        "REL0063104",
+        "REL0082464",
+        "REL0090047",
+        "REL0091641",
+        "REL0103753",
+        "REL0136549",
+        "REL0145435",
+        "REL0146906",
+        "REL0186666",
+        "REL0206894",
+        "REL0212787",
+        "REL0219835",
+        "REL0266021",
+        "REL0278349",
+        "REL0278453",
+        "REL0304339",
+        "REL0314242",
+        "REL0315840",
+        "REL0347983",
+        "REL0350001",
+        "REL0357767",
+        "REL0358065",
+        "REL0385196",
+        "REL0399602",
+        "REL0403894",
+        "REL0428905",
+        "REL0478405",
+        "REL0482450"
+      ],
+      "supporting_transaction_ids": [
+        "TX00065626",
+        "TX00103269",
+        "TX00111674",
+        "TX00118004",
+        "TX00185607",
+        "TX00209966",
+        "TX00312291",
+        "TX00333293",
+        "TX00385862",
+        "TX00418967",
+        "TX00523556",
+        "TX00565684",
+        "TX00586338"
+      ],
+      "timestamps": [
+        "2025-01-19 20:14:27.410903+00:00",
+        "2025-02-04 00:00:00+00:00",
+        "2025-02-09 01:41:51.828334+00:00",
+        "2025-02-21 07:06:32.361260+00:00",
+        "2025-02-26 15:15:03.459795+00:00",
+        "2025-02-26 15:43:02.412000+00:00",
+        "2025-03-17 00:00:00+00:00",
+        "2025-04-16 23:09:56.088633+00:00",
+        "2025-04-24 00:00:00+00:00",
+        "2025-04-25 20:04:19.689572+00:00"
+      ]
+    },
+    {
+      "confidence": 0.5717425432143937,
+      "description": "Leakage-safe baseline estimate for the synthetic future-scenario target; not a real-world fraud probability.",
+      "entity_id": "Company:C03114",
+      "evidence_id": "EVD:241f8eeccf292b14",
+      "measurements": {
+        "model_version": "numpy-logistic-v1",
+        "synthetic_scenario_probability": 0.5717425432143937
+      },
+      "provenance": {
+        "derivation": "regularized logistic regression over pre-cutoff Phase 2 features",
+        "model_artifact": "artifacts/supervised_model.json",
+        "source": "signals/model_predictions.parquet"
+      },
+      "severity": "info",
+      "signal_source": "supervised_model",
+      "signal_type": "future_scenario_prediction",
+      "supporting_edge_ids": [],
+      "supporting_entity_ids": [],
+      "supporting_relationship_ids": [],
+      "supporting_transaction_ids": [
+        "TX00118004"
+      ],
+      "timestamps": [
+        "2025-04-27T00:00:00+00:00"
+      ]
+    },
+    {
+      "confidence": 0.520807119363171,
+      "description": "Recent foreign-currency inflow exceeds the historical rate; geography is not inferred.",
+      "entity_id": "Company:C03114",
+      "evidence_id": "EVD:31c2b344425b871b",
+      "measurements": {
+        "foreign_inflow_etb_30d": 70680.0,
+        "rate_ratio": 2.083228477452684
+      },
+      "provenance": {
+        "derivation": "configured rule over Phase 2 as-of features",
+        "source": "signals/rule_findings.jsonl"
+      },
+      "severity": "medium",
+      "signal_source": "rule_engine",
+      "signal_type": "FOREIGN_CURRENCY_INFLOW_CHANGE",
+      "supporting_edge_ids": [],
+      "supporting_entity_ids": [],
+      "supporting_relationship_ids": [],
+      "supporting_transaction_ids": [
+        "TX00118004"
+      ],
+      "timestamps": [
+        "2025-04-27T00:00:00+00:00"
+      ]
+    },
+    {
+      "confidence": 0.5,
+      "description": "Currency-based foreign inflow only; no geographic inference.",
+      "entity_id": "Company:C03114",
+      "evidence_id": "EVD:1da2c844427d97a2",
+      "measurements": {
+        "foreign_inflow_etb_30d": 70680.0,
+        "foreign_rate_ratio": 2.083228477452684
+      },
+      "provenance": {
+        "derivation": "inclusive as-of temporal aggregation",
+        "source": "data/intelligence/label_feature_set.parquet"
+      },
+      "severity": "info",
+      "signal_source": "phase2_features",
+      "signal_type": "foreign_currency",
+      "supporting_edge_ids": [],
+      "supporting_entity_ids": [],
+      "supporting_relationship_ids": [],
+      "supporting_transaction_ids": [
+        "TX00118004"
+      ],
+      "timestamps": [
+        "2025-04-27T00:00:00+00:00"
+      ]
+    },
+    {
+      "confidence": 0.4,
+      "description": "Unsupervised Phase 2 behavioral isolation score at the selected snapshot.",
+      "entity_id": "Company:C03114",
+      "evidence_id": "EVD:41c27c9c322e43f2",
+      "measurements": {
+        "anomaly_score": 0.4802841861426445,
+        "model_version": "numpy-isolation-forest-v1"
+      },
+      "provenance": {
+        "derivation": "isolation forest over leakage-safe Phase 2 features; no label meaning",
+        "model_artifact": "artifacts/anomaly_model.json",
+        "source": "signals/anomaly_predictions.parquet"
+      },
+      "severity": "info",
+      "signal_source": "anomaly_model",
+      "signal_type": "behavioral_anomaly",
+      "supporting_edge_ids": [],
+      "supporting_entity_ids": [],
+      "supporting_relationship_ids": [],
+      "supporting_transaction_ids": [
+        "TX00118004"
+      ],
+      "timestamps": [
+        "2025-04-27T00:00:00+00:00"
+      ]
+    }
+  ],
+  "findings": {
+    "rules": [
+      {
+        "as_of": "2025-04-27T00:00:00+00:00",
+        "entity_ids": [
+          "Company:C03114"
+        ],
+        "explanation": "Recent foreign-currency inflow exceeds the historical rate; geography is not inferred.",
+        "ground_truth_id": "GT00147",
+        "measurements": {
+          "foreign_inflow_etb_30d": 70680.0,
+          "rate_ratio": 2.083228477452684
+        },
+        "rule_id": "FOREIGN_CURRENCY_INFLOW_CHANGE",
+        "rule_name": "Foreign-currency inflow increase",
+        "score": 0.520807119363171,
+        "severity": "medium",
+        "status": "triggered",
+        "transaction_ids": [
+          "TX00118004"
+        ]
+      }
+    ],
+    "supervised_model": {
+      "reason": "Valid only for the aligned synthetic future-scenario target; not calibrated for real-world fraud.",
+      "status": "available"
+    }
+  },
+  "graph_summary": {
+    "edge_types": {
+      "held_at": 7,
+      "issued_invoice": 1,
+      "owns": 8,
+      "received_invoice": 2,
+      "relationship:business_partner": 3,
+      "relationship:counterpart": 1,
+      "relationship:employer_employee": 4,
+      "relationship:family": 7,
+      "relationship:joint_account": 4,
+      "relationship:referral": 2,
+      "relationship:shared_address": 4,
+      "relationship:shared_device": 1,
+      "relationship:supplier_customer": 5,
+      "transaction_linked_invoice": 6,
+      "transfers": 13,
+      "uses_device": 6
+    },
+    "edges": 74,
+    "node_types": {
+      "Account": 34,
+      "Bank": 6,
+      "Company": 4,
+      "Device": 6,
+      "Invoice": 9,
+      "Person": 15
+    },
+    "nodes": 74,
+    "subject_features": {
+      "component_size": 74.0,
+      "connected_account_count": 8.0,
+      "connected_company_count": 0.0,
+      "degree": 9.0,
+      "edge_type_diversity": 4.0,
+      "in_degree": 3.0,
+      "network_transaction_count": 5.0,
+      "network_transaction_volume_etb": 85415.0,
+      "network_unique_counterparties": 5.0,
+      "out_degree": 6.0,
+      "shared_address_count": 0.0,
+      "shared_device_count": 0.0,
+      "structural_anomaly_score": 0.9
+    }
+  },
+  "intelligence_components": {
+    "anomaly": {
+      "confidence": 0.4,
+      "evidence_ids": [
+        "EVD:41c27c9c322e43f2"
+      ],
+      "name": "anomaly",
+      "reason": "Unsupervised behavioral anomaly; not a fraud probability.",
+      "status": "available",
+      "strength": 0.4802841861426445
+    },
+    "behavior": {
+      "confidence": 1.0,
+      "evidence_ids": [
+        "EVD:9425b3cc5aa3630b"
+      ],
+      "name": "behavior",
+      "reason": "Deviation from the entity's observable history.",
+      "status": "available",
+      "strength": 0.04518971090350143
+    },
+    "foreign_currency": {
+      "confidence": 0.5,
+      "evidence_ids": [
+        "EVD:1da2c844427d97a2"
+      ],
+      "name": "foreign_currency",
+      "reason": "Currency-based signal; geographic confidence is unavailable.",
+      "status": "available",
+      "strength": 1.0
+    },
+    "foreign_geographic": {
+      "confidence": 0.0,
+      "evidence_ids": [],
+      "name": "foreign_geographic",
+      "reason": "Current data supports currency activity but not international geography.",
+      "status": "unavailable",
+      "strength": null
+    },
+    "gnn": {
+      "confidence": 0.36000000000000004,
+      "evidence_ids": [
+        "EVD:3e6bb2d25ede17ba"
+      ],
+      "name": "gnn",
+      "reason": "Cutoff-valid unsupervised neighborhood contrast; no valid labels were used.",
+      "status": "available",
+      "strength": 0.19759777188301086
+    },
+    "graph": {
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EVD:3e6bb2d25ede17ba"
+      ],
+      "name": "graph",
+      "reason": "Cutoff-valid bounded structural intensity; centrality alone is not risk.",
+      "status": "available",
+      "strength": 0.9
+    },
+    "rule": {
+      "confidence": 1.0,
+      "evidence_ids": [
+        "EVD:31c2b344425b871b"
+      ],
+      "name": "rule",
+      "reason": "Maximum configured rule strength at the selected snapshot.",
+      "status": "available",
+      "strength": 0.520807119363171
+    },
+    "supervised_prediction": {
+      "confidence": 1.0,
+      "evidence_ids": [
+        "EVD:241f8eeccf292b14"
+      ],
+      "name": "supervised_prediction",
+      "reason": "Valid only for the aligned synthetic future-scenario target; not calibrated for real-world fraud.",
+      "status": "available",
+      "strength": 0.5717425432143937
+    },
+    "transaction": {
+      "confidence": 1.0,
+      "evidence_ids": [
+        "EVD:343bc08fec3f02cf"
+      ],
+      "name": "transaction",
+      "reason": "Observed 30-day count and ETB volume.",
+      "status": "available",
+      "strength": 0.13534000000000002
+    },
+    "velocity": {
+      "confidence": 1.0,
+      "evidence_ids": [
+        "EVD:038c366aafa3a001"
+      ],
+      "name": "velocity",
+      "reason": "Recent rate and outflow measures.",
+      "status": "available",
+      "strength": 0.5
+    }
+  },
+  "investigation_id": "INV:30603012b376e61e",
+  "investigation_window": {
+    "cutoff": "2025-04-27T00:00:00+00:00",
+    "future_edges_included": false,
+    "lookback_days": 365,
+    "mode": "predictive"
+  },
+  "limitations": [
+    "Supervised output is valid only for the aligned synthetic scenario benchmark and is not a real-world fraud probability.",
+    "The GNN component is an unsupervised structural representation, not a fraud probability.",
+    "High graph centrality or transaction volume is contextual intelligence, not an accusation.",
+    "Foreign geographic risk is unavailable; only currency-based activity is represented.",
+    "Account and invoice chronology contain known synthetic inconsistencies."
+  ],
+  "provenance": {
+    "configuration": "config/intelligence.json",
+    "gnn_version": "relational-graphsage-structural-v1",
+    "graph_and_gnn_view": "recomputed from cutoff-valid bounded subgraph",
+    "graph_version": "prysm-financial-graph-v1",
+    "source_labels_used": true
+  },
+  "subject": {
+    "entity_key": "Company:C03114",
+    "node_type": "Company",
+    "source_id": "C03114"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "augmented": {
+    "entity_coverage": 7000,
+    "generated_transaction_count": 47582,
+    "maximum_cutoff": "2025-08-15T00:00:00",
+    "maximum_scenario_end": "2025-08-29T00:00:00",
+    "minimum_cutoff": "2024-06-01T00:00:00",
+    "minimum_scenario_start": "2024-06-02T01:00:00",
+    "negative_count": 3500,
+    "positive_count": 3500,
+    "positive_prevalence": 0.5,
+    "scenario_counts": {
+      "behavioral_shift": 500,
+      "counterparty_change": 500,
+      "foreign_currency_change": 500,
+      "normal": 3500,
+      "rapid_movement": 500,
+      "shared_device": 500,
+      "structuring": 500,
+      "transaction_burst": 500
+    },
+    "split_class_counts": [
+      {
+        "is_anomalous": false,
+        "len": 525,
+        "split": "test"
+      },
+      {
+        "is_anomalous": true,
+        "len": 525,
+        "split": "test"
+      },
+      {
+        "is_anomalous": false,
+        "len": 2450,
+        "split": "train"
+      },
+      {
+        "is_anomalous": true,
+        "len": 2450,
+        "split": "train"
+      },
+      {
+        "is_anomalous": false,
+        "len": 525,
+        "split": "validation"
+      },
+      {
+        "is_anomalous": true,
+        "len": 525,
+        "split": "validation"
+      }
+    ],
+    "supported_labels": 7000,
+    "total_labels": 7000,
+    "transaction_evidence_count": 46094,
+    "unsupported_labels": 0
+  },
+  "deterministic": true,
+  "manifest_sha256": "1acd92341913992c2d66274900e750af181bc2b2c643d04b7126e946ad49d692",
+  "model_readiness": {
+    "leakage_note": "Scenario evidence begins after the prediction cutoff and is excluded from pre-cutoff history. No scenario metadata is written into transaction features.",
+    "model_trained": false,
+    "reason": "All rows have valid typed entities, at least five pre-cutoff completed transactions, post-cutoff affiliated evidence, measurable behavior, both classes in every entity-disjoint split, and no provenance/schema violations.",
+    "status": "READY"
+  },
+  "original": {
+    "invalid_transaction_affiliations": 16634,
+    "negative_count": 1199,
+    "positive_count": 3801,
+    "related_reference_count": 24850,
+    "supported_labels": 0,
+    "total_labels": 5000,
+    "transaction_evidence_count": 16634,
+    "unsupported_labels": 5000
+  },
+  "output_files": [
+    "config.json",
+    "data/accounts.parquet",
+    "data/banks.parquet",
+    "data/companies.parquet",
+    "data/devices.parquet",
+    "data/ground_truth.parquet",
+    "data/invoices.parquet",
+    "data/persons.parquet",
+    "data/relationships.parquet",
+    "data/transactions.parquet",
+    "scenario_metadata.parquet"
+  ],
+  "repaired": {
+    "supported_labels": 647,
+    "supported_negative_count": 646,
+    "supported_positive_count": 1,
+    "total_labels": 5000,
+    "transaction_evidence_count": 2356,
+    "unsupported_labels": 4353
+  },
+  "seed": 20260828,
+  "source_data_modified": false,
+  "validation": {
+    "behavior_failure_details": [],
+    "entity_split_overlap": 0,
+    "fabricated_transaction_ids": 0,
+    "generated_account_lifecycle_violations": 0,
+    "invalid_entity_affiliations": 0,
+    "invalid_generated_account_endpoints": 0,
+    "invalid_transaction_affiliations": 0,
+    "pre_cutoff_evidence": 0,
+    "readiness_rows": 7000,
+    "scenario_behavior_failures": 0,
+    "schema_violations": 0,
+    "temporal_violations": 0
+  },
+  "version": "prysm-ground-truth-scenarios-v1"
+}

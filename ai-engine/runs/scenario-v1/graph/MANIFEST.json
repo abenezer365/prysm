@@ -1,0 +1,85 @@
+{
+  "edges": {
+    "held_at": {
+      "by_type": {
+        "held_at": 150000
+      },
+      "rows": 150000,
+      "sha256": "00e70036bdca14e960fdadcb4ba06fcfcab185b4b9bba476c56217ed20bba7d1"
+    },
+    "invoice_issuer": {
+      "by_type": {
+        "issued_invoice": 200000
+      },
+      "rows": 200000,
+      "sha256": "307b38f6bf731681a085a496aeb08eab156f02e15a5182f6ee38bfc25ac7a2d4"
+    },
+    "invoice_recipient": {
+      "by_type": {
+        "received_invoice": 200000
+      },
+      "rows": 200000,
+      "sha256": "81acdd20195d43ef0cbeb63a94ec37fbff278078b00e971c37ad397659ce7165"
+    },
+    "linked_invoice": {
+      "by_type": {
+        "transaction_linked_invoice": 505266
+      },
+      "rows": 505266,
+      "sha256": "fd2f439efa1b3f294b20047e9259b8c695581dcb7cb6e86385bb366deb11d5dc"
+    },
+    "ownership": {
+      "by_type": {
+        "owns": 150000
+      },
+      "rows": 150000,
+      "sha256": "e8c1b1962f0242adde95005a3b9b08fd893dbfcd4712f992d1f974f02326bf4d"
+    },
+    "relationships": {
+      "by_type": {
+        "relationship:business_partner": 60179,
+        "relationship:counterpart": 49757,
+        "relationship:employer_employee": 59781,
+        "relationship:family": 74849,
+        "relationship:guarantor": 39670,
+        "relationship:joint_account": 40452,
+        "relationship:referral": 25308,
+        "relationship:shared_address": 50190,
+        "relationship:shared_device": 50241,
+        "relationship:supplier_customer": 49573
+      },
+      "rows": 500000,
+      "sha256": "968cb12c862f51fa466e4a6f4001708e0a6a358182e599d3ce6e6879a41fa833"
+    },
+    "transfers": {
+      "by_type": {
+        "transfers": 747582
+      },
+      "rows": 747582,
+      "sha256": "f2887c22896228da48dc5c3e25326308e9c7383be00cb886d83e8e35daee0749"
+    },
+    "uses_device": {
+      "by_type": {
+        "uses_device": 679211
+      },
+      "rows": 679211,
+      "sha256": "fbebf6d37949ed1bb07a1fc319660158a08b3b3ea4190d02017169270ce1e9d2"
+    }
+  },
+  "generated_at_utc": "2026-08-29T09:09:52.459664+00:00",
+  "graph_version": "prysm-financial-graph-v1",
+  "invalid_endpoints": 0,
+  "nodes": {
+    "by_type": {
+      "Account": 150000,
+      "Bank": 20,
+      "Company": 10000,
+      "Device": 89927,
+      "Invoice": 200000,
+      "Person": 100000
+    },
+    "rows": 549947,
+    "sha256": "9b98ad25373cec9500ab4867e5cc6454dfc5ffa4968041bb6a5961728d20b3b2"
+  },
+  "source_labels_used": false
+}

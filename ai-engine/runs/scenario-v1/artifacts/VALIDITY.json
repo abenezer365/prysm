@@ -1,0 +1,34 @@
+{
+  "aligned_supervised_model": {
+    "allowed_use": "synthetic future-scenario benchmark only",
+    "artifact": "artifacts/supervised_model.json",
+    "is_real_world_fraud_probability": false,
+    "population": "data/alignment/predictive_population.parquet",
+    "status": "valid_synthetic_scenario_evaluation"
+  },
+  "anomaly_and_rule_signals": {
+    "label_evaluation_status": "valid on aligned synthetic scenario benchmark",
+    "status": "operational_patterns"
+  },
+  "generated_at_utc": "2026-08-29T09:08:11.417755+00:00",
+  "graph_gnn": {
+    "artifact": "artifacts/gnn_encoder.json",
+    "labels_used": false,
+    "status": "self_supervised_structural_signal",
+    "supervised_metrics": "not_run_cutoff_safe_head_required"
+  },
+  "legacy_model_predictions": {
+    "path": "signals/model_predictions.parquet",
+    "status": "invalid_for_predictive_use"
+  },
+  "legacy_supervised_model": {
+    "allowed_use": "historical invalid baseline comparison only",
+    "status": "superseded_for_scenario_benchmark"
+  },
+  "model_predictions": {
+    "is_real_world_fraud_probability": false,
+    "path": "signals/model_predictions.parquet",
+    "status": "valid_synthetic_scenario_evaluation"
+  },
+  "required_gate": "Consumers must require data/alignment/label_alignment.parquet predictive_eligible=true before supervised training or label-based evaluation."
+}

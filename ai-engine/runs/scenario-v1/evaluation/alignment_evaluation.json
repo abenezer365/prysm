@@ -1,0 +1,337 @@
+{
+  "affiliated_transaction_values": 46094,
+  "affiliation_rate": 1.0,
+  "after": {
+    "anomaly_roc_auc": 0.48700952380952384,
+    "feature_group_test": {
+      "foreign_currency": {
+        "accuracy": 0.5047619047619047,
+        "confusion_matrix": {
+          "fn": 194,
+          "fp": 326,
+          "tn": 199,
+          "tp": 331
+        },
+        "f1": 0.560067681895093,
+        "pr_auc": 0.7693109505008007,
+        "pr_auc_lift_over_prevalence": 0.26931095050080067,
+        "precision": 0.5038051750380518,
+        "prevalence": 0.5,
+        "recall": 0.6304761904761905,
+        "roc_auc": 0.742595918367347,
+        "rows": 1050
+      },
+      "relationships": {
+        "accuracy": 0.5076190476190476,
+        "confusion_matrix": {
+          "fn": 219,
+          "fp": 298,
+          "tn": 227,
+          "tp": 306
+        },
+        "f1": 0.5420726306465898,
+        "pr_auc": 0.5014380625735514,
+        "pr_auc_lift_over_prevalence": 0.0014380625735513908,
+        "precision": 0.5066225165562914,
+        "prevalence": 0.5,
+        "recall": 0.5828571428571429,
+        "roc_auc": 0.5062675736961451,
+        "rows": 1050
+      },
+      "transaction_behavior": {
+        "accuracy": 0.49142857142857144,
+        "confusion_matrix": {
+          "fn": 222,
+          "fp": 312,
+          "tn": 213,
+          "tp": 303
+        },
+        "f1": 0.5315789473684212,
+        "pr_auc": 0.49357211458722944,
+        "pr_auc_lift_over_prevalence": -0.006427885412770562,
+        "precision": 0.4926829268292683,
+        "prevalence": 0.5,
+        "recall": 0.5771428571428572,
+        "roc_auc": 0.4877024943310657,
+        "rows": 1050
+      },
+      "velocity": {
+        "accuracy": 0.4961904761904762,
+        "confusion_matrix": {
+          "fn": 132,
+          "fp": 397,
+          "tn": 128,
+          "tp": 393
+        },
+        "f1": 0.5977186311787072,
+        "pr_auc": 0.629902489259329,
+        "pr_auc_lift_over_prevalence": 0.129902489259329,
+        "precision": 0.49746835443037973,
+        "prevalence": 0.5,
+        "recall": 0.7485714285714286,
+        "roc_auc": 0.6755011337868482,
+        "rows": 1050
+      }
+    },
+    "prevalence": 0.5,
+    "reason": "Aligned predictive population contains both classes and may be evaluated with leakage-safe temporal/entity splits.",
+    "rows": 7000,
+    "rules_roc_auc": 0.8160979591836733,
+    "scenario_test": {
+      "anomaly": {
+        "behavioral_shift": {
+          "detected": 0,
+          "detection_rate": 0.0,
+          "rows": 75
+        },
+        "counterparty_change": {
+          "detected": 4,
+          "detection_rate": 0.05333333333333334,
+          "rows": 75
+        },
+        "foreign_currency_change": {
+          "detected": 5,
+          "detection_rate": 0.06666666666666667,
+          "rows": 75
+        },
+        "normal": {
+          "detected": 42,
+          "detection_rate": 0.08,
+          "rows": 525
+        },
+        "rapid_movement": {
+          "detected": 8,
+          "detection_rate": 0.10666666666666667,
+          "rows": 75
+        },
+        "shared_device": {
+          "detected": 4,
+          "detection_rate": 0.05333333333333334,
+          "rows": 75
+        },
+        "structuring": {
+          "detected": 7,
+          "detection_rate": 0.09333333333333334,
+          "rows": 75
+        },
+        "transaction_burst": {
+          "detected": 3,
+          "detection_rate": 0.04,
+          "rows": 75
+        }
+      },
+      "rules": {
+        "behavioral_shift": {
+          "detected": 15,
+          "detection_rate": 0.2,
+          "rows": 75
+        },
+        "counterparty_change": {
+          "detected": 14,
+          "detection_rate": 0.18666666666666668,
+          "rows": 75
+        },
+        "foreign_currency_change": {
+          "detected": 18,
+          "detection_rate": 0.24,
+          "rows": 75
+        },
+        "normal": {
+          "detected": 128,
+          "detection_rate": 0.2438095238095238,
+          "rows": 525
+        },
+        "rapid_movement": {
+          "detected": 28,
+          "detection_rate": 0.37333333333333335,
+          "rows": 75
+        },
+        "shared_device": {
+          "detected": 17,
+          "detection_rate": 0.22666666666666666,
+          "rows": 75
+        },
+        "structuring": {
+          "detected": 21,
+          "detection_rate": 0.28,
+          "rows": 75
+        },
+        "transaction_burst": {
+          "detected": 16,
+          "detection_rate": 0.21333333333333335,
+          "rows": 75
+        }
+      },
+      "supervised": {
+        "behavioral_shift": {
+          "detected": 42,
+          "detection_rate": 0.56,
+          "rows": 75
+        },
+        "counterparty_change": {
+          "detected": 45,
+          "detection_rate": 0.6,
+          "rows": 75
+        },
+        "foreign_currency_change": {
+          "detected": 50,
+          "detection_rate": 0.6666666666666666,
+          "rows": 75
+        },
+        "normal": {
+          "detected": 317,
+          "detection_rate": 0.6038095238095238,
+          "rows": 525
+        },
+        "rapid_movement": {
+          "detected": 36,
+          "detection_rate": 0.48,
+          "rows": 75
+        },
+        "shared_device": {
+          "detected": 41,
+          "detection_rate": 0.5466666666666666,
+          "rows": 75
+        },
+        "structuring": {
+          "detected": 44,
+          "detection_rate": 0.5866666666666667,
+          "rows": 75
+        },
+        "transaction_burst": {
+          "detected": 44,
+          "detection_rate": 0.5866666666666667,
+          "rows": 75
+        }
+      }
+    },
+    "scope": "synthetic scenario benchmark only",
+    "status": "valid_synthetic_scenario_evaluation",
+    "supervised_pr_auc": 0.4672398201339974,
+    "supervised_pr_auc_lift": -0.0327601798660026,
+    "supervised_roc_auc": 0.4704435374149659
+  },
+  "before": {
+    "anomaly_roc_auc": 0.4768697614442295,
+    "label_prevalence": 0.7650050864699899,
+    "rules_roc_auc": 0.48538961038961037,
+    "supervised_pr_auc": 0.7744014173734868,
+    "supervised_pr_auc_lift": 0.009396330903496897,
+    "supervised_roc_auc": 0.5222609836971539,
+    "valid_predictive_rows": 0,
+    "validity": "invalid_unaligned_diagnostic_only"
+  },
+  "decision": "Permit supervised evaluation only on predictive_population.parquet.",
+  "event_window_status": {
+    "bounded": 7000
+  },
+  "evidence_status": {
+    "aligned_future_event": 7000
+  },
+  "exclusion_reasons_are_nonexclusive": {
+    "cold_or_insufficient_history": 0,
+    "no_affiliated_transaction_evidence": 0,
+    "no_aligned_future_event": 0,
+    "unbounded_event_window": 0
+  },
+  "generated_at_utc": "2026-08-29T09:08:11.417755+00:00",
+  "history_status": {
+    "history_eligible": 7000
+  },
+  "history_status_positive_rate": {
+    "history_eligible": 0.5
+  },
+  "prediction_unit": "typed entity + pattern_start cutoff + observable history + affiliated future transaction inside bounded pattern window",
+  "predictive_eligible_rows": 7000,
+  "related_transaction_timing": {
+    "after_source_window": 0,
+    "before_cutoff": 0,
+    "inside_source_window": 46094,
+    "median_first_related_offset_days": 1.2083333333333333
+  },
+  "related_transaction_values": 46094,
+  "repeated_labels": {
+    "entities": 0,
+    "entities_with_both_classes": 0,
+    "overlapping_later_rows": 0,
+    "rows": 0
+  },
+  "scenario_timing": {
+    "behavioral_shift": {
+      "after_source_window": 0,
+      "before_cutoff": 0,
+      "history_eligible_rate": 1.0,
+      "inside_source_window": 6968,
+      "labels": 500,
+      "positive_rate": 1.0,
+      "related_transactions": 6968
+    },
+    "counterparty_change": {
+      "after_source_window": 0,
+      "before_cutoff": 0,
+      "history_eligible_rate": 1.0,
+      "inside_source_window": 3990,
+      "labels": 500,
+      "positive_rate": 1.0,
+      "related_transactions": 3990
+    },
+    "foreign_currency_change": {
+      "after_source_window": 0,
+      "before_cutoff": 0,
+      "history_eligible_rate": 1.0,
+      "inside_source_window": 2001,
+      "labels": 500,
+      "positive_rate": 1.0,
+      "related_transactions": 2001
+    },
+    "normal": {
+      "after_source_window": 0,
+      "before_cutoff": 0,
+      "history_eligible_rate": 1.0,
+      "inside_source_window": 10551,
+      "labels": 3500,
+      "positive_rate": 0.0,
+      "related_transactions": 10551
+    },
+    "rapid_movement": {
+      "after_source_window": 0,
+      "before_cutoff": 0,
+      "history_eligible_rate": 1.0,
+      "inside_source_window": 1983,
+      "labels": 500,
+      "positive_rate": 1.0,
+      "related_transactions": 1983
+    },
+    "shared_device": {
+      "after_source_window": 0,
+      "before_cutoff": 0,
+      "history_eligible_rate": 1.0,
+      "inside_source_window": 1988,
+      "labels": 500,
+      "positive_rate": 1.0,
+      "related_transactions": 1988
+    },
+    "structuring": {
+      "after_source_window": 0,
+      "before_cutoff": 0,
+      "history_eligible_rate": 1.0,
+      "inside_source_window": 4533,
+      "labels": 500,
+      "positive_rate": 1.0,
+      "related_transactions": 4533
+    },
+    "transaction_burst": {
+      "after_source_window": 0,
+      "before_cutoff": 0,
+      "history_eligible_rate": 1.0,
+      "inside_source_window": 14080,
+      "labels": 500,
+      "positive_rate": 1.0,
+      "related_transactions": 14080
+    }
+  },
+  "source_labels_modified": 0,
+  "source_positive": 3500,
+  "source_prevalence": 0.5,
+  "source_rows": 7000
+}

@@ -29,7 +29,7 @@ def _now_iso() -> str:
 class GeminiKeyManager:
     def __init__(self) -> None:
         self.keys = [key.strip() for key in os.getenv("GOOGLE_API_KEYS", "").split(",") if key.strip()]
-        default_models = ["gemini-2.0-flash", "gemini-2.0-flash-lite", "gemini-1.5-flash"]
+        default_models = ["gemini-3.5-flash", "gemini-3.5-flash-lite"]
         self.models = [
             model.strip()
             for model in os.getenv("GEMINI_MODELS", os.getenv("GEMINI_MODEL", ",".join(default_models))).split(",")
@@ -50,7 +50,7 @@ class GeminiKeyManager:
     @property
     def active_model(self) -> str:
         if not self.models:
-            return "gemini-2.0-flash"
+            return "gemini-3.5-flash"
         return self.models[self.model_index % len(self.models)]
 
     def rotate_key(self) -> str:
@@ -118,7 +118,21 @@ class KnowledgeStore:
         self.root = root
         self.documents: list[dict[str, Any]] = []
         self.embedder = LightweightEmbedder()
+        self._load_persisted()
         self._ensure_seed_data()
+
+    def _load_persisted(self) -> None:
+        self.root.mkdir(parents=True, exist_ok=True)
+        for file_path in sorted(self.root.glob("*.json")):
+            try:
+                record = json.loads(file_path.read_text(encoding="utf-8"))
+                record.setdefault("enabled", True)
+                record.setdefault("embedding", [])
+                self.documents.append(record)
+            except (OSError, ValueError, TypeError):
+                continue
+        if self.documents:
+            self._update_vocab()
 
     def _ensure_seed_data(self) -> None:
         self.root.mkdir(parents=True, exist_ok=True)
@@ -179,6 +193,7 @@ class KnowledgeStore:
             "version": payload.get("version", "1.0"),
             "createdAt": _now_iso(),
             "metadata": payload.get("metadata", {}),
+            "enabled": True,
             "embedding": [],
         }
         self.documents.append(record)
@@ -192,16 +207,17 @@ class KnowledgeStore:
         file_path.write_text(json.dumps(record, indent=2), encoding="utf-8")
 
     def search(self, query: str, limit: int = 5) -> list[dict[str, Any]]:
-        if not self.documents:
+        available = [document for document in self.documents if document.get("enabled", True)]
+        if not available:
             return []
 
         query_text = query.lower()
         query_tokens = set(re.findall(r"[a-z0-9]+", query_text))
         if not query_tokens:
-            return self.documents[:limit]
+            return available[:limit]
 
         scored: list[tuple[float, dict[str, Any]]] = []
-        for doc in self.documents:
+        for doc in available:
             text = (doc["title"] + " " + doc["content"]).lower()
             title_text = doc["title"].lower()
             title_tokens = set(re.findall(r"[a-z0-9]+", title_text))
@@ -229,8 +245,22 @@ class KnowledgeStore:
         scored.sort(key=lambda item: item[0], reverse=True)
         top = [doc for _, doc in scored[:limit]]
         if not top:
-            return self.documents[:limit]
+            return available[:limit]
         return top
+
+    def list_documents(self) -> list[dict[str, Any]]:
+        return [{key: value for key, value in document.items() if key not in {"content", "embedding"}} for document in self.documents]
+
+    def set_enabled(self, document_id: str, enabled: bool) -> dict[str, Any] | None:
+        for document in self.documents:
+            if document["id"] == document_id:
+                document["enabled"] = enabled
+                file_path = self.root / f"{document_id}.json"
+                if file_path.exists():
+                    self._persist_record(document)
+                self._update_vocab()
+                return {key: value for key, value in document.items() if key not in {"content", "embedding"}}
+        return None
 
 
 class GeminiClient:
@@ -288,7 +318,7 @@ class GeminiClient:
             url = f"{config['base_url']}/{config['model']}:generateContent?key={config['api_key']}"
             payload = {
                 "contents": [{"parts": [{"text": self._build_prompt(question, context, mode)}]}],
-                "generationConfig": {"temperature": 0.2, "topP": 0.9, "maxOutputTokens": 512},
+                "generationConfig": {"maxOutputTokens": 512},
             }
             try:
                 response = requests.post(url, json=payload, timeout=30)
@@ -421,6 +451,19 @@ def ask_post(payload: AskRequest):
 @app.post("/ingest", dependencies=[Depends(require_internal_key)])
 def ingest(payload: DocumentIngest):
     return service.ingest(payload)
+
+
+@app.get("/documents", dependencies=[Depends(require_internal_key)])
+def documents():
+    return {"data": service.store.list_documents()}
+
+
+@app.patch("/documents/{document_id}", dependencies=[Depends(require_internal_key)])
+def update_document(document_id: str, enabled: bool):
+    record = service.store.set_enabled(document_id, enabled)
+    if not record:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail={"code": "DOCUMENT_NOT_FOUND", "message": "Knowledge document was not found."})
+    return record
 
 
 @app.websocket("/ws/chat")

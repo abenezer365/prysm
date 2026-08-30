@@ -1,0 +1,1 @@
+export default { content: ['./index.html','./src/**/*.{js,jsx}'], theme: { extend: { fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'], mono: ['IBM Plex Mono','ui-monospace','monospace'] } } }, plugins: [] };

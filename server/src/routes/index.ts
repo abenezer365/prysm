@@ -6,7 +6,12 @@ import { AppError, notFound } from "../common/errors.js";
 import type { Env } from "../config/env.js";
 import { prisma } from "../config/database.js";
 import { validate } from "../middleware/core.js";
-import { authenticate, authorize, enforceOwnership } from "../middleware/security.js";
+import {
+  authenticate,
+  authorize,
+  enforceOwnership,
+  resolveAccessToken,
+} from "../middleware/security.js";
 import { AuthService, safeUser } from "../modules/auth/service.js";
 import { audit } from "../modules/audit/service.js";
 import { InvestigationContextBuilder } from "../modules/investigations/context.js";
@@ -14,51 +19,682 @@ import { persistAnalysis } from "../modules/investigations/persist-analysis.js";
 import { AiEngineAdapter } from "../integrations/ai-engine/adapter.js";
 import { RagAdapter } from "../integrations/rag/adapter.js";
 import { AuthorizedChatContextBuilder } from "../modules/chat/context.js";
+import { completionRoutes } from "./completion.js";
 
-const asyncRoute = (fn: RequestHandler): RequestHandler => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
-const routeParam = (req: { params: Record<string, string | string[]> }, name: string): string => {
+const asyncRoute =
+  (fn: RequestHandler): RequestHandler =>
+  (req, res, next) =>
+    Promise.resolve(fn(req, res, next)).catch(next);
+const routeParam = (
+  req: { params: Record<string, string | string[]> },
+  name: string,
+): string => {
   const value = req.params[name];
-  if (!value || Array.isArray(value)) throw new AppError(400, "INVALID_PATH_PARAMETER", `Invalid ${name}`);
+  if (!value || Array.isArray(value))
+    throw new AppError(400, "INVALID_PATH_PARAMETER", `Invalid ${name}`);
   return value;
 };
 const uuid = z.string().uuid();
-const login = z.object({ email: z.string().email(), password: z.string().min(8), deviceInfo: z.string().max(500).optional() });
-const application = z.object({ email: z.string().email(), displayName: z.string().min(2).max(120), organization: z.string().max(200).optional(), requestedRoleId: uuid.optional(), requestedClearanceLevelId: uuid.optional(), reason: z.string().max(2000).optional() });
-const createInvestigation = z.object({ subjectId: uuid, title: z.string().max(200).optional(), purpose: z.string().max(2000).optional(), cutoffAt: z.coerce.date(), predictionHorizonStart: z.coerce.date().optional(), predictionHorizonEnd: z.coerce.date().optional() });
-const chat = z.object({ question: z.string().min(1).max(4000), conversationId: uuid.optional(), subjectId: uuid.optional(), investigationId: uuid.optional(), cutoffAt: z.coerce.date().optional() }).strict();
-const ragDocument = z.object({ title: z.string().min(1).max(300), content: z.string().min(1).max(100000), source: z.string().max(300).optional(), category: z.string().max(100).optional(), version: z.string().max(50).optional(), metadata: z.record(z.string(), z.unknown()).optional() }).strict();
-const bounds = z.object({ maxHops: z.coerce.number().int().min(1).max(3).default(2), maxNodes: z.coerce.number().int().min(1).max(250).default(100), cutoffAt: z.coerce.date().optional() });
+const login = z.object({
+  email: z.string().email(),
+  password: z.string().min(8),
+  deviceInfo: z.string().max(500).optional(),
+});
+const application = z.object({
+  email: z.string().email(),
+  displayName: z.string().min(2).max(120),
+  organization: z.string().max(200).optional(),
+  requestedRoleId: uuid.optional(),
+  requestedClearanceLevelId: uuid.optional(),
+  reason: z.string().max(2000).optional(),
+});
+const createInvestigation = z.object({
+  subjectId: uuid,
+  title: z.string().max(200).optional(),
+  purpose: z.string().max(2000).optional(),
+  cutoffAt: z.coerce.date(),
+  predictionHorizonStart: z.coerce.date().optional(),
+  predictionHorizonEnd: z.coerce.date().optional(),
+});
+const chat = z
+  .object({
+    question: z.string().min(1).max(4000),
+    conversationId: uuid.optional(),
+    subjectId: uuid.optional(),
+    investigationId: uuid.optional(),
+    cutoffAt: z.coerce.date().optional(),
+  })
+  .strict();
+const ragDocument = z
+  .object({
+    title: z.string().min(1).max(300),
+    content: z.string().min(1).max(100000),
+    source: z.string().max(300).optional(),
+    category: z.string().max(100).optional(),
+    version: z.string().max(50).optional(),
+    metadata: z.record(z.string(), z.unknown()).optional(),
+  })
+  .strict();
+const bounds = z.object({
+  maxHops: z.coerce.number().int().min(1).max(3).default(2),
+  maxNodes: z.coerce.number().int().min(1).max(250).default(100),
+  cutoffAt: z.coerce.date().optional(),
+});
 
 export function apiRoutes(env: Env) {
-  const router = Router(); const auth = new AuthService(env); const requireAuth = authenticate(env.JWT_ACCESS_SECRET); const context = new InvestigationContextBuilder(); const authorizedChatContext = new AuthorizedChatContextBuilder(context); const ai = new AiEngineAdapter(env); const rag = new RagAdapter(env);
-  router.get("/health", (_req, res) => res.json({ status: "ok", version: "0.1.0" }));
-  router.get("/health/ready", asyncRoute(async (_req, res) => { try { await prisma.$queryRaw`SELECT 1`; res.json({ status: "ready" }); } catch { throw new AppError(503, "NOT_READY", "PostgreSQL is unavailable"); } }));
-  router.get("/health/dependencies", requireAuth, authorize("health:dependencies:read"), asyncRoute(async (_req, res) => { let postgres = "ok"; try { await prisma.$queryRaw`SELECT 1`; } catch { postgres = "unavailable"; } const [aiEngine,ragState] = await Promise.all([ai.health(),rag.health()]); res.json({ status: postgres === "ok" && aiEngine === "ok" && ragState === "ok" ? "ok" : "degraded", services: { postgres, aiEngine, rag: ragState } }); }));
+  const router = Router();
+  const auth = new AuthService(env);
+  const requireAuth = authenticate(env.JWT_ACCESS_SECRET);
+  const context = new InvestigationContextBuilder();
+  const authorizedChatContext = new AuthorizedChatContextBuilder(context);
+  const ai = new AiEngineAdapter(env);
+  const rag = new RagAdapter(env);
+  router.use(completionRoutes(env));
+  router.get("/health", (_req, res) =>
+    res.json({ status: "ok", version: "0.1.0" }),
+  );
+  router.get(
+    "/health/ready",
+    asyncRoute(async (_req, res) => {
+      try {
+        await prisma.$queryRaw`SELECT 1`;
+        res.json({ status: "ready" });
+      } catch {
+        throw new AppError(503, "NOT_READY", "PostgreSQL is unavailable");
+      }
+    }),
+  );
+  router.get(
+    "/health/dependencies",
+    requireAuth,
+    authorize("health:dependencies:read"),
+    asyncRoute(async (_req, res) => {
+      let postgres = "ok";
+      try {
+        await prisma.$queryRaw`SELECT 1`;
+      } catch {
+        postgres = "unavailable";
+      }
+      const [aiEngine, ragState] = await Promise.all([
+        ai.health(),
+        rag.health(),
+      ]);
+      res.json({
+        status:
+          postgres === "ok" && aiEngine === "ok" && ragState === "ok"
+            ? "ok"
+            : "degraded",
+        services: { postgres, aiEngine, rag: ragState },
+      });
+    }),
+  );
 
-  router.post("/applications", validate(application), asyncRoute(async (req, res) => { const record = await prisma.accountApplication.create({ data: req.body }); res.status(202).json({ id: record.id, status: record.status, createdAt: record.createdAt }); }));
-  router.post("/auth/login", validate(login), asyncRoute(async (req, res) => res.json(await auth.login(req.body.email.toLowerCase(), req.body.password, { deviceInfo: req.body.deviceInfo, ip: req.ip, userAgent: req.header("user-agent") }))));
-  router.post("/auth/logout", requireAuth, asyncRoute(async (req, res) => { await auth.logout((req as AuthRequest).principal!.sessionId); res.status(204).end(); }));
-  router.get("/auth/me", requireAuth, asyncRoute(async (req, res) => { const user = await prisma.user.findUnique({ where: { id: (req as AuthRequest).principal!.userId }, include: { role: true, clearance: true } }); if (!user) throw notFound("User"); res.json(safeUser(user)); }));
-  router.get("/me/permissions", requireAuth, (req, res) => res.json({ permissions: (req as AuthRequest).principal!.permissions }));
-  router.get("/me/clearance", requireAuth, (req, res) => res.json({ rank: (req as AuthRequest).principal!.clearanceRank }));
+  router.post(
+    "/applications",
+    validate(application),
+    asyncRoute(async (req, res) => {
+      const record = await prisma.accountApplication.create({ data: req.body });
+      res
+        .status(202)
+        .json({
+          id: record.id,
+          status: record.status,
+          createdAt: record.createdAt,
+        });
+    }),
+  );
+  router.post(
+    "/auth/login",
+    validate(login),
+    asyncRoute(async (req, res) =>
+      { const result=await auth.login(req.body.email.toLowerCase(), req.body.password, {
+          deviceInfo: req.body.deviceInfo,
+          ip: req.ip,
+          userAgent: req.header("user-agent"),
+        }); const principal=await resolveAccessToken(env.JWT_ACCESS_SECRET,result.accessToken);(req as AuthRequest).principal=principal;await audit(req as AuthRequest,{action:"auth.login",resourceType:"session",resourceId:principal.sessionId,decision:"ALLOW"});res.json(result); },
+    ),
+  );
+  router.post(
+    "/auth/logout",
+    requireAuth,
+    asyncRoute(async (req, res) => {
+      await auth.logout((req as AuthRequest).principal!.sessionId);
+      await audit(req as AuthRequest,{action:"auth.logout",resourceType:"session",resourceId:(req as AuthRequest).principal!.sessionId,decision:"ALLOW"});
+      res.status(204).end();
+    }),
+  );
+  router.get(
+    "/auth/me",
+    requireAuth,
+    asyncRoute(async (req, res) => {
+      const user = await prisma.user.findUnique({
+        where: { id: (req as AuthRequest).principal!.userId },
+        include: { role: true, clearance: true },
+      });
+      if (!user) throw notFound("User");
+      res.json(safeUser(user));
+    }),
+  );
+  router.get("/me/permissions", requireAuth, (req, res) =>
+    res.json({ permissions: (req as AuthRequest).principal!.permissions }),
+  );
+  router.get("/me/clearance", requireAuth, (req, res) =>
+    res.json({ rank: (req as AuthRequest).principal!.clearanceRank }),
+  );
 
-  router.get("/subjects/:id", requireAuth, authorize("subject:read"), asyncRoute(async (req, res) => { const subject = await prisma.subject.findUnique({ where: { id: routeParam(req, "id") } }); if (!subject) throw notFound("Subject"); const p = (req as AuthRequest).principal!; if (p.clearanceRank < subject.classificationRank) throw new AppError(403, "INSUFFICIENT_CLEARANCE", "Subject classification exceeds clearance"); res.json({ id: subject.id, type: subject.subjectType, label: subject.displayLabel, status: subject.status }); }));
-  router.get("/subjects/:id/profile", requireAuth, authorize("subject:sensitive:read", 3), asyncRoute(async (req, res) => { const subject = await prisma.subject.findUnique({ where: { id: routeParam(req, "id") }, include: { profile: true } }); if (!subject) throw notFound("Subject"); const p = (req as AuthRequest).principal!; if (p.clearanceRank < subject.classificationRank) throw new AppError(403, "INSUFFICIENT_CLEARANCE", "Subject classification exceeds clearance"); res.json({ id: subject.id, type: subject.subjectType, label: subject.displayLabel, profile: subject.profile }); }));
-  router.post("/search", requireAuth, authorize("subject:read"), asyncRoute(async (req, res) => { const q = z.object({ query: z.string().min(2).max(200), limit: z.number().int().min(1).max(50).default(20) }).parse(req.body); const rank = (req as AuthRequest).principal!.clearanceRank; const rows = await prisma.subject.findMany({ where: { classificationRank: { lte: rank }, OR: [{ displayLabel: { contains: q.query, mode: "insensitive" } }, { externalRef: { equals: q.query, mode: "insensitive" } }] }, take: q.limit, orderBy: { displayLabel: "asc" } }); res.json({ data: rows.map(x => ({ id: x.id, type: x.subjectType, label: x.displayLabel, status: x.status })), page: { nextCursor: null, limit: q.limit } }); }));
+  router.get(
+    "/subjects/:id",
+    requireAuth,
+    authorize("subject:read"),
+    asyncRoute(async (req, res) => {
+      const subject = await prisma.subject.findUnique({
+        where: { id: routeParam(req, "id") },
+      });
+      if (!subject) throw notFound("Subject");
+      const p = (req as AuthRequest).principal!;
+      if (p.clearanceRank < subject.classificationRank)
+        throw new AppError(
+          403,
+          "INSUFFICIENT_CLEARANCE",
+          "Subject classification exceeds clearance",
+        );
+      res.json({
+        id: subject.id,
+        type: subject.subjectType,
+        label: subject.displayLabel,
+        status: subject.status,
+      });
+    }),
+  );
+  router.get(
+    "/subjects/:id/profile",
+    requireAuth,
+    authorize("subject:sensitive:read", 3),
+    asyncRoute(async (req, res) => {
+      const subject = await prisma.subject.findUnique({
+        where: { id: routeParam(req, "id") },
+        include: { profile: true },
+      });
+      if (!subject) throw notFound("Subject");
+      const p = (req as AuthRequest).principal!;
+      if (p.clearanceRank < subject.classificationRank)
+        throw new AppError(
+          403,
+          "INSUFFICIENT_CLEARANCE",
+          "Subject classification exceeds clearance",
+        );
+      res.json({
+        id: subject.id,
+        type: subject.subjectType,
+        label: subject.displayLabel,
+        profile: subject.profile,
+      });
+    }),
+  );
+  router.post(
+    "/search",
+    requireAuth,
+    authorize("subject:read"),
+    asyncRoute(async (req, res) => {
+      const q = z
+        .object({
+          query: z.string().min(2).max(200),
+          limit: z.number().int().min(1).max(50).default(20),
+        })
+        .parse(req.body);
+      const rank = (req as AuthRequest).principal!.clearanceRank;
+      const rows = await prisma.subject.findMany({
+        where: {
+          classificationRank: { lte: rank },
+          OR: [
+            { displayLabel: { contains: q.query, mode: "insensitive" } },
+            { externalRef: { equals: q.query, mode: "insensitive" } },
+          ],
+        },
+        take: q.limit,
+        orderBy: { displayLabel: "asc" },
+      });
+      await audit(req as AuthRequest,{action:"subject.search",resourceType:"search",decision:"ALLOW",metadata:{queryLength:q.query.length,resultCount:rows.length}});
+      res.json({
+        data: rows.map((x) => ({
+          id: x.id,
+          type: x.subjectType,
+          label: x.displayLabel,
+          status: x.status,
+        })),
+        page: { nextCursor: null, limit: q.limit },
+      });
+    }),
+  );
 
-  router.post("/investigations", requireAuth, authorize("investigation:create", 2), validate(createInvestigation), asyncRoute(async (req, res) => { const p = (req as AuthRequest).principal!; const subject = await prisma.subject.findUnique({ where: { id: req.body.subjectId } }); if (!subject) throw notFound("Subject"); if (p.clearanceRank < subject.classificationRank) throw new AppError(403, "INSUFFICIENT_CLEARANCE", "Subject classification exceeds clearance"); const item = await prisma.investigation.create({ data: { ...req.body, createdBy: p.userId, contextVersion: "prysm-investigation-context-v1", minimumClearanceRank: subject.classificationRank } }); await audit(req as AuthRequest, { action: "investigation.create", resourceType: "investigation", resourceId: item.id, decision: "ALLOW" }); res.status(201).json(item); }));
-  router.get("/investigations", requireAuth, authorize("investigation:read"), asyncRoute(async (req, res) => { const p = (req as AuthRequest).principal!; const limit = Math.min(Number(req.query.limit || 50), 100); const data = await prisma.investigation.findMany({ where: { minimumClearanceRank: { lte: p.clearanceRank }, OR: [{ createdBy: p.userId }, { shared: true }, ...(p.permissions.includes("investigation:read:any") ? [{}] : [])] }, take: limit, orderBy: [{ createdAt: "desc" }, { id: "asc" }], include: { subject: true } }); res.json({ data: data.map(x => ({ id: x.id, status: x.status, title: x.title, cutoffAt: x.cutoffAt, subject: { id: x.subject.id, type: x.subject.subjectType, label: x.subject.displayLabel }, createdAt: x.createdAt })), page: { nextCursor: null, limit } }); }));
-  router.get("/investigations/:id", requireAuth, authorize("investigation:read"), asyncRoute(async (req, res) => { const item = await prisma.investigation.findUnique({ where: { id: routeParam(req, "id") }, include: { subject: true, findings: { include: { evidence: { include: { evidence: true } } } }, runs: { orderBy: { createdAt: "desc" }, take: 10 } } }); if (!item) throw notFound("Investigation"); const p = (req as AuthRequest).principal!; enforceOwnership(item.createdBy, p, item.shared); if (p.clearanceRank < item.minimumClearanceRank) throw new AppError(403, "INSUFFICIENT_CLEARANCE", "Investigation classification exceeds clearance"); res.json({ id: item.id, status: item.status, title: item.title, purpose: item.purpose, cutoffAt: item.cutoffAt, subject: { id: item.subject.id, type: item.subject.subjectType, label: item.subject.displayLabel }, findings: item.findings, analysisRuns: item.runs, scientificStatus: { benchmarkScope: "synthetic benchmark where applicable", isCalibratedProbability: false } }); }));
-  router.post("/investigations/:id/analyze", requireAuth, authorize("investigation:analyze", 2), asyncRoute(async (req, res) => { const item = await prisma.investigation.findUnique({ where: { id: routeParam(req, "id") } }); if (!item) throw notFound("Investigation"); const p = (req as AuthRequest).principal!; enforceOwnership(item.createdBy, p, item.shared); if (!item.cutoffAt) throw new AppError(409, "CUTOFF_REQUIRED", "Predictive analysis requires a cutoff"); const ctx = await context.build(item.subjectId, { cutoffAt: item.cutoffAt, lookbackDays: 365, maxHops: 3, maxNodes: 250 }); const requestId = (req as AuthRequest).requestId!; const run = await prisma.analysisRun.create({ data: { investigationId: item.id, requestedBy: p.userId, status: "RUNNING", contextVersion: ctx.version, dataSnapshot: ctx.dataSnapshot, cutoffAt: item.cutoffAt, requestPayload: JSON.parse(JSON.stringify(ctx)), startedAt: new Date() } }); try { const result = await ai.analyze(ctx, { requestId, investigationId: item.id }); await persistAnalysis(run.id, item.id, result); await audit(req as AuthRequest, { action: "investigation.analyze", resourceType: "investigation", resourceId: item.id, decision: "ALLOW", metadata: { runId: run.id, aiEngineVersion: result.engineVersion } }); res.status(202).json({ runId: run.id, status: "SUCCEEDED", result }); } catch (error) { await prisma.analysisRun.update({ where: { id: run.id }, data: { status: "FAILED", errorCode: "AI_ENGINE_FAILURE", completedAt: new Date() } }); throw error; } }));
-  router.get("/investigations/:id/analysis-runs/:runId", requireAuth, authorize("investigation:read"), asyncRoute(async (req, res) => { const runId = routeParam(req, "runId"); if (!runId) throw notFound("Analysis run"); const run = await prisma.analysisRun.findUnique({ where: { id: runId }, include: { investigation: true } }); if (!run || run.investigationId !== routeParam(req, "id")) throw notFound("Analysis run"); enforceOwnership(run.investigation.createdBy, (req as AuthRequest).principal!, run.investigation.shared); res.json(run); }));
+  router.post(
+    "/investigations",
+    requireAuth,
+    authorize("investigation:create", 2),
+    validate(createInvestigation),
+    asyncRoute(async (req, res) => {
+      const p = (req as AuthRequest).principal!;
+      const subject = await prisma.subject.findUnique({
+        where: { id: req.body.subjectId },
+      });
+      if (!subject) throw notFound("Subject");
+      if (p.clearanceRank < subject.classificationRank)
+        throw new AppError(
+          403,
+          "INSUFFICIENT_CLEARANCE",
+          "Subject classification exceeds clearance",
+        );
+      const item = await prisma.investigation.create({
+        data: {
+          ...req.body,
+          createdBy: p.userId,
+          contextVersion: "prysm-investigation-context-v1",
+          minimumClearanceRank: subject.classificationRank,
+        },
+      });
+      await audit(req as AuthRequest, {
+        action: "investigation.create",
+        resourceType: "investigation",
+        resourceId: item.id,
+        decision: "ALLOW",
+      });
+      res.status(201).json(item);
+    }),
+  );
+  router.get(
+    "/investigations",
+    requireAuth,
+    authorize("investigation:read"),
+    asyncRoute(async (req, res) => {
+      const p = (req as AuthRequest).principal!;
+      const limit = Math.min(Number(req.query.limit || 50), 100);
+      const data = await prisma.investigation.findMany({
+        where: {
+          minimumClearanceRank: { lte: p.clearanceRank },
+          OR: [
+            { createdBy: p.userId },
+            { shared: true },
+            ...(p.permissions.includes("investigation:read:any") ? [{}] : []),
+          ],
+        },
+        take: limit,
+        orderBy: [{ createdAt: "desc" }, { id: "asc" }],
+        include: { subject: true },
+      });
+      res.json({
+        data: data.map((x) => ({
+          id: x.id,
+          status: x.status,
+          title: x.title,
+          cutoffAt: x.cutoffAt,
+          subject: {
+            id: x.subject.id,
+            type: x.subject.subjectType,
+            label: x.subject.displayLabel,
+          },
+          createdAt: x.createdAt,
+        })),
+        page: { nextCursor: null, limit },
+      });
+    }),
+  );
+  router.get(
+    "/investigations/:id",
+    requireAuth,
+    authorize("investigation:read"),
+    asyncRoute(async (req, res) => {
+      const item = await prisma.investigation.findUnique({
+        where: { id: routeParam(req, "id") },
+        include: {
+          subject: true,
+          findings: { include: { evidence: { include: { evidence: true } } } },
+          runs: { orderBy: { createdAt: "desc" }, take: 10 },
+        },
+      });
+      if (!item) throw notFound("Investigation");
+      const p = (req as AuthRequest).principal!;
+      enforceOwnership(item.createdBy, p, item.shared);
+      if (p.clearanceRank < item.minimumClearanceRank)
+        throw new AppError(
+          403,
+          "INSUFFICIENT_CLEARANCE",
+          "Investigation classification exceeds clearance",
+        );
+      res.json({
+        id: item.id,
+        status: item.status,
+        title: item.title,
+        purpose: item.purpose,
+        cutoffAt: item.cutoffAt,
+        subject: {
+          id: item.subject.id,
+          type: item.subject.subjectType,
+          label: item.subject.displayLabel,
+        },
+        findings: item.findings,
+        analysisRuns: item.runs,
+        scientificStatus: {
+          benchmarkScope: "synthetic benchmark where applicable",
+          isCalibratedProbability: false,
+        },
+      });
+    }),
+  );
+  router.post(
+    "/investigations/:id/analyze",
+    requireAuth,
+    authorize("investigation:analyze", 2),
+    asyncRoute(async (req, res) => {
+      const item = await prisma.investigation.findUnique({
+        where: { id: routeParam(req, "id") },
+      });
+      if (!item) throw notFound("Investigation");
+      const p = (req as AuthRequest).principal!;
+      enforceOwnership(item.createdBy, p, item.shared);
+      if (!item.cutoffAt)
+        throw new AppError(
+          409,
+          "CUTOFF_REQUIRED",
+          "Predictive analysis requires a cutoff",
+        );
+      const ctx = await context.build(item.subjectId, {
+        cutoffAt: item.cutoffAt,
+        lookbackDays: 365,
+        maxHops: 3,
+        maxNodes: 250,
+      });
+      const requestId = (req as AuthRequest).requestId!;
+      const run = await prisma.analysisRun.create({
+        data: {
+          investigationId: item.id,
+          requestedBy: p.userId,
+          status: "RUNNING",
+          contextVersion: ctx.version,
+          dataSnapshot: ctx.dataSnapshot,
+          cutoffAt: item.cutoffAt,
+          requestPayload: JSON.parse(JSON.stringify(ctx)),
+          startedAt: new Date(),
+        },
+      });
+      try {
+        const result = await ai.analyze(ctx, {
+          requestId,
+          investigationId: item.id,
+        });
+        await persistAnalysis(run.id, item.id, result);
+        await audit(req as AuthRequest, {
+          action: "investigation.analyze",
+          resourceType: "investigation",
+          resourceId: item.id,
+          decision: "ALLOW",
+          metadata: { runId: run.id, aiEngineVersion: result.engineVersion },
+        });
+        res.status(202).json({ runId: run.id, status: "SUCCEEDED", result });
+      } catch (error) {
+        await prisma.analysisRun.update({
+          where: { id: run.id },
+          data: {
+            status: "FAILED",
+            errorCode: "AI_ENGINE_FAILURE",
+            completedAt: new Date(),
+          },
+        });
+        throw error;
+      }
+    }),
+  );
+  router.get(
+    "/investigations/:id/analysis-runs/:runId",
+    requireAuth,
+    authorize("investigation:read"),
+    asyncRoute(async (req, res) => {
+      const runId = routeParam(req, "runId");
+      if (!runId) throw notFound("Analysis run");
+      const run = await prisma.analysisRun.findUnique({
+        where: { id: runId },
+        include: { investigation: true },
+      });
+      if (!run || run.investigationId !== routeParam(req, "id"))
+        throw notFound("Analysis run");
+      enforceOwnership(
+        run.investigation.createdBy,
+        (req as AuthRequest).principal!,
+        run.investigation.shared,
+      );
+      res.json(run);
+    }),
+  );
 
-  router.get("/graph/subjects/:id/subgraph", requireAuth, authorize("graph:read", 2), validate(bounds, "query"), asyncRoute(async (req, res) => { const q = req.query as any; const built = await context.build(routeParam(req, "id"), { cutoffAt: q.cutoffAt || new Date(), lookbackDays: 365, maxHops: q.maxHops, maxNodes: q.maxNodes }); res.json(built.graph); }));
-  router.get("/evidence/:id", requireAuth, authorize("evidence:read", 2), asyncRoute(async (req, res) => { const item = await prisma.evidenceReference.findUnique({ where: { id: routeParam(req, "id") } }); if (!item) throw notFound("Evidence"); res.json(item); }));
-  router.get("/models", requireAuth, authorize("model:read"), asyncRoute(async (_req, res) => res.json({ data: await prisma.modelRegistry.findMany({ select: { id: true, code: true, version: true, modelType: true, status: true, evaluationScope: true, isCalibratedProbability: true, metadata: true } }) })));
-  router.get("/audit/events", requireAuth, authorize("audit:read", 4), asyncRoute(async (_req, res) => res.json({ data: await prisma.auditEvent.findMany({ take: 100, orderBy: { createdAt: "desc" } }) })));
+  router.get(
+    "/graph/subjects/:id/subgraph",
+    requireAuth,
+    authorize("graph:read", 2),
+    validate(bounds, "query"),
+    asyncRoute(async (req, res) => {
+      const q = req.query as any;
+      const built = await context.build(routeParam(req, "id"), {
+        cutoffAt: q.cutoffAt || new Date(),
+        lookbackDays: 365,
+        maxHops: q.maxHops,
+        maxNodes: q.maxNodes,
+      });
+      await audit(req as AuthRequest,{action:"graph.read",resourceType:"subject",resourceId:routeParam(req,"id"),decision:"ALLOW",metadata:{maxHops:q.maxHops,maxNodes:q.maxNodes}});
+      res.json(built.graph);
+    }),
+  );
+  router.get(
+    "/evidence/:id",
+    requireAuth,
+    authorize("evidence:read", 2),
+    asyncRoute(async (req, res) => {
+      const item = await prisma.evidenceReference.findUnique({
+        where: { id: routeParam(req, "id") },
+      });
+      if (!item) throw notFound("Evidence");
+      res.json(item);
+    }),
+  );
+  router.get(
+    "/models",
+    requireAuth,
+    authorize("model:read"),
+    asyncRoute(async (_req, res) =>
+      res.json({
+        data: await prisma.modelRegistry.findMany({
+          select: {
+            id: true,
+            code: true,
+            version: true,
+            modelType: true,
+            status: true,
+            evaluationScope: true,
+            isCalibratedProbability: true,
+            metadata: true,
+          },
+        }),
+      }),
+    ),
+  );
+  router.get(
+    "/audit/events",
+    requireAuth,
+    authorize("audit:read", 4),
+    asyncRoute(async (_req, res) =>
+      res.json({
+        data: await prisma.auditEvent.findMany({
+          take: 100,
+          orderBy: { createdAt: "desc" },
+        }),
+      }),
+    ),
+  );
 
-  router.post("/chat/public", validate(chat.omit({ subjectId: true, investigationId: true, cutoffAt: true })), asyncRoute(async (req, res) => { const requestId=(req as AuthRequest).requestId!; const requestedConversationId = req.body.conversationId || randomUUID(); const answer = await rag.askPublic(req.body.question, requestId); const conversationId=req.body.conversationId || answer.conversationId || requestedConversationId; await prisma.ragInteraction.create({ data: { conversationId, requestId, ragRequestId:answer.requestId, scope:"PUBLIC", question:req.body.question, answer:answer.answer, sources:answer.sources, accessScope:{publicOnly:true}, contextManifest:{knowledgeOnly:true}, ragVersion:"prysm-rag-1.0.0", status:"SUCCEEDED" } }); res.json({ conversationId, requestId, answer:answer.answer, sources:answer.sources, mode:"public" }); }));
-  router.post("/chat/authorized", requireAuth, authorize("chat:authorized", 2), validate(chat), asyncRoute(async (req, res) => { const p=(req as AuthRequest).principal!; if(!req.body.investigationId) throw new AppError(400,"INVESTIGATION_REQUIRED","Authorized chat requires an investigationId"); const requestId=(req as AuthRequest).requestId!; const built=await authorizedChatContext.forInvestigation(req.body.investigationId,p); const answer=await rag.askAuthorized({question:req.body.question,userId:p.userId,subjectId:built.subjectId,investigationId:built.investigationId,context:built.context},requestId); const conversationId=req.body.conversationId || answer.conversationId || randomUUID(); await prisma.ragInteraction.create({data:{conversationId,requestId,ragRequestId:answer.requestId,userId:p.userId,scope:"AUTHORIZED",question:req.body.question,answer:answer.answer,sources:answer.sources,accessScope:{role:p.role,clearanceRank:p.clearanceRank},contextManifest:{contractVersion:"prysm-authorized-rag-context-v1",investigationId:built.investigationId,subjectId:built.subjectId,cutoffAt:(built.context as any).investigation.cutoffAt},ragVersion:"prysm-rag-1.0.0",status:"SUCCEEDED"}}); await audit(req as AuthRequest,{action:"chat.authorized",resourceType:"conversation",resourceId:conversationId,decision:"ALLOW",metadata:{investigationId:built.investigationId,ragRequestId:answer.requestId}}); res.json({conversationId,requestId,answer:answer.answer,sources:answer.sources,mode:"investigator",evidence:answer.evidence || []}); }));
-  router.post("/rag/ingest", requireAuth, authorize("rag:ingest",4), validate(ragDocument), asyncRoute(async(req,res)=>{const requestId=(req as AuthRequest).requestId!; const result=await rag.ingest(req.body,requestId); await audit(req as AuthRequest,{action:"rag.ingest",resourceType:"knowledge_document",resourceId:result.documentId,decision:"ALLOW",metadata:{source:req.body.source,category:req.body.category,chunks:result.chunks}}); res.status(201).json(result);}));
+  router.post(
+    "/chat/public",
+    validate(
+      chat.omit({ subjectId: true, investigationId: true, cutoffAt: true }),
+    ),
+    asyncRoute(async (req, res) => {
+      const requestId = (req as AuthRequest).requestId!;
+      const requestedConversationId = req.body.conversationId || randomUUID();
+      const answer = await rag.askPublic(req.body.question, requestId);
+      const conversationId =
+        req.body.conversationId ||
+        answer.conversationId ||
+        requestedConversationId;
+      await prisma.ragInteraction.create({
+        data: {
+          conversationId,
+          requestId,
+          ragRequestId: answer.requestId,
+          scope: "PUBLIC",
+          question: req.body.question,
+          answer: answer.answer,
+          sources: answer.sources,
+          accessScope: { publicOnly: true },
+          contextManifest: { knowledgeOnly: true },
+          ragVersion: "prysm-rag-1.0.0",
+          status: "SUCCEEDED",
+        },
+      });
+      res.json({
+        conversationId,
+        requestId,
+        answer: answer.answer,
+        sources: answer.sources,
+        mode: "public",
+      });
+    }),
+  );
+  router.post(
+    "/chat/authorized",
+    requireAuth,
+    authorize("chat:authorized", 2),
+    validate(chat),
+    asyncRoute(async (req, res) => {
+      const p = (req as AuthRequest).principal!;
+      if (!req.body.investigationId)
+        throw new AppError(
+          400,
+          "INVESTIGATION_REQUIRED",
+          "Authorized chat requires an investigationId",
+        );
+      const requestId = (req as AuthRequest).requestId!;
+      const built = await authorizedChatContext.forInvestigation(
+        req.body.investigationId,
+        p,
+      );
+      const answer = await rag.askAuthorized(
+        {
+          question: req.body.question,
+          userId: p.userId,
+          subjectId: built.subjectId,
+          investigationId: built.investigationId,
+          context: built.context,
+        },
+        requestId,
+      );
+      const conversationId =
+        req.body.conversationId || answer.conversationId || randomUUID();
+      await prisma.ragInteraction.create({
+        data: {
+          conversationId,
+          requestId,
+          ragRequestId: answer.requestId,
+          userId: p.userId,
+          scope: "AUTHORIZED",
+          question: req.body.question,
+          answer: answer.answer,
+          sources: answer.sources,
+          accessScope: { role: p.role, clearanceRank: p.clearanceRank },
+          contextManifest: {
+            contractVersion: "prysm-authorized-rag-context-v1",
+            investigationId: built.investigationId,
+            subjectId: built.subjectId,
+            cutoffAt: (built.context as any).investigation.cutoffAt,
+          },
+          ragVersion: "prysm-rag-1.0.0",
+          status: "SUCCEEDED",
+        },
+      });
+      await audit(req as AuthRequest, {
+        action: "chat.authorized",
+        resourceType: "conversation",
+        resourceId: conversationId,
+        decision: "ALLOW",
+        metadata: {
+          investigationId: built.investigationId,
+          ragRequestId: answer.requestId,
+        },
+      });
+      res.json({
+        conversationId,
+        requestId,
+        answer: answer.answer,
+        sources: answer.sources,
+        mode: "investigator",
+        evidence: answer.evidence || [],
+      });
+    }),
+  );
+  router.post(
+    "/rag/ingest",
+    requireAuth,
+    authorize("rag:ingest", 4),
+    validate(ragDocument),
+    asyncRoute(async (req, res) => {
+      const requestId = (req as AuthRequest).requestId!,
+        p = (req as AuthRequest).principal!;
+      const pending = await prisma.ragDocumentRecord.create({
+        data: {
+          title: req.body.title,
+          description: req.body.metadata?.description as string | undefined,
+          source: req.body.source,
+          category: req.body.category,
+          version: req.body.version,
+          metadata: req.body.metadata,
+          createdBy: p.userId,
+          status: "PROCESSING",
+        },
+      });
+      try {
+        const result = await rag.ingest(req.body, requestId);
+        const record = await prisma.ragDocumentRecord.update({
+          where: { id: pending.id },
+          data: {
+            externalId: result.documentId,
+            status: "COMPLETED",
+            chunkCount: result.chunks,
+          },
+        });
+        await audit(req as AuthRequest, {
+          action: "rag.ingest",
+          resourceType: "knowledge_document",
+          resourceId: record.id,
+          decision: "ALLOW",
+          metadata: {
+            externalId: result.documentId,
+            source: req.body.source,
+            category: req.body.category,
+            chunks: result.chunks,
+          },
+        });
+        res
+          .status(201)
+          .json({
+            jobId: record.id,
+            status: record.status,
+            documentId: result.documentId,
+            chunks: result.chunks,
+          });
+      } catch (error) {
+        await prisma.ragDocumentRecord.update({
+          where: { id: pending.id },
+          data: { status: "FAILED", errorCode: "RAG_INGEST_FAILED" },
+        });
+        throw error;
+      }
+    }),
+  );
   return router;
 }

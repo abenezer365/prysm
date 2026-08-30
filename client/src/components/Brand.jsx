@@ -1,0 +1,2 @@
+import { Link } from 'react-router-dom';
+export default function Brand({compact=false}) { return <Link to="/" className="flex items-center gap-3" aria-label="Prysm Intelligence home"><img src="/assets/prysm-mark.png" alt="" className="h-9 w-9 rounded-md object-cover grayscale"/><span className={compact?'sr-only':'font-semibold tracking-[-.02em]'}>Prysm <span className="text-[var(--muted)]">Intelligence</span></span></Link> }

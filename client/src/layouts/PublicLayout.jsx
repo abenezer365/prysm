@@ -1,0 +1,2 @@
+import { Outlet } from 'react-router-dom'; import PublicHeader from '../components/PublicHeader'; import Footer from '../components/Footer'; import ChatWidget from '../components/ChatWidget'; import RouteManager from '../components/RouteManager'; import GlobalInteractions from '../components/GlobalInteractions';
+export default function PublicLayout(){return <><RouteManager/><GlobalInteractions/><PublicHeader/><main id="main-content" tabIndex="-1"><Outlet/></main><Footer/><ChatWidget/></>}

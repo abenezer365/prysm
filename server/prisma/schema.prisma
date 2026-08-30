@@ -128,25 +128,61 @@ model AuthSession {
 }
 
 model AccountApplication {
-  id                        String            @id @default(uuid()) @db.Uuid
-  email                     String            @db.Citext
-  displayName               String            @map("display_name")
+  id                        String                     @id @default(uuid()) @db.Uuid
+  email                     String                     @db.Citext
+  displayName               String                     @map("display_name")
   organization              String?
-  requestedRoleId           String?           @map("requested_role_id") @db.Uuid
-  requestedClearanceLevelId String?           @map("requested_clearance_level_id") @db.Uuid
+  profession                String?
+  organizationRole          String?                    @map("organization_role")
+  phone                     String?
+  justification             String?
+  requestedRoleId           String?                    @map("requested_role_id") @db.Uuid
+  requestedClearanceLevelId String?                    @map("requested_clearance_level_id") @db.Uuid
   reason                    String?
-  status                    ApplicationStatus @default(PENDING)
-  reviewedBy                String?           @map("reviewed_by") @db.Uuid
-  reviewedAt                DateTime?         @map("reviewed_at")
-  reviewReason              String?           @map("review_reason")
-  createdAt                 DateTime          @default(now()) @map("created_at")
-  updatedAt                 DateTime          @updatedAt @map("updated_at")
-  requestedRole             Role?             @relation("RequestedRole", fields: [requestedRoleId], references: [id])
-  requestedClearance        ClearanceLevel?   @relation("RequestedClearance", fields: [requestedClearanceLevelId], references: [id])
-  reviewer                  User?             @relation("ApplicationReviewer", fields: [reviewedBy], references: [id])
+  status                    ApplicationStatus          @default(PENDING)
+  reviewedBy                String?                    @map("reviewed_by") @db.Uuid
+  reviewedAt                DateTime?                  @map("reviewed_at")
+  reviewReason              String?                    @map("review_reason")
+  createdAt                 DateTime                   @default(now()) @map("created_at")
+  updatedAt                 DateTime                   @updatedAt @map("updated_at")
+  requestedRole             Role?                      @relation("RequestedRole", fields: [requestedRoleId], references: [id])
+  requestedClearance        ClearanceLevel?            @relation("RequestedClearance", fields: [requestedClearanceLevelId], references: [id])
+  reviewer                  User?                      @relation("ApplicationReviewer", fields: [reviewedBy], references: [id])
+  history                   ApplicationReviewHistory[]
+  documents                 ApplicationDocument[]
 
   @@index([status, createdAt])
   @@map("account_applications")
+}
+
+model ApplicationReviewHistory {
+  id             String             @id @default(uuid()) @db.Uuid
+  applicationId  String             @map("application_id") @db.Uuid
+  previousStatus ApplicationStatus  @map("previous_status")
+  newStatus      ApplicationStatus  @map("new_status")
+  reviewerId     String             @map("reviewer_id") @db.Uuid
+  note           String?
+  createdAt      DateTime           @default(now()) @map("created_at")
+  application    AccountApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@index([applicationId, createdAt])
+  @@map("application_review_history")
+}
+
+model ApplicationDocument {
+  id            String             @id @default(uuid()) @db.Uuid
+  applicationId String             @map("application_id") @db.Uuid
+  fileName      String             @map("file_name")
+  mimeType      String             @map("mime_type")
+  sizeBytes     Int                @map("size_bytes")
+  storageRef    String?            @map("storage_ref")
+  scanStatus    String             @default("PENDING") @map("scan_status")
+  metadata      Json?
+  createdAt     DateTime           @default(now()) @map("created_at")
+  application   AccountApplication @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@index([applicationId])
+  @@map("application_documents")
 }
 
 model Subject {
@@ -343,31 +379,65 @@ model EvidenceReference {
 }
 
 model Investigation {
-  id                     String                 @id @default(uuid()) @db.Uuid
-  createdBy              String                 @map("created_by") @db.Uuid
-  subjectId              String                 @map("subject_id") @db.Uuid
-  status                 InvestigationStatus    @default(OPEN)
+  id                     String                  @id @default(uuid()) @db.Uuid
+  createdBy              String                  @map("created_by") @db.Uuid
+  subjectId              String                  @map("subject_id") @db.Uuid
+  status                 InvestigationStatus     @default(OPEN)
   title                  String?
   purpose                String?
-  cutoffAt               DateTime?              @map("cutoff_at")
-  predictionHorizonStart DateTime?              @map("prediction_horizon_start")
-  predictionHorizonEnd   DateTime?              @map("prediction_horizon_end")
-  contextVersion         String?                @map("context_version")
-  aiEngineVersion        String?                @map("ai_engine_version")
-  minimumClearanceRank   Int                    @default(1) @map("minimum_clearance_rank")
-  shared                 Boolean                @default(false)
-  createdAt              DateTime               @default(now()) @map("created_at")
-  updatedAt              DateTime               @updatedAt @map("updated_at")
-  closedAt               DateTime?              @map("closed_at")
-  creator                User                   @relation(fields: [createdBy], references: [id])
-  subject                Subject                @relation(fields: [subjectId], references: [id])
+  cutoffAt               DateTime?               @map("cutoff_at")
+  predictionHorizonStart DateTime?               @map("prediction_horizon_start")
+  predictionHorizonEnd   DateTime?               @map("prediction_horizon_end")
+  contextVersion         String?                 @map("context_version")
+  aiEngineVersion        String?                 @map("ai_engine_version")
+  minimumClearanceRank   Int                     @default(1) @map("minimum_clearance_rank")
+  shared                 Boolean                 @default(false)
+  createdAt              DateTime                @default(now()) @map("created_at")
+  updatedAt              DateTime                @updatedAt @map("updated_at")
+  closedAt               DateTime?               @map("closed_at")
+  creator                User                    @relation(fields: [createdBy], references: [id])
+  subject                Subject                 @relation(fields: [subjectId], references: [id])
   queries                InvestigationQuery[]
   findings               InvestigationFinding[]
   runs                   AnalysisRun[]
+  feedback               InvestigationFeedback[]
+  exports                InvestigationExport[]
 
   @@index([createdBy, status])
   @@index([subjectId])
   @@map("investigations")
+}
+
+model InvestigationFeedback {
+  id              String        @id @default(uuid()) @db.Uuid
+  investigationId String        @map("investigation_id") @db.Uuid
+  analysisRunId   String?       @map("analysis_run_id") @db.Uuid
+  createdBy       String        @map("created_by") @db.Uuid
+  rating          String
+  rationale       String
+  metadata        Json?
+  createdAt       DateTime      @default(now()) @map("created_at")
+  investigation   Investigation @relation(fields: [investigationId], references: [id], onDelete: Cascade)
+
+  @@index([investigationId, createdAt])
+  @@map("investigation_feedback")
+}
+
+model InvestigationExport {
+  id              String        @id @default(uuid()) @db.Uuid
+  investigationId String        @map("investigation_id") @db.Uuid
+  requestedBy     String        @map("requested_by") @db.Uuid
+  format          String
+  status          String        @default("QUEUED")
+  expiresAt       DateTime?     @map("expires_at")
+  artifactRef     String?       @map("artifact_ref")
+  errorCode       String?       @map("error_code")
+  createdAt       DateTime      @default(now()) @map("created_at")
+  updatedAt       DateTime      @updatedAt @map("updated_at")
+  investigation   Investigation @relation(fields: [investigationId], references: [id], onDelete: Cascade)
+
+  @@index([investigationId, createdAt])
+  @@map("investigation_exports")
 }
 
 model InvestigationQuery {
@@ -501,4 +571,147 @@ model AuditEvent {
   @@index([resourceType, resourceId])
   @@index([action, createdAt])
   @@map("audit_events")
+}
+
+model PasswordResetToken {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String    @map("user_id") @db.Uuid
+  tokenHash String    @unique @map("token_hash")
+  expiresAt DateTime  @map("expires_at")
+  usedAt    DateTime? @map("used_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  @@index([userId, expiresAt])
+  @@map("password_reset_tokens")
+}
+
+model NewsItem {
+  id          String    @id @default(uuid()) @db.Uuid
+  slug        String    @unique
+  title       String
+  description String
+  body        String
+  imageRef    String?   @map("image_ref")
+  authorId    String?   @map("author_id") @db.Uuid
+  authorName  String?   @map("author_name")
+  status      String    @default("DRAFT")
+  publishedAt DateTime? @map("published_at")
+  metadata    Json?
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@index([status, publishedAt])
+  @@map("news_items")
+}
+
+model ContactSubmission {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String
+  email     String   @db.Citext
+  subject   String?
+  message   String
+  status    String   @default("NEW")
+  ipHash    String?  @map("ip_hash")
+  metadata  Json?
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([status, createdAt])
+  @@map("contact_submissions")
+}
+
+model BugReport {
+  id                String    @id @default(uuid()) @db.Uuid
+  reporterName      String?   @map("reporter_name")
+  contactEmail      String?   @map("contact_email") @db.Citext
+  description       String
+  severity          String    @default("MEDIUM")
+  status            String    @default("OPEN")
+  requestId         String?   @map("request_id")
+  clientVersion     String?   @map("client_version")
+  diagnostics       Json?
+  assignedTo        String?   @map("assigned_to") @db.Uuid
+  rootCause         String?   @map("root_cause")
+  resolutionNotes   String?   @map("resolution_notes")
+  workaround        String?
+  publicExplanation String?   @map("public_explanation")
+  publicApproved    Boolean   @default(false) @map("public_approved")
+  resolvedAt        DateTime? @map("resolved_at")
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+
+  @@index([status, createdAt])
+  @@index([publicApproved, resolvedAt])
+  @@map("bug_reports")
+}
+
+model BetaApplication {
+  id          String    @id @default(uuid()) @db.Uuid
+  email       String    @db.Citext
+  displayName String    @map("display_name")
+  purpose     String
+  status      String    @default("PENDING")
+  reviewedBy  String?   @map("reviewed_by") @db.Uuid
+  reviewNote  String?   @map("review_note")
+  reviewedAt  DateTime? @map("reviewed_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@index([status, createdAt])
+  @@map("beta_applications")
+}
+
+model DatasetMetadata {
+  id            String    @id @default(uuid()) @db.Uuid
+  code          String    @unique
+  name          String
+  sourceRef     String    @map("source_ref")
+  recordCount   BigInt?   @map("record_count")
+  columns       Json
+  features      Json?
+  dateStart     DateTime? @map("date_start")
+  dateEnd       DateTime? @map("date_end")
+  visibility    String    @default("PUBLIC")
+  lastScannedAt DateTime  @default(now()) @map("last_scanned_at")
+  metadata      Json?
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  @@index([visibility, lastScannedAt])
+  @@map("dataset_metadata")
+}
+
+model ModelDownloadTicket {
+  id           String    @id @default(uuid()) @db.Uuid
+  modelId      String    @map("model_id") @db.Uuid
+  requestedBy  String    @map("requested_by") @db.Uuid
+  tokenHash    String    @unique @map("token_hash")
+  checksum     String?
+  expiresAt    DateTime  @map("expires_at")
+  usedAt       DateTime? @map("used_at")
+  auditEventId String?   @map("audit_event_id") @db.Uuid
+  createdAt    DateTime  @default(now()) @map("created_at")
+
+  @@index([modelId, requestedBy])
+  @@map("model_download_tickets")
+}
+
+model RagDocumentRecord {
+  id          String   @id @default(uuid()) @db.Uuid
+  externalId  String?  @unique @map("external_id")
+  title       String
+  description String?
+  source      String?
+  category    String?
+  version     String?
+  status      String   @default("QUEUED")
+  chunkCount  Int      @default(0) @map("chunk_count")
+  enabled     Boolean  @default(true)
+  metadata    Json?
+  createdBy   String   @map("created_by") @db.Uuid
+  errorCode   String?  @map("error_code")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@index([status, createdAt])
+  @@map("rag_document_records")
 }

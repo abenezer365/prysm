@@ -1,0 +1,2 @@
+import { Moon, Sun, Sunset } from 'lucide-react'; import { useTheme } from '../context/ThemeContext';
+export default function ThemeButton(){const{theme,toggle}=useTheme();const next=theme==='light'?'warm':theme==='warm'?'dark':'light';const Icon=theme==='light'?Sun:theme==='warm'?Sunset:Moon;return <button className="button button-secondary !p-2.5" onClick={toggle} aria-label={`Use ${next} theme`} title={`Theme: ${theme}. Switch to ${next}.`}><Icon size={17}/></button>}

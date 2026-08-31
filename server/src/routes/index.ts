@@ -36,7 +36,7 @@ const routeParam = (
 };
 const uuid = z.string().uuid();
 const login = z.object({
-  email: z.string().email(),
+  email: z.string().trim().toLowerCase().email(),
   password: z.string().min(8),
   deviceInfo: z.string().max(500).optional(),
 });
@@ -267,26 +267,54 @@ export function apiRoutes(env: Env) {
           classificationRank: { lte: rank },
           OR: [
             { displayLabel: { contains: q.query, mode: "insensitive" } },
-            { externalRef: { equals: q.query, mode: "insensitive" } },
+            { externalRef: { contains: q.query, mode: "insensitive" } },
+            {
+              profile: {
+                is: { fullName: { contains: q.query, mode: "insensitive" } },
+              },
+            },
           ],
         },
         take: q.limit,
         orderBy: { displayLabel: "asc" },
       });
+      // PostgreSQL is the operational store, while the AI artifact contains the
+      // complete canonical population. Materialize matching people lazily so
+      // every dataset person can enter the normal investigation workflow.
+      let datasetVersion: string | null = null;
+      try {
+        const indexed = await ai.searchPeople(q.query, q.limit);
+        datasetVersion = indexed.datasetVersion;
+        for (const person of indexed.data) {
+          const subject = await prisma.subject.upsert({
+            where: { subjectType_externalRef: { subjectType: "Person", externalRef: person.externalRef } },
+            update: { displayLabel: person.label, status: person.status },
+            create: { subjectType: "Person", externalRef: person.externalRef, displayLabel: person.label, status: person.status, classificationRank: 2 },
+          });
+          const profileJson = JSON.parse(JSON.stringify(person.profile));
+          await prisma.subjectProfile.upsert({ where: { subjectId: subject.id }, update: { fullName: person.label, dateOfBirth: person.profile.dateOfBirth ? new Date(String(person.profile.dateOfBirth)) : null, countryCode: person.profile.country === "Ethiopia" ? "ET" : null, sensitiveAttributes: profileJson }, create: { subjectId: subject.id, fullName: person.label, dateOfBirth: person.profile.dateOfBirth ? new Date(String(person.profile.dateOfBirth)) : null, countryCode: person.profile.country === "Ethiopia" ? "ET" : null, sensitiveAttributes: profileJson } });
+        }
+      } catch {
+        if (!rows.length) throw new AppError(502, "PERSON_INDEX_UNAVAILABLE", "The complete person dataset index is temporarily unavailable");
+        // Existing operational records remain searchable during a degraded AI
+        // service window, but an empty result must never masquerade as a full
+        // dataset search.
+      }
+      const merged = await prisma.subject.findMany({ where: { classificationRank: { lte: rank }, OR: [{ displayLabel: { contains: q.query, mode: "insensitive" } }, { externalRef: { contains: q.query, mode: "insensitive" } }, { profile: { is: { fullName: { contains: q.query, mode: "insensitive" } } } }] }, take: q.limit, orderBy: { displayLabel: "asc" } });
       await audit(req as AuthRequest, {
         action: "subject.search",
         resourceType: "search",
         decision: "ALLOW",
-        metadata: { queryLength: q.query.length, resultCount: rows.length },
+        metadata: { queryLength: q.query.length, resultCount: merged.length, datasetVersion },
       });
       res.json({
-        data: rows.map((x) => ({
+        data: merged.map((x) => ({
           id: x.id,
           type: x.subjectType,
           label: x.displayLabel,
           status: x.status,
         })),
-        page: { nextCursor: null, limit: q.limit },
+        page: { nextCursor: null, limit: q.limit }, datasetVersion,
       });
     }),
   );
@@ -441,10 +469,16 @@ export function apiRoutes(env: Env) {
         },
       });
       try {
-        const result = await ai.analyze(ctx, {
+        let result = await ai.analyze(ctx, {
           requestId,
           investigationId: item.id,
         });
+        try {
+          const summary = await rag.askAuthorized({ question: "Summarize this AI investigation for an authorized financial investigator. State the score and strongest patterns, cite the supplied evidence, mention unavailable or limited models, and avoid declaring guilt.", userId: p.userId, subjectId: item.subjectId, investigationId: item.id, context: { subject: ctx.subject, assessment: result.assessment, components: result.components, findings: result.findings, evidence: result.evidence, limitations: result.limitations } }, requestId);
+          result = { ...result, caseSummary: summary.answer, components: { ...result.components, gemini_summary: { name: "gemini_summary", status: "available", strength: null, confidence: 1, reason: summary.answer, evidence_ids: [] } } };
+        } catch {
+          result = { ...result, caseSummary: "Gemini case summary is temporarily unavailable. The model scores, findings, and source-backed evidence below remain complete." };
+        }
         await persistAnalysis(run.id, item.id, result);
         await audit(req as AuthRequest, {
           action: "investigation.analyze",
@@ -493,23 +527,21 @@ export function apiRoutes(env: Env) {
     "/graph/subjects/:id/subgraph",
     requireAuth,
     authorize("graph:read", 2),
-    validate(bounds, "query"),
     asyncRoute(async (req, res) => {
-      const q = req.query as any;
-      const built = await context.build(routeParam(req, "id"), {
-        cutoffAt: q.cutoffAt || new Date(),
-        lookbackDays: 365,
-        maxHops: q.maxHops,
-        maxNodes: q.maxNodes,
-      });
+      const q = bounds.parse(req.query);
+      const subjectId = routeParam(req, "id");
+      const subject = await prisma.subject.findUnique({ where: { id: subjectId } });
+      if (!subject?.externalRef) throw notFound("Subject");
+      const cutoffAt = q.cutoffAt || new Date("2025-12-31T23:59:59Z");
+      const built = await ai.graph(subject.externalRef, { cutoffAt, maxHops: q.maxHops, maxNodes: q.maxNodes });
       await audit(req as AuthRequest, {
         action: "graph.read",
         resourceType: "subject",
-        resourceId: routeParam(req, "id"),
+        resourceId: subjectId,
         decision: "ALLOW",
         metadata: { maxHops: q.maxHops, maxNodes: q.maxNodes },
       });
-      res.json(built.graph);
+      res.json(built);
     }),
   );
   router.get(

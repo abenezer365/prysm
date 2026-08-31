@@ -27,7 +27,16 @@ def test_public_ask_uses_knowledge_base():
     payload = response.json()
     assert payload["mode"] == "public"
     assert "Prysm" in payload["answer"]
-    assert len(payload["sources"]) >= 1
+    assert [source["title"] for source in payload["sources"]] == ["Prysm AI"]
+    assert not payload["answer"].startswith("Based on the retrieved knowledge")
+
+
+def test_public_ask_does_not_attach_unrelated_sources():
+    response = client.get("/ask?message=hello")
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["sources"] == []
+    assert "couldn't find relevant information" in payload["answer"]
 
 
 def test_ingest_and_retrieve_new_document():

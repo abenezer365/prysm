@@ -699,6 +699,22 @@ model DatasetMetadata {
   @@map("dataset_metadata")
 }
 
+model DatasetRecord {
+  id        String   @id @default(uuid()) @db.Uuid
+  dataset   String
+  sourceId  String   @map("source_id")
+  entityKey String?  @map("entity_key")
+  eventAt   DateTime? @map("event_at")
+  payload   Json
+  sourceRef String   @map("source_ref")
+  ingestedAt DateTime @default(now()) @map("ingested_at")
+
+  @@unique([dataset, sourceId])
+  @@index([dataset, entityKey])
+  @@index([dataset, eventAt])
+  @@map("dataset_records")
+}
+
 model ModelDownloadTicket {
   id           String    @id @default(uuid()) @db.Uuid
   modelId      String    @map("model_id") @db.Uuid

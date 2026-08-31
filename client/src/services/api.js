@@ -1,14 +1,26 @@
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:4000/api/v1';
+let accessTokenRenewer = null;
+
+export function setAccessTokenRenewer(renewer) {
+  accessTokenRenewer = renewer;
+}
 
 export class ApiError extends Error {
   constructor(message, { status, code, details, requestId } = {}) { super(message); this.name='ApiError'; this.status=status; this.code=code; this.details=details; this.requestId=requestId; }
 }
 
-export async function request(path, { token, body, signal, headers, ...options } = {}) {
+export async function request(path, { token, body, signal, headers, _retried = false, ...options } = {}) {
   const response = await fetch(`${API_BASE}${path}`, { ...options, signal, headers: { ...(body ? {'Content-Type':'application/json'} : {}), ...(token ? {Authorization:`Bearer ${token}`} : {}), ...headers }, body: body ? JSON.stringify(body) : undefined });
   const requestId = response.headers.get('x-request-id');
   const payload = response.status === 204 ? null : await response.json().catch(() => null);
-  if (!response.ok) { const err=payload?.error || {}; throw new ApiError(err.message || 'The service could not complete this request.', { status:response.status, code:err.code, details:err.details, requestId:err.requestId || requestId }); }
+  if (!response.ok) {
+    if (response.status === 401 && token && !_retried && accessTokenRenewer) {
+      const renewedToken = await accessTokenRenewer();
+      return request(path, { ...options, token: renewedToken, body, signal, headers, _retried: true });
+    }
+    const err=payload?.error || {};
+    throw new ApiError(err.message || 'The service could not complete this request.', { status:response.status, code:err.code, details:err.details, requestId:err.requestId || requestId });
+  }
   return payload;
 }
 
@@ -24,4 +36,22 @@ export const api = {
   applications: (token,query='') => request(`/applications${query}`,{token}), reviewApplication: (token,id,body) => request(`/applications/${id}`,{method:'PATCH',token,body}), bugReports: (token,query='') => request(`/bug-reports${query}`,{token}), updateBug: (token,id,body) => request(`/bug-reports/${id}`,{method:'PATCH',token,body}), betaApplications: (token,query='') => request(`/beta/applications${query}`,{token}), reviewBeta: (token,id,body) => request(`/beta/applications/${id}`,{method:'PATCH',token,body}), contributors: (token,query='') => request(`/contributors/applications${query}`,{token}), reviewContributor: (token,id,body) => request(`/contributors/applications/${id}`,{method:'PATCH',token,body}),
 };
 
-export function friendlyError(error) { if (!error) return ''; const byStatus={400:'Check the information and try again.',401:'Your session has expired. Please sign in again.',403:'Your account does not have access to this resource.',404:'The requested resource was not found.',409:'This action conflicts with the current resource state.',413:'The submitted content is too large.',429:'Too many requests. Please wait and try again.',502:'An upstream intelligence service is unavailable.',503:'A required Prysm service is temporarily unavailable.'}; return byStatus[error.status] || error.message || 'Something went wrong.'; }
+export function friendlyError(error) {
+  if (!error) return '';
+  const byCode = {
+    INVALID_CREDENTIALS: 'Invalid email or password.',
+    ACCOUNT_INACTIVE: 'This account is not active. Contact an administrator.',
+  };
+  const byStatus = {
+    400: 'Check the information and try again.',
+    401: 'Your session has expired. Please sign in again.',
+    403: 'Your account does not have access to this resource.',
+    404: 'The requested resource was not found.',
+    409: 'This action conflicts with the current resource state.',
+    413: 'The submitted content is too large.',
+    429: 'Too many requests. Please wait and try again.',
+    502: 'An upstream intelligence service is unavailable.',
+    503: 'A required Prysm service is temporarily unavailable.',
+  };
+  return byCode[error.code] || byStatus[error.status] || error.message || 'Something went wrong.';
+}

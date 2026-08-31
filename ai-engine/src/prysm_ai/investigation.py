@@ -13,8 +13,11 @@ import pandas as pd
 from .contracts import InvestigationResult, SignalComponent
 from .evidence import EvidenceEngine
 from .fusion import SignalFusion
+from .features import MODEL_FEATURES, AsOfFeatureBuilder, load_phase1, normalize_transactions
 from .graph import GraphStore
 from .gnn import encode_temporal_subgraph
+from .models import IsolationForestBaseline, LogisticBaseline, RobustPreprocessor
+from .rules import RuleEngine
 
 
 def _bounded(value: float) -> float:
@@ -42,6 +45,14 @@ class InvestigationEngine:
         validity_path = project_dir / "artifacts" / "VALIDITY.json"
         self.validity = json.loads(validity_path.read_text(encoding="utf-8")) if validity_path.is_file() else {}
         self.rules = [json.loads(line) for line in (project_dir / "signals" / "rule_findings.jsonl").read_text(encoding="utf-8").splitlines() if line]
+        accounts, transactions, invoices, relationships = load_phase1(project_dir / "data" / "processed")
+        normalized_path = project_dir / "data" / "intelligence" / "normalized_transactions.parquet"
+        normalized = pd.read_parquet(normalized_path) if normalized_path.is_file() else normalize_transactions(transactions, accounts, invoices)
+        self.normalized_transactions, self.accounts, self.relationships = normalized, accounts, relationships
+        self.preprocessor = RobustPreprocessor.from_dict(json.loads((project_dir / "artifacts" / "preprocessor.json").read_text(encoding="utf-8")))
+        self.supervised_model = LogisticBaseline.from_dict(json.loads((project_dir / "artifacts" / "supervised_model.json").read_text(encoding="utf-8")))
+        self.anomaly_model = IsolationForestBaseline.from_dict(json.loads((project_dir / "artifacts" / "anomaly_model.json").read_text(encoding="utf-8")))
+        self.rule_engine = RuleEngine(config["rules"])
         self.fusion = SignalFusion(config["fusion"])
         self.evidence_engine = EvidenceEngine(**config["evidence"])
 
@@ -72,7 +83,9 @@ class InvestigationEngine:
             _bounded(float(len(nodes)) / graph_scales["neighborhood_nodes"]),
         ])
         graph_row["structural_anomaly_score"] = float(graph_strength)
-        snapshot = self._snapshot(subject, cutoff); evidence = []
+        feature_builder = AsOfFeatureBuilder(self.normalized_transactions, self.accounts, self.relationships, {subject})
+        snapshot = pd.Series({"ground_truth_id": f"runtime:{subject}:{cutoff.isoformat()}", "entity_key": subject, "as_of": cutoff, **feature_builder.build_one(subject, cutoff)})
+        evidence = []
         graph_evidence = self.evidence_engine.graph_summary(subject, graph_row, nodes, edges, novelty); evidence.append(graph_evidence)
         graph_confidence = _bounded(float(graph_row["degree"]) / graph_scales["degree"])
         components: dict[str, SignalComponent] = {
@@ -82,11 +95,7 @@ class InvestigationEngine:
             "foreign_geographic": SignalComponent("foreign_geographic", "unavailable", None, 0.0, "Current data supports currency activity but not international geography."),
         }
         snapshot_rules: list[dict[str, Any]] = []
-        if snapshot is None:
-            reason = "No Phase 2 as-of snapshot exists for this entity at the requested cutoff."
-            for name in ["transaction", "behavior", "velocity", "foreign_currency", "rule", "anomaly"]:
-                components[name] = SignalComponent(name, "unavailable", None, 0.0, reason)
-        else:
+        if snapshot is not None:
             history_confidence = _bounded(float(snapshot.history_tx_count) / scales["history_transactions"])
             transaction_volume = float(snapshot.inflow_etb_30d + snapshot.outflow_etb_30d)
             transaction_strength = 0.5 * _bounded(float(snapshot.tx_count_30d) / scales["transaction_count_30d"]) + 0.5 * _bounded(transaction_volume / scales["transaction_volume_etb_30d"])
@@ -107,26 +116,19 @@ class InvestigationEngine:
                 "velocity": SignalComponent("velocity", "available", velocity_strength, history_confidence, "Recent rate and outflow measures.", [phase_evidence[2].evidence_id]),
                 "foreign_currency": SignalComponent("foreign_currency", "available", foreign_strength, min(history_confidence, 0.5), "Currency-based signal; geographic confidence is unavailable.", [phase_evidence[3].evidence_id]),
             })
-            snapshot_rules = [item for item in self.rules if item.get("ground_truth_id") == snapshot.ground_truth_id]
+            snapshot_rules = [{"ground_truth_id": snapshot.ground_truth_id, "as_of": pd.Timestamp(snapshot.as_of).isoformat(), **item.to_dict()} for item in self.rule_engine.evaluate(snapshot.to_dict())]
             rule_evidence = [self.evidence_engine.from_rule(subject, item) for item in snapshot_rules]; evidence.extend(rule_evidence)
             components["rule"] = SignalComponent("rule", "available", max((float(item["score"]) for item in snapshot_rules), default=0.0), 1.0 if snapshot_rules else history_confidence, "Maximum configured rule strength at the selected snapshot.", [item.evidence_id for item in rule_evidence])
-            anomaly = self.anomalies.loc[snapshot.ground_truth_id]
+            model_input = self.preprocessor.transform(snapshot[MODEL_FEATURES].to_numpy(float).reshape(1, -1))
+            anomaly_score, anomaly_flag = self.anomaly_model.predict(model_input)
             anomaly_confidence = 0.4 * history_confidence
-            anomaly_evidence = self.evidence_engine.anomaly_signal(subject, float(anomaly.anomaly_score), str(anomaly.model_version), anomaly_confidence, transaction_ids, snapshot.as_of.isoformat())
+            anomaly_evidence = self.evidence_engine.anomaly_signal(subject, float(anomaly_score[0]), "numpy-isolation-forest-v1", anomaly_confidence, transaction_ids, snapshot.as_of.isoformat())
             evidence.append(anomaly_evidence)
-            components["anomaly"] = SignalComponent("anomaly", "available", _bounded(float(anomaly.anomaly_score)), anomaly_confidence, "Unsupervised behavioral anomaly; not a fraud probability.", [anomaly_evidence.evidence_id])
-            aligned_status = self.validity.get("aligned_supervised_model", {}).get("status")
-            if aligned_status == "valid_synthetic_scenario_evaluation" and snapshot.ground_truth_id in self.model_predictions.index:
-                prediction = self.model_predictions.loc[snapshot.ground_truth_id]
-                supervised_evidence = self.evidence_engine.supervised_signal(
-                    subject, float(prediction.probability), str(prediction.model_version), transaction_ids, snapshot.as_of.isoformat()
-                )
-                evidence.append(supervised_evidence)
-                components["supervised_prediction"] = SignalComponent(
-                    "supervised_prediction", "available", float(prediction.probability), history_confidence,
-                    "Valid only for the aligned synthetic future-scenario target; not calibrated for real-world fraud.",
-                    [supervised_evidence.evidence_id],
-                )
+            components["anomaly"] = SignalComponent("anomaly", "available", _bounded(float(anomaly_score[0])), anomaly_confidence, f"Isolation Forest behavioral anomaly ({'threshold exceeded' if bool(anomaly_flag[0]) else 'within learned threshold'}); not a fraud probability.", [anomaly_evidence.evidence_id])
+            probability = float(self.supervised_model.predict_proba(model_input)[0])
+            supervised_evidence = self.evidence_engine.supervised_signal(subject, probability, "numpy-logistic-v1", transaction_ids, snapshot.as_of.isoformat())
+            evidence.append(supervised_evidence)
+            components["supervised_prediction"] = SignalComponent("supervised_prediction", "available", probability, history_confidence, "Model inference for the synthetic future-scenario target; not calibrated for real-world fraud.", [supervised_evidence.evidence_id])
 
         assessment = self.fusion.combine(components)
         selected = self.evidence_engine.limit(evidence)

@@ -40,6 +40,9 @@ yarn-error.log*
 *.pem
 *.key
 *.cert
+**/__pycache__/
+**/.pytest_cache/
+*.py[cod]
 
 
 # Runtime and Build Artifacts

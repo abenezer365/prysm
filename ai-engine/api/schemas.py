@@ -53,3 +53,14 @@ class AnalyzeResponse(BaseModel):
     limitations: list[str]
     modelVersions: dict[str, Any]
     provenance: dict[str, Any]
+
+class PersonSearchResult(BaseModel):
+    externalRef: str
+    label: str
+    status: str | None = None
+    profile: dict[str, Any] = Field(default_factory=dict)
+
+class PersonSearchResponse(BaseModel):
+    data: list[PersonSearchResult]
+    total: int
+    datasetVersion: str

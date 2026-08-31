@@ -17,9 +17,9 @@
 - [x] Mandatory future-agent documentation
 - [x] Existing authenticated application shell remains separate and intact
 - [x] Scroll-direction-aware public header with immediate upward return
-- [x] Light, warm beige, and graphite dark themes
+- [x] Light neutral and graphite dark themes
 - [x] Responsive sparse-grid visual structure and restrained pattern token
-- [x] VscCursor custom pointer for fine-pointer devices
+- [x] Default browser cursor with visible keyboard focus
 - [x] Indexed topic search with aliases, section content, keyboard navigation, and direct routing
 - [x] Accessible Prysm context menu with history, reload, copy, new-tab, and selected-topic search
 - [x] Meaningful related-reading labels with no raw route fallback text

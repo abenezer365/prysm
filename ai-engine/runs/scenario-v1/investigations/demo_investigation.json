@@ -2,11 +2,11 @@
   "assessment": {
     "confidence": {
       "component_coverage": 1.0,
-      "score": 0.7645333333333333,
+      "score": 0.77925,
       "status": "sufficient"
     },
     "is_fraud_probability": false,
-    "strength": 0.6356315112536274,
+    "strength": 0.6329171347962198,
     "tier": "moderate",
     "type": "uncalibrated_attention_assessment",
     "weights": {
@@ -16,14 +16,14 @@
       "gnn": 0.6,
       "graph": 1.2,
       "rule": 1.2,
-      "supervised_prediction": 0.0,
+      "supervised_prediction": 0.5,
       "transaction": 1.0,
       "velocity": 1.0
     }
   },
   "confidence": {
     "component_coverage": 1.0,
-    "score": 0.7645333333333333,
+    "score": 0.77925,
     "status": "sufficient"
   },
   "evidence": [
@@ -43,6 +43,33 @@
       "severity": "info",
       "signal_source": "phase2_features",
       "signal_type": "velocity",
+      "supporting_edge_ids": [],
+      "supporting_entity_ids": [],
+      "supporting_relationship_ids": [],
+      "supporting_transaction_ids": [
+        "TX00630603",
+        "TX00627637",
+        "TX00238287"
+      ],
+      "timestamps": [
+        "2024-06-02T00:00:00+00:00"
+      ]
+    },
+    {
+      "confidence": 1.0,
+      "description": "An invoice-linked transaction predates the invoice issue date.",
+      "entity_id": "Company:C04930",
+      "evidence_id": "EVD:4cc3cf8d3eb457ab",
+      "measurements": {
+        "invalid_events_30d": 3.0
+      },
+      "provenance": {
+        "derivation": "configured rule over Phase 2 as-of features",
+        "source": "signals/rule_findings.jsonl"
+      },
+      "severity": "low",
+      "signal_source": "rule_engine",
+      "signal_type": "INVOICE_CHRONOLOGY",
       "supporting_edge_ids": [],
       "supporting_entity_ids": [],
       "supporting_relationship_ids": [],
@@ -112,20 +139,21 @@
       ]
     },
     {
-      "confidence": 1.0,
-      "description": "An invoice-linked transaction predates the invoice issue date.",
+      "confidence": 0.75,
+      "description": "Thirty-day transaction frequency exceeds the entity's historical rate.",
       "entity_id": "Company:C04930",
-      "evidence_id": "EVD:f91d402824bec09d",
+      "evidence_id": "EVD:28c2745ff1db52b8",
       "measurements": {
-        "invalid_events_30d": 3.0
+        "activity_ratio": 3.0,
+        "count_30d": 3.0
       },
       "provenance": {
         "derivation": "configured rule over Phase 2 as-of features",
         "source": "signals/rule_findings.jsonl"
       },
-      "severity": "low",
+      "severity": "medium",
       "signal_source": "rule_engine",
-      "signal_type": "INVOICE_CHRONOLOGY",
+      "signal_type": "TX_FREQUENCY_CHANGE_30D",
       "supporting_edge_ids": [],
       "supporting_entity_ids": [],
       "supporting_relationship_ids": [],
@@ -142,7 +170,7 @@
       "confidence": 0.75,
       "description": "Recent activity and counterparty breadth exceed the historical rate.",
       "entity_id": "Company:C04930",
-      "evidence_id": "EVD:752b29d5719ee4a7",
+      "evidence_id": "EVD:9e746b4bc3cb2d55",
       "measurements": {
         "activity_ratio": 3.0,
         "counterparties_30d": 3.0
@@ -154,34 +182,6 @@
       "severity": "medium",
       "signal_source": "rule_engine",
       "signal_type": "COUNTERPARTY_ACTIVITY_CHANGE",
-      "supporting_edge_ids": [],
-      "supporting_entity_ids": [],
-      "supporting_relationship_ids": [],
-      "supporting_transaction_ids": [
-        "TX00630603",
-        "TX00627637",
-        "TX00238287"
-      ],
-      "timestamps": [
-        "2024-06-02T00:00:00+00:00"
-      ]
-    },
-    {
-      "confidence": 0.75,
-      "description": "Thirty-day transaction frequency exceeds the entity's historical rate.",
-      "entity_id": "Company:C04930",
-      "evidence_id": "EVD:a08ee1f4e1228334",
-      "measurements": {
-        "activity_ratio": 3.0,
-        "count_30d": 3.0
-      },
-      "provenance": {
-        "derivation": "configured rule over Phase 2 as-of features",
-        "source": "signals/rule_findings.jsonl"
-      },
-      "severity": "medium",
-      "signal_source": "rule_engine",
-      "signal_type": "TX_FREQUENCY_CHANGE_30D",
       "supporting_edge_ids": [],
       "supporting_entity_ids": [],
       "supporting_relationship_ids": [],
@@ -357,7 +357,7 @@
       "confidence": 0.567772499641887,
       "description": "Recent foreign-currency inflow exceeds the historical rate; geography is not inferred.",
       "entity_id": "Company:C04930",
-      "evidence_id": "EVD:866accf073c4c98f",
+      "evidence_id": "EVD:b22dd5394a9a2657",
       "measurements": {
         "foreign_inflow_etb_30d": 403910.0,
         "rate_ratio": 2.271089998567548
@@ -447,7 +447,7 @@
           "Company:C04930"
         ],
         "explanation": "Thirty-day transaction frequency exceeds the entity's historical rate.",
-        "ground_truth_id": "GT04683",
+        "ground_truth_id": "runtime:Company:C04930:2024-06-02T00:00:00+00:00",
         "measurements": {
           "activity_ratio": 3.0,
           "count_30d": 3.0
@@ -469,7 +469,7 @@
           "Company:C04930"
         ],
         "explanation": "Recent foreign-currency inflow exceeds the historical rate; geography is not inferred.",
-        "ground_truth_id": "GT04683",
+        "ground_truth_id": "runtime:Company:C04930:2024-06-02T00:00:00+00:00",
         "measurements": {
           "foreign_inflow_etb_30d": 403910.0,
           "rate_ratio": 2.271089998567548
@@ -491,7 +491,7 @@
           "Company:C04930"
         ],
         "explanation": "Recent activity and counterparty breadth exceed the historical rate.",
-        "ground_truth_id": "GT04683",
+        "ground_truth_id": "runtime:Company:C04930:2024-06-02T00:00:00+00:00",
         "measurements": {
           "activity_ratio": 3.0,
           "counterparties_30d": 3.0
@@ -513,7 +513,7 @@
           "Company:C04930"
         ],
         "explanation": "An invoice-linked transaction predates the invoice issue date.",
-        "ground_truth_id": "GT04683",
+        "ground_truth_id": "runtime:Company:C04930:2024-06-02T00:00:00+00:00",
         "measurements": {
           "invalid_events_30d": 3.0
         },
@@ -530,7 +530,7 @@
       }
     ],
     "supervised_model": {
-      "reason": "Valid only for the aligned synthetic future-scenario target; not calibrated for real-world fraud.",
+      "reason": "Model inference for the synthetic future-scenario target; not calibrated for real-world fraud.",
       "status": "available"
     }
   },
@@ -583,7 +583,7 @@
         "EVD:cbbd0919da7a4c06"
       ],
       "name": "anomaly",
-      "reason": "Unsupervised behavioral anomaly; not a fraud probability.",
+      "reason": "Isolation Forest behavioral anomaly (threshold exceeded); not a fraud probability.",
       "status": "available",
       "strength": 0.5468969964630045
     },
@@ -638,10 +638,10 @@
     "rule": {
       "confidence": 1.0,
       "evidence_ids": [
-        "EVD:a08ee1f4e1228334",
-        "EVD:866accf073c4c98f",
-        "EVD:752b29d5719ee4a7",
-        "EVD:f91d402824bec09d"
+        "EVD:28c2745ff1db52b8",
+        "EVD:b22dd5394a9a2657",
+        "EVD:9e746b4bc3cb2d55",
+        "EVD:4cc3cf8d3eb457ab"
       ],
       "name": "rule",
       "reason": "Maximum configured rule strength at the selected snapshot.",
@@ -654,7 +654,7 @@
         "EVD:c9b1bd89219ab0d2"
       ],
       "name": "supervised_prediction",
-      "reason": "Valid only for the aligned synthetic future-scenario target; not calibrated for real-world fraud.",
+      "reason": "Model inference for the synthetic future-scenario target; not calibrated for real-world fraud.",
       "status": "available",
       "strength": 0.5922014879351066
     },

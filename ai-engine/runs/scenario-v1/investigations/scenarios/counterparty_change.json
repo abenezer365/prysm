@@ -2,11 +2,11 @@
   "assessment": {
     "confidence": {
       "component_coverage": 1.0,
-      "score": 0.7837333333333334,
+      "score": 0.79725,
       "status": "sufficient"
     },
     "is_fraud_probability": false,
-    "strength": 0.33861326200391717,
+    "strength": 0.35102716957814406,
     "tier": "low",
     "type": "uncalibrated_attention_assessment",
     "weights": {
@@ -16,14 +16,14 @@
       "gnn": 0.6,
       "graph": 1.2,
       "rule": 1.2,
-      "supervised_prediction": 0.0,
+      "supervised_prediction": 0.5,
       "transaction": 1.0,
       "velocity": 1.0
     }
   },
   "confidence": {
     "component_coverage": 1.0,
-    "score": 0.7837333333333334,
+    "score": 0.79725,
     "status": "sufficient"
   },
   "evidence": [
@@ -291,7 +291,7 @@
       "confidence": 0.8,
       "description": "Multiple active shared-device/address relationships are present.",
       "entity_id": "Company:C01523",
-      "evidence_id": "EVD:cd5a69ce96110013",
+      "evidence_id": "EVD:7d1ac9e20b70d2e3",
       "measurements": {
         "shared_relationships": 4.0
       },
@@ -393,7 +393,7 @@
           "Company:C01523"
         ],
         "explanation": "Multiple active shared-device/address relationships are present.",
-        "ground_truth_id": "GT00068",
+        "ground_truth_id": "runtime:Company:C01523:2025-06-07T00:00:00+00:00",
         "measurements": {
           "shared_relationships": 4.0
         },
@@ -406,7 +406,7 @@
       }
     ],
     "supervised_model": {
-      "reason": "Valid only for the aligned synthetic future-scenario target; not calibrated for real-world fraud.",
+      "reason": "Model inference for the synthetic future-scenario target; not calibrated for real-world fraud.",
       "status": "available"
     }
   },
@@ -461,7 +461,7 @@
         "EVD:3be411319327bd48"
       ],
       "name": "anomaly",
-      "reason": "Unsupervised behavioral anomaly; not a fraud probability.",
+      "reason": "Isolation Forest behavioral anomaly (within learned threshold); not a fraud probability.",
       "status": "available",
       "strength": 0.47032555477934623
     },
@@ -516,7 +516,7 @@
     "rule": {
       "confidence": 1.0,
       "evidence_ids": [
-        "EVD:cd5a69ce96110013"
+        "EVD:7d1ac9e20b70d2e3"
       ],
       "name": "rule",
       "reason": "Maximum configured rule strength at the selected snapshot.",
@@ -529,7 +529,7 @@
         "EVD:949d4c5c9d382a0d"
       ],
       "name": "supervised_prediction",
-      "reason": "Valid only for the aligned synthetic future-scenario target; not calibrated for real-world fraud.",
+      "reason": "Model inference for the synthetic future-scenario target; not calibrated for real-world fraud.",
       "status": "available",
       "strength": 0.537235783191547
     },

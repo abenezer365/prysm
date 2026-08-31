@@ -45,7 +45,7 @@
     "random_seed": 42
   },
   "fusion": {
-    "weights": {"transaction": 1.0, "behavior": 1.0, "velocity": 1.0, "foreign_currency": 0.7, "rule": 1.2, "anomaly": 0.8, "graph": 1.2, "gnn": 0.6},
+    "weights": {"transaction": 1.0, "behavior": 1.0, "velocity": 1.0, "foreign_currency": 0.7, "rule": 1.2, "anomaly": 0.8, "supervised_prediction": 0.5, "graph": 1.2, "gnn": 0.6},
     "scales": {"transaction_count_30d": 5.0, "transaction_volume_etb_30d": 1000000.0, "behavior_z": 3.0, "velocity_ratio": 2.0, "foreign_inflow_etb_30d": 100000.0, "history_transactions": 5.0},
     "attention_thresholds": {"low": 0.25, "moderate": 0.5, "elevated": 0.75},
     "minimum_confidence": 0.2

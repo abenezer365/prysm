@@ -4,6 +4,10 @@ Base HTTP URL: `http://127.0.0.1:4000/api/v1`. Realtime URL: `ws://127.0.0.1:400
 
 Every HTTP response has `x-request-id`. Errors use `{"error":{"code":"...","message":"...","details":{},"requestId":"uuid"}}`. Handle `400`, `401`, `403`, `404`, `409`, `413`, `429`, `502`, and `503`. Dates are ISO-8601 UTC strings; IDs are UUIDs unless documented otherwise.
 
+Universal person search uses the complete canonical AI person index and lazily materializes operational PostgreSQL subjects. Investigation analysis runs live Phase 2 features, rules, anomaly and supervised models, graph/GNN intelligence, fusion, evidence generation, and an authorized Gemini case summary.
+
+The graph route `GET /graph/subjects/{subjectUuid}/subgraph?maxHops=2&maxNodes=100&cutoffAt=...` returns `{subject, cutoffAt, maxHops, maxNodes, truncated, nodes, edges}`. Nodes expose `id`, `externalRef`, `sourceId`, `type`, `label`, `status`, and `isSubject`; edges expose typed source/target IDs, a readable relationship label, confidence, time, and available transaction/relationship evidence. It queries the bounded canonical Parquet graph and therefore does not require a prior full graph import into PostgreSQL.
+
 ## Implemented endpoints
 
 | Method | Route | Access | Request / purpose | Success |

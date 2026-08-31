@@ -1,16 +1,353 @@
-import { Link, Navigate, useLocation } from 'react-router-dom'; import { docPages, glossary, publicPages } from '../config/publicRegistry';
-const slug=s=>s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
-const categoryPaths={Research:'/research',Intelligence:'/intelligence',Academy:'/academy',Organization:'/about',Reports:'/report',Policies:'/privacy'};
-const labels=path=>publicPages[path]?.title||docPages[path]?.[0]||path.split('/').filter(Boolean).pop()?.replaceAll('-',' ').replace(/\b\w/g,c=>c.toUpperCase())||'Related page';
-const practice={
-  Research:'In Prysm, this principle affects data preparation, temporal cutoffs, model evaluation, graph bounds, evidence presentation, and the language used in assessments. The implementation should make uncertainty visible at the moment a reviewer acts, not bury it in a separate policy page.',
-  Intelligence:'Inside the protected workspace, the backend constructs the permitted context. The interface presents identifiers, timestamps, source references, model scope, and limitations together so an analyst can distinguish an observed record from an inference or generated explanation.',
-  Academy:'Learning material uses synthetic examples and asks learners to state assumptions, error costs, and limits. Exercises should be reproducible and should never require production subject data or unrestricted service credentials.',
-  Organization:'Institutional claims, biographies, affiliations, partnerships, and contact details remain subject to owner verification. The public structure is intentionally useful without inventing authority or achievement.',
-  Reports:'Operational reporting should preserve the time, affected action, safe environment details, and request ID. Reports must exclude passwords, tokens, unrestricted context, and protected subject information.',
-  Policies:'Policy language should match actual system behavior. Retention, legal basis, user rights, organizational identity, and jurisdiction-specific duties require owner and legal confirmation before release.',
+import { Link, Navigate, useLocation } from "react-router-dom";
+import { docPages, glossary, publicPages } from "../config/publicRegistry";
+const slug = (s) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+const categoryPaths = {
+  Research: "/research",
+  Intelligence: "/intelligence",
+  Academy: "/academy",
+  Organization: "/about",
+  Reports: "/report",
+  Policies: "/privacy",
 };
-export default function KnowledgePage(){const{pathname}=useLocation();const page=publicPages[pathname];if(!page)return <Navigate to="/" replace/>;return <div className="shell article-layout"><nav className="article-toc" aria-label="On this page"><p className="eyebrow mb-3">Contents</p>{page.sections.map(([title])=><a key={title} href={`#${slug(title)}`}>{title}</a>)}<a href="#practical-implications">Practical implications</a><a href="#references">Further reading</a></nav><article className="article-body"><header><nav className="breadcrumb" aria-label="Breadcrumb"><Link to="/">Home</Link><span>/</span><Link to={categoryPaths[page.category]||'/'}>{page.category}</Link><span>/</span><span aria-current="page">{page.title}</span></nav><h1 className="page-title" tabIndex="-1">{page.title}</h1><p className="muted mt-6 text-xl leading-8">{page.description}</p><div className="article-meta"><span>PRYSM KNOWLEDGE NOTE</span><span>REVIEWED AUGUST 2026</span><span>{page.sections.length+2} SECTIONS</span></div></header>{page.sections.map(([title,text],i)=><section id={slug(title)} key={title}><h2>{title}</h2><p>{text}</p>{i===0&&<div className="side-note mt-6"><strong>System connection.</strong> This topic is interpreted together with authorization, provenance, temporal scope, and human review. <Link className="knowledge-link mt-2" to="/docs/architecture">See the architecture documentation</Link></div>}</section>)}<section id="practical-implications"><h2>Practical implications for Prysm</h2><p>{practice[page.category]}</p><dl className="mt-6 grid gap-px bg-[var(--border)] text-sm sm:grid-cols-2"><div className="bg-[var(--surface-2)] p-4"><dt className="font-semibold">What the interface should show</dt><dd className="muted mt-2">Purpose, scope, time, source, access state, analytical status, and limitations.</dd></div><div className="bg-[var(--surface-2)] p-4"><dt className="font-semibold">What it must not imply</dt><dd className="muted mt-2">Certainty, guilt, unrestricted authority, or evidence that the backend did not provide.</dd></div></dl></section><section id="references"><h2>References and further reading</h2><p>This note summarizes Prysm’s documented architecture and research principles. External scholarly citations should be added only after source verification and editorial review.</p><div className="related-links mt-5">{page.related.map(path=><Link key={path} to={path}>{labels(path)}</Link>)}</div></section></article><aside className="side-note"><p className="eyebrow">Interpretation note</p><p className="mt-3">Prysm uses indicator, signal, risk, evidence, investigation, and assessment. Model output is not a determination of guilt.</p><Link className="knowledge-link mt-4" to="/research/ethical-ai">Read the ethical AI framework</Link></aside></div>}
-export function DocArticle(){const{pathname}=useLocation();const doc=docPages[pathname];if(!doc)return <Navigate to="/docs" replace/>;const[title,description]=doc;return <div className="shell article-layout"><nav className="article-toc" aria-label="Documentation navigation"><p className="eyebrow mb-3">Documentation</p>{Object.entries(docPages).slice(0,12).map(([path,[name]])=><Link key={path} to={path}>{name}</Link>)}</nav><article className="article-body"><header><nav className="breadcrumb"><Link to="/">Home</Link><span>/</span><Link to="/docs">Documentation</Link><span>/</span><span>{title}</span></nav><h1 className="page-title" tabIndex="-1">{title}</h1><p className="muted mt-6 text-xl leading-8">{description}</p><div className="article-meta"><span>TECHNICAL REFERENCE</span><span>CONTRACT VERSION V1</span><span>BACKEND AUTHORITATIVE</span></div></header><section><h2>Overview</h2><p>{description}</p><div className="side-note mt-6"><strong>Security boundary:</strong> the browser communicates only with the backend. It never calls the AI Engine or retrieval service directly.</div></section><section><h2>Operational sequence</h2><ol className="list-decimal space-y-3 pl-6"><li>Validate the request shape and stated purpose.</li><li>Authenticate the live session and authorize the action where required.</li><li>Resolve ownership, classification, and clearance at the backend boundary.</li><li>Build bounded, cutoff-aware context from permitted data.</li><li>Call an internal service without exposing its credentials or unrestricted context.</li><li>Return a safe result with request identity, provenance, and limitations.</li></ol></section><section><h2>Data and privacy considerations</h2><p>Only fields required for the operation should cross each service boundary. Sensitive profile data uses a separate endpoint and permission. Investigation chat receives a backend-built context rather than client-supplied clearance or access scope. Logs must redact tokens, passwords, refresh material, and unrestricted case context.</p></section><section><h2>Failure and support</h2><p>Clients preserve safe backend error messages and request IDs. Validation, expired sessions, permission denial, absence, conflict, rate limits, upstream failure, and service unavailability remain distinct. A denial is authoritative and must not trigger a client-side bypass.</p><Link className="knowledge-link mt-4" to="/docs/errors">Read errors and troubleshooting</Link></section><section><h2>Related documentation</h2><div className="related-links">{Object.entries(docPages).filter(([p])=>p!==pathname).slice(0,7).map(([path,[name]])=><Link key={path} to={path}>{name}</Link>)}</div></section></article><aside className="side-note"><p className="eyebrow">Source of truth</p><p className="mt-3">Exact request and response schemas remain in the repository OpenAPI document and BACKEND_API.md.</p></aside></div>}
-export function Glossary(){return <div className="shell py-16"><nav className="breadcrumb"><Link to="/">Home</Link><span>/</span><Link to="/docs">Documentation</Link><span>/</span><span>Glossary</span></nav><h1 className="page-title" tabIndex="-1">Financial intelligence glossary</h1><p className="muted mt-6 max-w-3xl text-xl leading-8">Plain-language definitions for terms used throughout Prysm research and documentation.</p><dl className="mt-14 border-t border-[var(--border)]">{Object.entries(glossary).sort().map(([term,definition])=><div className="grid gap-2 border-b border-[var(--border)] py-5 md:grid-cols-[220px_1fr]" key={term}><dt className="font-semibold">{term}</dt><dd className="article-body !text-base">{definition}</dd></div>)}</dl></div>}
-export function FAQ(){const items=[['Does Prysm decide whether someone committed fraud?','No. It organizes signals, relationships, model outputs, and evidence for authorized human investigation.'],['Is the public graph production data?','No. Every public demonstration uses explicitly synthetic data.'],['Why is access reviewed?','The application handles controlled intelligence workflows. Unrestricted self-registration would conflict with purpose and access governance.'],['What does clearance do?','The backend uses live clearance together with permissions, ownership, and resource policy. The browser does not enforce security.'],['Can model output be wrong?','Yes. False positives, false negatives, drift, and data limitations are expected risks that require evaluation and human review.'],['What is a cutoff time?','It defines what information was available for an investigation or analysis, helping prevent later events from leaking into an earlier assessment.'],['How does public chat differ from authorized chat?','Public chat uses general knowledge only. Authorized chat requires an investigation and backend-built permitted context.'],['Why show request IDs?','They let support correlate a user-visible failure with safe backend logs without exposing stack traces.'],['Can I download models?','No model-download endpoint exists in the current contract.'],['How can I contribute?','Start with the contributor guide and choose a bounded area such as documentation, accessibility, testing, or evaluation.']];return <div className="shell py-16"><h1 className="page-title" tabIndex="-1">Frequently asked questions</h1><p className="muted mt-6 max-w-2xl text-xl">Practical answers about scope, access, models, data, and responsible use.</p><div className="mt-12 max-w-4xl border-t border-[var(--border)]">{items.map(([q,a])=><details className="border-b border-[var(--border)] py-5" key={q}><summary className="cursor-pointer font-semibold">{q}</summary><p className="article-body muted mt-4 !text-base">{a}</p></details>)}</div></div>}
+const labels = (path) =>
+  publicPages[path]?.title ||
+  docPages[path]?.[0] ||
+  path
+    .split("/")
+    .filter(Boolean)
+    .pop()
+    ?.replaceAll("-", " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase()) ||
+  "Related page";
+const practice = {
+  Research:
+    "In Prysm, this principle affects data preparation, temporal cutoffs, model evaluation, graph bounds, evidence presentation, and the language used in assessments. The implementation should make uncertainty visible at the moment a reviewer acts, not bury it in a separate policy page.",
+  Intelligence:
+    "Inside the protected workspace, the backend constructs the permitted context. The interface presents identifiers, timestamps, source references, model scope, and limitations together so an analyst can distinguish an observed record from an inference or generated explanation.",
+  Academy:
+    "Learning material uses synthetic examples and asks learners to state assumptions, error costs, and limits. Exercises should be reproducible and should never require production subject data or unrestricted service credentials.",
+  Organization:
+    "Institutional claims, biographies, affiliations, partnerships, and contact details remain subject to owner verification. The public structure is intentionally useful without inventing authority or achievement.",
+  Reports:
+    "Operational reporting should preserve the time, affected action, safe environment details, and request ID. Reports must exclude passwords, tokens, unrestricted context, and protected subject information.",
+  Policies:
+    "Policy language should match actual system behavior. Retention, legal basis, user rights, organizational identity, and jurisdiction-specific duties require owner and legal confirmation before release.",
+};
+export default function KnowledgePage() {
+  const { pathname } = useLocation();
+  const page = publicPages[pathname];
+  if (!page) return <Navigate to="/" replace />;
+  return (
+    <div className="shell article-layout">
+      <nav className="article-toc" aria-label="On this page">
+        <p className="eyebrow mb-3">Contents</p>
+        {page.sections.map(([title]) => (
+          <a key={title} href={`#${slug(title)}`}>
+            {title}
+          </a>
+        ))}
+        <a href="#practical-implications">Practical implications</a>
+        <a href="#references">Further reading</a>
+      </nav>
+      <article className="article-body">
+        <header>
+          <nav className="breadcrumb" aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span>/</span>
+            <Link to={categoryPaths[page.category] || "/"}>
+              {page.category}
+            </Link>
+            <span>/</span>
+            <span aria-current="page">{page.title}</span>
+          </nav>
+          <h1 className="page-title" tabIndex="-1">
+            {page.title}
+          </h1>
+          <p className="muted mt-6 text-xl leading-8">{page.description}</p>
+          <div className="article-meta">
+            <span>PRYSM KNOWLEDGE NOTE</span>
+            <span>REVIEWED AUGUST 2026</span>
+            <span>{page.sections.length + 2} SECTIONS</span>
+          </div>
+        </header>
+        {page.sections.map(([title, text], i) => (
+          <section id={slug(title)} key={title}>
+            <h2>{title}</h2>
+            <p>{text}</p>
+            {i === 0 && (
+              <div className="side-note mt-6">
+                <strong>System connection.</strong> This topic is interpreted
+                together with authorization, provenance, temporal scope, and
+                human review.{" "}
+                <Link className="knowledge-link mt-2" to="/docs/architecture">
+                  See the architecture documentation
+                </Link>
+              </div>
+            )}
+          </section>
+        ))}
+        <section id="practical-implications">
+          <h2>Practical implications for Prysm</h2>
+          <p>{practice[page.category]}</p>
+          <dl className="mt-6 grid gap-px bg-[var(--border)] text-sm sm:grid-cols-2">
+            <div className="bg-[var(--surface-2)] p-4">
+              <dt className="font-semibold">What the interface should show</dt>
+              <dd className="muted mt-2">
+                Purpose, scope, time, source, access state, analytical status,
+                and limitations.
+              </dd>
+            </div>
+            <div className="bg-[var(--surface-2)] p-4">
+              <dt className="font-semibold">What it must not imply</dt>
+              <dd className="muted mt-2">
+                Certainty, guilt, unrestricted authority, or evidence that the
+                backend did not provide.
+              </dd>
+            </div>
+          </dl>
+        </section>
+        <section id="references">
+          <h2>References and further reading</h2>
+          <p>
+            This note summarizes Prysm’s documented architecture and research
+            principles. External scholarly citations should be added only after
+            source verification and editorial review.
+          </p>
+          <div className="related-links mt-5">
+            {page.related.map((path) => (
+              <Link key={path} to={path}>
+                {labels(path)}
+              </Link>
+            ))}
+          </div>
+        </section>
+      </article>
+      <aside className="side-note">
+        <p className="eyebrow">Interpretation note</p>
+        <p className="mt-3">
+          Prysm uses indicator, signal, risk, evidence, investigation, and
+          assessment. Model output is not a determination of guilt.
+        </p>
+        <Link className="knowledge-link mt-4" to="/research/ethical-ai">
+          Read the ethical AI framework
+        </Link>
+      </aside>
+    </div>
+  );
+}
+export function DocArticle() {
+  const { pathname } = useLocation();
+  const doc = docPages[pathname];
+  if (!doc) return <Navigate to="/docs" replace />;
+  const [title, description] = doc;
+  return (
+    <div className="shell article-layout">
+      <nav className="article-toc" aria-label="Documentation navigation">
+        <p className="eyebrow mb-3">Documentation</p>
+        {Object.entries(docPages)
+          .slice(0, 12)
+          .map(([path, [name]]) => (
+            <Link key={path} to={path}>
+              {name}
+            </Link>
+          ))}
+      </nav>
+      <article className="article-body">
+        <header>
+          <nav className="breadcrumb">
+            <Link to="/">Home</Link>
+            <span>/</span>
+            <Link to="/docs">Documentation</Link>
+            <span>/</span>
+            <span>{title}</span>
+          </nav>
+          <h1 className="page-title" tabIndex="-1">
+            {title}
+          </h1>
+          <p className="muted mt-6 text-xl leading-8">{description}</p>
+          <div className="article-meta">
+            <span>TECHNICAL REFERENCE</span>
+            <span>CONTRACT VERSION V1</span>
+            <span>BACKEND AUTHORITATIVE</span>
+          </div>
+        </header>
+        <section>
+          <h2>Overview</h2>
+          <p>{description}</p>
+          <div className="side-note mt-6">
+            <strong>Security boundary:</strong> the browser communicates only
+            with the backend. It never calls the AI Engine or retrieval service
+            directly.
+          </div>
+        </section>
+        <section>
+          <h2>Operational sequence</h2>
+          <ol className="list-decimal space-y-3 pl-6">
+            <li>Validate the request shape and stated purpose.</li>
+            <li>
+              Authenticate the live session and authorize the action where
+              required.
+            </li>
+            <li>
+              Resolve ownership, classification, and clearance at the backend
+              boundary.
+            </li>
+            <li>Build bounded, cutoff-aware context from permitted data.</li>
+            <li>
+              Call an internal service without exposing its credentials or
+              unrestricted context.
+            </li>
+            <li>
+              Return a safe result with request identity, provenance, and
+              limitations.
+            </li>
+          </ol>
+        </section>
+        <section>
+          <h2>Data and privacy considerations</h2>
+          <p>
+            Only fields required for the operation should cross each service
+            boundary. Sensitive profile data uses a separate endpoint and
+            permission. Investigation chat receives a backend-built context
+            rather than client-supplied clearance or access scope. Logs must
+            redact tokens, passwords, refresh material, and unrestricted case
+            context.
+          </p>
+        </section>
+        <section>
+          <h2>Failure and support</h2>
+          <p>
+            Clients preserve safe backend error messages and request IDs.
+            Validation, expired sessions, permission denial, absence, conflict,
+            rate limits, upstream failure, and service unavailability remain
+            distinct. A denial is authoritative and must not trigger a
+            client-side bypass.
+          </p>
+          <Link className="knowledge-link mt-4" to="/docs/errors">
+            Read errors and troubleshooting
+          </Link>
+        </section>
+        <section>
+          <h2>Related documentation</h2>
+          <div className="related-links">
+            {Object.entries(docPages)
+              .filter(([p]) => p !== pathname)
+              .slice(0, 7)
+              .map(([path, [name]]) => (
+                <Link key={path} to={path}>
+                  {name}
+                </Link>
+              ))}
+          </div>
+        </section>
+      </article>
+      <aside className="side-note">
+        <p className="eyebrow">Source of truth</p>
+        <p className="mt-3">
+          Exact request and response schemas remain in the repository OpenAPI
+          document and BACKEND_API.md.
+        </p>
+      </aside>
+    </div>
+  );
+}
+export function Glossary() {
+  return (
+    <div className="shell py-16">
+      <nav className="breadcrumb">
+        <Link to="/">Home</Link>
+        <span>/</span>
+        <Link to="/docs">Documentation</Link>
+        <span>/</span>
+        <span>Glossary</span>
+      </nav>
+      <h1 className="page-title" tabIndex="-1">
+        Financial intelligence glossary
+      </h1>
+      <p className="muted mt-6 max-w-3xl text-xl leading-8">
+        Plain-language definitions for terms used throughout Prysm research and
+        documentation.
+      </p>
+      <dl className="mt-14 border-t border-[var(--border)]">
+        {Object.entries(glossary)
+          .sort()
+          .map(([term, definition]) => (
+            <div
+              className="grid gap-2 border-b border-[var(--border)] py-5 md:grid-cols-[220px_1fr]"
+              key={term}
+            >
+              <dt className="font-semibold">{term}</dt>
+              <dd className="article-body !text-base">{definition}</dd>
+            </div>
+          ))}
+      </dl>
+    </div>
+  );
+}
+export function FAQ() {
+  const items = [
+    [
+      "Does Prysm decide whether someone committed fraud?",
+      "No. It organizes signals, relationships, model outputs, and evidence for authorized human investigation.",
+    ],
+    [
+      "Is the public graph production data?",
+      "No. Every public demonstration uses explicitly synthetic data.",
+    ],
+    [
+      "Why is access reviewed?",
+      "The application handles controlled intelligence workflows. Unrestricted self-registration would conflict with purpose and access governance.",
+    ],
+    [
+      "What does clearance do?",
+      "The backend uses live clearance together with permissions, ownership, and resource policy. The browser does not enforce security.",
+    ],
+    [
+      "Can model output be wrong?",
+      "Yes. False positives, false negatives, drift, and data limitations are expected risks that require evaluation and human review.",
+    ],
+    [
+      "What is a cutoff time?",
+      "It defines what information was available for an investigation or analysis, helping prevent later events from leaking into an earlier assessment.",
+    ],
+    [
+      "How does public chat differ from authorized chat?",
+      "Public chat uses general knowledge only. Authorized chat requires an investigation and backend-built permitted context.",
+    ],
+    [
+      "Why show request IDs?",
+      "They let support correlate a user-visible failure with safe backend logs without exposing stack traces.",
+    ],
+    [
+      "Can I download models?",
+      "Authorized administrators can request a short-lived model download ticket when an artifact is available. Direct binary redemption is not implemented.",
+    ],
+    [
+      "How can I contribute?",
+      "Start with the contributor guide and choose a bounded area such as documentation, accessibility, testing, or evaluation.",
+    ],
+  ];
+  return (
+    <div className="shell py-16">
+      <h1 className="page-title" tabIndex="-1">
+        Frequently asked questions
+      </h1>
+      <p className="muted mt-6 max-w-2xl text-xl">
+        Practical answers about scope, access, models, data, and responsible
+        use.
+      </p>
+      <div className="mt-12 max-w-4xl border-t border-[var(--border)]">
+        {items.map(([q, a]) => (
+          <details className="border-b border-[var(--border)] py-5" key={q}>
+            <summary className="cursor-pointer font-semibold">{q}</summary>
+            <p className="article-body muted mt-4 !text-base">{a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  );
+}

@@ -7,12 +7,12 @@
     "investigation_id": "INV:5952ca5b5fcaeb8e",
     "subject": "Company:C04930"
   },
-  "generated_at_utc": "2026-08-29T09:10:37.246757+00:00",
+  "generated_at_utc": "2026-08-31T18:49:04.382977+00:00",
   "gnn": {
     "embedding_size": 16,
     "evaluation_status": "valid for structural link reconstruction only; NOT VALID FOR PREDICTIVE RISK CLAIMS",
     "labels_used": false,
-    "link_reconstruction_roc_auc": 0.5150433625,
+    "link_reconstruction_roc_auc": 0.51504335,
     "model_version": "relational-graphsage-structural-v1",
     "rows": 549947
   },
@@ -84,7 +84,7 @@
         "sha256": "fbebf6d37949ed1bb07a1fc319660158a08b3b3ea4190d02017169270ce1e9d2"
       }
     },
-    "generated_at_utc": "2026-08-29T09:09:52.459664+00:00",
+    "generated_at_utc": "2026-08-31T18:47:32.430449+00:00",
     "graph_version": "prysm-financial-graph-v1",
     "invalid_endpoints": 0,
     "nodes": {
@@ -252,7 +252,7 @@
       "uses_device": 679211
     },
     "expected_account_ownership_edges": 150000,
-    "generated_at_utc": "2026-08-29T09:10:21.431388+00:00",
+    "generated_at_utc": "2026-08-31T18:48:28.319254+00:00",
     "graph_version": "prysm-financial-graph-v1",
     "invalid_endpoints": 0,
     "largest_component": 549927,

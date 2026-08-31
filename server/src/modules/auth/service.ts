@@ -40,8 +40,9 @@ export class AuthService {
     password: string,
     metadata: { deviceInfo?: string; ip?: string; userAgent?: string },
   ) {
+    const normalizedEmail = email.trim().toLowerCase();
     const user = await prisma.user.findUnique({
-      where: { email },
+      where: { email: normalizedEmail },
       include: {
         role: { include: { permissions: { include: { permission: true } } } },
         clearance: true,

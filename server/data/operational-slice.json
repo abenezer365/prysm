@@ -9715,6 +9715,19 @@
       "gnnIndex": 248,
       "nodeKey": "Person:P071796",
       "nodeType": "Person",
+      "profile": {
+        "attributes": {
+          "city": "Adama",
+          "employmentStatus": "Employed",
+          "nationality": "Ethiopian",
+          "occupation": "software_engineer",
+          "region": "Oromia"
+        },
+        "countryCode": "ET",
+        "dateOfBirth": "1975-01-20T00:00:00+00:00",
+        "fullName": "Freyhiwot Matheos",
+        "riskCategory": null
+      },
       "sourceId": "P071796",
       "status": "Employed"
     },
@@ -9740,6 +9753,19 @@
       "gnnIndex": 249,
       "nodeKey": "Person:P087341",
       "nodeType": "Person",
+      "profile": {
+        "attributes": {
+          "city": "Hawassa",
+          "employmentStatus": "Employed",
+          "nationality": "Ethiopian",
+          "occupation": "government_employee",
+          "region": "Sidama"
+        },
+        "countryCode": "ET",
+        "dateOfBirth": "1996-10-16T00:00:00+00:00",
+        "fullName": "Rekik Paulos",
+        "riskCategory": null
+      },
       "sourceId": "P087341",
       "status": "Employed"
     }

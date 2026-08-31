@@ -32,4 +32,6 @@
 - Operational PostgreSQL ingestion is intentionally bounded and deterministic; large Parquet sources remain authoritative. Expand ingestion only through explicit idempotent mappings.
 - RAG integration preserves the existing knowledge store and Gemini client. Express mediates public HTTP chat, authorized HTTP/WebSocket chat, admin-only ingestion, source/request correlation, and chat persistence.
 - Synchronous analysis currently returns `202` with a durable run record. Preserve that contract when moving execution to a queue/outbox.
+- The React/Vite frontend and integrated administrator workspace are implemented. The UI has exactly light and dark themes, uses the normal browser cursor, Lucide icons, Sonner feedback, a large bounded graph demonstration, and backend-mediated public/authorized chat.
+- Password-required routing must always follow refreshed backend user state. After a password change, refresh `/auth/me`, permissions, and clearance before navigation; never bypass the guard with a hardcoded redirect.
 - Primary technical reference: `ARCHITECTURE.md`. Runtime truth: `current-state.md`. Remaining work only: `todo.md`. Frontend contract: `server/BACKEND_API.md` plus `server/docs/openapi.yaml`.

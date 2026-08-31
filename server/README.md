@@ -33,4 +33,4 @@ The liveness endpoint does not require dependencies. Readiness requires PostgreS
 
 ## Data ingestion
 
-The schema is the operational target. This step intentionally does not duplicate the large Parquet datasets. Build an explicit, idempotent ingestion/mapping job after the deployment PostgreSQL topology and source ownership are confirmed.
+The canonical source remains `data/raw/*.parquet`. After applying migrations, mirror all nine raw tables into PostgreSQL in bounded streaming batches with `npm run ingest:dataset`. Add `-- --replace` only when intentionally replacing `dataset_records`; that option never deletes users, cases, findings, evidence, audits, or access-control data. Search and graph retrieval use the canonical AI artifacts and remain functional while the operational mirror is populated.

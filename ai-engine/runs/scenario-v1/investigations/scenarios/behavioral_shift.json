@@ -2,11 +2,11 @@
   "assessment": {
     "confidence": {
       "component_coverage": 1.0,
-      "score": 0.6877333333333334,
+      "score": 0.70725,
       "status": "sufficient"
     },
     "is_fraud_probability": false,
-    "strength": 0.10318236986354633,
+    "strength": 0.12993089015433656,
     "tier": "minimal",
     "type": "uncalibrated_attention_assessment",
     "weights": {
@@ -16,14 +16,14 @@
       "gnn": 0.6,
       "graph": 1.2,
       "rule": 1.2,
-      "supervised_prediction": 0.0,
+      "supervised_prediction": 0.5,
       "transaction": 1.0,
       "velocity": 1.0
     }
   },
   "confidence": {
     "component_coverage": 1.0,
-    "score": 0.6877333333333334,
+    "score": 0.70725,
     "status": "sufficient"
   },
   "evidence": [
@@ -247,7 +247,7 @@
   "findings": {
     "rules": [],
     "supervised_model": {
-      "reason": "Valid only for the aligned synthetic future-scenario target; not calibrated for real-world fraud.",
+      "reason": "Model inference for the synthetic future-scenario target; not calibrated for real-world fraud.",
       "status": "available"
     }
   },
@@ -293,7 +293,7 @@
         "EVD:cca5e474590496b9"
       ],
       "name": "anomaly",
-      "reason": "Unsupervised behavioral anomaly; not a fraud probability.",
+      "reason": "Isolation Forest behavioral anomaly (within learned threshold); not a fraud probability.",
       "status": "available",
       "strength": 0.3996973916474398
     },
@@ -359,7 +359,7 @@
         "EVD:52b27a3ca6ec7305"
       ],
       "name": "supervised_prediction",
-      "reason": "Valid only for the aligned synthetic future-scenario target; not calibrated for real-world fraud.",
+      "reason": "Model inference for the synthetic future-scenario target; not calibrated for real-world fraud.",
       "status": "available",
       "strength": 0.53115869451619
     },

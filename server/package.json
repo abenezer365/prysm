@@ -16,6 +16,8 @@
     "db:migrate:dev": "prisma migrate dev",
     "db:seed": "node --experimental-strip-types prisma/seed.ts",
     "ingest:slice": "node --experimental-strip-types scripts/ingest-operational-slice.ts",
+    "ingest:dataset": "node --experimental-strip-types scripts/ingest-full-dataset.ts",
+    "verify:dataset": "node --experimental-strip-types scripts/verify-dataset.ts",
     "verify:integration": "node --experimental-strip-types scripts/verify-integration.ts",
     "verify:chat-ws": "node scripts/verify-chat-ws.mjs",
     "dev:stack": "powershell -ExecutionPolicy Bypass -File scripts/start-local.ps1"

@@ -1,2 +1,32 @@
-import { AlertCircle, LoaderCircle, LockKeyhole } from 'lucide-react';
-export default function StateView({type='empty',title,children,onRetry}) { const Icon=type==='loading'?LoaderCircle:type==='denied'?LockKeyhole:AlertCircle; return <div className="card p-8 text-center"><Icon className={`mx-auto mb-3 h-6 w-6 text-[var(--muted)] ${type==='loading'?'animate-spin':''}`}/><h3 className="font-semibold">{title || (type==='loading'?'Loading':'Nothing here yet')}</h3>{children&&<div className="muted mx-auto mt-2 max-w-md text-sm">{children}</div>}{onRetry&&<button className="button button-secondary mt-4" onClick={onRetry}>Try again</button>}</div> }
+import { AlertCircle, LoaderCircle, LockKeyhole } from "lucide-react";
+export default function StateView({
+  type = "empty",
+  title,
+  children,
+  onRetry,
+}) {
+  const Icon =
+    type === "loading"
+      ? LoaderCircle
+      : type === "denied"
+        ? LockKeyhole
+        : AlertCircle;
+  return (
+    <div className="card p-8 text-center">
+      <Icon
+        className={`mx-auto mb-3 h-6 w-6 text-[var(--muted)] ${type === "loading" ? "animate-spin" : ""}`}
+      />
+      <h3 className="font-semibold">
+        {title || (type === "loading" ? "Loading" : "Nothing here yet")}
+      </h3>
+      {children && (
+        <div className="muted mx-auto mt-2 max-w-md text-sm">{children}</div>
+      )}
+      {onRetry && (
+        <button className="button button-secondary mt-4" onClick={onRetry}>
+          Try again
+        </button>
+      )}
+    </div>
+  );
+}

@@ -116,6 +116,12 @@ class AskRequest(BaseModel):
 
 
 class KnowledgeStore:
+    SEARCH_STOP_WORDS = {
+        "a", "about", "an", "and", "are", "can", "define", "do", "does", "explain",
+        "for", "how", "i", "in", "is", "it", "me", "of", "on", "please", "tell",
+        "the", "this", "to", "what", "who", "why", "with",
+    }
+
     def __init__(self, root: Path):
         self.root = root
         self.documents: list[dict[str, Any]] = []
@@ -214,9 +220,13 @@ class KnowledgeStore:
             return []
 
         query_text = query.lower()
-        query_tokens = set(re.findall(r"[a-z0-9]+", query_text))
+        query_tokens = {
+            token
+            for token in re.findall(r"[a-z0-9]+", query_text)
+            if token not in self.SEARCH_STOP_WORDS
+        }
         if not query_tokens:
-            return available[:limit]
+            return []
 
         scored: list[tuple[float, dict[str, Any]]] = []
         for doc in available:
@@ -232,7 +242,7 @@ class KnowledgeStore:
             boost = title_overlap * 2.0 + title_phrase_bonus + exact_phrase_bonus
 
             doc_vector = doc.get("embedding") or []
-            query_vector = self.embedder.encode(query)
+            query_vector = self.embedder.encode(" ".join(sorted(query_tokens)))
             similarity = 0.0
             if doc_vector and query_vector:
                 numerator = sum(a * b for a, b in zip(query_vector, doc_vector))
@@ -242,13 +252,16 @@ class KnowledgeStore:
                     similarity = numerator / (norm_q * norm_d)
 
             score = boost + similarity + (overlap * 0.15)
-            scored.append((score, doc))
+            # Never attach unrelated documents merely to fill the result limit.
+            if score > 0:
+                scored.append((score, doc))
 
         scored.sort(key=lambda item: item[0], reverse=True)
-        top = [doc for _, doc in scored[:limit]]
-        if not top:
-            return available[:limit]
-        return top
+        if not scored:
+            return []
+        best_score = scored[0][0]
+        relevance_floor = max(0.25, best_score * 0.2)
+        return [doc for score, doc in scored if score >= relevance_floor][:limit]
 
     def list_documents(self) -> list[dict[str, Any]]:
         return [{key: value for key, value in document.items() if key not in {"content", "embedding"}} for document in self.documents]
@@ -285,18 +298,18 @@ class GeminiClient:
 
         if content_matches:
             snippet = content_matches[0]
-            if len(snippet) > 220:
-                snippet = snippet[:217].rstrip() + "..."
-            return f"Based on the retrieved knowledge, the answer is: {snippet}"
+            if len(snippet) > 500:
+                snippet = snippet[:497].rsplit(" ", 1)[0].rstrip() + "..."
+            return snippet
 
         title_matches = []
         for line in context.splitlines():
             if line.strip().lower().startswith("title:"):
                 title_matches.append(line.split(":", 1)[1].strip())
         if title_matches:
-            return f"Based on the retrieved knowledge, the answer is best explained by the document titled '{title_matches[0]}'."
+            return f"The closest available reference is “{title_matches[0]}”."
 
-        return "The knowledge base and available context indicate that this question should be answered using the retrieved evidence and the system's documented guidance."
+        return "I couldn't find relevant information in Prysm's public knowledge base. Try asking about Prysm, graph intelligence, rapid outflow, structuring, or investigator guidance."
 
     def _build_prompt(self, question: str, context: str, mode: str) -> str:
         return (

@@ -24,8 +24,20 @@ def main():
     nodes=pd.concat(node_frames).drop_duplicates("node_key").sort_values("node_key"); edges=pd.concat(edge_frames).drop_duplicates("edge_id").sort_values("edge_id")
     embeddings=pd.read_parquet(root/"graph"/"node_embeddings.parquet"); embeddings=embeddings[embeddings.node_key.isin(nodes.node_key)].sort_values("node_key")
     embedding_map={str(r.node_key): clean(r.embedding) for r in embeddings.itertuples()}
+    persons_path=root/"data"/"processed"/"persons.parquet"
+    person_map={}
+    if persons_path.is_file():
+        persons=pd.read_parquet(persons_path)
+        person_ids={str(value).split(":",1)[1] for value in nodes.node_key if str(value).startswith("Person:")}
+        persons=persons[persons.person_id.astype(str).isin(person_ids)]
+        person_map={str(row.person_id): row for row in persons.itertuples()}
     node_records=[]
-    for index,row in enumerate(nodes.itertuples()): node_records.append({"nodeKey":str(row.node_key),"nodeType":str(row.node_type),"sourceId":str(row.source_id),"status":clean(row.status),"gnnIndex":index,"embedding":embedding_map.get(str(row.node_key))})
+    for index,row in enumerate(nodes.itertuples()):
+        record={"nodeKey":str(row.node_key),"nodeType":str(row.node_type),"sourceId":str(row.source_id),"status":clean(row.status),"gnnIndex":index,"embedding":embedding_map.get(str(row.node_key))}
+        person=person_map.get(str(row.source_id))
+        if person is not None:
+            record["profile"]={"fullName":f"{person.first_name} {person.last_name}".strip(),"dateOfBirth":clean(person.date_of_birth),"countryCode":"ET" if person.country == "Ethiopia" else None,"riskCategory":None,"attributes":{"nationality":clean(person.nationality),"occupation":clean(person.occupation),"employmentStatus":clean(person.employment_status),"city":clean(person.city),"region":clean(person.region)}}
+        node_records.append(record)
     edge_records=[]
     for row in edges.itertuples(): edge_records.append({"edgeId":str(row.edge_id),"sourceKey":str(row.source_key),"targetKey":str(row.target_key),"edgeType":str(row.edge_type),"eventTime":clean(row.event_time),"endTime":clean(row.end_time),"confidence":clean(row.confidence),"amountEtb":clean(row.amount_etb),"currency":clean(row.currency),"transactionId":clean(row.transaction_id),"relationshipId":clean(row.relationship_id),"sourceTable":clean(row.source_table)})
     manifest=json.loads((root/"graph"/"MANIFEST.json").read_text(encoding="utf-8")); payload={"version":"prysm-operational-slice-v1","artifactRoot":str(root),"graphVersion":manifest["graph_version"],"featureVersion":"prysm-graph-features-v1","embeddingVersion":"relational-graphsage-structural-v1","cutoff":cutoff.isoformat(),"subjects":args.subject,"nodes":node_records,"edges":edge_records}

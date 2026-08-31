@@ -2,11 +2,11 @@
   "assessment": {
     "confidence": {
       "component_coverage": 1.0,
-      "score": 0.8221333333333334,
+      "score": 0.83325,
       "status": "sufficient"
     },
     "is_fraud_probability": false,
-    "strength": 0.47843790215776383,
+    "strength": 0.4842694422238032,
     "tier": "low",
     "type": "uncalibrated_attention_assessment",
     "weights": {
@@ -16,14 +16,14 @@
       "gnn": 0.6,
       "graph": 1.2,
       "rule": 1.2,
-      "supervised_prediction": 0.0,
+      "supervised_prediction": 0.5,
       "transaction": 1.0,
       "velocity": 1.0
     }
   },
   "confidence": {
     "component_coverage": 1.0,
-    "score": 0.8221333333333334,
+    "score": 0.83325,
     "status": "sufficient"
   },
   "evidence": [
@@ -377,7 +377,7 @@
       "confidence": 0.520807119363171,
       "description": "Recent foreign-currency inflow exceeds the historical rate; geography is not inferred.",
       "entity_id": "Company:C03114",
-      "evidence_id": "EVD:31c2b344425b871b",
+      "evidence_id": "EVD:e783b84e4e92d825",
       "measurements": {
         "foreign_inflow_etb_30d": 70680.0,
         "rate_ratio": 2.083228477452684
@@ -461,7 +461,7 @@
           "Company:C03114"
         ],
         "explanation": "Recent foreign-currency inflow exceeds the historical rate; geography is not inferred.",
-        "ground_truth_id": "GT00147",
+        "ground_truth_id": "runtime:Company:C03114:2025-04-27T00:00:00+00:00",
         "measurements": {
           "foreign_inflow_etb_30d": 70680.0,
           "rate_ratio": 2.083228477452684
@@ -477,7 +477,7 @@
       }
     ],
     "supervised_model": {
-      "reason": "Valid only for the aligned synthetic future-scenario target; not calibrated for real-world fraud.",
+      "reason": "Model inference for the synthetic future-scenario target; not calibrated for real-world fraud.",
       "status": "available"
     }
   },
@@ -533,7 +533,7 @@
         "EVD:41c27c9c322e43f2"
       ],
       "name": "anomaly",
-      "reason": "Unsupervised behavioral anomaly; not a fraud probability.",
+      "reason": "Isolation Forest behavioral anomaly (within learned threshold); not a fraud probability.",
       "status": "available",
       "strength": 0.4802841861426445
     },
@@ -588,7 +588,7 @@
     "rule": {
       "confidence": 1.0,
       "evidence_ids": [
-        "EVD:31c2b344425b871b"
+        "EVD:e783b84e4e92d825"
       ],
       "name": "rule",
       "reason": "Maximum configured rule strength at the selected snapshot.",
@@ -601,7 +601,7 @@
         "EVD:241f8eeccf292b14"
       ],
       "name": "supervised_prediction",
-      "reason": "Valid only for the aligned synthetic future-scenario target; not calibrated for real-world fraud.",
+      "reason": "Model inference for the synthetic future-scenario target; not calibrated for real-world fraud.",
       "status": "available",
       "strength": 0.5717425432143937
     },

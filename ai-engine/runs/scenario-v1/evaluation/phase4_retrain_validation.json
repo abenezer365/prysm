@@ -235,7 +235,7 @@
       "no_aligned_future_event": 0,
       "unbounded_event_window": 0
     },
-    "generated_at_utc": "2026-08-29T09:08:11.417755+00:00",
+    "generated_at_utc": "2026-08-31T18:42:14.941910+00:00",
     "history_status": {
       "history_eligible": 7000
     },
@@ -404,11 +404,11 @@
         "assessment": {
           "confidence": {
             "component_coverage": 1.0,
-            "score": 0.6877333333333334,
+            "score": 0.70725,
             "status": "sufficient"
           },
           "is_fraud_probability": false,
-          "strength": 0.10318236986354633,
+          "strength": 0.12993089015433656,
           "tier": "minimal",
           "type": "uncalibrated_attention_assessment",
           "weights": {
@@ -418,7 +418,7 @@
             "gnn": 0.6,
             "graph": 1.2,
             "rule": 1.2,
-            "supervised_prediction": 0.0,
+            "supervised_prediction": 0.5,
             "transaction": 1.0,
             "velocity": 1.0
           }
@@ -436,11 +436,11 @@
         "assessment": {
           "confidence": {
             "component_coverage": 1.0,
-            "score": 0.7837333333333334,
+            "score": 0.79725,
             "status": "sufficient"
           },
           "is_fraud_probability": false,
-          "strength": 0.33861326200391717,
+          "strength": 0.35102716957814406,
           "tier": "low",
           "type": "uncalibrated_attention_assessment",
           "weights": {
@@ -450,7 +450,7 @@
             "gnn": 0.6,
             "graph": 1.2,
             "rule": 1.2,
-            "supervised_prediction": 0.0,
+            "supervised_prediction": 0.5,
             "transaction": 1.0,
             "velocity": 1.0
           }
@@ -468,11 +468,11 @@
         "assessment": {
           "confidence": {
             "component_coverage": 1.0,
-            "score": 0.8221333333333334,
+            "score": 0.83325,
             "status": "sufficient"
           },
           "is_fraud_probability": false,
-          "strength": 0.47843790215776383,
+          "strength": 0.4842694422238032,
           "tier": "low",
           "type": "uncalibrated_attention_assessment",
           "weights": {
@@ -482,7 +482,7 @@
             "gnn": 0.6,
             "graph": 1.2,
             "rule": 1.2,
-            "supervised_prediction": 0.0,
+            "supervised_prediction": 0.5,
             "transaction": 1.0,
             "velocity": 1.0
           }
@@ -500,11 +500,11 @@
         "assessment": {
           "confidence": {
             "component_coverage": 1.0,
-            "score": 0.7645333333333333,
+            "score": 0.77925,
             "status": "sufficient"
           },
           "is_fraud_probability": false,
-          "strength": 0.20561680755106546,
+          "strength": 0.226374645914709,
           "tier": "minimal",
           "type": "uncalibrated_attention_assessment",
           "weights": {
@@ -514,7 +514,7 @@
             "gnn": 0.6,
             "graph": 1.2,
             "rule": 1.2,
-            "supervised_prediction": 0.0,
+            "supervised_prediction": 0.5,
             "transaction": 1.0,
             "velocity": 1.0
           }
@@ -532,11 +532,11 @@
         "assessment": {
           "confidence": {
             "component_coverage": 1.0,
-            "score": 0.7453333333333333,
+            "score": 0.76125,
             "status": "sufficient"
           },
           "is_fraud_probability": false,
-          "strength": 0.5871078870030871,
+          "strength": 0.5841791505420164,
           "tier": "moderate",
           "type": "uncalibrated_attention_assessment",
           "weights": {
@@ -546,7 +546,7 @@
             "gnn": 0.6,
             "graph": 1.2,
             "rule": 1.2,
-            "supervised_prediction": 0.0,
+            "supervised_prediction": 0.5,
             "transaction": 1.0,
             "velocity": 1.0
           }
@@ -564,11 +564,11 @@
         "assessment": {
           "confidence": {
             "component_coverage": 1.0,
-            "score": 0.7837333333333334,
+            "score": 0.79725,
             "status": "sufficient"
           },
           "is_fraud_probability": false,
-          "strength": 0.2622793531267373,
+          "strength": 0.2802407510354537,
           "tier": "low",
           "type": "uncalibrated_attention_assessment",
           "weights": {
@@ -578,7 +578,7 @@
             "gnn": 0.6,
             "graph": 1.2,
             "rule": 1.2,
-            "supervised_prediction": 0.0,
+            "supervised_prediction": 0.5,
             "transaction": 1.0,
             "velocity": 1.0
           }
@@ -596,11 +596,11 @@
         "assessment": {
           "confidence": {
             "component_coverage": 1.0,
-            "score": 0.7645333333333333,
+            "score": 0.77925,
             "status": "sufficient"
           },
           "is_fraud_probability": false,
-          "strength": 0.16752914249745057,
+          "strength": 0.19096941898337183,
           "tier": "minimal",
           "type": "uncalibrated_attention_assessment",
           "weights": {
@@ -610,7 +610,7 @@
             "gnn": 0.6,
             "graph": 1.2,
             "rule": 1.2,
-            "supervised_prediction": 0.0,
+            "supervised_prediction": 0.5,
             "transaction": 1.0,
             "velocity": 1.0
           }
@@ -692,10 +692,10 @@
     "representative_cases": 7,
     "status": "PASS"
   },
-  "generated_at_utc": "2026-08-29T09:10:58.447753+00:00",
+  "generated_at_utc": "2026-08-31T18:50:37.967920+00:00",
   "gnn": {
     "evaluation_validity": "valid for structural link reconstruction only; NOT VALID FOR PREDICTIVE RISK CLAIMS",
-    "link_reconstruction_roc_auc": 0.5150433625,
+    "link_reconstruction_roc_auc": 0.51504335,
     "reason": "Labels are valid, but the stored full-graph embeddings are retrospective and cannot train a predictive head without future-edge leakage; a batched cutoff-safe GNN training path is not implemented.",
     "status": "self_supervised_structural_signal",
     "supervised_metrics": null,
@@ -770,7 +770,7 @@
           "sha256": "fbebf6d37949ed1bb07a1fc319660158a08b3b3ea4190d02017169270ce1e9d2"
         }
       },
-      "generated_at_utc": "2026-08-29T09:09:52.459664+00:00",
+      "generated_at_utc": "2026-08-31T18:47:32.430449+00:00",
       "graph_version": "prysm-financial-graph-v1",
       "invalid_endpoints": 0,
       "nodes": {
@@ -939,7 +939,7 @@
         "uses_device": 679211
       },
       "expected_account_ownership_edges": 150000,
-      "generated_at_utc": "2026-08-29T09:10:21.431388+00:00",
+      "generated_at_utc": "2026-08-31T18:48:28.319254+00:00",
       "graph_version": "prysm-financial-graph-v1",
       "invalid_endpoints": 0,
       "largest_component": 549927,
@@ -1154,7 +1154,7 @@
       "shared_address_relationship_count",
       "mean_relationship_confidence"
     ],
-    "generated_at_utc": "2026-08-29T09:08:21.038068+00:00",
+    "generated_at_utc": "2026-08-31T18:42:26.877418+00:00",
     "leakage_exclusions": [
       "ground_truth_id",
       "entity_key",
@@ -1461,9 +1461,9 @@
   "recommendation": "Use these results as the valid synthetic benchmark baseline. Improve scenario causal precursors and add a batched cutoff-safe GNN training/evaluation path before claiming predictive graph performance; do not tune thresholds or models solely to inflate scores.",
   "reproducibility": {
     "feature_set_sha256": "4538555d7c5283965e7291f8a3df6b589d2f35ae58f334dbb6a1d5ec6f8e723a",
-    "gnn_artifact_sha256": "06c5e80259e16d35d5ad1f2ae6e99416590cca412a13f25f72140054893f103d",
-    "graph_manifest_sha256": "fae4120130a979c6e14990a648651605f88542edf51df9b6c4c01136a510e183",
-    "intelligence_config_sha256": "4ded354c3784dbf7404d3b7668145d9ec3a4b4f11c4e58ac6c63584206313538",
+    "gnn_artifact_sha256": "f1f7d38a736df8f036ec54da751c0f5e9cf48c31d364d726578ecbc09fb5e3dc",
+    "graph_manifest_sha256": "c4641b7566e47bc24f9be9f04dfe635a852383afb0613257611554398171a9ac",
+    "intelligence_config_sha256": "9a0c860578655f45156abb22dfeac37645c169e301c6a16a59570087ac855ff4",
     "phase2_retraining_metrics_identical": true,
     "scenario_manifest_sha256": "1acd92341913992c2d66274900e750af181bc2b2c643d04b7126e946ad49d692",
     "supervised_model_sha256": "1c845d81ddb6f02e8e7c8df977fcc9497d8fbcd321c55915edce7d001ab879c5"

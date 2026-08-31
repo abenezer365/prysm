@@ -59,7 +59,7 @@
     "transaction_nonpositive_amount": 0,
     "transaction_nonpositive_amount_etb": 0
   },
-  "generated_at_utc": "2026-08-29T09:01:14.831941+00:00",
+  "generated_at_utc": "2026-08-31T18:28:00.713098+00:00",
   "labels": {
     "class_counts": {
       "False": 3500,

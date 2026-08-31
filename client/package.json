@@ -14,8 +14,8 @@
     "lucide-react": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-icons": "^5.7.0",
     "react-router-dom": "latest",
+    "sonner": "^2.0.8",
     "vite": "latest"
   },
   "devDependencies": {

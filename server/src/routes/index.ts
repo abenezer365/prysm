@@ -134,32 +134,51 @@ export function apiRoutes(env: Env) {
     validate(application),
     asyncRoute(async (req, res) => {
       const record = await prisma.accountApplication.create({ data: req.body });
-      res
-        .status(202)
-        .json({
-          id: record.id,
-          status: record.status,
-          createdAt: record.createdAt,
-        });
+      res.status(202).json({
+        id: record.id,
+        status: record.status,
+        createdAt: record.createdAt,
+      });
     }),
   );
   router.post(
     "/auth/login",
     validate(login),
-    asyncRoute(async (req, res) =>
-      { const result=await auth.login(req.body.email.toLowerCase(), req.body.password, {
+    asyncRoute(async (req, res) => {
+      const result = await auth.login(
+        req.body.email.toLowerCase(),
+        req.body.password,
+        {
           deviceInfo: req.body.deviceInfo,
           ip: req.ip,
           userAgent: req.header("user-agent"),
-        }); const principal=await resolveAccessToken(env.JWT_ACCESS_SECRET,result.accessToken);(req as AuthRequest).principal=principal;await audit(req as AuthRequest,{action:"auth.login",resourceType:"session",resourceId:principal.sessionId,decision:"ALLOW"});res.json(result); },
-    ),
+        },
+      );
+      const principal = await resolveAccessToken(
+        env.JWT_ACCESS_SECRET,
+        result.accessToken,
+      );
+      (req as AuthRequest).principal = principal;
+      await audit(req as AuthRequest, {
+        action: "auth.login",
+        resourceType: "session",
+        resourceId: principal.sessionId,
+        decision: "ALLOW",
+      });
+      res.json(result);
+    }),
   );
   router.post(
     "/auth/logout",
     requireAuth,
     asyncRoute(async (req, res) => {
       await auth.logout((req as AuthRequest).principal!.sessionId);
-      await audit(req as AuthRequest,{action:"auth.logout",resourceType:"session",resourceId:(req as AuthRequest).principal!.sessionId,decision:"ALLOW"});
+      await audit(req as AuthRequest, {
+        action: "auth.logout",
+        resourceType: "session",
+        resourceId: (req as AuthRequest).principal!.sessionId,
+        decision: "ALLOW",
+      });
       res.status(204).end();
     }),
   );
@@ -254,7 +273,12 @@ export function apiRoutes(env: Env) {
         take: q.limit,
         orderBy: { displayLabel: "asc" },
       });
-      await audit(req as AuthRequest,{action:"subject.search",resourceType:"search",decision:"ALLOW",metadata:{queryLength:q.query.length,resultCount:rows.length}});
+      await audit(req as AuthRequest, {
+        action: "subject.search",
+        resourceType: "search",
+        decision: "ALLOW",
+        metadata: { queryLength: q.query.length, resultCount: rows.length },
+      });
       res.json({
         data: rows.map((x) => ({
           id: x.id,
@@ -478,7 +502,13 @@ export function apiRoutes(env: Env) {
         maxHops: q.maxHops,
         maxNodes: q.maxNodes,
       });
-      await audit(req as AuthRequest,{action:"graph.read",resourceType:"subject",resourceId:routeParam(req,"id"),decision:"ALLOW",metadata:{maxHops:q.maxHops,maxNodes:q.maxNodes}});
+      await audit(req as AuthRequest, {
+        action: "graph.read",
+        resourceType: "subject",
+        resourceId: routeParam(req, "id"),
+        decision: "ALLOW",
+        metadata: { maxHops: q.maxHops, maxNodes: q.maxNodes },
+      });
       res.json(built.graph);
     }),
   );
@@ -679,14 +709,12 @@ export function apiRoutes(env: Env) {
             chunks: result.chunks,
           },
         });
-        res
-          .status(201)
-          .json({
-            jobId: record.id,
-            status: record.status,
-            documentId: result.documentId,
-            chunks: result.chunks,
-          });
+        res.status(201).json({
+          jobId: record.id,
+          status: record.status,
+          documentId: result.documentId,
+          chunks: result.chunks,
+        });
       } catch (error) {
         await prisma.ragDocumentRecord.update({
           where: { id: pending.id },

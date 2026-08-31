@@ -162,13 +162,11 @@ export function completionRoutes(env: Env) {
           },
         },
       });
-      res
-        .status(202)
-        .json({
-          id: record.id,
-          status: record.status,
-          createdAt: record.createdAt,
-        });
+      res.status(202).json({
+        id: record.id,
+        status: record.status,
+        createdAt: record.createdAt,
+      });
     }),
   );
   router.get(
@@ -331,14 +329,12 @@ export function completionRoutes(env: Env) {
     validate(z.object({ email: z.string().email() }).strict()),
     asyncRoute(async (req, res) => {
       const token = await auth.requestPasswordReset(req.body.email);
-      res
-        .status(202)
-        .json({
-          accepted: true,
-          ...(env.NODE_ENV === "development" && token
-            ? { developmentResetToken: token }
-            : {}),
-        });
+      res.status(202).json({
+        accepted: true,
+        ...(env.NODE_ENV === "development" && token
+          ? { developmentResetToken: token }
+          : {}),
+      });
     }),
   );
   router.post(
@@ -409,6 +405,57 @@ export function completionRoutes(env: Env) {
         decision: "ALLOW",
       });
       res.json(safeUser(user, true));
+    }),
+  );
+
+  router.patch(
+    "/me/settings",
+    requireAuth,
+    validate(
+      z
+        .object({
+          profileImageUrl: z.string().url().max(2000).nullable().optional(),
+          preferences: z
+            .object({
+              compactMode: z.boolean().optional(),
+              emailNotifications: z.boolean().optional(),
+              reducedMotion: z.boolean().optional(),
+            })
+            .strict()
+            .optional(),
+        })
+        .strict(),
+    ),
+    asyncRoute(async (req, res) => {
+      const p = (req as AuthRequest).principal!;
+      const current = await prisma.user.findUniqueOrThrow({
+        where: { id: p.userId },
+      });
+      const record = await prisma.user.update({
+        where: { id: p.userId },
+        data: {
+          ...(req.body.profileImageUrl !== undefined
+            ? { profileImageUrl: req.body.profileImageUrl }
+            : {}),
+          ...(req.body.preferences
+            ? {
+                preferences: {
+                  ...((current.preferences as object) || {}),
+                  ...req.body.preferences,
+                },
+              }
+            : {}),
+        },
+        include: { role: true, clearance: true },
+      });
+      await audit(req as AuthRequest, {
+        action: "user.settings.update",
+        resourceType: "user",
+        resourceId: p.userId,
+        decision: "ALLOW",
+        metadata: { fields: Object.keys(req.body) },
+      });
+      res.json(safeUser(record));
     }),
   );
 
@@ -586,9 +633,14 @@ export function completionRoutes(env: Env) {
         dependencies: any = undefined;
       if (p.permissions.includes("user:read") && p.clearanceRank >= 4) {
         const users = await prisma.user.findMany({
-          select: { clearance: { select: { code: true, name: true, rank: true } } },
+          select: {
+            clearance: { select: { code: true, name: true, rank: true } },
+          },
         });
-        const counts = new Map<string, { code: string; name: string; rank: number; count: number }>();
+        const counts = new Map<
+          string,
+          { code: string; name: string; rank: number; count: number }
+        >();
         for (const user of users) {
           const current = counts.get(user.clearance.code);
           counts.set(user.clearance.code, {
@@ -598,7 +650,9 @@ export function completionRoutes(env: Env) {
             count: (current?.count || 0) + 1,
           });
         }
-        clearanceDistribution = [...counts.values()].sort((a, b) => a.rank - b.rank);
+        clearanceDistribution = [...counts.values()].sort(
+          (a, b) => a.rank - b.rank,
+        );
       }
       if (p.permissions.includes("health:dependencies:read")) {
         const [aiState, ragState] = await Promise.all([
@@ -872,14 +926,12 @@ export function completionRoutes(env: Env) {
         decision: "ALLOW",
         metadata: { jobId: job.id, format: job.format },
       });
-      res
-        .status(202)
-        .json({
-          jobId: job.id,
-          status: job.status,
-          format: job.format,
-          createdAt: job.createdAt,
-        });
+      res.status(202).json({
+        jobId: job.id,
+        status: job.status,
+        format: job.format,
+        createdAt: job.createdAt,
+      });
     }),
   );
 
@@ -1065,13 +1117,11 @@ export function completionRoutes(env: Env) {
           ipHash: req.ip ? hash(req.ip) : undefined,
         },
       });
-      res
-        .status(202)
-        .json({
-          id: record.id,
-          status: "RECEIVED",
-          createdAt: record.createdAt,
-        });
+      res.status(202).json({
+        id: record.id,
+        status: "RECEIVED",
+        createdAt: record.createdAt,
+      });
     }),
   );
   router.post(
@@ -1093,14 +1143,12 @@ export function completionRoutes(env: Env) {
     ),
     asyncRoute(async (req, res) => {
       const record = await prisma.bugReport.create({ data: req.body });
-      res
-        .status(202)
-        .json({
-          id: record.id,
-          status: record.status,
-          severity: record.severity,
-          createdAt: record.createdAt,
-        });
+      res.status(202).json({
+        id: record.id,
+        status: record.status,
+        severity: record.severity,
+        createdAt: record.createdAt,
+      });
     }),
   );
   router.get(
@@ -1210,13 +1258,11 @@ export function completionRoutes(env: Env) {
       const record = await prisma.betaApplication.create({
         data: { ...req.body, email: req.body.email.toLowerCase() },
       });
-      res
-        .status(202)
-        .json({
-          id: record.id,
-          status: record.status,
-          createdAt: record.createdAt,
-        });
+      res.status(202).json({
+        id: record.id,
+        status: record.status,
+        createdAt: record.createdAt,
+      });
     }),
   );
   router.get(
@@ -1249,16 +1295,183 @@ export function completionRoutes(env: Env) {
         .strict(),
     ),
     asyncRoute(async (req, res) => {
-      const p = (req as AuthRequest).principal!,
-        record = await prisma.betaApplication.update({
-          where: { id: id(req) },
+      const p = (req as AuthRequest).principal!;
+      const current = await prisma.betaApplication.findUnique({
+        where: { id: id(req) },
+      });
+      if (!current) throw notFound("Beta application");
+      if (current.status !== "PENDING")
+        throw new AppError(
+          409,
+          "BETA_APPLICATION_ALREADY_REVIEWED",
+          "Beta application has already been reviewed",
+        );
+      let temporaryPassword: string | undefined;
+      const record = await prisma.$transaction(async (tx) => {
+        const updated = await tx.betaApplication.update({
+          where: { id: current.id },
           data: { ...req.body, reviewedBy: p.userId, reviewedAt: new Date() },
         });
+        if (req.body.status === "APPROVED") {
+          const role = await tx.role.findUnique({
+            where: { code: "BETA_TESTER" },
+          });
+          const clearance = await tx.clearanceLevel.findUnique({
+            where: { code: "RESTRICTED" },
+          });
+          if (!role || !clearance)
+            throw new AppError(
+              503,
+              "BETA_ACCESS_POLICY_UNAVAILABLE",
+              "Beta access policy is not configured",
+            );
+          const existing = await tx.user.findUnique({
+            where: { email: current.email },
+          });
+          if (existing)
+            await tx.user.update({
+              where: { id: existing.id },
+              data: {
+                status: "ACTIVE",
+                roleId: role.id,
+                clearanceLevelId: clearance.id,
+                preferences: { betaOnly: true, betaApplicationId: current.id },
+              },
+            });
+          else {
+            temporaryPassword = randomBytes(18).toString("base64url");
+            await tx.user.create({
+              data: {
+                email: current.email,
+                displayName: current.displayName,
+                passwordHash: await argon2.hash(temporaryPassword, {
+                  type: argon2.argon2id,
+                }),
+                status: "ACTIVE",
+                roleId: role.id,
+                clearanceLevelId: clearance.id,
+                preferences: {
+                  betaOnly: true,
+                  mustChangePassword: true,
+                  betaApplicationId: current.id,
+                },
+              },
+            });
+          }
+        }
+        return updated;
+      });
       await audit(req as AuthRequest, {
         action: `beta.${record.status.toLowerCase()}`,
         resourceType: "beta_application",
         resourceId: record.id,
         decision: "ALLOW",
+      });
+      res.json({
+        ...record,
+        ...(temporaryPassword
+          ? {
+              oneTimeCredential: {
+                temporaryPassword,
+                mustChangePassword: true,
+              },
+            }
+          : {}),
+      });
+    }),
+  );
+
+  router.post(
+    "/contributors/applications",
+    validate(
+      z
+        .object({
+          email: z.string().email(),
+          displayName: z.string().min(2).max(120),
+          expertise: z.string().min(3).max(300),
+          portfolioUrl: z.string().url().max(1000).optional(),
+          motivation: z.string().min(50).max(5000),
+          availability: z.string().max(300).optional(),
+        })
+        .strict(),
+    ),
+    asyncRoute(async (req, res) => {
+      const pending = await prisma.contributorApplication.findFirst({
+        where: { email: req.body.email.toLowerCase(), status: "PENDING" },
+      });
+      if (pending)
+        throw new AppError(
+          409,
+          "CONTRIBUTOR_APPLICATION_PENDING",
+          "A contributor application is already pending",
+        );
+      const record = await prisma.contributorApplication.create({
+        data: { ...req.body, email: req.body.email.toLowerCase() },
+      });
+      res
+        .status(202)
+        .json({
+          id: record.id,
+          status: record.status,
+          createdAt: record.createdAt,
+        });
+    }),
+  );
+  router.get(
+    "/contributors/applications",
+    requireAuth,
+    authorize("contributor:review", 3),
+    asyncRoute(async (req, res) => {
+      const limit = pageLimit(req.query.limit);
+      const status =
+        typeof req.query.status === "string" ? req.query.status : undefined;
+      const data = await prisma.contributorApplication.findMany({
+        where: status ? { status } : undefined,
+        orderBy: { createdAt: "desc" },
+        take: limit,
+      });
+      res.json({ data, page: { nextCursor: null, limit } });
+    }),
+  );
+  router.patch(
+    "/contributors/applications/:id",
+    requireAuth,
+    authorize("contributor:review", 3),
+    validate(
+      z
+        .object({
+          status: z.enum(["APPROVED", "REJECTED"]),
+          reviewNote: z.string().max(2000).optional(),
+        })
+        .strict(),
+    ),
+    asyncRoute(async (req, res) => {
+      const existing = await prisma.contributorApplication.findUnique({
+        where: { id: id(req) },
+      });
+      if (!existing) throw notFound("Contributor application");
+      if (existing.status !== "PENDING")
+        throw new AppError(
+          409,
+          "CONTRIBUTOR_APPLICATION_REVIEWED",
+          "Contributor application has already been reviewed",
+        );
+      const principal = (req as AuthRequest).principal!;
+      const record = await prisma.contributorApplication.update({
+        where: { id: existing.id },
+        data: {
+          status: req.body.status,
+          reviewNote: req.body.reviewNote,
+          reviewedBy: principal.userId,
+          reviewedAt: new Date(),
+        },
+      });
+      await audit(req as AuthRequest, {
+        action: "contributor.application.review",
+        resourceType: "contributor_application",
+        resourceId: record.id,
+        decision: "ALLOW",
+        metadata: { status: record.status },
       });
       res.json(record);
     }),
@@ -1373,15 +1586,13 @@ export function completionRoutes(env: Env) {
         decision: "ALLOW",
         metadata: { ticketId: record.id },
       });
-      res
-        .status(201)
-        .json({
-          ticketId: record.id,
-          downloadToken: token,
-          expiresAt,
-          checksum: model.checksum,
-          auditReference: (req as AuthRequest).requestId,
-        });
+      res.status(201).json({
+        ticketId: record.id,
+        downloadToken: token,
+        expiresAt,
+        checksum: model.checksum,
+        auditReference: (req as AuthRequest).requestId,
+      });
     }),
   );
 

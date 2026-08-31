@@ -5,7 +5,7 @@ from fastapi.testclient import TestClient
 
 os.environ.setdefault("RAG_API_KEY", "test-internal-key")
 
-from main import GeminiKeyManager, KnowledgeStore, app
+from main import GeminiKeyManager, KnowledgeStore, app, service
 
 client = TestClient(app)
 def internal_headers():
@@ -47,6 +47,29 @@ def test_ingest_and_retrieve_new_document():
         assert response.status_code == 200
         payload = response.json()
         assert "test pattern" in payload["answer"].lower()
+    finally:
+        stored.unlink(missing_ok=True)
+
+
+def test_document_management_lists_and_disables_ingested_content():
+    document = {
+        "title": "Disable Test Knowledge",
+        "content": "A uniquely managed knowledge document for disable behavior verification.",
+        "source": "unit-test",
+        "category": "management",
+        "version": "1.0",
+    }
+    ingest = client.post("/ingest", json=document, headers=internal_headers())
+    document_id = ingest.json()["documentId"]
+    stored = Path(__file__).resolve().parents[1] / "rag" / "knowledge_base" / f"{document_id}.json"
+    try:
+        listing = client.get("/documents", headers=internal_headers())
+        assert listing.status_code == 200
+        assert any(item["id"] == document_id for item in listing.json()["data"])
+        disabled = client.patch(f"/documents/{document_id}?enabled=false", headers=internal_headers())
+        assert disabled.status_code == 200
+        assert disabled.json()["enabled"] is False
+        assert all(item["id"] != document_id for item in service.store.search("uniquely managed"))
     finally:
         stored.unlink(missing_ok=True)
 

@@ -20,6 +20,8 @@ load_dotenv()
 
 APP_ROOT = Path(__file__).resolve().parent
 KNOWLEDGE_DIR = APP_ROOT / "rag" / "knowledge_base"
+RAG_HOST = os.getenv("RAG_HOST", "127.0.0.1")
+RAG_PORT = int(os.getenv("RAG_PORT", "8200"))
 
 
 def _now_iso() -> str:
@@ -539,3 +541,9 @@ def _handle_ask(payload: dict[str, Any]) -> dict[str, Any]:
         "conversationId": response["conversationId"],
         "requestId": response["requestId"],
     }
+
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host=RAG_HOST, port=RAG_PORT, log_level="info")

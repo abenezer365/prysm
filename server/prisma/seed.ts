@@ -34,9 +34,11 @@ const permissions = [
   "news:manage",
   "bug:manage",
   "beta:review",
+  "contributor:review",
   "dataset:manage",
 ];
 const grants: Record<string, string[]> = {
+  BETA_TESTER: ["model:read"],
   REPORTER: ["subject:read"],
   ANALYST: [
     "subject:read",
@@ -116,7 +118,15 @@ async function main() {
     });
     await db.user.upsert({
       where: { email: process.env.SEED_ADMIN_EMAIL },
-      update: { roleId: role.id, clearanceLevelId: clearance.id },
+      update: {
+        passwordHash: await argon2.hash(process.env.SEED_ADMIN_PASSWORD, {
+          type: argon2.argon2id,
+        }),
+        roleId: role.id,
+        clearanceLevelId: clearance.id,
+        status: "ACTIVE",
+        preferences: { bootstrapAdmin: true, mustChangePassword: true },
+      },
       create: {
         email: process.env.SEED_ADMIN_EMAIL,
         displayName: "Development Administrator",
@@ -124,6 +134,7 @@ async function main() {
           type: argon2.argon2id,
         }),
         status: "ACTIVE",
+        preferences: { bootstrapAdmin: true, mustChangePassword: true },
         roleId: role.id,
         clearanceLevelId: clearance.id,
       },

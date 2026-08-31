@@ -197,6 +197,10 @@ export class AuthService {
           passwordHash: await argon2.hash(nextPassword, {
             type: argon2.argon2id,
           }),
+          preferences: {
+            ...((user.preferences as Record<string, unknown>) || {}),
+            mustChangePassword: false,
+          },
         },
       }),
       prisma.authSession.updateMany({
@@ -217,6 +221,7 @@ export const safeUser = (user: any, sensitive = false) => ({
   email: user.email,
   displayName: user.displayName,
   profileImageUrl: user.profileImageUrl,
+  preferences: user.preferences || {},
   status: user.status,
   role: user.role?.code,
   clearance: user.clearance?.code,

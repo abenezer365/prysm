@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
+import { Minus, Plus, RotateCcw } from "lucide-react";
 
 const palette = ["#00614c", "#175a91", "#9a650d", "#7a4ea3", "#a83b36"];
 const number = new Intl.NumberFormat();
@@ -98,7 +99,9 @@ function hash(text) {
 }
 export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
   const [selected, setSelected] = useState(null),
-    [hovered, setHovered] = useState(null);
+    [hovered, setHovered] = useState(null),
+    [view, setView] = useState({ x: 0, y: 0, scale: 1 });
+  const drag = useRef(null);
   const positioned = useMemo(
     () =>
       [...nodes].sort((a,b)=>Number(Boolean(b.isSubject))-Number(Boolean(a.isSubject))).map((n, i) => {
@@ -121,11 +124,31 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
     onSelect?.(value);
   }
   if (!nodes.length) return null;
+  const zoom = (amount) => setView((current) => ({ ...current, scale: Math.min(2.5, Math.max(.45, current.scale + amount)) }));
+  const startDrag = (event) => {
+    if (event.button !== 0) return;
+    drag.current = { clientX: event.clientX, clientY: event.clientY, x: view.x, y: view.y };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+  const moveDrag = (event) => {
+    if (!drag.current) return;
+    setView((current) => ({ ...current, x: drag.current.x + event.clientX - drag.current.clientX, y: drag.current.y + event.clientY - drag.current.clientY }));
+  };
   return (
     <div className="relative overflow-hidden rounded-md border border-[var(--border)] bg-[var(--surface-2)]">
+      <div className="absolute right-3 top-3 z-10 flex overflow-hidden rounded-md border border-[var(--border)] bg-[var(--surface)] shadow" aria-label="Graph zoom controls">
+        <button className="p-2 hover:bg-[var(--surface-2)]" onClick={() => zoom(.2)} aria-label="Zoom in"><Plus size={17}/></button>
+        <button className="border-x border-[var(--border)] p-2 hover:bg-[var(--surface-2)]" onClick={() => zoom(-.2)} aria-label="Zoom out"><Minus size={17}/></button>
+        <button className="p-2 hover:bg-[var(--surface-2)]" onClick={() => setView({x:0,y:0,scale:1})} aria-label="Reset graph view"><RotateCcw size={16}/></button>
+      </div>
       <svg
-        className="h-[520px] w-full min-w-[700px]"
+        className="h-[620px] w-full cursor-grab touch-none select-none active:cursor-grabbing"
         viewBox="0 0 800 490"
+        onPointerDown={startDrag}
+        onPointerMove={moveDrag}
+        onPointerUp={() => { drag.current = null; }}
+        onPointerCancel={() => { drag.current = null; }}
+        onWheel={(event) => { event.preventDefault(); zoom(event.deltaY < 0 ? .12 : -.12); }}
         role="img"
         aria-label={`Relationship graph with ${nodes.length} nodes and ${edges.length} edges`}
       >
@@ -145,6 +168,7 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
           </pattern>
         </defs>
         <rect width="800" height="490" fill="url(#grid)" />
+        <g transform={`translate(${view.x} ${view.y}) scale(${view.scale})`} style={{transformOrigin:"400px 245px"}}>
         {edges.map((e, i) => {
           const a = map.get(e.sourceNodeId || e.source),
             b = map.get(e.targetNodeId || e.target);
@@ -155,7 +179,7 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
               key={e.id || i}
               onMouseEnter={() => setHovered({ ...e, kind: "edge" })}
               onMouseLeave={() => setHovered(null)}
-              onClick={() => choose(e, "edge")}
+              onClick={(event) => { event.stopPropagation(); choose(e, "edge"); }}
               className="cursor-pointer"
             >
               <line
@@ -188,7 +212,7 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
               transform={`translate(${n.x} ${n.y})`}
               onMouseEnter={() => setHovered({ ...n, kind: "node" })}
               onMouseLeave={() => setHovered(null)}
-              onClick={() => choose(n, "node")}
+              onClick={(event) => { event.stopPropagation(); choose(n, "node"); }}
               className="cursor-pointer"
             >
               <circle
@@ -229,6 +253,7 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
             </g>
           );
         })}
+        </g>
       </svg>
       {hovered && (
         <div className="pointer-events-none absolute left-3 top-3 max-w-xs rounded border border-[var(--border)] bg-[var(--surface)] p-3 text-xs shadow">
@@ -247,6 +272,7 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
           {hovered.kind === "node" && <p className="mono mt-1 break-all">{hovered.sourceId || hovered.externalRef || hovered.id}</p>}
         </div>
       )}
+      <p className="pointer-events-none absolute bottom-3 left-3 rounded bg-[var(--surface)]/90 px-2 py-1 text-[10px] text-[var(--muted)]">Drag to pan · scroll or use + / − to zoom · {Math.round(view.scale * 100)}%</p>
     </div>
   );
 }

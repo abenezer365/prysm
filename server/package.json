@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npm run build && node --env-file=.env --watch dist/src/server.js",
+    "dev": "npm run sync:models && npm run build && node --env-file=.env --watch dist/src/server.js",
     "build": "tsc -p tsconfig.json",
-    "start": "node --env-file=.env dist/src/server.js",
+    "start": "npm run sync:models && node --env-file=.env dist/src/server.js",
+    "sync:models": "node --env-file=.env --experimental-strip-types scripts/sync-model-registry.ts",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint src tests",

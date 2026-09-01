@@ -1,57 +1,287 @@
-# OS Generated Files
+# PRYSM comprehensive .gitignore
+# Python + Node.js + React + TypeScript + Prisma + AI/ML
 
+# Secrets / environment
+.env
+.env.*
+!.env.example
+!.env.template
+*.env
+*.secret
+*.secrets
+secrets/
+credentials/
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# OS
 .DS_Store
-.DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
-ehthumbs.db
 Thumbs.db
+Desktop.ini
 
-# Common IDEs and Editors
-
-.vscode/
+# IDE / editors
+.vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
+*.iml
 *.swp
+*.swo
+*~
+.history/
+.cursor/
 
-# Logs, Diagnostic Data, and Caches
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.ruff_cache/
+.hypothesis/
+.pyright/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.ipynb_checkpoints/
 
-*.log
-logs/
-*.npm
+# Node / JS / TS
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+.npm/
+.pnpm-store/
+.yarn/
+.next/
+.nuxt/
+.nitro/
+.svelte-kit/
+dist/
+build/
+out/
+.vite/
+.cache/
+.parcel-cache/
+.turbo/
+coverage/
+.nyc_output/
+*.tsbuildinfo
 .eslintcache
+.stylelintcache
+.vercel/
+.netlify/
+storybook-static/
 
+# Testing
+playwright-report/
+test-results/
+blob-report/
 
-# Sensitive Data / Environments
+# Prisma / local databases
+prisma/*.db
+prisma/*.db-journal
+prisma/*.db-shm
+prisma/*.db-wal
+*.sqlite
+*.sqlite3
+prisma/generated/
+node_modules/.prisma/
 
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-*.pem
-*.key
-*.cert
-**/__pycache__/
-**/.pytest_cache/
-*.py[cod]
+# Logs / runtime
+*.log
+logs/
+log/
+*.pid
+*.pid.lock
+pids/
+runtime/
+tmp/
+temp/
+.tmp/
+.temp/
 
+# Local state
+.local/
+.local-data/
+.local-storage/
+*.local
+*.local.json
+*.local.yaml
+*.local.yml
 
-# Runtime and Build Artifacts
+# AI / ML generated artifacts
+models/
+model/
+checkpoints/
+checkpoint/
+artifacts/
+mlruns/
+wandb/
+runs/
+outputs/
+predictions/
+embeddings/
+vectorstore/
+vector_store/
+*.faiss
+*.pkl
+*.pickle
+*.joblib
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.h5
+*.hdf5
+*.npy
+*.npz
+.huggingface/
+.cache/huggingface/
+transformers_cache/
+hf_cache/
 
-node_modules/
-/dist/
-/build/
-/out/
-*.exe
-*.dll
-*.so
-*.dylib
+# Large / generated datasets
+data/raw/
+data/processed/
+data/generated/
+data/cache/
+data/tmp/
+datasets/raw/
+datasets/processed/
+datasets/generated/
+datasets/cache/
+datasets/tmp/
+*.parquet.tmp
+*.parquet.part
+*.csv.tmp
+*.json.tmp
+*.ndjson.tmp
+*.arrow
+*.feather
+
+# Generated reports / exports
+exports/
+generated/
+generated-data/
+reports/generated/
+investigations/generated/
+
+# Database dumps / backups
+*.dump
+*.backup
+*.bak
+*.sql.gz
+database/dumps/
+db/dumps/
+backups/
+backup/
+
+# Docker / infrastructure local state
+docker-data/
+.docker/
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Uploaded / temporary user files
+uploads/
+uploaded/
+user-uploads/
+attachments/
+storage/
+media/tmp/
+
+# Project-specific generated/cache folders
+client/node_modules/
+client/dist/
+client/build/
+client/.cache/
+client/.vite/
+server/node_modules/
+server/dist/
+server/build/
+server/.cache/
+server/tmp/
+ai-engine/__pycache__/
+ai-engine/.pytest_cache/
+ai-engine/.mypy_cache/
+ai-engine/.ruff_cache/
+ai-engine/.cache/
+ai-engine/models/
+ai-engine/checkpoints/
+ai-engine/artifacts/
+ai-engine/runs/
+ai-engine/outputs/
+chatbot/__pycache__/
+chatbot/.pytest_cache/
+chatbot/.cache/
+chatbot/tmp/
+chatbot/logs/
+
+# Generated public assets
+public/generated/
+public/uploads/
+client/public/generated/
+client/public/uploads/
+
+# Archives / scratch
+*.zip
+*.7z
+*.rar
+*.tar
+*.tgz
+scratch/
+sandbox/
+experiments/local/
+scripts/local/
+notes/local/
+
+# Local cloud/deployment state
+.serverless/
+.aws-sam/
+.now/
+.vercel/
+
+# Accidental secret/config files
+config.local.*
+config/*.local.*
+settings.local.*
+firebase-debug.log
+*.service-account.json
+
+# Keep important project definitions trackable
+!.gitignore
+!.env.example
+!.env.template
+!package.json
+!package-lock.json
+!pnpm-lock.yaml
+!yarn.lock
+!requirements.txt
+!pyproject.toml
+!poetry.lock
+!Pipfile
+!Pipfile.lock
+!prisma/schema.prisma

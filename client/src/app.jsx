@@ -1,13 +1,136 @@
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import PublicLayout from './layouts/PublicLayout'; import AppLayout from './layouts/AppLayout'; import Home from './pages/Home'; import About from './pages/About'; import Docs from './pages/Docs'; import ContentPage from './pages/ContentPage'; import FormPage from './pages/Forms'; import Login from './pages/Login'; import KnowledgePage, { DocArticle, FAQ, Glossary } from './pages/KnowledgePage'; import { docPages, publicPages } from './config/publicRegistry'; import { Investigation, Investigations, SearchPage, Subject } from './pages/AppPages'; import { AccessAdmin, ActivityAdmin, BetaAdmin, BugsAdmin, ContributorsAdmin, GnnAdmin, NewsAdmin, OperationalDashboard, RagAdmin, SettingsAdmin, UsersAdmin } from './pages/AdminPages'; import { useAuth } from './context/AuthContext'; import StateView from './components/StateView';
-function Protected(){const auth=useAuth(),loc=useLocation();if(auth.loading)return <div className="grid min-h-screen place-items-center"><StateView type="loading" title="Restoring secure session"/></div>;if(!auth.token)return <Navigate to="/login" state={{from:loc.pathname}} replace/>;if(auth.user?.preferences?.mustChangePassword&&loc.pathname!=='/app/settings')return <Navigate to="/app/settings" replace/>;return <AppLayout/>}
-function NotFound(){return <div className="shell py-24"><p className="eyebrow">404</p><h1 className="page-title mt-4" tabIndex="-1">Page not found.</h1><p className="muted mt-5">The route may have moved or may not be available to this application.</p></div>}
-export default function App(){return <Routes>
-  <Route element={<PublicLayout/>}>
-    <Route index element={<Home/>}/><Route path="about" element={<About/>}/><Route path="contact" element={<FormPage kind="contact"/>}/><Route path="docs" element={<Docs/>}/><Route path="docs/glossary" element={<Glossary/>}/><Route path="faq" element={<FAQ/>}/><Route path="report/bug" element={<FormPage kind="bug"/>}/><Route path="request-access" element={<FormPage kind="access"/>}/><Route path="report/resolution-guide" element={<ContentPage/>}/><Route path="intelligence/playground" element={<ContentPage/>}/>
-    <Route path="organization" element={<Navigate to="/about" replace/>}/><Route path="reports" element={<Navigate to="/report" replace/>}/><Route path="policies" element={<Navigate to="/privacy" replace/>}/><Route path="research/modeling" element={<Navigate to="/research/model-evaluation" replace/>}/>
-    {Object.keys(publicPages).filter(path=>!['/about','/report/resolution-guide','/intelligence/playground'].includes(path)).map(path=><Route key={path} path={path.slice(1)} element={<KnowledgePage/>}/>) }
-    {Object.keys(docPages).map(path=><Route key={path} path={path.slice(1)} element={<DocArticle/>}/>) }
-  </Route>
-  <Route path="login" element={<Login/>}/><Route path="app" element={<Protected/>}><Route index element={<Navigate to="dashboard" replace/>}/><Route path="dashboard" element={<OperationalDashboard/>}/><Route path="search" element={<SearchPage/>}/><Route path="users" element={<UsersAdmin/>}/><Route path="rag" element={<RagAdmin/>}/><Route path="news" element={<NewsAdmin/>}/><Route path="activity" element={<ActivityAdmin/>}/><Route path="gnn-maze" element={<GnnAdmin/>}/><Route path="settings" element={<SettingsAdmin/>}/><Route path="access" element={<AccessAdmin/>}/><Route path="bugs" element={<BugsAdmin/>}/><Route path="beta-testers" element={<BetaAdmin/>}/><Route path="contributors" element={<ContributorsAdmin/>}/><Route path="investigations" element={<Investigations/>}/><Route path="investigations/:id" element={<Investigation/>}/><Route path="subjects/:id" element={<Subject/>}/></Route><Route path="*" element={<NotFound/>}/>
-</Routes>}
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import PublicLayout from "./layouts/PublicLayout";
+import AppLayout from "./layouts/AppLayout";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Docs from "./pages/Docs";
+import ContentPage from "./pages/ContentPage";
+import FormPage from "./pages/Forms";
+import Login from "./pages/Login";
+import KnowledgePage, {
+  DocArticle,
+  FAQ,
+  Glossary,
+} from "./pages/KnowledgePage";
+import { docPages, publicPages } from "./config/publicRegistry";
+import {
+  Investigation,
+  Investigations,
+  SearchPage,
+  Subject,
+} from "./pages/AppPages";
+import {
+  AccessAdmin,
+  ActivityAdmin,
+  BetaAdmin,
+  BugsAdmin,
+  ContributorsAdmin,
+  GnnAdmin,
+  NewsAdmin,
+  OperationalDashboard,
+  RagAdmin,
+  SettingsAdmin,
+  UsersAdmin,
+} from "./pages/AdminPages";
+import { useAuth } from "./context/AuthContext";
+import StateView from "./components/StateView";
+import News from "./pages/News";
+import { BetaProgram, Contributors } from "./pages/CommunityPages";
+function Protected() {
+  const auth = useAuth(),
+    loc = useLocation();
+  if (auth.loading)
+    return (
+      <div className="grid min-h-screen place-items-center">
+        <StateView type="loading" title="Restoring secure session" />
+      </div>
+    );
+  if (!auth.token)
+    return <Navigate to="/login" state={{ from: loc.pathname }} replace />;
+  if (
+    auth.user?.preferences?.mustChangePassword &&
+    loc.pathname !== "/app/settings"
+  )
+    return <Navigate to="/app/settings" replace />;
+  return <AppLayout />;
+}
+function NotFound() {
+  return (
+    <div className="shell py-24">
+      <p className="eyebrow">404</p>
+      <h1 className="page-title mt-4" tabIndex="-1">
+        Page not found.
+      </h1>
+      <p className="muted mt-5">
+        The route may have moved or may not be available to this application.
+      </p>
+    </div>
+  );
+}
+export default function App() {
+  return (
+    <Routes>
+      <Route element={<PublicLayout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<FormPage kind="contact" />} />
+        <Route path="docs" element={<Docs />} />
+        <Route path="docs/glossary" element={<Glossary />} />
+      <Route path="faq" element={<FAQ />} />
+      <Route path="news" element={<News />} />
+      <Route path="beta" element={<BetaProgram />} />
+      <Route path="contributors" element={<Contributors />} />
+        <Route path="report/bug" element={<FormPage kind="bug" />} />
+        <Route path="request-access" element={<FormPage kind="access" />} />
+        <Route path="report/resolution-guide" element={<ContentPage />} />
+        <Route path="intelligence/playground" element={<ContentPage />} />
+        <Route path="organization" element={<Navigate to="/about" replace />} />
+        <Route path="reports" element={<Navigate to="/report" replace />} />
+        <Route path="policies" element={<Navigate to="/privacy" replace />} />
+        <Route
+          path="research/modeling"
+          element={<Navigate to="/research/model-evaluation" replace />}
+        />
+        {Object.keys(publicPages)
+          .filter(
+            (path) =>
+              ![
+                "/about",
+                "/report/resolution-guide",
+                "/intelligence/playground",
+              ].includes(path),
+          )
+          .map((path) => (
+            <Route
+              key={path}
+              path={path.slice(1)}
+              element={<KnowledgePage />}
+            />
+          ))}
+        {Object.keys(docPages).map((path) => (
+          <Route key={path} path={path.slice(1)} element={<DocArticle />} />
+        ))}
+      </Route>
+      <Route path="login" element={<Login />} />
+      <Route path="app" element={<Protected />}>
+        <Route index element={<Navigate to="dashboard" replace />} />
+        <Route path="dashboard" element={<OperationalDashboard />} />
+        <Route path="search" element={<SearchPage />} />
+        <Route path="users" element={<UsersAdmin />} />
+        <Route path="rag" element={<RagAdmin />} />
+        <Route path="news" element={<NewsAdmin />} />
+        <Route path="activity" element={<ActivityAdmin />} />
+        <Route path="gnn-maze" element={<GnnAdmin />} />
+        <Route path="settings" element={<SettingsAdmin />} />
+        <Route path="access" element={<AccessAdmin />} />
+        <Route path="bugs" element={<BugsAdmin />} />
+        <Route path="beta-testers" element={<BetaAdmin />} />
+        <Route path="contributors" element={<ContributorsAdmin />} />
+        <Route path="investigations" element={<Investigations />} />
+        <Route path="investigations/:id" element={<Investigation />} />
+        <Route path="subjects/:id" element={<Subject />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}

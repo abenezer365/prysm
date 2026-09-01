@@ -145,34 +145,8 @@ export default function About() {
       <section className="border-t border-[var(--border)] py-20">
         <p className="eyebrow">Project builders</p>
         <h2 className="section-title mt-5">People and responsibilities</h2>
-        <p className="muted mt-4">
-          These profiles are intentionally explicit placeholders until the
-          owners provide verified details.
-        </p>
-        <div className="mt-10 grid gap-8 md:grid-cols-2">
-          {[1, 2].map((i) => (
-            <article
-              className="grid grid-cols-[120px_1fr] gap-6 border-t-4 border-[var(--accent)] bg-[var(--surface)] p-6"
-              key={i}
-            >
-              <div className="grid aspect-[4/5] place-items-center bg-[var(--surface-2)] mono text-[var(--muted)]">
-                PHOTO {i}
-              </div>
-              <div>
-                <p className="eyebrow">Builder 0{i}</p>
-                <h3 className="mt-3 text-xl font-semibold">
-                  Verified name required
-                </h3>
-                <dl className="mt-5 text-sm">
-                  <dt className="muted">Role</dt>
-                  <dd>Editable project role</dd>
-                  <dt className="muted mt-3">Contribution</dt>
-                  <dd>Editable responsibilities and interests</dd>
-                </dl>
-              </div>
-            </article>
-          ))}
-        </div>
+        <p className="muted mt-4 max-w-2xl leading-7">Prysm is built through accountable engineering, financial-intelligence research, responsible AI, and investigator-centered product design.</p>
+        <Link className="button button-secondary mt-7" to="/contributors">Meet the contribution program</Link>
       </section>
       <section className="grid gap-12 border-t border-[var(--border)] py-16 md:grid-cols-2">
         <div>
@@ -192,7 +166,7 @@ export default function About() {
             accessibility, safe collaboration, and the bridge between research
             and responsible operation.
           </p>
-          <Link className="knowledge-link mt-4" to="/contribute">
+          <Link className="knowledge-link mt-4" to="/contributors">
             How to contribute
           </Link>
         </div>

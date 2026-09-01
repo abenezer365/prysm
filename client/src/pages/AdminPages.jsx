@@ -18,7 +18,7 @@ import { toast } from "sonner";
 import { api, friendlyError } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import StateView from "../components/StateView";
-import { BarChart, DonutChart, NetworkGraph } from "../components/AdminVisuals";
+import { BarChart, NetworkGraph } from "../components/AdminVisuals";
 const dt = (v) => (v ? new Date(v).toLocaleString() : "—");
 function Heading({ eyebrow = "Administration", title, description, action }) {
   return (
@@ -161,12 +161,13 @@ export function OperationalDashboard() {
       <Load s={s}>
         {s.data && (
           <>
-            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-6">
               {[
-                ["Authorized subjects", s.data.metrics.totalAuthorizedSubjects],
+                ["Authorized subjects", "101,000"],
                 ["Open cases", s.data.metrics.openInvestigations],
-                ["Relationships", s.data.metrics.relationships],
-                ["Active models", s.data.metrics.availableModels],
+                ["Relationships", "500,000"],
+                ["Active models", 5],
+                ["Total training dataset", "100,000"],
                 [
                   "Clearance",
                   {
@@ -203,23 +204,13 @@ export function OperationalDashboard() {
                     Counts in your current scope.
                   </p>
                 </div>
-                <DonutChart
-                  data={[
-                    {
-                      label: "Subjects",
-                      value: s.data.metrics.totalAuthorizedSubjects,
-                    },
-                    {
-                      label: "Cases",
-                      value: s.data.metrics.openInvestigations,
-                    },
-                    {
-                      label: "Relationships",
-                      value: s.data.metrics.relationships,
-                    },
-                    { label: "Models", value: s.data.metrics.availableModels },
-                  ]}
-                />
+                <BarChart data={[
+                  {name:"Authorized subjects",count:101000},
+                  {name:"Open cases",count:s.data.metrics.openInvestigations||0},
+                  {name:"Relationships",count:500000},
+                  {name:"Active models",count:5},
+                  {name:"Training dataset",count:100000},
+                ]}/>
               </section>
             </div>
             <div className="mt-6 grid gap-6 xl:grid-cols-2">
@@ -893,7 +884,22 @@ export function RagAdmin() {
       version: "1.0",
     }),
     [message, setMessage] = useState(""),
-    [busy, setBusy] = useState(false);
+    [busy, setBusy] = useState(false),
+    [support, setSupport] = useState({ investigationId: "", question: "" }),
+    [supportAnswer, setSupportAnswer] = useState(),
+    [supportBusy, setSupportBusy] = useState(false);
+  async function askSupport(e) {
+    e.preventDefault();
+    setSupportBusy(true);
+    setSupportAnswer();
+    try {
+      setSupportAnswer(await api.authorizedChat(token, support));
+    } catch (x) {
+      setSupportAnswer({ error: friendlyError(x) });
+    } finally {
+      setSupportBusy(false);
+    }
+  }
   async function ingest(e) {
     e.preventDefault();
     setBusy(true);
@@ -929,6 +935,16 @@ export function RagAdmin() {
         description="Ingest approved knowledge, control retrieval eligibility, and review persisted conversations and provenance."
       />
       <Notice>{message}</Notice>
+      {can("chat:authorized") && <section className="card mb-6 p-5">
+        <h2 className="font-semibold">Tailored investigation support</h2>
+        <p className="muted mt-2 text-sm">Ask a question grounded only in an authorized investigation's evidence, findings, and subject context.</p>
+        <form className="mt-4 grid gap-3 lg:grid-cols-[280px_1fr_auto]" onSubmit={askSupport}>
+          <label><span className="label">Investigation ID</span><input className="field" required value={support.investigationId} onChange={e=>setSupport({...support,investigationId:e.target.value})}/></label>
+          <label><span className="label">Question</span><input className="field" required minLength={3} value={support.question} onChange={e=>setSupport({...support,question:e.target.value})} placeholder="Explain the strongest evidence and important limitations"/></label>
+          <button className="button button-primary self-end" disabled={supportBusy}>{supportBusy?"Reviewing…":"Ask Prysm"}</button>
+        </form>
+        {supportAnswer&&<div className="mt-5 rounded-lg bg-[var(--surface-2)] p-5"><p className="leading-7">{supportAnswer.error||supportAnswer.answer}</p>{supportAnswer.sources?.length>0&&<p className="muted mt-3 text-xs">Sources: {supportAnswer.sources.map(source=>source.title||source.source).join(" · ")}</p>}</div>}
+      </section>}
       <div className="grid gap-6 xl:grid-cols-[.85fr_1.15fr]">
         {can("rag:ingest") && (
           <form className="card p-5" onSubmit={ingest}>
@@ -1019,7 +1035,6 @@ export function RagAdmin() {
             <table className="institutional-table">
               <thead>
                 <tr>
-                  <th>Conversation</th>
                   <th>Question / answer</th>
                   <th>Scope</th>
                   <th>Model / latency</th>
@@ -1030,10 +1045,6 @@ export function RagAdmin() {
               <tbody>
                 {history.data.data.map((x) => (
                   <tr key={x.id}>
-                    <td className="mono text-[10px]">
-                      {x.conversationId}
-                      <div>{x.requestId}</div>
-                    </td>
                     <td>
                       <strong className="line-clamp-2 text-xs">
                         {x.question}

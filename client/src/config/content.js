@@ -9,7 +9,7 @@ export const site = {
 
 export const navGroups = [
   { label: 'Research', href: '/research', items: [['Ethical AI','/research/ethical-ai'],['Fraud detection','/research/fraud-detection'],['Modeling','/research/modeling']] },
-  { label: 'Report', href: '/report', items: [['Bug report','/report/bug'],['Resolution guide','/report/resolution-guide'],['Beta program','/beta'],['Contribute','/contribute']] },
+  { label: 'Report', href: '/report', items: [['News','/news'],['Bug report','/report/bug'],['Beta program','/beta'],['Contributors','/contributors']] },
   { label: 'Academy', href: '/academy', items: [['Data science','/academy/data-science'],['Python','/academy/python'],['Opportunities','/academy/opportunities'],['Institutions','/academy/institutions'],['Rules','/academy/rules']] },
   { label: 'Intelligence', href: '/intelligence', items: [['Models','/intelligence/models'],['Data','/intelligence/data'],['Playground','/intelligence/playground']] },
 ];

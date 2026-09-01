@@ -98,9 +98,6 @@ export default function ChatWidget() {
                     ))}
                   </details>
                 )}
-                {m.requestId && (
-                  <p className="mono mt-2 text-[10px]">Request {m.requestId}</p>
-                )}
                 {m.retry && (
                   <button
                     className="mt-2 text-xs underline"

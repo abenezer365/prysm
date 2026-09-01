@@ -85,12 +85,7 @@ export default function Login() {
             />
             {error && (
               <p className="mt-4 text-sm text-[var(--danger)]">
-                {friendlyError(error)}{" "}
-                {error.requestId && (
-                  <span className="mono block mt-1">
-                    Request {error.requestId}
-                  </span>
-                )}
+                {friendlyError(error)}
               </p>
             )}
             <button

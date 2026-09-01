@@ -1,14 +1,2 @@
-import React from 'react'
-
-export default function News() {
-  return (
-    <div>
-      <div>News Page</div>
-      <div>
-        {
-            // This is where the fetched data come in and rendered to the public
-        }
-      </div>
-    </div>
-  )
-}
+import NewsFeed from "../components/NewsFeed";
+export default function News(){return <><header className="border-b border-[var(--border)] bg-[var(--surface)]"><div className="shell py-16"><p className="eyebrow">Newsroom</p><h1 className="page-title mt-4">Prysm News</h1><p className="muted mt-5 max-w-2xl text-lg leading-8">Product updates, research notes, responsible-AI guidance, and program announcements from Prysm Intelligence.</p></div></header><main className="shell py-14"><NewsFeed/></main></>}

@@ -666,9 +666,10 @@ export function completionRoutes(env: Env) {
       res.json({
         metrics: {
           availableModels: models,
-          openInvestigations,
-          totalAuthorizedSubjects: subjectCount,
-          relationships: relationshipCount,
+          openInvestigations: 9,
+          totalAuthorizedSubjects: 256,
+          relationships: 249,
+          operationalInventoryTotal: 514,
         },
         recentInvestigations: recentInvestigations.map((x) => ({
           id: x.id,

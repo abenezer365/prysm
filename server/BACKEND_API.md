@@ -46,4 +46,6 @@ WebSocket clients connect, receive `ready`, send `{"type":"authenticate","access
 
 List/search results use `{data,page:{nextCursor,limit}}`; `nextCursor` is currently `null`. Refresh, password reset/change, dashboards, application review, user mutation, investigation update/timeline/feedback/export, and model downloads are not implemented.
 
+The current frontend also uses the implemented dashboard, settings/password, activity, user administration, news, beta, contributor, bug, RAG document/history, and application-review routes in `completion.ts`. The model registry is synchronized from the three active AI artifacts before backend startup, so `/models` and dashboard model totals report the deployed artifacts rather than a placeholder zero.
+
 Exact schemas and expanded examples: [docs/openapi.yaml](docs/openapi.yaml) and [docs/API.md](docs/API.md). Operational limitations are in [BACKEND_INTEGRATION_REPORT.md](BACKEND_INTEGRATION_REPORT.md).

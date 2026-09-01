@@ -1,3 +1,63 @@
 import { useEffect, useState } from "react";
 import { api, friendlyError } from "../services/api";
-export default function NewsFeed({ compact=false }){const[news,setNews]=useState([]),[error,setError]=useState();useEffect(()=>{let live=true;api.news().then(result=>live&&setNews(result?.data||[])).catch(value=>live&&setError(value));return()=>{live=false};},[]);if(error)return <p className="muted py-8 text-sm">{friendlyError(error)}</p>;if(!news.length)return <p className="muted py-8 text-sm">No published updates are available.</p>;const items=compact?news.slice(0,5):news;return <div className="news-grid">{items.map((item,index)=><article className={index===0?"news-lead":"news-item"} key={item.id||item.slug}><p className="eyebrow">{item.category||"Prysm update"}</p><h3 className="mt-3 font-semibold leading-tight">{item.title}</h3><p className="muted mt-3 line-clamp-3 text-sm leading-6">{item.description}</p><div className="muted mt-5 flex items-center gap-3 text-xs"><span>{item.authorName||"Prysm Intelligence"}</span><span>·</span><time>{new Date(item.publishedAt||item.createdAt).toLocaleDateString()}</time></div></article>)}</div>}
+
+function NewsImage({ item }) {
+  const [failed, setFailed] = useState(false);
+  const source =
+    item.imageRef || item.imageUrl || item.metadata?.imageUrl || item.metadata?.image;
+
+  if (!source || failed) return null;
+
+  return (
+    <div className="news-image">
+      <img
+        alt={item.title ? `${item.title} cover` : "News cover"}
+        loading="lazy"
+        onError={() => setFailed(true)}
+        src={source}
+      />
+    </div>
+  );
+}
+
+export default function NewsFeed({ compact = false }) {
+  const [news, setNews] = useState([]);
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    let live = true;
+    api
+      .news()
+      .then((result) => live && setNews(result?.data || []))
+      .catch((value) => live && setError(value));
+    return () => {
+      live = false;
+    };
+  }, []);
+
+  if (error) return <p className="muted py-8 text-sm">{friendlyError(error)}</p>;
+  if (!news.length)
+    return <p className="muted py-8 text-sm">No published updates are available.</p>;
+
+  const items = compact ? news.slice(0, 5) : news;
+  return (
+    <div className="news-grid">
+      {items.map((item, index) => (
+        <article
+          className={index === 0 ? "news-lead" : "news-item"}
+          key={item.id || item.slug}
+        >
+          <NewsImage item={item} />
+          <p className="eyebrow">{item.category || "Prysm update"}</p>
+          <h3 className="mt-3 font-semibold leading-tight">{item.title}</h3>
+          <p className="muted mt-3 line-clamp-3 text-sm leading-6">{item.description}</p>
+          <div className="muted mt-5 flex items-center gap-3 text-xs">
+            <span>{item.authorName || "Prysm Intelligence"}</span>
+            <span>·</span>
+            <time>{new Date(item.publishedAt || item.createdAt).toLocaleDateString()}</time>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}

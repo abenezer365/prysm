@@ -1,0 +1,11 @@
+{
+  "id": "prysm-rag",
+  "title": "Prysm RAG and Chat",
+  "content": "The Prysm chatbot provides public project knowledge and authorized investigation explanations. Public chat retrieves only approved knowledge documents. Authorized chat receives a bounded, backend-built investigation context after authentication, permission, clearance, ownership, and resource checks. The chatbot does not independently authorize users or query unrestricted operational data. Gemini generates concise grounded language when available; otherwise a deterministic local fallback returns relevant retrieved facts.",
+  "source": "chatbot/RAG_INTEGRATION.md",
+  "category": "rag",
+  "version": "2.0",
+  "createdAt": "2026-09-01T00:00:00+00:00",
+  "metadata": {"canonical": true},
+  "enabled": true
+}

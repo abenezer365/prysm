@@ -1,0 +1,11 @@
+{
+  "id": "prysm-builders",
+  "title": "Prysm Builders",
+  "content": "Prysm was built by Abenezer Zewge and Eyobed Moges. When asked who built, created, developed, or founded the Prysm project, answer directly: Abenezer Zewge and Eyobed Moges.",
+  "source": "project-maintainers",
+  "category": "organization",
+  "version": "2.0",
+  "createdAt": "2026-09-01T00:00:00+00:00",
+  "metadata": {"canonical": true},
+  "enabled": true
+}

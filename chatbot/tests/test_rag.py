@@ -13,6 +13,15 @@ def internal_headers():
     return {"Authorization": f"Bearer {key}"} if key else {}
 
 
+def test_root_describes_running_service():
+    response = client.get("/")
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["status"] == "ok"
+    assert payload["service"] == "Prysm chatbot / RAG"
+    assert payload["health"] == "/health"
+
+
 def test_health_ok():
     response = client.get("/health")
     assert response.status_code == 200
@@ -27,7 +36,7 @@ def test_public_ask_uses_knowledge_base():
     payload = response.json()
     assert payload["mode"] == "public"
     assert "Prysm" in payload["answer"]
-    assert [source["title"] for source in payload["sources"]] == ["Prysm AI"]
+    assert payload["sources"][0]["title"] == "Prysm AI Overview"
     assert not payload["answer"].startswith("Based on the retrieved knowledge")
 
 
@@ -37,6 +46,27 @@ def test_public_ask_does_not_attach_unrelated_sources():
     payload = response.json()
     assert payload["sources"] == []
     assert "couldn't find relevant information" in payload["answer"]
+
+
+def test_builder_question_returns_canonical_names():
+    response = client.get("/ask?message=Who%20built%20Prysm")
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["sources"][0]["title"] == "Prysm Builders"
+    assert payload["answer"] == "Abenezer Zewge and Eyobed Moges built Prysm."
+    assert len(payload["sources"]) == 1
+
+
+def test_ingestion_rejects_conversation_dump():
+    response = client.post(
+        "/ingest",
+        headers=internal_headers(),
+        json={
+            "title": "Bad paste",
+            "content": "Yes. Since you want to put this into a RAG knowledge base, here is a master document.",
+        },
+    )
+    assert response.status_code == 422
 
 
 def test_ingest_and_retrieve_new_document():

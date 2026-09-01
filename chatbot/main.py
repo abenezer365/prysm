@@ -12,11 +12,19 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from dotenv import load_dotenv
+from dotenv import dotenv_values, load_dotenv
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, WebSocket, WebSocketDisconnect, status
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
-load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env", override=True)
+ENV_PATH = Path(__file__).resolve().parent / ".env"
+load_dotenv(dotenv_path=ENV_PATH, override=False)
+# Some terminals define provider variables as empty strings. Treat those as
+# unset so a configured local .env still works, while preserving non-empty
+# test, deployment, and process-level overrides.
+for _name, _value in dotenv_values(ENV_PATH).items():
+    _clean_name = _name.lstrip("\ufeff")
+    if _value is not None and not os.getenv(_clean_name, "").strip():
+        os.environ[_clean_name] = _value
 
 APP_ROOT = Path(__file__).resolve().parent
 KNOWLEDGE_DIR = APP_ROOT / "rag" / "knowledge_base"
@@ -98,12 +106,25 @@ class LightweightEmbedder:
 
 
 class DocumentIngest(BaseModel):
-    title: str = Field(..., min_length=1)
-    content: str = Field(..., min_length=1)
-    source: str = Field(default="manual")
-    category: str = Field(default="concepts")
-    version: str = Field(default="1.0")
+    title: str = Field(..., min_length=1, max_length=200)
+    content: str = Field(..., min_length=1, max_length=12000)
+    source: str = Field(default="manual", max_length=200)
+    category: str = Field(default="concepts", max_length=100)
+    version: str = Field(default="1.0", max_length=50)
     metadata: dict[str, Any] = Field(default_factory=dict)
+
+    @field_validator("content")
+    @classmethod
+    def reject_conversation_dumps(cls, value: str) -> str:
+        normalized = " ".join(value.lower().split())
+        blocked = (
+            "since you want to put this into a rag knowledge base",
+            "below is a rag-ready master context",
+            "yes. since you want",
+        )
+        if any(phrase in normalized for phrase in blocked):
+            raise ValueError("Paste the source facts, not a prior chat response or RAG-writing preamble.")
+        return value.strip()
 
 
 class AskRequest(BaseModel):
@@ -147,7 +168,7 @@ class KnowledgeStore:
         seed_documents = [
             {
                 "title": "Prysm AI",
-                "content": "Prysm AI is a financial intelligence platform that combines behavioral signals, graph analysis, explainable investigation workflows, and operational data. It helps investigators understand patterns while keeping decisions anchored in evidence and transparent methodology.",
+                "content": "Prysm is an evidence-oriented financial intelligence and investigation-support platform built by Abenezer Zewge and Eyobed Moges. It combines behavioral signals, graph analysis, explainable investigation workflows, and operational data while keeping decisions anchored in evidence.",
                 "source": "platform",
                 "category": "platform",
                 "version": "1.0",
@@ -183,20 +204,46 @@ class KnowledgeStore:
                 self.add_document(item, persist=False)
 
     def _update_vocab(self) -> None:
-        texts = [doc["content"] for doc in self.documents]
+        texts = [doc["content"] for doc in self.documents if doc.get("enabled", True)]
         if texts:
             self.embedder.fit(texts)
             for doc in self.documents:
-                doc["embedding"] = self.embedder.encode(doc["content"])
+                doc["embedding"] = self.embedder.encode(doc["content"]) if doc.get("enabled", True) else []
 
     def add_document(self, payload: dict[str, Any], persist: bool = True) -> dict[str, Any]:
-        doc_id = str(uuid.uuid4())
         content = payload["content"].strip()
+        title = payload["title"].strip()
+        source = payload.get("source", "manual").strip()
+        duplicate = next(
+            (
+                document
+                for document in self.documents
+                if document["title"].strip().casefold() == title.casefold()
+                and document.get("source", "manual").strip().casefold() == source.casefold()
+            ),
+            None,
+        )
+        if duplicate:
+            duplicate.update(
+                {
+                    "content": content,
+                    "category": payload.get("category", "concepts"),
+                    "version": payload.get("version", "1.0"),
+                    "metadata": payload.get("metadata", {}),
+                    "enabled": True,
+                }
+            )
+            self._update_vocab()
+            if persist:
+                self._persist_record(duplicate)
+            return duplicate
+
+        doc_id = str(uuid.uuid4())
         record = {
             "id": doc_id,
-            "title": payload["title"],
+            "title": title,
             "content": content,
-            "source": payload.get("source", "manual"),
+            "source": source,
             "category": payload.get("category", "concepts"),
             "version": payload.get("version", "1.0"),
             "createdAt": _now_iso(),
@@ -212,7 +259,10 @@ class KnowledgeStore:
 
     def _persist_record(self, record: dict[str, Any]) -> None:
         file_path = self.root / f"{record['id']}.json"
-        file_path.write_text(json.dumps(record, indent=2), encoding="utf-8")
+        temporary_path = file_path.with_suffix(".json.tmp")
+        persisted = {key: value for key, value in record.items() if key != "embedding"}
+        temporary_path.write_text(json.dumps(persisted, indent=2), encoding="utf-8")
+        temporary_path.replace(file_path)
 
     def search(self, query: str, limit: int = 5) -> list[dict[str, Any]]:
         available = [document for document in self.documents if document.get("enabled", True)]
@@ -314,7 +364,9 @@ class GeminiClient:
     def _build_prompt(self, question: str, context: str, mode: str) -> str:
         return (
             "Use cautious, evidence-based language. Do not claim fraud, criminal guilt, or certainty beyond the provided evidence. "
-            f"Mode: {mode}. Question: {question}. Context:\n{context}\n\nAnswer concisely and explain with the available sources."
+            "Answer the user's question directly and concisely. Never discuss preparing, writing, or putting content into a RAG "
+            "knowledge base. Do not repeat conversational preambles from source material. "
+            f"Mode: {mode}. Question: {question}. Context:\n{context}\n\nUse only the relevant facts from the context."
         )
 
     def generate(self, question: str, context: str, mode: str = "public") -> str:
@@ -401,9 +453,18 @@ class RAGService:
 
     def answer(self, message: str, mode: str = "public", context: dict[str, Any] | None = None) -> dict[str, Any]:
         route = self.classify(message)
-        content = self._build_context(message, context)
-        answer = self.llm.generate(message, content, mode=mode)
         results = self.store.search(message, limit=5)
+        normalized_question = " ".join(message.lower().split())
+        asks_for_builders = any(
+            phrase in normalized_question
+            for phrase in ("who built", "who created", "who developed", "who founded", "builders", "developers", "founders")
+        )
+        if mode == "public" and asks_for_builders and results and results[0]["title"] == "Prysm Builders":
+            answer = "Abenezer Zewge and Eyobed Moges built Prysm."
+            results = results[:1]
+        else:
+            content = self._build_context(message, context)
+            answer = self.llm.generate(message, content, mode=mode)
         return {
             "answer": answer,
             "mode": mode,
@@ -438,6 +499,18 @@ async def lifespan(_: FastAPI):
 
 
 app = FastAPI(title="Prysm RAG", version="1.0.0", lifespan=lifespan)
+
+
+@app.get("/")
+def root() -> dict[str, Any]:
+    return {
+        "status": "ok",
+        "service": "Prysm chatbot / RAG",
+        "message": "The Prysm chatbot service is running.",
+        "health": "/health",
+        "ask": "/ask?message=What%20is%20Prysm",
+        "docs": "/docs",
+    }
 
 
 @app.get("/health")
@@ -559,4 +632,10 @@ def _handle_ask(payload: dict[str, Any]) -> dict[str, Any]:
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host=RAG_HOST, port=RAG_PORT, log_level="info")
+    uvicorn.run(
+        app,
+        host=RAG_HOST,
+        port=RAG_PORT,
+        log_level="info",
+        access_log=False,
+    )

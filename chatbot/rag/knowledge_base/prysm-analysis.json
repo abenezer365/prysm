@@ -1,0 +1,11 @@
+{
+  "id": "prysm-analysis",
+  "title": "Prysm Analysis and Evidence",
+  "content": "Prysm combines behavioral features, deterministic rules, anomaly or supervised model artifacts, temporal graph intelligence, GraphSAGE-style structural embeddings, and evidence fusion. Findings should retain their source, cutoff time, model or rule version, confidence, availability, and limitations. Investigators must review the supporting evidence and context instead of treating an automated signal as a legal conclusion.",
+  "source": "ARCHITECTURE.md",
+  "category": "methodology",
+  "version": "2.0",
+  "createdAt": "2026-09-01T00:00:00+00:00",
+  "metadata": {"canonical": true},
+  "enabled": true
+}

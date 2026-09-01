@@ -1,0 +1,11 @@
+{
+  "id": "prysm-overview",
+  "title": "Prysm AI Overview",
+  "content": "Prysm is an evidence-oriented financial intelligence and investigation-support platform. It helps authorized investigators examine transaction behavior, deterministic rules, anomaly signals, relationship graphs, model findings, and supporting evidence. Prysm supports human decisions; it does not determine guilt and its risk outputs are not calibrated probabilities of fraud.",
+  "source": "ARCHITECTURE.md",
+  "category": "platform",
+  "version": "2.0",
+  "createdAt": "2026-09-01T00:00:00+00:00",
+  "metadata": {"canonical": true},
+  "enabled": true
+}

@@ -1,0 +1,11 @@
+{
+  "id": "prysm-architecture",
+  "title": "Prysm Architecture",
+  "content": "Prysm has four runtime services. The React and Vite client presents public and authorized workflows. The Express and TypeScript backend is the trust boundary for authentication, authorization, clearance, orchestration, persistence, and audit. The Python AI Engine performs behavioral, rule, anomaly, graph, GNN, and evidence analysis. The Python chatbot service retrieves approved knowledge and uses Gemini, with a local grounded fallback. PostgreSQL stores operational workflow state while analytical datasets remain in canonical Parquet files.",
+  "source": "ARCHITECTURE.md",
+  "category": "architecture",
+  "version": "2.0",
+  "createdAt": "2026-09-01T00:00:00+00:00",
+  "metadata": {"canonical": true},
+  "enabled": true
+}

@@ -18,7 +18,6 @@ import {
   RefreshCw,
   Search,
   Settings,
-  ShieldCheck,
   UserCheck,
   Users,
   UsersRound,
@@ -48,6 +47,12 @@ const clearanceNames = {
   3: "Secret",
   4: "Top Secret",
 };
+const clearanceBadgeStyles = {
+  1: "border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200",
+  2: "border-sky-300 bg-sky-100 text-sky-800 dark:border-sky-700 dark:bg-sky-950 dark:text-sky-200",
+  3: "border-amber-300 bg-amber-100 text-amber-900 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-200",
+  4: "border-red-300 bg-red-100 text-red-800 dark:border-red-700 dark:bg-red-950 dark:text-red-200",
+};
 export default function AppLayout() {
   const [menu, setMenu] = useState(false),
     [time, setTime] = useState(new Date());
@@ -72,30 +77,33 @@ export default function AppLayout() {
             <X />
           </button>
         </div>
-        <div className="mt-5 rounded-lg bg-[var(--surface-2)] p-4">
-          <div className="flex items-center gap-3">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[var(--accent)] text-lg font-semibold text-white">
-            {auth.user?.profileImageUrl ? (
-              <img
-                alt=""
-                className="h-full w-full object-cover"
-                src={auth.user.profileImageUrl}
-              />
-            ) : (
-              (auth.user?.displayName ||
-                auth.user?.email ||
-                "P")[0].toUpperCase()
-            )}
-          </div>
-          <span className="rounded-full border border-[var(--border-strong)] px-2 py-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--accent)]">Current user · Level {auth.clearance||1}</span>
+        <div className="mt-5 rounded-lg bg-[var(--surface-2)] px-4 py-5 text-center">
+          <div className="relative mx-auto mb-5 w-fit">
+            <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-[var(--accent)] text-3xl font-semibold text-white ring-4 ring-[var(--surface)]">
+              {auth.user?.profileImageUrl ? (
+                <img
+                  alt={`${auth.user?.displayName || "User"} profile`}
+                  className="h-full w-full object-cover"
+                  src={auth.user.profileImageUrl}
+                />
+              ) : (
+                (auth.user?.displayName ||
+                  auth.user?.email ||
+                  "P")[0].toUpperCase()
+              )}
+            </div>
+            <span
+              className={`absolute -bottom-2 left-[68%] whitespace-nowrap rounded-full border px-2.5 py-1 text-[10px] font-bold shadow-sm ${clearanceBadgeStyles[auth.clearance] || clearanceBadgeStyles[1]}`}
+            >
+              {clearanceNames[auth.clearance] || "Pending"} :{" "}
+              {auth.clearance || 1}
+            </span>
           </div>
           <p className="mt-3 truncate text-sm font-semibold">
             {auth.user?.displayName || auth.user?.email || "Authorized user"}
           </p>
-          <p className="mt-1 text-xs text-[var(--muted)]">Development Administrator</p>
-          <p className="mt-1 flex items-center gap-1.5 text-xs text-[var(--muted)]">
-            <ShieldCheck size={13} />
-            {clearanceNames[auth.clearance] || "Clearance pending"}
+          <p className="mt-1 text-xs text-[var(--muted)]">
+            Investigation dashboard
           </p>
         </div>
         <nav className="mt-4 flex-1 space-y-0.5 overflow-y-auto">

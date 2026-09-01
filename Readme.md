@@ -36,34 +36,34 @@ Set `GOOGLE_API_KEYS` in `chatbot/.env` for Gemini generation. Without a reachab
 
 Never commit `.env` files or service keys.
 
-### 4. Start the stack in dependency order
+### 4. Start services independently
 
-The supported Windows command starts PostgreSQL, AI Engine, RAG, and backend with readiness checks:
+Use one terminal per service. Each command stays in the foreground so its logs remain isolated; press `Ctrl+C` in that terminal to stop only that service.
 
 ```powershell
+# Chatbot / RAG — terminal 1
+cd chatbot
+.\start.ps1
+
+# AI Engine — terminal 2
+cd ai-engine
+.\start.ps1
+
+# Backend — terminal 3
 cd server
-npm run dev:stack
+npm run dev
+
+# Frontend — terminal 4
+cd client
+npm start
 ```
 
-The equivalent manual commands, each in its own terminal, are:
+The Python launchers automatically use the repository's `.venv`; no activation step is required. Routine HTTP access logs are disabled for the Python services and backend, while startup messages, warnings, and errors remain visible.
+
+If Windows reports that script execution is disabled, run this once in your normal PowerShell account, then reopen the terminal:
 
 ```powershell
-# AI Engine
-cd ai-engine
-python -m uvicorn api.app:app --host 127.0.0.1 --port 8100
-
-# RAG
-cd chatbot
-python -m uvicorn main:app --host 127.0.0.1 --port 8200
-
-# Backend
-cd server
-npm run build
-npm start
-
-# Frontend
-cd client
-npm run dev -- --host 127.0.0.1
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
 
 Open the URL printed by Vite, normally `http://127.0.0.1:5173`. The browser calls only `http://127.0.0.1:4000/api/v1`; it never calls AI Engine or RAG directly.

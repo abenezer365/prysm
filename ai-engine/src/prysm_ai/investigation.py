@@ -92,7 +92,6 @@ class InvestigationEngine:
             "graph": SignalComponent("graph", "available", graph_strength, graph_confidence, "Cutoff-valid bounded structural intensity; centrality alone is not risk.", [graph_evidence.evidence_id]),
             "gnn": SignalComponent("gnn", "available", novelty, 0.4 * graph_confidence, "Cutoff-valid unsupervised neighborhood contrast; no valid labels were used.", [graph_evidence.evidence_id]),
             "supervised_prediction": SignalComponent("supervised_prediction", "unavailable", None, 0.0, "No valid aligned model snapshot is available."),
-            "foreign_geographic": SignalComponent("foreign_geographic", "unavailable", None, 0.0, "Current data supports currency activity but not international geography."),
         }
         snapshot_rules: list[dict[str, Any]] = []
         if snapshot is not None:
@@ -101,20 +100,17 @@ class InvestigationEngine:
             transaction_strength = 0.5 * _bounded(float(snapshot.tx_count_30d) / scales["transaction_count_30d"]) + 0.5 * _bounded(transaction_volume / scales["transaction_volume_etb_30d"])
             behavior_strength = _bounded(abs(float(snapshot.recent_amount_z)) / scales["behavior_z"])
             velocity_strength = max(_bounded(float(snapshot.recent_to_history_count_ratio) / scales["velocity_ratio"]), _bounded(float(snapshot.outflow_ratio_7d) / scales["velocity_ratio"]))
-            foreign_strength = max(_bounded(float(snapshot.foreign_inflow_etb_30d) / scales["foreign_inflow_etb_30d"]), _bounded(float(snapshot.foreign_recent_to_history_ratio) / scales["velocity_ratio"]))
             transaction_ids = [str(v) for v in snapshot.transaction_ids_30d]
             phase_evidence = [
                 self.evidence_engine.phase2_feature(subject, "transaction_activity", "Thirty-day transaction activity available at cutoff.", history_confidence, {"count_30d": snapshot.tx_count_30d, "volume_etb_30d": transaction_volume}, transaction_ids, snapshot.as_of.isoformat()),
                 self.evidence_engine.phase2_feature(subject, "behavior_change", "Recent transaction amount deviation from entity history.", history_confidence, {"recent_amount_z": snapshot.recent_amount_z, "history_transactions": snapshot.history_tx_count}, transaction_ids, snapshot.as_of.isoformat()),
                 self.evidence_engine.phase2_feature(subject, "velocity", "Recent frequency and outflow ratios relative to history.", history_confidence, {"activity_ratio": snapshot.recent_to_history_count_ratio, "outflow_ratio_7d": snapshot.outflow_ratio_7d}, transaction_ids, snapshot.as_of.isoformat()),
-                self.evidence_engine.phase2_feature(subject, "foreign_currency", "Currency-based foreign inflow only; no geographic inference.", min(history_confidence, 0.5), {"foreign_inflow_etb_30d": snapshot.foreign_inflow_etb_30d, "foreign_rate_ratio": snapshot.foreign_recent_to_history_ratio}, transaction_ids, snapshot.as_of.isoformat()),
             ]
             evidence.extend(phase_evidence)
             components.update({
                 "transaction": SignalComponent("transaction", "available", transaction_strength, history_confidence, "Observed 30-day count and ETB volume.", [phase_evidence[0].evidence_id]),
                 "behavior": SignalComponent("behavior", "available", behavior_strength, history_confidence, "Deviation from the entity's observable history.", [phase_evidence[1].evidence_id]),
                 "velocity": SignalComponent("velocity", "available", velocity_strength, history_confidence, "Recent rate and outflow measures.", [phase_evidence[2].evidence_id]),
-                "foreign_currency": SignalComponent("foreign_currency", "available", foreign_strength, min(history_confidence, 0.5), "Currency-based signal; geographic confidence is unavailable.", [phase_evidence[3].evidence_id]),
             })
             snapshot_rules = [{"ground_truth_id": snapshot.ground_truth_id, "as_of": pd.Timestamp(snapshot.as_of).isoformat(), **item.to_dict()} for item in self.rule_engine.evaluate(snapshot.to_dict())]
             rule_evidence = [self.evidence_engine.from_rule(subject, item) for item in snapshot_rules]; evidence.extend(rule_evidence)
@@ -138,7 +134,6 @@ class InvestigationEngine:
             "Supervised output is valid only for the aligned synthetic scenario benchmark and is not a real-world fraud probability.",
             "The GNN component is an unsupervised structural representation, not a fraud probability.",
             "High graph centrality or transaction volume is contextual intelligence, not an accusation.",
-            "Foreign geographic risk is unavailable; only currency-based activity is represented.",
             "Account and invoice chronology contain known synthetic inconsistencies.",
         ]
         return InvestigationResult(

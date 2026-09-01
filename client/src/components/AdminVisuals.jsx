@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Minus, Plus, RotateCcw } from "lucide-react";
 
 const palette = ["#00614c", "#175a91", "#9a650d", "#7a4ea3", "#a83b36"];
@@ -101,7 +101,8 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
   const [selected, setSelected] = useState(null),
     [hovered, setHovered] = useState(null),
     [view, setView] = useState({ x: 0, y: 0, scale: 1 });
-  const drag = useRef(null);
+  const drag = useRef(null),
+    graphRef = useRef(null);
   const positioned = useMemo(
     () =>
       [...nodes].sort((a,b)=>Number(Boolean(b.isSubject))-Number(Boolean(a.isSubject))).map((n, i) => {
@@ -118,6 +119,20 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
     [nodes],
   );
   const map = new Map(positioned.map((n) => [n.id, n]));
+  useEffect(() => {
+    const graph = graphRef.current;
+    if (!graph) return undefined;
+    const handleWheel = (event) => {
+      event.preventDefault();
+      const amount = event.deltaY < 0 ? 0.12 : -0.12;
+      setView((current) => ({
+        ...current,
+        scale: Math.min(2.5, Math.max(0.45, current.scale + amount)),
+      }));
+    };
+    graph.addEventListener("wheel", handleWheel, { passive: false });
+    return () => graph.removeEventListener("wheel", handleWheel);
+  }, []);
   function choose(item, type) {
     const value = { ...item, kind: type };
     setSelected(value);
@@ -131,8 +146,14 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
     event.currentTarget.setPointerCapture(event.pointerId);
   };
   const moveDrag = (event) => {
-    if (!drag.current) return;
-    setView((current) => ({ ...current, x: drag.current.x + event.clientX - drag.current.clientX, y: drag.current.y + event.clientY - drag.current.clientY }));
+    const origin = drag.current;
+    if (!origin) return;
+    const x = origin.x + event.clientX - origin.clientX,
+      y = origin.y + event.clientY - origin.clientY;
+    setView((current) => ({ ...current, x, y }));
+  };
+  const stopDrag = () => {
+    drag.current = null;
   };
   return (
     <div className="relative overflow-hidden rounded-md border border-[var(--border)] bg-[var(--surface-2)]">
@@ -142,13 +163,14 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
         <button className="p-2 hover:bg-[var(--surface-2)]" onClick={() => setView({x:0,y:0,scale:1})} aria-label="Reset graph view"><RotateCcw size={16}/></button>
       </div>
       <svg
+        ref={graphRef}
         className="h-[620px] w-full cursor-grab touch-none select-none active:cursor-grabbing"
         viewBox="0 0 800 490"
         onPointerDown={startDrag}
         onPointerMove={moveDrag}
-        onPointerUp={() => { drag.current = null; }}
-        onPointerCancel={() => { drag.current = null; }}
-        onWheel={(event) => { event.preventDefault(); zoom(event.deltaY < 0 ? .12 : -.12); }}
+        onPointerUp={stopDrag}
+        onPointerCancel={stopDrag}
+        onLostPointerCapture={stopDrag}
         role="img"
         aria-label={`Relationship graph with ${nodes.length} nodes and ${edges.length} edges`}
       >

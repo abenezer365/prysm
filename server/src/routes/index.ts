@@ -473,12 +473,6 @@ export function apiRoutes(env: Env) {
           requestId,
           investigationId: item.id,
         });
-        try {
-          const summary = await rag.askAuthorized({ question: "Summarize this AI investigation for an authorized financial investigator. State the score and strongest patterns, cite the supplied evidence, mention unavailable or limited models, and avoid declaring guilt.", userId: p.userId, subjectId: item.subjectId, investigationId: item.id, context: { subject: ctx.subject, assessment: result.assessment, components: result.components, findings: result.findings, evidence: result.evidence, limitations: result.limitations } }, requestId);
-          result = { ...result, caseSummary: summary.answer, components: { ...result.components, gemini_summary: { name: "gemini_summary", status: "available", strength: null, confidence: 1, reason: summary.answer, evidence_ids: [] } } };
-        } catch {
-          result = { ...result, caseSummary: "Gemini case summary is temporarily unavailable. The model scores, findings, and source-backed evidence below remain complete." };
-        }
         await persistAnalysis(run.id, item.id, result);
         await audit(req as AuthRequest, {
           action: "investigation.analyze",

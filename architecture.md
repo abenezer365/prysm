@@ -8,8 +8,9 @@ Prysm is an evidence-oriented financial investigation platform. It combines oper
 
 ```text
 Source/derived Parquet ──bounded ingestion──> PostgreSQL
-                                              │
-Frontend (future Next.js/React) ──HTTP/WS──> Express/TypeScript backend
+              │                               │
+              └──> FastAPI AI Engine          │
+React/Vite client ──HTTP/WS──────────────> Express/TypeScript backend
                                               ├──> FastAPI AI Engine ──> rules/models/GNN/evidence
                                               ├──> RAG service ──> retrieval ──> Gemini/fallback
                                               └──> PostgreSQL persistence/audit
@@ -20,7 +21,7 @@ The browser communicates only with `/api/v1` and the backend WebSocket. The AI E
 ## Repository structure
 
 | Path | Responsibility |
-|---|---|
+| --- | --- |
 | `data/` | Immutable canonical raw Parquet inputs, small demo CSVs, and dataset manifests. |
 | `generator/synthetic-financial-generator/` | Original configurable synthetic financial-data generator and validation reports. |
 | `generator/sythethic-modelizer/` | Standalone synthetic modelizer/generator not referenced by the active backend or AI runtime. Its intended long-term status is not documented; the misspelled directory name is existing repository history. |
@@ -34,16 +35,17 @@ The browser communicates only with `/api/v1` and the backend WebSocket. The AI E
 | `server/prisma/` | PostgreSQL schema, additive migrations, and idempotent access-control seed. |
 | `server/src/modules/` | Domain services for auth, investigation context/persistence, chat context/WebSocket, and audit. |
 | `chatbot/` | Independent FastAPI RAG service, file-backed knowledge base, lightweight retrieval, Gemini key/model rotation, guarded ingestion/authorized calls, WebSocket chat, fallback generation, and tests. |
+| `client/` | Implemented React/Vite browser client: public site, authenticated workspace, investigations, graph/GNN view, chat, and administrative pages. It calls Express only. |
 | `endpoints/` | Postman/API-client generation guidance; not a runtime service. |
 | `resources/` | Project references and design assets, including legal/research PDFs and branding. |
 | `01_…08_*.md` | Historical implementation specifications. They explain phase intent but are not runtime truth. |
 
-No frontend directory currently exists. The next application layer is planned as React through Next.js, consuming only the backend contract.
+The frontend is implemented in `client/` as a React/Vite application using React Router. It consumes only the backend contract; it does not call the AI Engine or RAG directly.
 
 ## Technology stack
 
 | Technology | Role and rationale |
-|---|---|
+| --- | --- |
 | PostgreSQL 18 | Relational source of operational facts, identity/access state, investigations, evidence, analysis/chat persistence, versions, and audits. Transactions and constraints provide traceability. |
 | Prisma 6 | Typed TypeScript database access, schema definition, migrations, and deterministic access-control seeding. |
 | Node.js + Express 5 + TypeScript | Frontend-facing orchestration and security boundary; well suited to API middleware, typed adapters, and HTTP/WebSocket coordination. |
@@ -57,7 +59,7 @@ No frontend directory currently exists. The next application layer is planned as
 | Gemini REST API | Natural-language generation over retrieved knowledge and explicitly authorized context; local evidence-grounded fallback preserves service usability when unavailable. |
 | `ws` WebSocket library | Backend-mediated realtime authorized chat while preserving live authentication, context, request IDs, and persistence. |
 | Vitest/Supertest and pytest | Backend boundary/security tests and Python intelligence/RAG validation. |
-| React via Next.js (planned) | Future browser UI and routing layer. It is not implemented and must not absorb backend authorization or internal-service responsibilities. |
+| React + Vite + React Router | Implemented browser UI and routing layer. It calls only the Express contract and must not absorb backend authorization or internal-service responsibilities. |
 
 ## Data and persistence architecture
 
@@ -100,7 +102,7 @@ Cross-cutting behavior includes:
 - real dependency health for PostgreSQL, AI Engine, retrieval, and successful Gemini generation state;
 - audit events for allowed sensitive workflows, including investigation analysis, authorized chat, and ingestion.
 
-Analysis currently executes synchronously but creates a durable run and responds `202`. A future queue/outbox must retain the same run-oriented contract.
+Analysis currently executes synchronously but creates a durable run and responds `202` after completion. The `AnalysisRun` schema supports queued execution, but the current route creates `RUNNING` directly. A future queue/outbox must retain the same run-oriented contract.
 
 ## Trust, authentication, RBAC, and clearance
 
@@ -153,13 +155,13 @@ Frontend presentation must retain cutoff, version, source/evidence, availability
 
 ## Runtime configuration and startup
 
-Configuration is service-local and validated from `.env`; examples are in `server/.env.example` and `chatbot/.env.example`. Known local defaults are backend `4000`, AI Engine `8100`, RAG `8200`, and planned frontend `3000`. Secrets and production URLs must be supplied by the operator.
+Configuration is service-local and validated from `.env`; examples are in `server/.env.example` and `chatbot/.env.example`. Known local defaults are backend `4000`, AI Engine `8100`, RAG `8200`, and Vite frontend `5173` unless overridden. Secrets and production URLs must be supplied by the operator.
 
 `server/scripts/start-local.ps1` starts PostgreSQL → AI Engine → RAG → backend, polling readiness rather than sleeping blindly. It refuses startup when backend and chatbot `RAG_API_KEY` values are empty or different. Each service can also run independently for diagnosis.
 
 ## Architectural limits and future direction
 
-- There is no frontend implementation, production deployment topology, durable job queue/outbox, or broad operational ingestion yet.
+- Production deployment topology, durable job queue/outbox, and broad operational ingestion are not complete.
 - Refresh rotation, password recovery, administration/review workflows, dashboards, full cursor pagination, investigation feedback/timeline/export, and controlled model downloads are not implemented.
 - Gemini generation is an external dependency; retrieval/fallback may remain usable while provider health is degraded, but the frontend must feature-gate chat based on backend dependency health.
 - Disk-backed analytical neighborhood scans and bounded PostgreSQL graph retrieval need measured latency/query-plan baselines before production scale claims.

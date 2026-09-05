@@ -35,3 +35,13 @@
 - The React/Vite frontend and integrated administrator workspace are implemented. The UI has exactly light and dark themes, uses the normal browser cursor, Lucide icons, Sonner feedback, a large bounded graph demonstration, and backend-mediated public/authorized chat.
 - Password-required routing must always follow refreshed backend user state. After a password change, refresh `/auth/me`, permissions, and clearance before navigation; never bypass the guard with a hardcoded redirect.
 - Primary technical reference: `ARCHITECTURE.md`. Runtime truth: `current-state.md`. Remaining work only: `todo.md`. Frontend contract: `server/BACKEND_API.md` plus `server/docs/openapi.yaml`.
+
+## Phase 0 baseline audit (2026-09-05)
+
+- The implemented browser is `client/`, a React/Vite/React Router application. It calls Express only; older claims that the frontend was future or absent are stale.
+- The runtime ownership boundary is: Parquet and versioned AI artifacts for analytical computation; PostgreSQL/Prisma for operational workflow and persistence; Express for authentication, authorization, orchestration, DTO validation, and audit; RAG for retrieval/generation only.
+- There are two graph paths that must remain explicit: AI Engine disk-backed Parquet graph artifacts for analytical graph/GNN recomputation, and PostgreSQL graph nodes/edges for backend context and authorized chat. They need a shared graph snapshot/version contract before scaling.
+- Family analysis is not a separate model. It is represented through typed relationship edges and cutoff-aware features such as `family`, `employer_employee`, `shared_device`, `shared_address`, company links, degree, and confidence.
+- `POST /investigations/:id/analyze` is synchronous behind HTTP `202`; the database supports `QUEUED`, but the route creates `RUNNING` and completes the run before responding. A durable queue/outbox is the next operational refactor and must preserve the run contract.
+- The active AI artifact root is configurable in `ai-engine/api/runtime.py`; deployment must declare and persist the selected run/version to prevent stale artifact consumption.
+- The complete baseline, exact repository locations, dependencies, preserve/refactor/remove decisions, and migration map are in root `BASELINE_REPORT.md`.

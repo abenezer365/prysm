@@ -54,7 +54,9 @@ class EngineRuntime:
         data = []
         for row in matches.itertuples():
             data.append({"externalRef": f"Person:{row.person_id}", "label": row.label or str(row.person_id), "status": None if pd.isna(row.employment_status) else str(row.employment_status), "profile": {"fullName": row.label or None, "dateOfBirth": None if pd.isna(row.date_of_birth) else pd.Timestamp(row.date_of_birth).date().isoformat(), "nationality": None if pd.isna(row.nationality) else str(row.nationality), "occupation": None if pd.isna(row.occupation) else str(row.occupation), "employmentStatus": None if pd.isna(row.employment_status) else str(row.employment_status), "city": None if pd.isna(row.city) else str(row.city), "region": None if pd.isna(row.region) else str(row.region), "country": None if pd.isna(row.country) else str(row.country)}})
-        return PersonSearchResponse(data=data, total=len(data), datasetVersion="prysm-scenario-v1")
+        manifest_path = self.root / "data" / "processed" / "MANIFEST.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.is_file() else {}
+        return PersonSearchResponse(data=data, total=len(data), datasetVersion=manifest.get("dataset_version", "prysm-scenario-v1"))
 
     def graph(self, subject: str, cutoff: pd.Timestamp, max_hops: int, max_nodes: int) -> dict[str, Any]:
         engine = self.engine()
@@ -65,7 +67,16 @@ class EngineRuntime:
             people = self._persons
         person_labels = dict(zip(("Person:" + people.person_id.astype(str)), people.label.astype(str)))
         raw_root = Path(__file__).resolve().parents[2] / "data" / "raw"
-        companies_path, banks_path = raw_root / "companies.parquet", raw_root / "banks.parquet"
+        processed = self.root / "data" / "processed"
+        manifest_path = processed / "MANIFEST.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.is_file() else {}
+        # Versioned datasets own their catalog. Never join their IDs to a different
+        # raw snapshot; older artifacts retain their original catalog fallback.
+        def catalog(name: str) -> Path:
+            local = processed / f"{name}.parquet"
+            return local if local.is_file() or manifest.get("dataset_version") else raw_root / f"{name}.parquet"
+
+        companies_path, banks_path = catalog("companies"), catalog("banks")
         companies = pd.read_parquet(companies_path, columns=["company_id", "company_name"]) if companies_path.is_file() else pd.DataFrame()
         banks = pd.read_parquet(banks_path, columns=["institution_id", "institution_name"]) if banks_path.is_file() else pd.DataFrame()
         company_labels = {} if companies.empty else dict(zip("Company:" + companies.company_id.astype(str), companies.company_name.astype(str)))

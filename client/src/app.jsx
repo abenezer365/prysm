@@ -36,6 +36,7 @@ import { useAuth } from "./context/AuthContext";
 import StateView from "./components/StateView";
 import News from "./pages/News";
 import { BetaProgram, Contributors } from "./pages/CommunityPages";
+import InvestigationChat from "./components/InvestigationChat";
 function Protected() {
   const auth = useAuth(),
     loc = useLocation();
@@ -128,6 +129,7 @@ export default function App() {
         <Route path="contributors" element={<ContributorsAdmin />} />
         <Route path="investigations" element={<Investigations />} />
         <Route path="investigations/:id" element={<Investigation />} />
+        <Route path="investigations/:id/chat" element={<InvestigationChat />} />
         <Route path="subjects/:id" element={<Subject />} />
       </Route>
       <Route path="*" element={<NotFound />} />

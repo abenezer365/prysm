@@ -1,38 +1,59 @@
-# Prysm RAG Integration
+﻿# Prysm RAG integration
 
-The RAG service is an independently runnable FastAPI knowledge-retrieval and explanation service. It does not authorize users, query arbitrary protected PostgreSQL data, calculate risk, or invent evidence. Express is the browser-facing trust boundary; see `../ARCHITECTURE.md` and `../server/BACKEND_API.md`.
+Read [PHASE4_STATE.md](../PHASE4_STATE.md) for verification and limitations. The service produces local evidence summaries with optional Gemini selection of general methodology references. Local LLM installation and connection are deferred.
 
-## Internal API
-
-- `GET /health`: public process, knowledge-base, and real Gemini provider status (`not_configured`, `configured_not_verified`, `degraded`, or `ok`).
-- `GET /ask?message=...`: public knowledge-only retrieval. It cannot accept authenticated context.
-- `POST /ask`: authorized explanation using backend-supplied identity/resource fields and trusted context. Requires `Authorization: Bearer <RAG_API_KEY>` and fails closed if the key is absent.
-- `POST /ingest`: knowledge document ingestion, not model training. Requires the same internal bearer key. The frontend-facing backend additionally requires `rag:ingest` and clearance rank 4.
-- `WS /ws/chat?api_key=<RAG_API_KEY>`: protected realtime use of the same pipeline. Browser clients use the backend WebSocket, never this socket directly.
-
-Answers contain `answer`, `mode`, versioned `sources`, `conversationId`, and `requestId`; authorized answers may also return curated finding/evidence summaries supplied by the backend.
-
-## Request flows
-
-Public requests are Browser → Express `/api/v1/chat/public` → RAG public retrieval → Gemini or evidence-grounded fallback → Express persistence → Browser. No investigation, database, AI, GNN, or protected evidence context is attached.
-
-Authorized requests are Investigator → Express live session/RBAC/clearance/resource check → server-built `prysm-authorized-rag-context-v1` → protected RAG HTTP/WebSocket → Gemini or fallback → Express persistence/audit → Investigator. The RAG service trusts the internal credential and supplied context for explanation only; authorization remains an Express responsibility.
-
-## Environment
-
-- `GOOGLE_API_KEYS`: configured Gemini keys, comma-separated.
-- `GEMINI_MODELS` or `GEMINI_MODEL`: configured model rotation/default.
-- `GEMINI_API_BASE_URL`: Gemini REST model endpoint.
-- `RAG_HOST`, `RAG_PORT`: local bind configuration.
-- `RAG_API_KEY`: required internal secret; must match `server/.env` and stay out of Git.
-- `MAX_RETRIEVAL_DOCS`, `REQUEST_TIMEOUT_SECONDS`, `LOG_LEVEL`: retrieval/runtime controls where consumed.
-- `DATABASE_URL`: present in the example but the current file-backed RAG implementation does not query PostgreSQL directly.
-
-## Startup
+## Run
 
 ```powershell
-cd chatbot
-python -m uvicorn main:app --host 127.0.0.1 --port 8200
+# Repository root, using the existing environment
+python chatbot/main.py
+python -B -m pytest chatbot/tests -q --tb=short
 ```
 
-For the complete local system, use `npm run dev:stack` from `server/`; it verifies matching non-empty RAG keys and starts services in dependency order with readiness polling.
+Set `RAG_API_KEY` and `GOOGLE_API_KEYS` (or `GEMINI_API_KEY`) in `chatbot/.env`. `GEMINI_MODEL` / `GEMINI_MODELS` select provider models. No configured key means local fallback. Default binding is `127.0.0.1:8200`. Gemini has at most two attempts with 3-second connect and 8-second read timeouts; these are fixed in the client, not controlled by the old example timeout variable.
+
+## Endpoints
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /health` | Process, knowledge and provider status; no provider probe |
+| `POST /explain` | Internal bearer key; structured Phase 2/3 explanation |
+| `GET /ask?message=...` | Public general knowledge |
+| `POST /ask` | Internal bearer key; compatible public/investigator interface |
+| `POST /ingest` | Internal bearer key; reviewed general knowledge |
+| `GET /documents` | Internal bearer key; document metadata |
+| `PATCH /documents/{id}?enabled=false` | Internal bearer key; disable retrieval |
+| `WS /ws/chat?api_key=...` | Existing internal chat; never expose its key to browsers |
+
+The backend remains responsible for user authorization, resource access and conversation persistence.
+
+## Explain a real result
+
+```python
+import json
+from pathlib import Path
+import requests
+from dotenv import dotenv_values
+
+settings = dotenv_values("chatbot/.env")
+with Path("ai-engine/runs/evaluation-v3/test_results.jsonl").open(encoding="utf-8") as stream:
+    intelligence = json.loads(next(stream))
+response = requests.post(
+    "http://127.0.0.1:8200/explain",
+    headers={"Authorization": "Bearer " + settings["RAG_API_KEY"]},
+    json={"intelligence": intelligence, "question": "Explain these findings."},
+    timeout=30,
+)
+response.raise_for_status()
+print(response.json()["summary"])
+```
+
+Output contains `summary`, unchanged `detected` evidence/assessment, structured `explanation`, and `provenance`. Invalid or mixed-analysis evidence returns 422. Keep the response inside the authorized investigation workflow.
+
+## Knowledge and privacy
+
+Ingest small factual documents with title, content, source, category and version. Source timestamps and SHA-256 hashes make retrieval inspectable. Only reviewed documents explicitly marked `metadata.cloud_approved: true` enter cloud prompts. Do not ingest cases, chat histories, credentials or personal data; marker checks supplement administrative review.
+
+Private evidence and questions stay local in `/explain`. Gemini sees only allowlisted topics and approved general references and returns validated reference IDs. Public questions may go to Gemini and must not contain private investigation data.
+
+[Local setup instructions](local_llm/README.md) explain where weights go and how to import them later. The REST client uses the documented [Gemini generateContent API](https://ai.google.dev/api/generate-content); configured key/model availability remains to be verified live.

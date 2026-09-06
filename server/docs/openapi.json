@@ -1,0 +1,5202 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Prysm Phase 5 API",
+    "version": "0.5.0"
+  },
+  "servers": [
+    {
+      "url": "/api/v1"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "paths": {
+    "/applications": {
+      "post": {
+        "summary": "Apply for an account (the sign-up flow)",
+        "description": "202 {id,status:\"PENDING\",createdAt}; duplicate pending application: 409. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "202": {
+            "description": "202 {id,status:\"PENDING\",createdAt}; duplicate pending application: 409",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "202 {id,status:\"PENDING\",createdAt}; duplicate pending application: 409"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                  },
+                  "displayName": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 120
+                  },
+                  "profession": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 160
+                  },
+                  "organization": {
+                    "type": "string",
+                    "maxLength": 200
+                  },
+                  "organizationRole": {
+                    "type": "string",
+                    "maxLength": 160
+                  },
+                  "phone": {
+                    "type": "string",
+                    "maxLength": 40
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 20,
+                    "maxLength": 2000
+                  },
+                  "justification": {
+                    "type": "string",
+                    "minLength": 100,
+                    "maxLength": 10000
+                  },
+                  "requestedRoleId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "requestedClearanceLevelId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "supportingEvidence": {
+                    "maxItems": 5,
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "fileName": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 255
+                        },
+                        "mimeType": {
+                          "type": "string",
+                          "enum": [
+                            "application/pdf",
+                            "image/png",
+                            "image/jpeg",
+                            "text/plain"
+                          ]
+                        },
+                        "sizeBytes": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 5000000
+                        },
+                        "metadata": {
+                          "type": "object",
+                          "propertyNames": {
+                            "type": "string"
+                          },
+                          "additionalProperties": {}
+                        }
+                      },
+                      "required": [
+                        "fileName",
+                        "mimeType",
+                        "sizeBytes"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "email",
+                  "displayName",
+                  "profession",
+                  "reason",
+                  "justification"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Review pending account applications",
+        "description": "{data:[Application],page}; Application includes identity, profession, justification, requestedRole, requestedClearance, documents metadata and review history. Access: application:review, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "PENDING",
+                "APPROVED",
+                "REJECTED"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[Application],page}; Application includes identity, profession, justification, requestedRole, requestedClearance, documents metadata and review history",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[Application],page}; Application includes identity, profession, justification, requestedRole, requestedClearance, documents metadata and review history"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/applications/{id}": {
+      "patch": {
+        "summary": "Approve or reject an account application",
+        "description": "Application; newly provisioned accounts also return oneTimeCredential:{temporaryPassword,mustChangePassword:true}. Deliver this credential privately. 409 if already reviewed. Access: application:review, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Application; newly provisioned accounts also return oneTimeCredential:{temporaryPassword,mustChangePassword:true}. Deliver this credential privately. 409 if already reviewed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Application; newly provisioned accounts also return oneTimeCredential:{temporaryPassword,mustChangePassword:true}. Deliver this credential privately. 409 if already reviewed"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "APPROVED",
+                      "REJECTED"
+                    ]
+                  },
+                  "reviewNote": {
+                    "type": "string",
+                    "minLength": 5,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "status",
+                  "reviewNote"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "summary": "Rotate a single-use refresh token",
+        "description": "{accessToken,refreshToken,tokenType:\"Bearer\",expiresIn}; 401 REFRESH_TOKEN_REUSED on expired, revoked or reused token. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{accessToken,refreshToken,tokenType:\"Bearer\",expiresIn}; 401 REFRESH_TOKEN_REUSED on expired, revoked or reused token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{accessToken,refreshToken,tokenType:\"Bearer\",expiresIn}; 401 REFRESH_TOKEN_REUSED on expired, revoked or reused token"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "refreshToken": {
+                    "type": "string",
+                    "minLength": 20
+                  }
+                },
+                "required": [
+                  "refreshToken"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/password/request": {
+      "post": {
+        "summary": "Request a reset token",
+        "description": "202 {accepted:true}; development only: developmentResetToken. No production email delivery is configured. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "202": {
+            "description": "202 {accepted:true}; development only: developmentResetToken. No production email delivery is configured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "202 {accepted:true}; development only: developmentResetToken. No production email delivery is configured"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                  }
+                },
+                "required": [
+                  "email"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/password/reset": {
+      "post": {
+        "summary": "Consume a reset token and revoke sessions",
+        "description": "204; 400 RESET_TOKEN_INVALID. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "204; 400 RESET_TOKEN_INVALID"
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "minLength": 20
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 12,
+                    "maxLength": 200
+                  }
+                },
+                "required": [
+                  "token",
+                  "password"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/me/password": {
+      "post": {
+        "summary": "Change password and revoke other sessions",
+        "description": "204; 400 CURRENT_PASSWORD_INVALID; 409 PASSWORD_REUSE. Access: Authenticated",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "204; 400 CURRENT_PASSWORD_INVALID; 409 PASSWORD_REUSE"
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "currentPassword": {
+                    "type": "string",
+                    "minLength": 8
+                  },
+                  "newPassword": {
+                    "type": "string",
+                    "minLength": 12,
+                    "maxLength": 200
+                  }
+                },
+                "required": [
+                  "currentPassword",
+                  "newPassword"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/me/profile": {
+      "patch": {
+        "summary": "Update profile image and preferences",
+        "description": "User DTO. Access: Authenticated",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User DTO",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "User DTO"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "profileImageUrl": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "maxLength": 1000,
+                        "format": "uri"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "preferences": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {}
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/me/settings": {
+      "patch": {
+        "summary": "Update supported user settings",
+        "description": "User DTO; preferences supports compactMode, emailNotifications, reducedMotion. Access: Authenticated",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User DTO; preferences supports compactMode, emailNotifications, reducedMotion",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "User DTO; preferences supports compactMode, emailNotifications, reducedMotion"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "profileImageUrl": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "maxLength": 2000,
+                        "format": "uri"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "preferences": {
+                    "type": "object",
+                    "properties": {
+                      "compactMode": {
+                        "type": "boolean"
+                      },
+                      "emailNotifications": {
+                        "type": "boolean"
+                      },
+                      "reducedMotion": {
+                        "type": "boolean"
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "List application users",
+        "description": "{data:[User with createdAt,lastLoginAt],page}. Access: user:read, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "PENDING",
+                "ACTIVE",
+                "SUSPENDED",
+                "DISABLED",
+                "REJECTED"
+              ]
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 80
+            }
+          },
+          {
+            "name": "clearanceRank",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[User with createdAt,lastLoginAt],page}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[User with createdAt,lastLoginAt],page}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Read user and session metadata",
+        "description": "User plus clearanceRank and sessions (id,deviceInfo,createdAt,lastUsedAt,expiresAt,revokedAt). Access: user:read, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User plus clearanceRank and sessions (id,deviceInfo,createdAt,lastUsedAt,expiresAt,revokedAt)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "User plus clearanceRank and sessions (id,deviceInfo,createdAt,lastUsedAt,expiresAt,revokedAt)"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Manage user status, role or clearance",
+        "description": "User DTO; 409 SELF_LOCKOUT_PREVENTED; live requests recheck database grants. Access: user:manage, minimum rank 4",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User DTO; 409 SELF_LOCKOUT_PREVENTED; live requests recheck database grants",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "User DTO; 409 SELF_LOCKOUT_PREVENTED; live requests recheck database grants"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "ACTIVE",
+                      "SUSPENDED",
+                      "DISABLED",
+                      "REJECTED"
+                    ]
+                  },
+                  "roleId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "clearanceLevelId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 10,
+                    "maxLength": 2000
+                  }
+                },
+                "required": [
+                  "reason"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/summary": {
+      "get": {
+        "summary": "Read live authorized dashboard totals",
+        "description": "{metrics:{availableModels,openInvestigations,totalAuthorizedSubjects,relationships:null,operationalInventoryTotal},recentInvestigations,recentActivity,clearanceDistribution,health,generatedAt}; null relationships means not stored operationally. Access: Authenticated",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{metrics:{availableModels,openInvestigations,totalAuthorizedSubjects,relationships:null,operationalInventoryTotal},recentInvestigations,recentActivity,clearanceDistribution,health,generatedAt}; null relationships means not stored operationally",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{metrics:{availableModels,openInvestigations,totalAuthorizedSubjects,relationships:null,operationalInventoryTotal},recentInvestigations,recentActivity,clearanceDistribution,health,generatedAt}; null relationships means not stored operationally"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/investigations/{id}": {
+      "patch": {
+        "summary": "Update case title, purpose, status or sharing",
+        "description": "Updated Investigation; applies case ownership and clearance. Access: investigation:update, minimum rank 2",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated Investigation; applies case ownership and clearance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Updated Investigation; applies case ownership and clearance"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "purpose": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 2000
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "OPEN",
+                      "IN_REVIEW",
+                      "CLOSED"
+                    ]
+                  },
+                  "shared": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Open a case with its persisted findings and runs",
+        "description": "{id,status,title,purpose,cutoffAt,subject,findings,analysisRuns,scientificStatus}; finding.evidence[].evidence.id is the operational evidence UUID. Access: investigation:read, minimum rank 0",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{id,status,title,purpose,cutoffAt,subject,findings,analysisRuns,scientificStatus}; finding.evidence[].evidence.id is the operational evidence UUID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{id,status,title,purpose,cutoffAt,subject,findings,analysisRuns,scientificStatus}; finding.evidence[].evidence.id is the operational evidence UUID"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/investigations/{id}/timeline": {
+      "get": {
+        "summary": "Read case activity chronologically",
+        "description": "{data:[{id,type,timestamp,title,status?,severity?,decision?}],page}. Access: investigation:read, minimum rank 1",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,type,timestamp,title,status?,severity?,decision?}],page}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,type,timestamp,title,status?,severity?,decision?}],page}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/investigations/{id}/feedback": {
+      "post": {
+        "summary": "Persist investigator feedback about a case or run",
+        "description": "201 {id,investigationId,analysisRunId,createdBy,rating,rationale,metadata,createdAt}; run must belong to this case. Access: investigation:feedback, minimum rank 2",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "201 {id,investigationId,analysisRunId,createdBy,rating,rationale,metadata,createdAt}; run must belong to this case",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "201 {id,investigationId,analysisRunId,createdBy,rating,rationale,metadata,createdAt}; run must belong to this case"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "analysisRunId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "rating": {
+                    "type": "string",
+                    "enum": [
+                      "USEFUL",
+                      "PARTIAL",
+                      "NOT_USEFUL",
+                      "INCORRECT"
+                    ]
+                  },
+                  "rationale": {
+                    "type": "string",
+                    "minLength": 10,
+                    "maxLength": 4000
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {}
+                  }
+                },
+                "required": [
+                  "rating",
+                  "rationale"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/investigations/{id}/exports": {
+      "post": {
+        "summary": "Export the latest successful result as JSON",
+        "description": "200 {jobId,status:\"SUCCEEDED\",format:\"JSON\",createdAt,result:Intelligence}; save result as JSON locally. CSV/PDF rejected (400); no background queue. Access: investigation:export, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 {jobId,status:\"SUCCEEDED\",format:\"JSON\",createdAt,result:Intelligence}; save result as JSON locally. CSV/PDF rejected (400); no background queue",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "200 {jobId,status:\"SUCCEEDED\",format:\"JSON\",createdAt,result:Intelligence}; save result as JSON locally. CSV/PDF rejected (400); no background queue"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "format": {
+                    "type": "string",
+                    "const": "JSON"
+                  }
+                },
+                "required": [
+                  "format"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/activity": {
+      "get": {
+        "summary": "Read your own audit trail",
+        "description": "{data:[{id,action,resourceType,resourceId,decision,reasonCode,requestId,metadata,createdAt}],page}. Access: Authenticated",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "action",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,action,resourceType,resourceId,decision,reasonCode,requestId,metadata,createdAt}],page}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,action,resourceType,resourceId,decision,reasonCode,requestId,metadata,createdAt}],page}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/news": {
+      "get": {
+        "summary": "Read published public news",
+        "description": "{data:[{id,slug,title,description,body,imageRef,authorName,publishedAt,updatedAt}],page}. Access: Public",
+        "security": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,slug,title,description,body,imageRef,authorName,publishedAt,updatedAt}],page}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,slug,title,description,body,imageRef,authorName,publishedAt,updatedAt}],page}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a news record",
+        "description": "201 NewsRecord with id and timestamps. Access: news:manage, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "201 NewsRecord with id and timestamps",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "201 NewsRecord with id and timestamps"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "slug": {
+                    "type": "string",
+                    "maxLength": 120,
+                    "pattern": "^[a-z0-9-]+$"
+                  },
+                  "title": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 240
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 10,
+                    "maxLength": 1000
+                  },
+                  "body": {
+                    "type": "string",
+                    "minLength": 20,
+                    "maxLength": 100000
+                  },
+                  "imageRef": {
+                    "type": "string",
+                    "maxLength": 1000
+                  },
+                  "authorName": {
+                    "type": "string",
+                    "maxLength": 160
+                  },
+                  "status": {
+                    "default": "DRAFT",
+                    "type": "string",
+                    "enum": [
+                      "DRAFT",
+                      "PUBLISHED"
+                    ]
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {}
+                  }
+                },
+                "required": [
+                  "slug",
+                  "title",
+                  "description",
+                  "body"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/news/admin": {
+      "get": {
+        "summary": "List news drafts and published content",
+        "description": "{data:[NewsRecord],page}; includes status, metadata and authorId. Access: news:manage, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[NewsRecord],page}; includes status, metadata and authorId",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[NewsRecord],page}; includes status, metadata and authorId"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/news/{id}": {
+      "patch": {
+        "summary": "Edit, publish or archive news",
+        "description": "Updated NewsRecord. Access: news:manage, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated NewsRecord",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Updated NewsRecord"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 240
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 10,
+                    "maxLength": 1000
+                  },
+                  "body": {
+                    "type": "string",
+                    "minLength": 20,
+                    "maxLength": 100000
+                  },
+                  "imageRef": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "maxLength": 1000
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "authorName": {
+                    "type": "string",
+                    "maxLength": 160
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "DRAFT",
+                      "PUBLISHED",
+                      "ARCHIVED"
+                    ]
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {}
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contact": {
+      "post": {
+        "summary": "Submit a contact message",
+        "description": "202 {id,status:\"RECEIVED\",createdAt}. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "202": {
+            "description": "202 {id,status:\"RECEIVED\",createdAt}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "202 {id,status:\"RECEIVED\",createdAt}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 120
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                  },
+                  "subject": {
+                    "type": "string",
+                    "maxLength": 200
+                  },
+                  "message": {
+                    "type": "string",
+                    "minLength": 20,
+                    "maxLength": 10000
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {}
+                  }
+                },
+                "required": [
+                  "name",
+                  "email",
+                  "message"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bug-reports": {
+      "post": {
+        "summary": "Submit a bug report",
+        "description": "202 {id,status,severity,createdAt}. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "202": {
+            "description": "202 {id,status,severity,createdAt}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "202 {id,status,severity,createdAt}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "reporterName": {
+                    "type": "string",
+                    "maxLength": 120
+                  },
+                  "contactEmail": {
+                    "type": "string",
+                    "format": "email",
+                    "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 20,
+                    "maxLength": 20000
+                  },
+                  "severity": {
+                    "default": "MEDIUM",
+                    "type": "string",
+                    "enum": [
+                      "LOW",
+                      "MEDIUM",
+                      "HIGH",
+                      "CRITICAL"
+                    ]
+                  },
+                  "requestId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "clientVersion": {
+                    "type": "string",
+                    "maxLength": 100
+                  },
+                  "diagnostics": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {}
+                  }
+                },
+                "required": [
+                  "description"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List internal bug reports",
+        "description": "{data:[BugRecord],page}; includes diagnostics, assignment, rootCause, resolutionNotes and publication controls. Access: bug:manage, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "OPEN",
+                "TRIAGED",
+                "IN_PROGRESS",
+                "RESOLVED",
+                "CLOSED"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[BugRecord],page}; includes diagnostics, assignment, rootCause, resolutionNotes and publication controls",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[BugRecord],page}; includes diagnostics, assignment, rootCause, resolutionNotes and publication controls"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/bug-resolutions": {
+      "get": {
+        "summary": "Read approved public resolutions",
+        "description": "{data:[{id,description,severity,publicExplanation,workaround,resolvedAt}],page}. Access: Public",
+        "security": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,description,severity,publicExplanation,workaround,resolvedAt}],page}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,description,severity,publicExplanation,workaround,resolvedAt}],page}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/bug-reports/{id}": {
+      "patch": {
+        "summary": "Triage or resolve an internal bug",
+        "description": "Updated BugRecord. Access: bug:manage, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated BugRecord",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Updated BugRecord"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "OPEN",
+                      "TRIAGED",
+                      "IN_PROGRESS",
+                      "RESOLVED",
+                      "CLOSED"
+                    ]
+                  },
+                  "severity": {
+                    "type": "string",
+                    "enum": [
+                      "LOW",
+                      "MEDIUM",
+                      "HIGH",
+                      "CRITICAL"
+                    ]
+                  },
+                  "assignedTo": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "rootCause": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "resolutionNotes": {
+                    "type": "string",
+                    "maxLength": 20000
+                  },
+                  "workaround": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "publicExplanation": {
+                    "type": "string",
+                    "maxLength": 10000
+                  },
+                  "publicApproved": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/beta/applications": {
+      "post": {
+        "summary": "Apply for beta access",
+        "description": "202 {id,status,createdAt}. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "202": {
+            "description": "202 {id,status,createdAt}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "202 {id,status,createdAt}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                  },
+                  "displayName": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 120
+                  },
+                  "purpose": {
+                    "type": "string",
+                    "minLength": 30,
+                    "maxLength": 4000
+                  }
+                },
+                "required": [
+                  "email",
+                  "displayName",
+                  "purpose"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List beta applications",
+        "description": "{data:[{id,email,displayName,purpose,status,reviewedBy,reviewNote,reviewedAt,createdAt,updatedAt}],page}. Access: beta:review, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "PENDING",
+                "APPROVED",
+                "REJECTED"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,email,displayName,purpose,status,reviewedBy,reviewNote,reviewedAt,createdAt,updatedAt}],page}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,email,displayName,purpose,status,reviewedBy,reviewNote,reviewedAt,createdAt,updatedAt}],page}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/beta/applications/{id}": {
+      "patch": {
+        "summary": "Approve or reject beta access",
+        "description": "Updated beta record; newly provisioned user also returns oneTimeCredential. Access: beta:review, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated beta record; newly provisioned user also returns oneTimeCredential",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Updated beta record; newly provisioned user also returns oneTimeCredential"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "APPROVED",
+                      "REJECTED"
+                    ]
+                  },
+                  "reviewNote": {
+                    "type": "string",
+                    "minLength": 5,
+                    "maxLength": 2000
+                  }
+                },
+                "required": [
+                  "status",
+                  "reviewNote"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contributors/applications": {
+      "post": {
+        "summary": "Apply to contribute",
+        "description": "202 {id,status,createdAt}. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "202": {
+            "description": "202 {id,status,createdAt}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "202 {id,status,createdAt}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                  },
+                  "displayName": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 120
+                  },
+                  "expertise": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 300
+                  },
+                  "portfolioUrl": {
+                    "type": "string",
+                    "maxLength": 1000,
+                    "format": "uri"
+                  },
+                  "motivation": {
+                    "type": "string",
+                    "minLength": 50,
+                    "maxLength": 5000
+                  },
+                  "availability": {
+                    "type": "string",
+                    "maxLength": 300
+                  }
+                },
+                "required": [
+                  "email",
+                  "displayName",
+                  "expertise",
+                  "motivation"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List contributor applications",
+        "description": "{data:[{id,email,displayName,expertise,portfolioUrl,motivation,availability,status,reviewedBy,reviewNote,reviewedAt,createdAt,updatedAt}],page}. Access: contributor:review, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "PENDING",
+                "APPROVED",
+                "REJECTED"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,email,displayName,expertise,portfolioUrl,motivation,availability,status,reviewedBy,reviewNote,reviewedAt,createdAt,updatedAt}],page}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,email,displayName,expertise,portfolioUrl,motivation,availability,status,reviewedBy,reviewNote,reviewedAt,createdAt,updatedAt}],page}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/contributors/applications/{id}": {
+      "patch": {
+        "summary": "Review contributor application",
+        "description": "Updated contributor record. Access: contributor:review, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated contributor record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Updated contributor record"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "APPROVED",
+                      "REJECTED"
+                    ]
+                  },
+                  "reviewNote": {
+                    "type": "string",
+                    "maxLength": 2000
+                  }
+                },
+                "required": [
+                  "status"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/datasets": {
+      "get": {
+        "summary": "Read canonical fact-table metadata only",
+        "description": "{data:[{id,code,name,sourceRef,recordCount:string,columns,features,dateStart,dateEnd,visibility,lastScannedAt,metadata,...}],page}; no analytical rows or ground truth. Access: Public",
+        "security": [],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,code,name,sourceRef,recordCount:string,columns,features,dateStart,dateEnd,visibility,lastScannedAt,metadata,...}],page}; no analytical rows or ground truth",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,code,name,sourceRef,recordCount:string,columns,features,dateStart,dateEnd,visibility,lastScannedAt,metadata,...}],page}; no analytical rows or ground truth"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/datasets/refresh": {
+      "post": {
+        "summary": "Synchronize canonical fact and selected model metadata",
+        "description": "200 {status:\"COMPLETED\",refreshed:6,lastScannedAt}; historical metadata is archived, not mixed with the current benchmark. Access: dataset:manage, minimum rank 4",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "200 {status:\"COMPLETED\",refreshed:6,lastScannedAt}; historical metadata is archived, not mixed with the current benchmark",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "200 {status:\"COMPLETED\",refreshed:6,lastScannedAt}; historical metadata is archived, not mixed with the current benchmark"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/rag/conversations": {
+      "get": {
+        "summary": "Read authorized conversation records for administration",
+        "description": "{data:[{id,conversationId,requestId,ragRequestId,userId,scope,question,answer,sources,ragVersion,latencyMs,status,createdAt}],page}; own records unless rag:history:read:any and rank 4. Access: rag:history:read, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "PUBLIC",
+                "AUTHORIZED"
+              ]
+            }
+          },
+          {
+            "name": "conversationId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,conversationId,requestId,ragRequestId,userId,scope,question,answer,sources,ragVersion,latencyMs,status,createdAt}],page}; own records unless rag:history:read:any and rank 4",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,conversationId,requestId,ragRequestId,userId,scope,question,answer,sources,ragVersion,latencyMs,status,createdAt}],page}; own records unless rag:history:read:any and rank 4"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/rag/documents": {
+      "get": {
+        "summary": "List knowledge ingestion records",
+        "description": "{data:[KnowledgeRecord],page}; {id,externalId,title,description,source,category,version,status,chunkCount,enabled,metadata,createdBy,errorCode,createdAt,updatedAt}. Access: rag:documents:read, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "default": 20,
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[KnowledgeRecord],page}; {id,externalId,title,description,source,category,version,status,chunkCount,enabled,metadata,createdBy,errorCode,createdAt,updatedAt}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[KnowledgeRecord],page}; {id,externalId,title,description,source,category,version,status,chunkCount,enabled,metadata,createdBy,errorCode,createdAt,updatedAt}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/rag/documents/{id}": {
+      "get": {
+        "summary": "Read one knowledge ingestion record",
+        "description": "KnowledgeRecord. Access: rag:documents:read, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "KnowledgeRecord",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "KnowledgeRecord"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Enable or disable a knowledge document",
+        "description": "Updated KnowledgeRecord after RAG service confirmation. Access: rag:ingest, minimum rank 4",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated KnowledgeRecord after RAG service confirmation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Updated KnowledgeRecord after RAG service confirmation"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "enabled"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/suspects/top": {
+      "get": {
+        "summary": "Rank all observed people at an explicit cutoff using the selected engine",
+        "description": "{data:[RankingEntry with subjectId],population,cutoffAt,page}. No backend scoring. Clearance filtering may return fewer than limit. Access: subject:read, minimum rank 2",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cutoffAt",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[RankingEntry with subjectId],population,cutoffAt,page}. No backend scoring. Clearance filtering may return fewer than limit",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[RankingEntry with subjectId],population,cutoffAt,page}. No backend scoring. Clearance filtering may return fewer than limit"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/dashboard/top-suspects": {
+      "get": {
+        "summary": "Alias for the same canonical ranking",
+        "description": "Same as GET /suspects/top; cutoffAt is required. Access: subject:read, minimum rank 2",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "cutoffAt",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50,
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Same as GET /suspects/top; cutoffAt is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Same as GET /suspects/top; cutoffAt is required"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/investigations/{id}/intelligence": {
+      "get": {
+        "summary": "Retrieve the latest successful current-contract result",
+        "description": "{runId,result:Intelligence}; 409 ANALYSIS_REQUIRED or ANALYSIS_STALE; legacy v1 results require reanalysis. Access: investigation:read, minimum rank 2",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{runId,result:Intelligence}; 409 ANALYSIS_REQUIRED or ANALYSIS_STALE; legacy v1 results require reanalysis",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{runId,result:Intelligence}; 409 ANALYSIS_REQUIRED or ANALYSIS_STALE; legacy v1 results require reanalysis"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/investigations/{id}/conversation": {
+      "get": {
+        "summary": "Read your conversation history for an accessible analyzed case",
+        "description": "{data:[{id,conversationId,question,answer,sources,createdAt,contextManifest}],page}; newest first. Access: chat:authorized, minimum rank 2",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,conversationId,question,answer,sources,createdAt,contextManifest}],page}; newest first",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,conversationId,question,answer,sources,createdAt,contextManifest}],page}; newest first"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Process liveness",
+        "description": "{status:\"ok\",version:\"0.5.0\"}. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{status:\"ok\",version:\"0.5.0\"}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{status:\"ok\",version:\"0.5.0\"}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/health/ready": {
+      "get": {
+        "summary": "PostgreSQL readiness",
+        "description": "{status:\"ready\"}; 503 NOT_READY on database failure. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{status:\"ready\"}; 503 NOT_READY on database failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{status:\"ready\"}; 503 NOT_READY on database failure"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/health/dependencies": {
+      "get": {
+        "summary": "Check PostgreSQL, selected AI artifacts and RAG",
+        "description": "{status,services:{postgres,aiEngine,rag}}. Access: health:dependencies:read, minimum rank 0",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{status,services:{postgres,aiEngine,rag}}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{status,services:{postgres,aiEngine,rag}}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Sign in with an approved active account",
+        "description": "{accessToken,refreshToken,tokenType:\"Bearer\",expiresIn:900}; 401 INVALID_CREDENTIALS, 403 ACCOUNT_INACTIVE. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{accessToken,refreshToken,tokenType:\"Bearer\",expiresIn:900}; 401 INVALID_CREDENTIALS, 403 ACCOUNT_INACTIVE",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{accessToken,refreshToken,tokenType:\"Bearer\",expiresIn:900}; 401 INVALID_CREDENTIALS, 403 ACCOUNT_INACTIVE"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "pattern": "^(?!\\.)(?!.*\\.\\.)([A-Za-z0-9_'+\\-\\.]*)[A-Za-z0-9_+-]@([A-Za-z0-9][A-Za-z0-9\\-]*\\.)+[A-Za-z]{2,}$"
+                  },
+                  "password": {
+                    "type": "string",
+                    "minLength": 8
+                  },
+                  "deviceInfo": {
+                    "type": "string",
+                    "maxLength": 500
+                  }
+                },
+                "required": [
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "summary": "Revoke the current session immediately",
+        "description": "204 (no body). Access: Authenticated",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "204 (no body)"
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "summary": "Read current user identity",
+        "description": "User: {id,email,displayName,profileImageUrl,preferences,status,role,clearance}; never passwordHash. Access: Authenticated",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "User: {id,email,displayName,profileImageUrl,preferences,status,role,clearance}; never passwordHash",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "User: {id,email,displayName,profileImageUrl,preferences,status,role,clearance}; never passwordHash"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/me/permissions": {
+      "get": {
+        "summary": "Read current permission codes",
+        "description": "{permissions:[string]}. Access: Authenticated",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{permissions:[string]}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{permissions:[string]}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/me/clearance": {
+      "get": {
+        "summary": "Read current clearance rank",
+        "description": "{rank:number}. Access: Authenticated",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{rank:number}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{rank:number}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/subjects/{id}": {
+      "get": {
+        "summary": "Read a subject summary",
+        "description": "{id,type,label,status}; subject clearance required. Access: subject:read, minimum rank 0",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{id,type,label,status}; subject clearance required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{id,type,label,status}; subject clearance required"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/subjects/{id}/profile": {
+      "get": {
+        "summary": "Read operational profile data",
+        "description": "{id,type,label,profile}; imported canonical people have a minimal profile. Access: subject:sensitive:read, minimum rank 3",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{id,type,label,profile}; imported canonical people have a minimal profile",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{id,type,label,profile}; imported canonical people have a minimal profile"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/search": {
+      "post": {
+        "summary": "Find canonical people and materialize only matching operational subjects",
+        "description": "{data:[{id,type,label,status}],page,datasetVersion}; 502 PERSON_INDEX_UNAVAILABLE if neither index nor operational results are available. Access: subject:read, minimum rank 0",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,type,label,status}],page,datasetVersion}; 502 PERSON_INDEX_UNAVAILABLE if neither index nor operational results are available",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,type,label,status}],page,datasetVersion}; 502 PERSON_INDEX_UNAVAILABLE if neither index nor operational results are available"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 200
+                  },
+                  "limit": {
+                    "default": 20,
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 50
+                  }
+                },
+                "required": [
+                  "query",
+                  "limit"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/investigations": {
+      "post": {
+        "summary": "Create an investigation for a materialized subject and explicit cutoff",
+        "description": "201 Investigation: {id,createdBy,subjectId,status,title,purpose,cutoffAt,contextVersion,minimumClearanceRank,shared,createdAt,updatedAt,...}. Access: investigation:create, minimum rank 2",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "201 Investigation: {id,createdBy,subjectId,status,title,purpose,cutoffAt,contextVersion,minimumClearanceRank,shared,createdAt,updatedAt,...}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "201 Investigation: {id,createdBy,subjectId,status,title,purpose,cutoffAt,contextVersion,minimumClearanceRank,shared,createdAt,updatedAt,...}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "subjectId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "title": {
+                    "type": "string",
+                    "maxLength": 200
+                  },
+                  "purpose": {
+                    "type": "string",
+                    "maxLength": 2000
+                  },
+                  "cutoffAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
+                  },
+                  "predictionHorizonStart": {},
+                  "predictionHorizonEnd": {}
+                },
+                "required": [
+                  "subjectId",
+                  "cutoffAt"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List cases allowed by ownership, sharing and clearance",
+        "description": "{data:[{id,status,title,cutoffAt,subject:{id,type,label},createdAt}],page}. Access: investigation:read, minimum rank 0",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,status,title,cutoffAt,subject:{id,type,label},createdAt}],page}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,status,title,cutoffAt,subject:{id,type,label},createdAt}],page}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/investigations/{id}/analyze": {
+      "post": {
+        "summary": "Run synchronous canonical analysis and persist the exact result",
+        "description": "200 {runId,status:\"SUCCEEDED\",result:Intelligence}; 409 CUTOFF_REQUIRED or SUBJECT_NOT_LINKED; failed upstream runs remain FAILED. Access: investigation:analyze, minimum rank 2",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 {runId,status:\"SUCCEEDED\",result:Intelligence}; 409 CUTOFF_REQUIRED or SUBJECT_NOT_LINKED; failed upstream runs remain FAILED",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "200 {runId,status:\"SUCCEEDED\",result:Intelligence}; 409 CUTOFF_REQUIRED or SUBJECT_NOT_LINKED; failed upstream runs remain FAILED"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/investigations/{id}/analysis-runs/{runId}": {
+      "get": {
+        "summary": "Read a particular case run",
+        "description": "AnalysisRun: {id,investigationId,status,cutoffAt,dataSnapshot,requestPayload,responsePayload:Intelligence|null,errorCode,startedAt,completedAt,createdAt,...}. Access: investigation:read, minimum rank 0",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "runId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "AnalysisRun: {id,investigationId,status,cutoffAt,dataSnapshot,requestPayload,responsePayload:Intelligence|null,errorCode,startedAt,completedAt,createdAt,...}",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "AnalysisRun: {id,investigationId,status,cutoffAt,dataSnapshot,requestPayload,responsePayload:Intelligence|null,errorCode,startedAt,completedAt,createdAt,...}"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/graph/subjects/{id}/subgraph": {
+      "get": {
+        "summary": "Read the engine graph at an explicit cutoff",
+        "description": "Graph: {version,subject,cutoff,truncated,nodes,edges,analysis_fingerprint,highlight_semantics}. Engine configuration owns bounds; maxHops/maxNodes overrides rejected. Access: graph:read, minimum rank 2",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "cutoffAt",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Graph: {version,subject,cutoff,truncated,nodes,edges,analysis_fingerprint,highlight_semantics}. Engine configuration owns bounds; maxHops/maxNodes overrides rejected",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Graph: {version,subject,cutoff,truncated,nodes,edges,analysis_fingerprint,highlight_semantics}. Engine configuration owns bounds; maxHops/maxNodes overrides rejected"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/evidence/{id}": {
+      "get": {
+        "summary": "Read a stored evidence reference linked to an accessible case",
+        "description": "{id,sourceType,sourceId,label,excerpt,eventTime,metadata:EngineEvidence,...}; 403 if no linked case is accessible. Access: evidence:read, minimum rank 2",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "{id,sourceType,sourceId,label,excerpt,eventTime,metadata:EngineEvidence,...}; 403 if no linked case is accessible",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{id,sourceType,sourceId,label,excerpt,eventTime,metadata:EngineEvidence,...}; 403 if no linked case is accessible"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/models": {
+      "get": {
+        "summary": "List model registry metadata",
+        "description": "{data:[{id,code,version,modelType,status,evaluationScope,isCalibratedProbability,metadata}]}; active selected bundle and retired historical entries; no download tickets. Access: model:read, minimum rank 0",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{data:[{id,code,version,modelType,status,evaluationScope,isCalibratedProbability,metadata}]}; active selected bundle and retired historical entries; no download tickets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[{id,code,version,modelType,status,evaluationScope,isCalibratedProbability,metadata}]}; active selected bundle and retired historical entries; no download tickets"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/audit/events": {
+      "get": {
+        "summary": "Read recent security/application audit events",
+        "description": "{data:[AuditEvent]}; event metadata excludes question text, passwords, tokens and analysis payloads. Access: audit:read, minimum rank 4",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{data:[AuditEvent]}; event metadata excludes question text, passwords, tokens and analysis payloads",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{data:[AuditEvent]}; event metadata excludes question text, passwords, tokens and analysis payloads"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        }
+      }
+    },
+    "/chat/public": {
+      "post": {
+        "summary": "Ask a general knowledge question",
+        "description": "{conversationId,requestId,answer,sources,mode:\"public\"}; each response starts a new public conversation ID. Never send private case questions here. Access: Public",
+        "security": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{conversationId,requestId,answer,sources,mode:\"public\"}; each response starts a new public conversation ID. Never send private case questions here",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{conversationId,requestId,answer,sources,mode:\"public\"}; each response starts a new public conversation ID. Never send private case questions here"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "question": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  },
+                  "conversationId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  }
+                },
+                "required": [
+                  "question"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chat/authorized": {
+      "post": {
+        "summary": "Explain a trusted stored investigation using Phase 4",
+        "description": "{conversationId,requestId,answer,sources,mode:\"investigator\",evidence,reasoning:Reasoning}; 409 ANALYSIS_REQUIRED; 403 CONVERSATION_ACCESS_DENIED; 502 RAG_INVALID_RESPONSE. Access: chat:authorized, minimum rank 2",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "{conversationId,requestId,answer,sources,mode:\"investigator\",evidence,reasoning:Reasoning}; 409 ANALYSIS_REQUIRED; 403 CONVERSATION_ACCESS_DENIED; 502 RAG_INVALID_RESPONSE",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "{conversationId,requestId,answer,sources,mode:\"investigator\",evidence,reasoning:Reasoning}; 409 ANALYSIS_REQUIRED; 403 CONVERSATION_ACCESS_DENIED; 502 RAG_INVALID_RESPONSE"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "question": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 4000
+                  },
+                  "conversationId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "subjectId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "investigationId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+                  },
+                  "cutoffAt": {}
+                },
+                "required": [
+                  "question"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rag/ingest": {
+      "post": {
+        "summary": "Ingest reviewed general knowledge",
+        "description": "201 {jobId,status:\"COMPLETED\",documentId,chunks}; failed jobs retain FAILED state; metadata.cloud_approved must be explicitly reviewed. Access: rag:ingest, minimum rank 4",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "201 {jobId,status:\"COMPLETED\",documentId,chunks}; failed jobs retain FAILED state; metadata.cloud_approved must be explicitly reviewed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "201 {jobId,status:\"COMPLETED\",documentId,chunks}; failed jobs retain FAILED state; metadata.cloud_approved must be explicitly reviewed"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "401": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "403": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "404": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "409": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "413": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "429": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "500": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "502": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          },
+          "503": {
+            "description": "Standard error: {error:{code,message,requestId,details?}}"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 300
+                  },
+                  "content": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100000
+                  },
+                  "source": {
+                    "type": "string",
+                    "maxLength": 300
+                  },
+                  "category": {
+                    "type": "string",
+                    "maxLength": 100
+                  },
+                  "version": {
+                    "type": "string",
+                    "maxLength": 50
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {}
+                  }
+                },
+                "required": [
+                  "title",
+                  "content"
+                ],
+                "additionalProperties": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

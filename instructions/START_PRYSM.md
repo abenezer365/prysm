@@ -22,14 +22,14 @@ cd ai-engine
 
 ```powershell
 cd server
-npm.cmd run dev
+powershell -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
 ## 4. Frontend
 
 ```powershell
 cd client
-npm.cmd run dev -- --host 127.0.0.1
+powershell -ExecutionPolicy Bypass -File .\start.ps1
 ```
 
 Open **http://127.0.0.1:5173**. Keep all four terminals open while using Prysm.

@@ -1,0 +1,399 @@
+{
+  "population": "80 test-partition benchmark primary subjects at 2025-12-11T10:00:00Z",
+  "ranking": [
+    {
+      "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+      "cutoff": "2025-12-11T10:00:00+00:00",
+      "dataset_version": "prysm-benchmark-v1",
+      "entity_key": "Person:P01790",
+      "evidence_ids": [
+        "EVD:02ead672619a3a0b131b",
+        "EVD:f2ebd90346fe58596b1b",
+        "EVD:f20747c654af3f35ca2e"
+      ],
+      "is_fraud_probability": false,
+      "overall_risk": 0.7075110781146015,
+      "rank": 1,
+      "risk_level": "high",
+      "score_breakdown": {
+        "anomaly": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.7785914076331,
+          "weighted_contribution": 0.15571828152662
+        },
+        "gnn": {
+          "configured_weight": 0.15,
+          "effective_weight": 0.15,
+          "strength": 0.9786186439198762,
+          "weighted_contribution": 0.14679279658798142
+        },
+        "network": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        },
+        "rules": {
+          "configured_weight": 0.45,
+          "effective_weight": 0.45,
+          "strength": 0.9,
+          "weighted_contribution": 0.405
+        }
+      }
+    },
+    {
+      "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+      "cutoff": "2025-12-11T10:00:00+00:00",
+      "dataset_version": "prysm-benchmark-v1",
+      "entity_key": "Person:P01730",
+      "evidence_ids": [
+        "EVD:d69fa0417574acac76d2",
+        "EVD:cc7e3bde7e89f35b15b1"
+      ],
+      "is_fraud_probability": false,
+      "overall_risk": 0.6430405861706511,
+      "rank": 2,
+      "risk_level": "moderate",
+      "score_breakdown": {
+        "anomaly": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.48946013840146047,
+          "weighted_contribution": 0.09789202768029209
+        },
+        "gnn": {
+          "configured_weight": 0.15,
+          "effective_weight": 0.15,
+          "strength": 0.93432372326906,
+          "weighted_contribution": 0.14014855849035898
+        },
+        "network": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        },
+        "rules": {
+          "configured_weight": 0.45,
+          "effective_weight": 0.45,
+          "strength": 0.9,
+          "weighted_contribution": 0.405
+        }
+      }
+    },
+    {
+      "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+      "cutoff": "2025-12-11T10:00:00+00:00",
+      "dataset_version": "prysm-benchmark-v1",
+      "entity_key": "Person:P01870",
+      "evidence_ids": [
+        "EVD:6682f612e1b84d8fd890",
+        "EVD:27a6795c4bec634abc50"
+      ],
+      "is_fraud_probability": false,
+      "overall_risk": 0.6125445013732082,
+      "rank": 3,
+      "risk_level": "moderate",
+      "score_breakdown": {
+        "anomaly": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.28882607720114406,
+          "weighted_contribution": 0.05776521544022881
+        },
+        "gnn": {
+          "configured_weight": 0.15,
+          "effective_weight": 0.15,
+          "strength": 0.9985285728865287,
+          "weighted_contribution": 0.14977928593297932
+        },
+        "network": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        },
+        "rules": {
+          "configured_weight": 0.45,
+          "effective_weight": 0.45,
+          "strength": 0.9,
+          "weighted_contribution": 0.405
+        }
+      }
+    },
+    {
+      "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+      "cutoff": "2025-12-11T10:00:00+00:00",
+      "dataset_version": "prysm-benchmark-v1",
+      "entity_key": "Person:P02160",
+      "evidence_ids": [
+        "EVD:040ffc8bd7635b7151d9",
+        "EVD:2b24dd7710af2ef2a5f2"
+      ],
+      "is_fraud_probability": false,
+      "overall_risk": 0.6074502659814092,
+      "rank": 4,
+      "risk_level": "moderate",
+      "score_breakdown": {
+        "anomaly": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.263703767075331,
+          "weighted_contribution": 0.052740753415066205
+        },
+        "gnn": {
+          "configured_weight": 0.15,
+          "effective_weight": 0.15,
+          "strength": 0.9980634171089532,
+          "weighted_contribution": 0.14970951256634296
+        },
+        "network": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        },
+        "rules": {
+          "configured_weight": 0.45,
+          "effective_weight": 0.45,
+          "strength": 0.9,
+          "weighted_contribution": 0.405
+        }
+      }
+    },
+    {
+      "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+      "cutoff": "2025-12-11T10:00:00+00:00",
+      "dataset_version": "prysm-benchmark-v1",
+      "entity_key": "Person:P02250",
+      "evidence_ids": [
+        "EVD:6ebcd51ebbc8c11a3925",
+        "EVD:33fa43b9c999fb84cc67"
+      ],
+      "is_fraud_probability": false,
+      "overall_risk": 0.5724245351723928,
+      "rank": 5,
+      "risk_level": "moderate",
+      "score_breakdown": {
+        "anomaly": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.23496071280181563,
+          "weighted_contribution": 0.04699214256036313
+        },
+        "gnn": {
+          "configured_weight": 0.15,
+          "effective_weight": 0.15,
+          "strength": 0.8028826174135311,
+          "weighted_contribution": 0.12043239261202965
+        },
+        "network": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        },
+        "rules": {
+          "configured_weight": 0.45,
+          "effective_weight": 0.45,
+          "strength": 0.9,
+          "weighted_contribution": 0.405
+        }
+      }
+    },
+    {
+      "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+      "cutoff": "2025-12-11T10:00:00+00:00",
+      "dataset_version": "prysm-benchmark-v1",
+      "entity_key": "Person:P02000",
+      "evidence_ids": [
+        "EVD:ce78669f8408d2b07394"
+      ],
+      "is_fraud_probability": false,
+      "overall_risk": 0.5338113072820694,
+      "rank": 6,
+      "risk_level": "moderate",
+      "score_breakdown": {
+        "anomaly": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.3058242235801471,
+          "weighted_contribution": 0.061164844716029426
+        },
+        "gnn": {
+          "configured_weight": 0.15,
+          "effective_weight": 0.15,
+          "strength": 0.4509764171069327,
+          "weighted_contribution": 0.0676464625660399
+        },
+        "network": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        },
+        "rules": {
+          "configured_weight": 0.45,
+          "effective_weight": 0.45,
+          "strength": 0.9,
+          "weighted_contribution": 0.405
+        }
+      }
+    },
+    {
+      "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+      "cutoff": "2025-12-11T10:00:00+00:00",
+      "dataset_version": "prysm-benchmark-v1",
+      "entity_key": "Person:P02310",
+      "evidence_ids": [
+        "EVD:52e6725d08cc63a510ed",
+        "EVD:ae4a64707a2b1ee8844c"
+      ],
+      "is_fraud_probability": false,
+      "overall_risk": 0.4320000107040375,
+      "rank": 7,
+      "risk_level": "moderate",
+      "score_breakdown": {
+        "anomaly": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.4638871312943804,
+          "weighted_contribution": 0.09277742625887608
+        },
+        "gnn": {
+          "configured_weight": 0.15,
+          "effective_weight": 0.15,
+          "strength": 0.9948172296344093,
+          "weighted_contribution": 0.1492225844451614
+        },
+        "network": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.95,
+          "weighted_contribution": 0.19
+        },
+        "rules": {
+          "configured_weight": 0.45,
+          "effective_weight": 0.45,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        }
+      }
+    },
+    {
+      "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+      "cutoff": "2025-12-11T10:00:00+00:00",
+      "dataset_version": "prysm-benchmark-v1",
+      "entity_key": "Person:P02340",
+      "evidence_ids": [
+        "EVD:3d7b144ba32949fd63f6",
+        "EVD:d4408a38ade94dae6826"
+      ],
+      "is_fraud_probability": false,
+      "overall_risk": 0.4238964051629439,
+      "rank": 8,
+      "risk_level": "moderate",
+      "score_breakdown": {
+        "anomaly": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.49731895140537075,
+          "weighted_contribution": 0.09946379028107416
+        },
+        "gnn": {
+          "configured_weight": 0.15,
+          "effective_weight": 0.15,
+          "strength": 0.8962174325457981,
+          "weighted_contribution": 0.13443261488186972
+        },
+        "network": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.95,
+          "weighted_contribution": 0.19
+        },
+        "rules": {
+          "configured_weight": 0.45,
+          "effective_weight": 0.45,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        }
+      }
+    },
+    {
+      "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+      "cutoff": "2025-12-11T10:00:00+00:00",
+      "dataset_version": "prysm-benchmark-v1",
+      "entity_key": "Person:P02240",
+      "evidence_ids": [],
+      "is_fraud_probability": false,
+      "overall_risk": 0.144823171873679,
+      "rank": 9,
+      "risk_level": "low",
+      "score_breakdown": {
+        "anomaly": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.31572809855901873,
+          "weighted_contribution": 0.06314561971180375
+        },
+        "gnn": {
+          "configured_weight": 0.15,
+          "effective_weight": 0.15,
+          "strength": 0.5445170144125017,
+          "weighted_contribution": 0.08167755216187525
+        },
+        "network": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        },
+        "rules": {
+          "configured_weight": 0.45,
+          "effective_weight": 0.45,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        }
+      }
+    },
+    {
+      "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+      "cutoff": "2025-12-11T10:00:00+00:00",
+      "dataset_version": "prysm-benchmark-v1",
+      "entity_key": "Person:P02050",
+      "evidence_ids": [],
+      "is_fraud_probability": false,
+      "overall_risk": 0.12554899716260687,
+      "rank": 10,
+      "risk_level": "low",
+      "score_breakdown": {
+        "anomaly": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.30777162670467106,
+          "weighted_contribution": 0.06155432534093422
+        },
+        "gnn": {
+          "configured_weight": 0.15,
+          "effective_weight": 0.15,
+          "strength": 0.4266311454778178,
+          "weighted_contribution": 0.06399467182167266
+        },
+        "network": {
+          "configured_weight": 0.2,
+          "effective_weight": 0.2,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        },
+        "rules": {
+          "configured_weight": 0.45,
+          "effective_weight": 0.45,
+          "strength": 0.0,
+          "weighted_contribution": 0.0
+        }
+      }
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Minus, Plus, RotateCcw } from "lucide-react";
+import gsap from "gsap";
 
-const palette = ["#00614c", "#175a91", "#9a650d", "#7a4ea3", "#a83b36"];
+const palette = ["#f1f1ef", "#c7c7c3", "#9a9a96", "#747471", "#dededb"];
 const number = new Intl.NumberFormat();
 
 export function BarChart({
@@ -133,6 +134,15 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
     graph.addEventListener("wheel", handleWheel, { passive: false });
     return () => graph.removeEventListener("wheel", handleWheel);
   }, []);
+  useEffect(() => {
+    const graph = graphRef.current;
+    if (!graph || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    const context = gsap.context(() => {
+      gsap.fromTo(graph.querySelectorAll("[data-graph-edge]"), { opacity: 0, strokeDasharray: 180, strokeDashoffset: 180 }, { opacity: 1, strokeDashoffset: 0, duration: .7, stagger: .012, ease: "power2.out" });
+      gsap.fromTo(graph.querySelectorAll("[data-graph-node]"), { opacity: 0, scale: .65 }, { opacity: 1, scale: 1, transformOrigin: "center", duration: .4, stagger: .018, ease: "back.out(1.4)" });
+    }, graph);
+    return () => context.revert();
+  }, [nodes, edges]);
   function choose(item, type) {
     const value = { ...item, kind: type };
     setSelected(value);
@@ -205,16 +215,13 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
               className="cursor-pointer"
             >
               <line
+                data-graph-edge
                 x1={a.x}
                 y1={a.y}
                 x2={b.x}
                 y2={b.y}
-                stroke={
-                  selected?.id === (e.id || i)
-                    ? "var(--accent)"
-                    : "var(--border-strong)"
-                }
-                strokeWidth={1.5 + (Number(score) || 0) * 2}
+                stroke={e.attention === "review" || e.highlight_color === "red" ? "#fff" : selected?.id === (e.id || i) ? "#ddd" : "#555"}
+                strokeWidth={(e.attention === "review" ? 3 : 1.5) + (Number(score) || 0) * 2}
               />
               <text x={(a.x+b.x)/2} y={(a.y+b.y)/2-4} textAnchor="middle" fill="var(--muted)" fontSize="8">{String(e.label||e.type||e.edgeType||"related").slice(0,24)}</text>
               <title>
@@ -230,6 +237,7 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
           const active = selected?.id === n.id || hovered?.id === n.id;
           return (
             <g
+              data-graph-node
               key={n.id}
               transform={`translate(${n.x} ${n.y})`}
               onMouseEnter={() => setHovered({ ...n, kind: "node" })}
@@ -239,10 +247,10 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
             >
               <circle
                 r={n.isSubject ? 27 : active ? 19 : 16}
-                fill={
+                fill={n.attention === "review" || n.highlight_color === "red" ? "var(--danger)" :
                   ({Person:"var(--graph-person)",Company:"var(--graph-company)",Bank:"var(--graph-bank)",Account:"var(--graph-account)",Device:"var(--warning)",Invoice:"var(--accent)"})[n.nodeType||n.type] || palette[hash(n.nodeType || n.type || "entity") % palette.length]
                 }
-                stroke={n.isSubject?"var(--accent)":"var(--surface)"}
+                stroke={n.attention === "review" ? "var(--danger)" : n.isSubject?"var(--accent)":"var(--surface)"}
                 strokeWidth={n.isSubject?"6":"4"}
               />
               <text y="3" textAnchor="middle" fill="white" fontSize="9" fontWeight="700">{({Person:"P",Company:"ORG",Bank:"BANK",Account:"AC",Device:"DEV",Invoice:"INV"})[n.nodeType||n.type]||"?"}</text>

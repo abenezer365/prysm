@@ -4,7 +4,11 @@ $port = 8200
 $envFile = Join-Path $PSScriptRoot ".env"
 
 if (-not (Test-Path -LiteralPath $python)) {
-  throw "Prysm virtual environment not found at $python"
+  $pythonCommand = Get-Command python -ErrorAction SilentlyContinue
+  if (-not $pythonCommand) {
+    throw "Python is not installed or available on PATH. Install Python 3.11 or newer."
+  }
+  $python = $pythonCommand.Source
 }
 
 if (Test-Path -LiteralPath $envFile) {

@@ -1,0 +1,8 @@
+{
+  "candidates": [
+    {"name": "baseline", "changes": {}},
+    {"name": "compact", "changes": {"hidden_dim": 4}},
+    {"name": "short", "changes": {"epochs": 60}}
+  ],
+  "gnn_thresholds": [0.35, 0.5, 0.65]
+}

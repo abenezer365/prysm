@@ -1,3 +1,5 @@
+> Current implementation: [Phase 4 state](../PHASE4_STATE.md) and [integration guide](RAG_INTEGRATION.md). The original design notes below are historical; private investigator prompts no longer go to Gemini.
+
 # PRYSM AI — Simple RAG Chatbot Service
 
 ## Goal

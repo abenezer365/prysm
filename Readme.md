@@ -1,98 +1,39 @@
 # Prysm Intelligence
 
-Prysm is a financial-intelligence platform combining controlled investigations, transaction and behavioral analysis, bounded relationship graphs, evidence, and retrieval-grounded explanation. Model output is decision support, not a finding of guilt or a calibrated fraud probability.
+Prysm combines controlled investigations, behavioral and graph analysis, source-backed evidence, and local evidence-grounded explanations. Its synthetic scores are review priorities, not calibrated fraud probabilities.
 
-## Local development setup
+**Current implementation:** [PHASE5_STATE.md](PHASE5_STATE.md). The backend is JavaScript ESM with Express 5 and PostgreSQL/Prisma. It serves the selected Phase 3 intelligence and Phase 4 reasoning contracts. Phase 6 frontend work has not started.
 
-### 1. Install prerequisites and dependencies
+- [Backend startup and verification](server/README.md)
+- [Frontend API guide](server/docs/API.md)
+- [OpenAPI contract](server/docs/openapi.json)
+- [Architecture](architecture.md)
+- [Database responsibilities and migration safety](server/docs/DATABASE.md)
+- [AI engine and evaluation](ai-engine/README.md)
+- [Phase 4 reasoning and local-model deferral](PHASE4_STATE.md)
 
-Install Node.js 22+, Python 3.11+, and PostgreSQL. The coordinated Windows script expects a PostgreSQL Windows service named `postgresql*`.
+## Local setup
+
+Install Node.js 22.18+, Python with the AI/chatbot dependencies, and PostgreSQL. Configure `server/.env` and `chatbot/.env` from their examples without overwriting existing secrets. The backend needs PostgreSQL credentials, a strong access JWT secret, an internal AI key, and a RAG key matching the chatbot. AI requests fail closed without their internal credential.
+
+From `server/`:
 
 ```powershell
-cd server; npm install
-cd ../client; npm install
-cd ../ai-engine; python -m pip install -e .
-cd ../chatbot; python -m pip install -r requirements.txt
-```
-
-### 2. Create and migrate the database
-
-Create a PostgreSQL database named `prysm` using pgAdmin or `CREATE DATABASE prysm;`. Copy `server/.env.example` to `server/.env` and set `DATABASE_URL` to the real PostgreSQL credentials and `prysm` database.
-
-```powershell
-cd server
+npm ci
 npm run db:generate
+npm run db:backup       # existing databases before Phase 5 cleanup migration
 npm run db:migrate
-npm run db:seed
+npm run db:seed         # initial access-control setup
+npm run sync:metadata
+npm run dev:stack
 ```
 
-To create or reset a development administrator, provide `SEED_ADMIN_EMAIL` and `SEED_ADMIN_PASSWORD` only to the seed process, then remove them from the shell. No bootstrap HTTP route exists.
+The Windows stack launcher starts hidden AI, RAG and backend processes with the current AI entry point. See the backend guide for independent terminals, environment requirements and optional initial administrator provisioning. Browser traffic goes only through the backend at `http://127.0.0.1:4000/api/v1`.
 
-### 3. Configure RAG
+Run the existing frontend separately from `client/` with `npm install` then `npm start`. Its Phase 6 work must adopt the finalized API fields, explicit cutoff requirements and completed JSON exports.
 
-Copy `chatbot/.env.example` to `chatbot/.env`. Generate one strong internal `RAG_API_KEY` and place the same value in `server/.env` and `chatbot/.env`. Protected ingestion and authorized chat fail closed when these values are blank or different.
+## Verification
 
-Set `GOOGLE_API_KEYS` in `chatbot/.env` for Gemini generation. Without a reachable valid provider key, RAG uses its local evidence-grounded fallback and dependency health remains `degraded`, although public knowledge answers can still succeed.
+From `server/`: `npm test`, `npm run build`, `npm run format`, `npm run verify:integration`, and `npm run verify:phase5`. The last command tests real PostgreSQL, AI and local RAG using disposable records and no provider calls. It can take several minutes for the full-population ranking.
 
-Never commit `.env` files or service keys.
-
-### 4. Start services independently
-
-Use one terminal per service. Each command stays in the foreground so its logs remain isolated; press `Ctrl+C` in that terminal to stop only that service.
-
-```powershell
-# Chatbot / RAG — terminal 1
-cd chatbot
-.\start.ps1
-
-# AI Engine — terminal 2
-cd ai-engine
-.\start.ps1
-
-# Backend — terminal 3
-cd server
-npm run dev
-
-# Frontend — terminal 4
-cd client
-npm start
-```
-
-The Python launchers automatically use the repository's `.venv`; no activation step is required. Routine HTTP access logs are disabled for the Python services and backend, while startup messages, warnings, and errors remain visible.
-
-If Windows reports that script execution is disabled, run this once in your normal PowerShell account, then reopen the terminal:
-
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-```
-
-Open the URL printed by Vite, normally `http://127.0.0.1:5173`. The browser calls only `http://127.0.0.1:4000/api/v1`; it never calls AI Engine or RAG directly.
-
-### 5. Verify
-
-```powershell
-Invoke-RestMethod http://127.0.0.1:8100/ready
-Invoke-RestMethod http://127.0.0.1:8200/health
-Invoke-RestMethod http://127.0.0.1:4000/api/v1/health/ready
-
-cd server; npm run verify:integration; npm test
-cd ../client; npm run build
-cd ../chatbot; python -m pytest -q
-```
-
-## Boundaries
-
-- React/Vite presents data and interaction.
-- Express owns authentication, authorization, trusted context, orchestration, persistence, and auditing.
-- PostgreSQL stores operational facts and workflow state.
-- AI Engine performs rule, anomaly, supervised, graph, and GNN analysis.
-- RAG retrieves knowledge and produces grounded explanations.
-
-See `ARCHITECTURE.md` and `BACKEND_API.md` for the authoritative design and browser contract.
-
-## Known limitations
-
-- Gemini requires external connectivity and valid provider keys; the local grounded fallback remains available when degraded.
-- Analysis persists a durable run but currently waits for the AI adapter before returning.
-- Export artifact workers, model-ticket redemption, multipart RAG upload, malware scanning, and OCR are not implemented.
-- Production deployment, TLS, secret management, backups, monitoring, and load validation remain environment-specific work.
+The local-model download/inference and the later large synthetic generator remain deferred. Production reset-email delivery, attachment scanning/storage, retention automation and deployment hardening are not included in this phase.

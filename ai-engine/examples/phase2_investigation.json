@@ -1,0 +1,1384 @@
+{
+  "assessment": {
+    "breakdown": {
+      "anomaly": {
+        "configured_weight": 0.2,
+        "effective_weight": 0.2,
+        "strength": 0.7785914076331,
+        "weighted_contribution": 0.15571828152662
+      },
+      "gnn": {
+        "configured_weight": 0.15,
+        "effective_weight": 0.15,
+        "strength": 0.9786186439198762,
+        "weighted_contribution": 0.14679279658798142
+      },
+      "network": {
+        "configured_weight": 0.2,
+        "effective_weight": 0.2,
+        "strength": 0.0,
+        "weighted_contribution": 0.0
+      },
+      "rules": {
+        "configured_weight": 0.45,
+        "effective_weight": 0.45,
+        "strength": 0.9,
+        "weighted_contribution": 0.405
+      }
+    },
+    "confidence": 0.78,
+    "coverage": 1.0,
+    "is_fraud_probability": false,
+    "risk_level": "high",
+    "strength": 0.7075110781146015,
+    "type": "uncalibrated_attention_assessment"
+  },
+  "evidence": [
+    {
+      "confidence": 0.9,
+      "description": "Large rapid outflows use devices absent from prior initiating-account activity; investigate possible unauthorized use.",
+      "entity_id": "Person:P01790",
+      "evidence_id": "EVD:02ead672619a3a0b131b",
+      "graph_highlight": true,
+      "measurements": {
+        "count": 6,
+        "income_etb": 7100.0,
+        "minutes": 60,
+        "outflow_etb": 85200.0
+      },
+      "provenance": {
+        "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "interpretation": "investigation lead; not proof or a fraud probability",
+        "model_artifact": null,
+        "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+        "source_tables": [
+          "transactions.parquet"
+        ]
+      },
+      "severity": "high",
+      "signal_source": "rules",
+      "signal_type": "NEW_DEVICE_RAPID_OUTFLOW",
+      "strength": 0.9,
+      "supporting_edge_ids": [
+        "TX:T0003217",
+        "TX:T0003218",
+        "TX:T0003219",
+        "TX:T0003220",
+        "TX:T0003221",
+        "TX:T0003222"
+      ],
+      "supporting_entity_ids": [
+        "Account:A01790",
+        "Account:A01791",
+        "Person:P01790"
+      ],
+      "supporting_relationship_ids": [],
+      "supporting_transaction_ids": [
+        "T0003217",
+        "T0003218",
+        "T0003219",
+        "T0003220",
+        "T0003221",
+        "T0003222"
+      ],
+      "timestamps": [
+        "2025-12-04T08:00:00+00:00",
+        "2025-12-04T08:05:00+00:00",
+        "2025-12-04T08:10:00+00:00",
+        "2025-12-04T08:15:00+00:00",
+        "2025-12-04T08:20:00+00:00",
+        "2025-12-04T08:25:00+00:00"
+      ]
+    },
+    {
+      "confidence": 0.6,
+      "description": "Several behavioral measurements depart from the training-normal reference and the subject's own prior history.",
+      "entity_id": "Person:P01790",
+      "evidence_id": "EVD:f2ebd90346fe58596b1b",
+      "graph_highlight": true,
+      "measurements": {
+        "baseline": "train-normal robust median/MAD",
+        "contributions": [
+          {
+            "baseline_log_median": 0.3191383330509693,
+            "feature": "outflow_to_income",
+            "robust_z": 11.015843417469464,
+            "score_contribution": 0.3121082823136942,
+            "transaction_ids": [
+              "T0003217",
+              "T0003218",
+              "T0003219",
+              "T0003220",
+              "T0003221",
+              "T0003222"
+            ],
+            "value": 12.0
+          },
+          {
+            "baseline_log_median": 0.5724177712395719,
+            "feature": "amount_to_history",
+            "robust_z": 5.057123527412572,
+            "score_contribution": 0.23918588915501257,
+            "transaction_ids": [
+              "T0003217"
+            ],
+            "value": 8.51707012787601
+          },
+          {
+            "baseline_log_median": 0.6931471805599453,
+            "feature": "burst_15m",
+            "robust_z": 4.581453659370775,
+            "score_contribution": 0.22729723616439323,
+            "transaction_ids": [
+              "T0003217",
+              "T0003218",
+              "T0003219",
+              "T0003220"
+            ],
+            "value": 4.0
+          }
+        ]
+      },
+      "provenance": {
+        "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "interpretation": "investigation lead; not proof or a fraud probability",
+        "model_artifact": "model_bundle.json",
+        "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+        "source_tables": [
+          "transactions.parquet"
+        ]
+      },
+      "severity": "medium",
+      "signal_source": "anomaly",
+      "signal_type": "BEHAVIORAL_DEVIATION",
+      "strength": 0.7785914076331,
+      "supporting_edge_ids": [
+        "TX:T0003217",
+        "TX:T0003218",
+        "TX:T0003219",
+        "TX:T0003220",
+        "TX:T0003221",
+        "TX:T0003222"
+      ],
+      "supporting_entity_ids": [
+        "Account:A01790",
+        "Account:A01791",
+        "Person:P01790"
+      ],
+      "supporting_relationship_ids": [],
+      "supporting_transaction_ids": [
+        "T0003217",
+        "T0003218",
+        "T0003219",
+        "T0003220",
+        "T0003221",
+        "T0003222"
+      ],
+      "timestamps": [
+        "2025-12-04T08:00:00+00:00",
+        "2025-12-04T08:05:00+00:00",
+        "2025-12-04T08:10:00+00:00",
+        "2025-12-04T08:15:00+00:00",
+        "2025-12-04T08:20:00+00:00",
+        "2025-12-04T08:25:00+00:00"
+      ]
+    },
+    {
+      "confidence": 0.6,
+      "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+      "entity_id": "Person:P01790",
+      "evidence_id": "EVD:f20747c654af3f35ca2e",
+      "graph_highlight": true,
+      "measurements": {
+        "edge_ablation": [
+          {
+            "score_drop": 0.0010614638780486185,
+            "source_node": "Account:A01790",
+            "target_node": "Account:A01791",
+            "transaction_ids": [
+              "T0003217",
+              "T0003218",
+              "T0003219",
+              "T0003220",
+              "T0003221",
+              "T0003222"
+            ]
+          }
+        ],
+        "model_input_features": [
+          "is_person",
+          "is_company",
+          "is_account",
+          "recent_in_count",
+          "recent_out_count",
+          "recent_in_etb",
+          "recent_out_etb",
+          "historical_median_etb",
+          "burst_15m",
+          "foreign_fraction",
+          "new_device_fraction"
+        ],
+        "model_version": "relational-mean-sage-v2"
+      },
+      "provenance": {
+        "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "interpretation": "investigation lead; not proof or a fraud probability",
+        "model_artifact": "model_bundle.json",
+        "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+        "source_tables": [
+          "transactions.parquet"
+        ]
+      },
+      "severity": "high",
+      "signal_source": "gnn",
+      "signal_type": "LEARNED_GRAPH_AFFINITY",
+      "strength": 0.9786186439198762,
+      "supporting_edge_ids": [
+        "TX:T0003217",
+        "TX:T0003218",
+        "TX:T0003219",
+        "TX:T0003220",
+        "TX:T0003221",
+        "TX:T0003222"
+      ],
+      "supporting_entity_ids": [
+        "Account:A01790",
+        "Account:A01791",
+        "Person:P01790"
+      ],
+      "supporting_relationship_ids": [],
+      "supporting_transaction_ids": [
+        "T0003217",
+        "T0003218",
+        "T0003219",
+        "T0003220",
+        "T0003221",
+        "T0003222"
+      ],
+      "timestamps": [
+        "2025-12-04T08:00:00+00:00",
+        "2025-12-04T08:05:00+00:00",
+        "2025-12-04T08:10:00+00:00",
+        "2025-12-04T08:15:00+00:00",
+        "2025-12-04T08:20:00+00:00",
+        "2025-12-04T08:25:00+00:00"
+      ]
+    }
+  ],
+  "features": {
+    "amount_to_history": 8.51707012787601,
+    "burst_15m": 4,
+    "frequency_ratio": 6.0,
+    "history_count": 9,
+    "history_median_etb": 1667.24,
+    "max_branch_speed_kmh": 0.0,
+    "new_counterparty_fraction": 0.0,
+    "new_device_fraction": 1.0,
+    "outflow_to_income": 12.0,
+    "recent_count": 6
+  },
+  "findings": {
+    "anomaly": {
+      "contributions": [
+        {
+          "baseline_log_median": 0.3191383330509693,
+          "feature": "outflow_to_income",
+          "robust_z": 11.015843417469464,
+          "score_contribution": 0.3121082823136942,
+          "transaction_ids": [
+            "T0003217",
+            "T0003218",
+            "T0003219",
+            "T0003220",
+            "T0003221",
+            "T0003222"
+          ],
+          "value": 12.0
+        },
+        {
+          "baseline_log_median": 0.5724177712395719,
+          "feature": "amount_to_history",
+          "robust_z": 5.057123527412572,
+          "score_contribution": 0.23918588915501257,
+          "transaction_ids": [
+            "T0003217"
+          ],
+          "value": 8.51707012787601
+        },
+        {
+          "baseline_log_median": 0.6931471805599453,
+          "feature": "burst_15m",
+          "robust_z": 4.581453659370775,
+          "score_contribution": 0.22729723616439323,
+          "transaction_ids": [
+            "T0003217",
+            "T0003218",
+            "T0003219",
+            "T0003220"
+          ],
+          "value": 4.0
+        }
+      ],
+      "flagged": true,
+      "reason": "Mean of three largest one-sided robust feature deviations",
+      "score": 0.7785914076331,
+      "status": "available"
+    },
+    "gnn": {
+      "attributions": [
+        {
+          "score_drop": 0.0010614638780486185,
+          "source_node": "Account:A01790",
+          "target_node": "Account:A01791",
+          "transaction_ids": [
+            "T0003217",
+            "T0003218",
+            "T0003219",
+            "T0003220",
+            "T0003221",
+            "T0003222"
+          ]
+        }
+      ],
+      "flagged": true,
+      "reason": "Learned synthetic observed-scenario affinity; not calibrated fraud probability",
+      "score": 0.9786186439198762,
+      "status": "available"
+    },
+    "network": [],
+    "network_context": {
+      "active_family_links": 1,
+      "active_owned_businesses": 1,
+      "circular_paths": 0,
+      "path_comparisons": 0,
+      "search_truncated": false
+    },
+    "rule_checks": {
+      "BUSINESS_RECEIPTS_MISMATCH": "not_triggered",
+      "HIGH_VELOCITY": "not_triggered",
+      "IMPOSSIBLE_BRANCH_TRAVEL": "not_triggered",
+      "NEW_DEVICE_RAPID_OUTFLOW": "triggered",
+      "STRUCTURED_DEPOSITS": "not_triggered",
+      "UNEXPLAINED_AMOUNT": "not_triggered"
+    },
+    "rules": [
+      {
+        "code": "NEW_DEVICE_RAPID_OUTFLOW",
+        "entity_keys": [],
+        "highlight": true,
+        "measurements": {
+          "count": 6,
+          "income_etb": 7100.0,
+          "minutes": 60,
+          "outflow_etb": 85200.0
+        },
+        "reason": "Large rapid outflows use devices absent from prior initiating-account activity; investigate possible unauthorized use.",
+        "relationship_ids": [],
+        "source": "rules",
+        "strength": 0.9,
+        "transaction_ids": [
+          "T0003217",
+          "T0003218",
+          "T0003219",
+          "T0003220",
+          "T0003221",
+          "T0003222"
+        ]
+      }
+    ]
+  },
+  "graph": {
+    "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+    "cutoff": "2025-12-11T10:00:00+00:00",
+    "edges": [
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "BANK:A01790",
+        "source": "Account:A01790",
+        "source_id": "A01790",
+        "source_table": "accounts.parquet",
+        "target": "Institution:B001",
+        "timestamp": "2024-09-01T00:00:00+00:00",
+        "type": "held_at"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "BANK:A01791",
+        "source": "Account:A01791",
+        "source_id": "A01791",
+        "source_table": "accounts.parquet",
+        "target": "Institution:B002",
+        "timestamp": "2024-09-01T00:00:00+00:00",
+        "type": "held_at"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "BANK:A01792",
+        "source": "Account:A01792",
+        "source_id": "A01792",
+        "source_table": "accounts.parquet",
+        "target": "Institution:B001",
+        "timestamp": "2024-09-01T00:00:00+00:00",
+        "type": "held_at"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "BANK:A01793",
+        "source": "Account:A01793",
+        "source_id": "A01793",
+        "source_table": "accounts.parquet",
+        "target": "Institution:B001",
+        "timestamp": "2024-09-01T00:00:00+00:00",
+        "type": "held_at"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003205",
+        "source": "Account:A01791",
+        "source_id": "T0003205",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01791a",
+        "timestamp": "2025-09-03T00:00:00+00:00",
+        "transaction_id": "T0003205",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003206",
+        "source": "Account:A01793",
+        "source_id": "T0003206",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01793a",
+        "timestamp": "2025-09-05T00:00:00+00:00",
+        "transaction_id": "T0003206",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003207",
+        "source": "Account:A01790",
+        "source_id": "T0003207",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01790a",
+        "timestamp": "2025-09-10T00:00:00+00:00",
+        "transaction_id": "T0003207",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003208",
+        "source": "Account:A01792",
+        "source_id": "T0003208",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01792a",
+        "timestamp": "2025-09-19T00:00:00+00:00",
+        "transaction_id": "T0003208",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003209",
+        "source": "Account:A01791",
+        "source_id": "T0003209",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01791a",
+        "timestamp": "2025-10-03T00:00:00+00:00",
+        "transaction_id": "T0003209",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003210",
+        "source": "Account:A01793",
+        "source_id": "T0003210",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01793a",
+        "timestamp": "2025-10-05T00:00:00+00:00",
+        "transaction_id": "T0003210",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003211",
+        "source": "Account:A01790",
+        "source_id": "T0003211",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01790a",
+        "timestamp": "2025-10-10T00:00:00+00:00",
+        "transaction_id": "T0003211",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003212",
+        "source": "Account:A01792",
+        "source_id": "T0003212",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01792a",
+        "timestamp": "2025-10-19T00:00:00+00:00",
+        "transaction_id": "T0003212",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003213",
+        "source": "Account:A01791",
+        "source_id": "T0003213",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01791a",
+        "timestamp": "2025-11-02T00:00:00+00:00",
+        "transaction_id": "T0003213",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003214",
+        "source": "Account:A01793",
+        "source_id": "T0003214",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01793a",
+        "timestamp": "2025-11-04T00:00:00+00:00",
+        "transaction_id": "T0003214",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003215",
+        "source": "Account:A01790",
+        "source_id": "T0003215",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01790a",
+        "timestamp": "2025-11-09T00:00:00+00:00",
+        "transaction_id": "T0003215",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003216",
+        "source": "Account:A01792",
+        "source_id": "T0003216",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01792a",
+        "timestamp": "2025-11-18T00:00:00+00:00",
+        "transaction_id": "T0003216",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003217",
+        "source": "Account:A01790",
+        "source_id": "T0003217",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01790b",
+        "timestamp": "2025-12-04T08:00:00+00:00",
+        "transaction_id": "T0003217",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003218",
+        "source": "Account:A01790",
+        "source_id": "T0003218",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01790b",
+        "timestamp": "2025-12-04T08:05:00+00:00",
+        "transaction_id": "T0003218",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003219",
+        "source": "Account:A01790",
+        "source_id": "T0003219",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01790b",
+        "timestamp": "2025-12-04T08:10:00+00:00",
+        "transaction_id": "T0003219",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003220",
+        "source": "Account:A01790",
+        "source_id": "T0003220",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01790b",
+        "timestamp": "2025-12-04T08:15:00+00:00",
+        "transaction_id": "T0003220",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003221",
+        "source": "Account:A01790",
+        "source_id": "T0003221",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01790b",
+        "timestamp": "2025-12-04T08:20:00+00:00",
+        "transaction_id": "T0003221",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "DEV:T0003222",
+        "source": "Account:A01790",
+        "source_id": "T0003222",
+        "source_table": "transactions.parquet",
+        "target": "Device:DA01790b",
+        "timestamp": "2025-12-04T08:25:00+00:00",
+        "transaction_id": "T0003222",
+        "type": "uses_device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "OWN:A01790",
+        "source": "Person:P01790",
+        "source_id": "A01790",
+        "source_table": "accounts.parquet",
+        "target": "Account:A01790",
+        "timestamp": "2024-09-01T00:00:00+00:00",
+        "type": "owns"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "OWN:A01791",
+        "source": "Person:P01791",
+        "source_id": "A01791",
+        "source_table": "accounts.parquet",
+        "target": "Account:A01791",
+        "timestamp": "2024-09-01T00:00:00+00:00",
+        "type": "owns"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "OWN:A01792",
+        "source": "Person:P01792",
+        "source_id": "A01792",
+        "source_table": "accounts.parquet",
+        "target": "Account:A01792",
+        "timestamp": "2024-09-01T00:00:00+00:00",
+        "type": "owns"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "OWN:A01793",
+        "source": "Company:C0179",
+        "source_id": "A01793",
+        "source_table": "accounts.parquet",
+        "target": "Account:A01793",
+        "timestamp": "2024-09-01T00:00:00+00:00",
+        "type": "owns"
+      },
+      {
+        "attention": "none",
+        "confidence": 1.0,
+        "end_time": null,
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "REL:R000535",
+        "relationship_id": "R000535",
+        "source": "Person:P01790",
+        "source_id": "R000535",
+        "source_table": "relationships.parquet",
+        "target": "Person:P01792",
+        "timestamp": "2024-11-05T00:00:00+00:00",
+        "type": "family"
+      },
+      {
+        "attention": "none",
+        "confidence": 1.0,
+        "end_time": null,
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "REL:R000536",
+        "relationship_id": "R000536",
+        "source": "Person:P01790",
+        "source_id": "R000536",
+        "source_table": "relationships.parquet",
+        "target": "Company:C0179",
+        "timestamp": "2024-11-05T00:00:00+00:00",
+        "type": "beneficial_owner"
+      },
+      {
+        "attention": "none",
+        "confidence": 1.0,
+        "end_time": null,
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "REL:R000537",
+        "relationship_id": "R000537",
+        "source": "Company:C0179",
+        "source_id": "R000537",
+        "source_table": "relationships.parquet",
+        "target": "Person:P01791",
+        "timestamp": "2024-11-05T00:00:00+00:00",
+        "type": "employer_employee"
+      },
+      {
+        "amount_etb": 14200.0,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003205",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01791",
+        "source_id": "T0003205",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01793",
+        "timestamp": "2025-09-03T00:00:00+00:00",
+        "transaction_id": "T0003205",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 6978.74,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003206",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01793",
+        "source_id": "T0003206",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01790",
+        "timestamp": "2025-09-05T00:00:00+00:00",
+        "transaction_id": "T0003206",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 1667.24,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003207",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01790",
+        "source_id": "T0003207",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01791",
+        "timestamp": "2025-09-10T00:00:00+00:00",
+        "transaction_id": "T0003207",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 710.0,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003208",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01792",
+        "source_id": "T0003208",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01790",
+        "timestamp": "2025-09-19T00:00:00+00:00",
+        "transaction_id": "T0003208",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 14200.0,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003209",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01791",
+        "source_id": "T0003209",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01793",
+        "timestamp": "2025-10-03T00:00:00+00:00",
+        "transaction_id": "T0003209",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 6523.35,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003210",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01793",
+        "source_id": "T0003210",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01790",
+        "timestamp": "2025-10-05T00:00:00+00:00",
+        "transaction_id": "T0003210",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 1266.09,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003211",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01790",
+        "source_id": "T0003211",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01791",
+        "timestamp": "2025-10-10T00:00:00+00:00",
+        "transaction_id": "T0003211",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 710.0,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003212",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01792",
+        "source_id": "T0003212",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01790",
+        "timestamp": "2025-10-19T00:00:00+00:00",
+        "transaction_id": "T0003212",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 14200.0,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003213",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01791",
+        "source_id": "T0003213",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01793",
+        "timestamp": "2025-11-02T00:00:00+00:00",
+        "transaction_id": "T0003213",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 7384.58,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003214",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01793",
+        "source_id": "T0003214",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01790",
+        "timestamp": "2025-11-04T00:00:00+00:00",
+        "transaction_id": "T0003214",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 1948.78,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003215",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01790",
+        "source_id": "T0003215",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01791",
+        "timestamp": "2025-11-09T00:00:00+00:00",
+        "transaction_id": "T0003215",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 710.0,
+        "attention": "none",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "TX:T0003216",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01792",
+        "source_id": "T0003216",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01790",
+        "timestamp": "2025-11-18T00:00:00+00:00",
+        "transaction_id": "T0003216",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 14200.0,
+        "attention": "review",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [
+          "EVD:02ead672619a3a0b131b",
+          "EVD:f20747c654af3f35ca2e",
+          "EVD:f2ebd90346fe58596b1b"
+        ],
+        "highlight_color": "red",
+        "id": "TX:T0003217",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01790",
+        "source_id": "T0003217",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01791",
+        "timestamp": "2025-12-04T08:00:00+00:00",
+        "transaction_id": "T0003217",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 14200.0,
+        "attention": "review",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [
+          "EVD:02ead672619a3a0b131b",
+          "EVD:f20747c654af3f35ca2e",
+          "EVD:f2ebd90346fe58596b1b"
+        ],
+        "highlight_color": "red",
+        "id": "TX:T0003218",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01790",
+        "source_id": "T0003218",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01791",
+        "timestamp": "2025-12-04T08:05:00+00:00",
+        "transaction_id": "T0003218",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 14200.0,
+        "attention": "review",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [
+          "EVD:02ead672619a3a0b131b",
+          "EVD:f20747c654af3f35ca2e",
+          "EVD:f2ebd90346fe58596b1b"
+        ],
+        "highlight_color": "red",
+        "id": "TX:T0003219",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01790",
+        "source_id": "T0003219",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01791",
+        "timestamp": "2025-12-04T08:10:00+00:00",
+        "transaction_id": "T0003219",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 14200.0,
+        "attention": "review",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [
+          "EVD:02ead672619a3a0b131b",
+          "EVD:f20747c654af3f35ca2e",
+          "EVD:f2ebd90346fe58596b1b"
+        ],
+        "highlight_color": "red",
+        "id": "TX:T0003220",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01790",
+        "source_id": "T0003220",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01791",
+        "timestamp": "2025-12-04T08:15:00+00:00",
+        "transaction_id": "T0003220",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 14200.0,
+        "attention": "review",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [
+          "EVD:02ead672619a3a0b131b",
+          "EVD:f20747c654af3f35ca2e",
+          "EVD:f2ebd90346fe58596b1b"
+        ],
+        "highlight_color": "red",
+        "id": "TX:T0003221",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01790",
+        "source_id": "T0003221",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01791",
+        "timestamp": "2025-12-04T08:20:00+00:00",
+        "transaction_id": "T0003221",
+        "type": "transfers"
+      },
+      {
+        "amount_etb": 14200.0,
+        "attention": "review",
+        "channel": "Mobile Banking",
+        "city": "Adama",
+        "currency": "ETB",
+        "evidence_ids": [
+          "EVD:02ead672619a3a0b131b",
+          "EVD:f20747c654af3f35ca2e",
+          "EVD:f2ebd90346fe58596b1b"
+        ],
+        "highlight_color": "red",
+        "id": "TX:T0003222",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "source": "Account:A01790",
+        "source_id": "T0003222",
+        "source_table": "transactions.parquet",
+        "target": "Account:A01791",
+        "timestamp": "2025-12-04T08:25:00+00:00",
+        "transaction_id": "T0003222",
+        "type": "transfers"
+      }
+    ],
+    "highlight_semantics": "Red = linked to an AI investigation lead, not confirmed misconduct; unmarked = no localized lead, not certified innocent.",
+    "nodes": [
+      {
+        "attention": "review",
+        "currency": "ETB",
+        "evidence_ids": [
+          "EVD:02ead672619a3a0b131b",
+          "EVD:f20747c654af3f35ca2e",
+          "EVD:f2ebd90346fe58596b1b"
+        ],
+        "highlight_color": "red",
+        "id": "Account:A01790",
+        "is_subject": false,
+        "label": "A01790",
+        "type": "Account"
+      },
+      {
+        "attention": "review",
+        "currency": "ETB",
+        "evidence_ids": [
+          "EVD:02ead672619a3a0b131b",
+          "EVD:f20747c654af3f35ca2e",
+          "EVD:f2ebd90346fe58596b1b"
+        ],
+        "highlight_color": "red",
+        "id": "Account:A01791",
+        "is_subject": false,
+        "label": "A01791",
+        "type": "Account"
+      },
+      {
+        "attention": "none",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Account:A01792",
+        "is_subject": false,
+        "label": "A01792",
+        "type": "Account"
+      },
+      {
+        "attention": "none",
+        "currency": "ETB",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Account:A01793",
+        "is_subject": false,
+        "label": "A01793",
+        "type": "Account"
+      },
+      {
+        "attention": "none",
+        "city": "Adama",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Company:C0179",
+        "industry": "Textiles",
+        "is_subject": false,
+        "label": "Synthetic Adama Textiles 0179",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "type": "Company"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Device:DA01790a",
+        "is_subject": false,
+        "label": "DA01790a",
+        "type": "Device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Device:DA01790b",
+        "is_subject": false,
+        "label": "DA01790b",
+        "type": "Device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Device:DA01791a",
+        "is_subject": false,
+        "label": "DA01791a",
+        "type": "Device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Device:DA01792a",
+        "is_subject": false,
+        "label": "DA01792a",
+        "type": "Device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Device:DA01793a",
+        "is_subject": false,
+        "label": "DA01793a",
+        "type": "Device"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Institution:B001",
+        "is_subject": false,
+        "label": "Synthetic Ethiopian Bank",
+        "type": "Institution"
+      },
+      {
+        "attention": "none",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Institution:B002",
+        "is_subject": false,
+        "label": "Synthetic Mobile Wallet",
+        "type": "Institution"
+      },
+      {
+        "attention": "review",
+        "city": "Adama",
+        "evidence_ids": [
+          "EVD:02ead672619a3a0b131b",
+          "EVD:f20747c654af3f35ca2e",
+          "EVD:f2ebd90346fe58596b1b"
+        ],
+        "highlight_color": "red",
+        "id": "Person:P01790",
+        "is_subject": true,
+        "label": "Dawit Bekele",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "type": "Person"
+      },
+      {
+        "attention": "none",
+        "city": "Adama",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Person:P01791",
+        "is_subject": false,
+        "label": "Abebe Abebe",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "type": "Person"
+      },
+      {
+        "attention": "none",
+        "city": "Adama",
+        "evidence_ids": [],
+        "highlight_color": null,
+        "id": "Person:P01792",
+        "is_subject": false,
+        "label": "Birtukan Dawit",
+        "latitude": 8.54,
+        "longitude": 39.27,
+        "type": "Person"
+      }
+    ],
+    "subject": "Person:P01790",
+    "truncated": false,
+    "version": "prysm-graph-evidence-v2"
+  },
+  "intelligence_components": {
+    "anomaly": {
+      "confidence": 0.6,
+      "evidence_ids": [
+        "EVD:f2ebd90346fe58596b1b"
+      ],
+      "name": "anomaly",
+      "reason": "Mean of three largest one-sided robust feature deviations",
+      "status": "available",
+      "strength": 0.7785914076331
+    },
+    "gnn": {
+      "confidence": 0.5,
+      "evidence_ids": [
+        "EVD:f20747c654af3f35ca2e"
+      ],
+      "name": "gnn",
+      "reason": "Learned synthetic observed-scenario affinity; not calibrated fraud probability",
+      "status": "available",
+      "strength": 0.9786186439198762
+    },
+    "network": {
+      "confidence": 0.9,
+      "evidence_ids": [],
+      "name": "network",
+      "reason": "Temporal circular paths and active family/business context",
+      "status": "available",
+      "strength": 0.0
+    },
+    "rules": {
+      "confidence": 0.9,
+      "evidence_ids": [
+        "EVD:02ead672619a3a0b131b"
+      ],
+      "name": "rules",
+      "reason": "Explicit checks over cutoff-valid source facts",
+      "status": "available",
+      "strength": 0.9
+    }
+  },
+  "investigation_window": {
+    "cutoff": "2025-12-11T10:00:00+00:00",
+    "history_start": "2025-08-13T10:00:00+00:00",
+    "observation_start": "2025-12-02T10:00:00+00:00"
+  },
+  "limitations": [
+    "Synthetic development benchmark; formal performance evaluation is deferred to Phase 3.",
+    "Scores are investigation priorities, not fraud probabilities or guilt determinations.",
+    "No invoice evidence or full balance ledger; transaction context and declarations may require verification.",
+    "GNN edge ablation holds node features fixed and is sensitivity analysis, not causal attribution."
+  ],
+  "provenance": {
+    "analysis_fingerprint": "38005e23ee73d30430b558d42ae997acc58d00faee4030eca3cc80a4bd245f88",
+    "dataset_version": "prysm-benchmark-v1",
+    "future_events_excluded": true,
+    "ground_truth_used_at_inference": false,
+    "model_training": {
+      "labels_used": "GNN binary train labels; anomaly train-normal selection only",
+      "training_cases": 80,
+      "training_cutoff": "2025-04-12T10:00:00+00:00",
+      "training_normal_cases": 72,
+      "training_positive_cases": 8,
+      "training_split": "train",
+      "validation_or_test_used_for_fit": false
+    },
+    "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629"
+  },
+  "subject": {
+    "entity_key": "Person:P01790"
+  },
+  "version": "prysm-intelligence-v2"
+}

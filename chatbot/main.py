@@ -5,6 +5,7 @@ import math
 import os
 import re
 import hmac
+import hashlib
 import uuid
 from collections import Counter
 from contextlib import asynccontextmanager
@@ -15,6 +16,11 @@ from typing import Any
 from dotenv import dotenv_values, load_dotenv
 from fastapi import Depends, FastAPI, Header, HTTPException, Query, WebSocket, WebSocketDisconnect, status
 from pydantic import BaseModel, Field, field_validator
+
+if __package__:
+    from .reasoning import ExplainRequest, explain
+else:
+    from reasoning import ExplainRequest, explain
 
 ENV_PATH = Path(__file__).resolve().parent / ".env"
 load_dotenv(dotenv_path=ENV_PATH, override=False)
@@ -38,7 +44,7 @@ def _now_iso() -> str:
 
 class GeminiKeyManager:
     def __init__(self) -> None:
-        self.keys = [key.strip() for key in os.getenv("GOOGLE_API_KEYS", "").split(",") if key.strip()]
+        self.keys = [key.strip() for key in (os.getenv("GOOGLE_API_KEYS") or os.getenv("GEMINI_API_KEY", "")).split(",") if key.strip()]
         default_models = ["gemini-3.5-flash", "gemini-3.5-flash-lite"]
         self.models = [
             model.strip()
@@ -124,11 +130,13 @@ class DocumentIngest(BaseModel):
         )
         if any(phrase in normalized for phrase in blocked):
             raise ValueError("Paste the source facts, not a prior chat response or RAG-writing preamble.")
+        if any(marker in normalized for marker in ('"evidence_id"', '"analysis_fingerprint"', '"supporting_transaction_ids"')) or re.search(r"\b(?:person:p|account:a|company:c)\d+", normalized):
+            raise ValueError("Investigation records belong in /explain, not the general knowledge base.")
         return value.strip()
 
 
 class AskRequest(BaseModel):
-    message: str = Field(..., min_length=1)
+    message: str = Field(..., min_length=1, max_length=2000)
     authenticated: bool = False
     userId: str | None = None
     subjectId: str | None = None
@@ -157,6 +165,7 @@ class KnowledgeStore:
                 record = json.loads(file_path.read_text(encoding="utf-8"))
                 record.setdefault("enabled", True)
                 record.setdefault("embedding", [])
+                record["content_sha256"] = hashlib.sha256(record["content"].encode()).hexdigest()
                 self.documents.append(record)
             except (OSError, ValueError, TypeError):
                 continue
@@ -231,6 +240,8 @@ class KnowledgeStore:
                     "version": payload.get("version", "1.0"),
                     "metadata": payload.get("metadata", {}),
                     "enabled": True,
+                    "updatedAt": _now_iso(),
+                    "content_sha256": hashlib.sha256(content.encode()).hexdigest(),
                 }
             )
             self._update_vocab()
@@ -247,6 +258,8 @@ class KnowledgeStore:
             "category": payload.get("category", "concepts"),
             "version": payload.get("version", "1.0"),
             "createdAt": _now_iso(),
+            "updatedAt": _now_iso(),
+            "content_sha256": hashlib.sha256(content.encode()).hexdigest(),
             "metadata": payload.get("metadata", {}),
             "enabled": True,
             "embedding": [],
@@ -279,6 +292,7 @@ class KnowledgeStore:
             return []
 
         scored: list[tuple[float, dict[str, Any]]] = []
+        query_vector = self.embedder.encode(" ".join(sorted(query_tokens)))
         for doc in available:
             text = (doc["title"] + " " + doc["content"]).lower()
             title_text = doc["title"].lower()
@@ -292,7 +306,6 @@ class KnowledgeStore:
             boost = title_overlap * 2.0 + title_phrase_bonus + exact_phrase_bonus
 
             doc_vector = doc.get("embedding") or []
-            query_vector = self.embedder.encode(" ".join(sorted(query_tokens)))
             similarity = 0.0
             if doc_vector and query_vector:
                 numerator = sum(a * b for a, b in zip(query_vector, doc_vector))
@@ -306,7 +319,7 @@ class KnowledgeStore:
             if score > 0:
                 scored.append((score, doc))
 
-        scored.sort(key=lambda item: item[0], reverse=True)
+        scored.sort(key=lambda item: (-item[0], item[1]["id"]))
         if not scored:
             return []
         best_score = scored[0][0]
@@ -369,7 +382,9 @@ class GeminiClient:
             f"Mode: {mode}. Question: {question}. Context:\n{context}\n\nUse only the relevant facts from the context."
         )
 
-    def generate(self, question: str, context: str, mode: str = "public") -> str:
+    def generate(self, question: str, context: str, mode: str = "public", structured: bool = False) -> str:
+        if mode == "investigator":
+            return "Investigation signals are explained locally; cloud generation is disabled for private context."
         if not self.key_manager.keys:
             self.provider_status = "not_configured"
             return self._fallback_answer(question, context, mode)
@@ -379,16 +394,19 @@ class GeminiClient:
         except Exception as exc:  # pragma: no cover
             raise RuntimeError("requests package required") from exc
 
-        max_attempts = max(1, len(self.key_manager.keys) * max(1, len(self.key_manager.models)))
+        max_attempts = min(2, max(1, len(self.key_manager.keys) * max(1, len(self.key_manager.models))))
         for _ in range(max_attempts):
             config = self.key_manager.get_request_options()
-            url = f"{config['base_url']}/{config['model']}:generateContent?key={config['api_key']}"
+            url = f"{config['base_url']}/{config['model']}:generateContent"
             payload = {
                 "contents": [{"parts": [{"text": self._build_prompt(question, context, mode)}]}],
                 "generationConfig": {"maxOutputTokens": 512},
             }
+            if structured:
+                payload["generationConfig"].update({"temperature": 0, "responseMimeType": "application/json",
+                    "responseSchema": {"type": "OBJECT", "properties": {"knowledge_ids": {"type": "ARRAY", "items": {"type": "STRING"}}}, "required": ["knowledge_ids"]}})
             try:
-                response = requests.post(url, json=payload, timeout=30)
+                response = requests.post(url, headers={"x-goog-api-key": config['api_key']}, json=payload, timeout=(3, 8), allow_redirects=False)
             except requests.RequestException as exc:
                 self.provider_status = "degraded"
                 self.last_failure = type(exc).__name__
@@ -407,7 +425,13 @@ class GeminiClient:
                 self.key_manager.rotate_key()
                 continue
 
-            body = response.json()
+            try:
+                body = response.json()
+                if not isinstance(body, dict):
+                    raise ValueError("Invalid provider response")
+            except ValueError:
+                self.provider_status, self.last_failure = "degraded", "INVALID_JSON"
+                continue
             candidates = body.get("candidates") or []
             if not candidates:
                 self.provider_status = "degraded"
@@ -415,12 +439,16 @@ class GeminiClient:
                 self.key_manager.rotate_key()
                 continue
 
-            text = candidates[0].get("content", {}).get("parts", [{}])[0].get("text", "")
-            if text:
+            try:
+                text = candidates[0].get("content", {}).get("parts", [{}])[0].get("text", "")
+            except (AttributeError, IndexError, KeyError, TypeError):
+                text = None
+            if isinstance(text, str) and text.strip():
                 self.provider_status = "ok"
                 self.last_failure = None
                 return text.strip()
 
+            self.provider_status, self.last_failure = "degraded", "EMPTY_OR_INVALID_TEXT"
             return self._fallback_answer(question, context, mode)
 
         return self._fallback_answer(question, context, mode)
@@ -438,19 +466,6 @@ class RAGService:
             return "KNOWLEDGE"
         return "INVESTIGATION"
 
-    def _build_context(self, message: str, context: dict[str, Any] | None = None) -> str:
-        search_results = self.store.search(message, limit=5)
-        if not search_results:
-            context_parts = ["No local knowledge base entries matched the query."]
-        else:
-            context_parts = [
-                f"Title: {item['title']}\nSource: {item['source']}\nCategory: {item['category']}\nContent: {item['content']}"
-                for item in search_results
-            ]
-        if context:
-            context_parts.append("Authorized backend context:\n" + json.dumps(context, ensure_ascii=False, indent=2)[:12000])
-        return "\n\n---\n\n".join(context_parts)
-
     def answer(self, message: str, mode: str = "public", context: dict[str, Any] | None = None) -> dict[str, Any]:
         route = self.classify(message)
         results = self.store.search(message, limit=5)
@@ -459,12 +474,28 @@ class RAGService:
             phrase in normalized_question
             for phrase in ("who built", "who created", "who developed", "who founded", "builders", "developers", "founders")
         )
-        if mode == "public" and asks_for_builders and results and results[0]["title"] == "Prysm Builders":
+        if mode == "investigator":
+            # Existing backend contract remains usable without exporting case data.
+            context = context or {}
+            if context.get("version") == "prysm-intelligence-v2":
+                result = explain(ExplainRequest(intelligence=context, question=message), self.store, self.llm)
+                answer = result["summary"] + " " + " ".join(f["reasoning"] for f in result["explanation"]["findings"])
+            else:
+                summary = context.get("summary")
+                signals = context.get("signals", [])
+                answer = (summary[:2000] if isinstance(summary, str) else "Review the supplied investigation signals and source evidence.")
+                if isinstance(signals, list):
+                    answer += " Supplied signals: " + ", ".join(str(s)[:100] for s in signals[:10]) + "."
+                answer += " This local summary is decision support, not a fraud verdict."
+        elif asks_for_builders and results and results[0]["title"] == "Prysm Builders":
             answer = "Abenezer Zewge and Eyobed Moges built Prysm."
             results = results[:1]
         else:
-            content = self._build_context(message, context)
-            answer = self.llm.generate(message, content, mode=mode)
+            content = "\n\n".join(f"Title: {d['title']}\nSource: {d['source']}\nContent: {d['content'][:1800]}" for d in results)
+            if results and all(d.get("metadata", {}).get("cloud_approved") is True for d in results):
+                answer = self.llm.generate(message, content, mode=mode)
+            else:
+                answer = self.llm._fallback_answer(message, content, mode)
         return {
             "answer": answer,
             "mode": mode,
@@ -521,12 +552,15 @@ def health() -> dict[str, Any]:
         "llm": service.llm.provider_status,
         "llmLastFailure": service.llm.last_failure,
         "knowledgeBase": "ok",
+        "reasoning": "evidence_extract_with_optional_gemini_knowledge_selection",
+        "localLLM": "deferred_by_request",
+        "privateContextCloudEnabled": False,
     }
 
 
 @app.get("/ask")
 def ask_get(
-    message: str = Query(..., min_length=1),
+    message: str = Query(..., min_length=1, max_length=2000),
 ):
     return _handle_ask({"message": message, "authenticated": False})
 
@@ -539,6 +573,11 @@ def ask_post(payload: AskRequest):
 @app.post("/ingest", dependencies=[Depends(require_internal_key)])
 def ingest(payload: DocumentIngest):
     return service.ingest(payload)
+
+
+@app.post("/explain", dependencies=[Depends(require_internal_key)])
+def explain_post(payload: ExplainRequest):
+    return explain(payload, service.store, service.llm)
 
 
 @app.get("/documents", dependencies=[Depends(require_internal_key)])

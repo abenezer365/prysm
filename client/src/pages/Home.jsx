@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -51,7 +51,10 @@ function HeroGraph() {
     return () => cancelAnimationFrame(frame);
   }, []);
   const ringEdges = network.nodes.map((node, index) => [node, network.nodes[(index + 1) % network.nodes.length]]);
-  const edgePath = (a, b) => `M ${a.x} ${a.y} L ${b.x} ${b.y}`;
+  const edgePath = (a, b, bend = 0) => {
+    const mx=(a.x+b.x)/2-(b.y-a.y)*bend,my=(a.y+b.y)/2+(b.x-a.x)*bend;
+    return `M ${a.x} ${a.y} Q ${mx} ${my} ${b.x} ${b.y}`;
+  };
   return (
     <figure className="hero-graph" aria-labelledby="hero-graph-caption">
       <svg
@@ -59,9 +62,10 @@ function HeroGraph() {
         role="img"
         aria-label="A person connected to an institution, persons, accounts, organization, and business"
       >
+        <g className="hero-graph-orbits" aria-hidden="true"><circle cx="260" cy="190" r="82"/><circle cx="260" cy="190" r="154"/></g>
         <g className="hero-graph-edges">
-          {network.nodes.map((node, index) => <path key={`spoke-${node.label}`} d={edgePath(network.center,node)}><title>Person to {node.label}</title></path>)}
-          {ringEdges.map(([from,to]) => <path className="relationship-ring" key={`${from.label}-${to.label}`} d={edgePath(from,to)}><title>{from.label} to {to.label}</title></path>)}
+          {network.nodes.map((node,index) => <path key={`spoke-${node.label}`} d={edgePath(network.center,node,index%2?.055:-.055)}><title>Person to {node.label}</title></path>)}
+          {ringEdges.map(([from,to],index) => <path className="relationship-ring" key={`${from.label}-${to.label}`} d={edgePath(from,to,index%2?.025:-.025)}><title>{from.label} to {to.label}</title></path>)}
         </g>
         <g className="hero-graph-flow" aria-hidden="true">
           {network.nodes.map((node,index)=><circle r="2.5" key={`flow-${node.label}`}><animateMotion path={edgePath(network.center,node)} dur={`${3.2+index*.37}s`} begin={`${index*-.61}s`} repeatCount="indefinite"/></circle>)}
@@ -79,15 +83,17 @@ function HeroGraph() {
   );
 }
 export default function Home() {
+  const heroRef=useRef(null),layoutRef=useRef(null);
+  useEffect(()=>{const fit=()=>{const hero=heroRef.current,layout=layoutRef.current;if(!hero||!layout)return;hero.style.setProperty("--hero-fit","1");requestAnimationFrame(()=>{const available=hero.clientHeight-8,needed=layout.scrollHeight;hero.style.setProperty("--hero-fit",String(Math.max(.68,Math.min(1,available/needed))))})};fit();const observer=new ResizeObserver(fit);observer.observe(document.documentElement);observer.observe(layoutRef.current);return()=>observer.disconnect()},[]);
   return (
     <>
-      <section className="home-hero">
-        <div className="shell home-hero-layout">
+      <section className="home-hero" ref={heroRef}>
+        <div className="shell home-hero-layout" ref={layoutRef}>
           <div className="home-hero-copy">
             <p className="home-hero-quote">
               “Follow the evidence. See the whole.”
             </p>
-            <h1 tabIndex="-1">Understand risk through what connects.</h1>
+            <h1 tabIndex="-1">Track the flow<br/>Connect the dots<br/>Expose the Fraud</h1>
             <p className="home-hero-brand">Prysm Intelligence</p>
             <Link
               to="/request-access"
@@ -195,21 +201,21 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-[#e7eee5] py-[var(--space-section)] text-[#18221d]">
+      <section className="border-y border-[var(--border)] bg-[var(--surface)] py-[var(--space-section)] text-[var(--text)]">
         <div className="shell">
           <p className="eyebrow">Investigation workflow</p>
           <h2 className="section-title mt-5 max-w-3xl">
             A repeatable line from question to assessment.
           </h2>
-          <ol className="mt-14 grid border-y border-[#bdcabc] md:grid-cols-5">
+          <ol className="mt-14 grid border-y border-[var(--border)] md:grid-cols-5">
             {steps.map(([n, t, d]) => (
               <li
-                className="border-b border-[#bdcabc] p-5 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0"
+                className="border-b border-[var(--border)] p-5 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0"
                 key={n}
               >
-                <span className="font-mono text-xs text-[#55705d]">{n}</span>
+                <span className="font-mono text-xs text-[var(--muted)]">{n}</span>
                 <h3 className="mt-8 font-semibold">{t}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#556159]">{d}</p>
+                <p className="muted mt-3 text-sm leading-6">{d}</p>
               </li>
             ))}
           </ol>
@@ -315,7 +321,7 @@ export default function Home() {
           <DemoGraph />
         </div>
       </section>
-      <section className="bg-[#173f2c] py-[var(--space-section)] text-white">
+      <section className="border-y border-[var(--border)] bg-black py-[var(--space-section)] text-white">
         <div className="shell grid gap-14 lg:grid-cols-3">
           <div>
             <BookOpen />

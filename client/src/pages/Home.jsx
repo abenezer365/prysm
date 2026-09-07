@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -23,35 +23,25 @@ const steps = [
 
 function HeroGraph() {
   const definitions = [
-    ["Institution", -Math.PI / 2, 138, 0.82],
-    ["Persons", -Math.PI / 2 + Math.PI * .4, 140, 1.08],
-    ["Accounts", -Math.PI / 2 + Math.PI * .8, 136, .92],
-    ["Organization", -Math.PI / 2 + Math.PI * 1.2, 139, 1.15],
-    ["Business", -Math.PI / 2 + Math.PI * 1.6, 137, .98],
+    ["Business", -Math.PI / 2],
+    ["Persons", -Math.PI / 2 + (Math.PI * 2) / 5],
+    ["Account", -Math.PI / 2 + (Math.PI * 4) / 5],
+    ["Money", -Math.PI / 2 + (Math.PI * 6) / 5],
+    ["Invoices", -Math.PI / 2 + (Math.PI * 8) / 5],
   ];
-  const calculate = (time = 0) => {
-    const center = { x: 260 + Math.sin(time * .19) * 2.2, y: 190 + Math.cos(time * .16) * 1.8 };
-    const nodes = definitions.map(([label, baseAngle, radius, weight], index) => {
-      const phase = index * 1.37;
-      const angle = baseAngle + Math.sin(time * .13 * weight + phase) * .025;
-      const weightedRadius = radius + Math.sin(time * .21 * weight + phase) * (2.4 + weight);
-      return { label, x: center.x + Math.cos(angle) * weightedRadius, y: center.y + Math.sin(angle) * weightedRadius };
+  const calculate = () => {
+    const center = { x: 260, y: 190 };
+    const nodes = definitions.map(([label, angle]) => {
+      const radius = 148;
+      return { label, x: center.x + Math.cos(angle) * radius, y: center.y + Math.sin(angle) * radius };
     });
     return { center, nodes };
   };
-  const [network, setNetwork] = useState(() => calculate());
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
-    let frame, last = 0;
-    const move = (now) => {
-      if (now - last > 32) { setNetwork(calculate(now / 1000)); last = now; }
-      frame = requestAnimationFrame(move);
-    };
-    frame = requestAnimationFrame(move);
-    return () => cancelAnimationFrame(frame);
-  }, []);
-  const ringEdges = network.nodes.map((node, index) => [node, network.nodes[(index + 1) % network.nodes.length]]);
-  const edgePath = (a, b) => `M ${a.x} ${a.y} L ${b.x} ${b.y}`;
+  const network = calculate();
+  const edgePath = (a, b, bend = 0) => {
+    const mx=(a.x+b.x)/2-(b.y-a.y)*bend,my=(a.y+b.y)/2+(b.x-a.x)*bend;
+    return `M ${a.x} ${a.y} Q ${mx} ${my} ${b.x} ${b.y}`;
+  };
   return (
     <figure className="hero-graph" aria-labelledby="hero-graph-caption">
       <svg
@@ -60,16 +50,19 @@ function HeroGraph() {
         aria-label="A person connected to an institution, persons, accounts, organization, and business"
       >
         <g className="hero-graph-edges">
-          {network.nodes.map((node, index) => <path key={`spoke-${node.label}`} d={edgePath(network.center,node)}><title>Person to {node.label}</title></path>)}
-          {ringEdges.map(([from,to]) => <path className="relationship-ring" key={`${from.label}-${to.label}`} d={edgePath(from,to)}><title>{from.label} to {to.label}</title></path>)}
+          {network.nodes.map((node,index) => <path key={`spoke-${node.label}`} d={edgePath(network.center,node,index%2?.055:-.055)}><title>Person to {node.label}</title></path>)}
         </g>
         <g className="hero-graph-flow" aria-hidden="true">
-          {network.nodes.map((node,index)=><circle r="2.5" key={`flow-${node.label}`}><animateMotion path={edgePath(network.center,node)} dur={`${3.2+index*.37}s`} begin={`${index*-.61}s`} repeatCount="indefinite"/></circle>)}
-          {ringEdges.map(([from,to],index)=><circle r="2.1" key={`ring-flow-${from.label}`}><animateMotion path={edgePath(from,to)} dur={`${4.4+index*.31}s`} begin={`${index*-.73}s`} repeatCount="indefinite"/></circle>)}
+          {network.nodes.map((node,index)=><g key={`flow-${node.label}`}>
+            <circle r="2.4"><animateMotion path={edgePath(network.center,node)} dur={`${3.4 + index * .25}s`} begin={`${index * -.55}s`} repeatCount="indefinite"/>
+            </circle>
+            <circle r="1.6"><animateMotion path={edgePath(network.center,node)} dur={`${3.4 + index * .25}s`} begin={`${index * -.55 + 1.15}s`} repeatCount="indefinite"/>
+            </circle>
+          </g>)}
         </g>
         <g className="hero-graph-nodes">
-          <g className="node-person" transform={`translate(${network.center.x} ${network.center.y})`}><circle r="40"/><text className="node-core-label" y="5">Person</text></g>
-          {network.nodes.map((node,index)=><g className={`node-related node-related-${index+1}`} transform={`translate(${node.x} ${node.y})`} key={node.label}><circle r="30"/><text y="50">{node.label}</text></g>)}
+          <g className="node-person" transform={`translate(${network.center.x} ${network.center.y})`}><circle r="30"/><g className="hero-node-icon central-person-icon"><circle cy="-9" r="6"/><path d="M-14 16c1-9 5-13 14-13s13 4 14 13"/></g><text y="50">Person</text></g>
+          {network.nodes.map((node,index)=><g className={`node-related node-related-${index+1}`} transform={`translate(${node.x} ${node.y})`} key={node.label}><circle r="21"/><g className="hero-node-icon">{node.label==="Business"?<><rect x="-10" y="-6" width="20" height="13" rx="1"/><path d="M-4-6v-4h8v4M-10 1h20"/></>:node.label==="Account"?<><rect x="-10" y="-9" width="20" height="18" rx="1"/><path d="M-6-3h12M-6 4h7"/></>:node.label==="Money"?<><circle r="10"/><path d="M0-6v12M-3-4c5-3 6 4 1 4s-4 6 1 4"/></>:node.label==="Invoices"?<><path d="M-9-11h6l6 6v16h-12zM-3-11v6h6M-6 1h6M-6 6h6"/></>:<><circle cy="-5" r="3.5"/><circle cx="-7" cy="-1" r="2.7"/><circle cx="7" cy="-1" r="2.7"/><path d="M-7 10c.5-6 2.5-8 7-8s6.5 2 7 8"/></>}</g><text y="36">{node.label}</text></g>)}
         </g>
       </svg>
       <figcaption id="hero-graph-caption">
@@ -79,21 +72,26 @@ function HeroGraph() {
   );
 }
 export default function Home() {
+  const heroRef=useRef(null),layoutRef=useRef(null);
+  useEffect(()=>{const fit=()=>{const hero=heroRef.current,layout=layoutRef.current;if(!hero||!layout)return;hero.style.setProperty("--hero-fit","1");requestAnimationFrame(()=>{const available=hero.clientHeight-8,needed=layout.scrollHeight;hero.style.setProperty("--hero-fit",String(Math.max(.82,Math.min(1,available/needed))))})};fit();const observer=new ResizeObserver(fit);observer.observe(document.documentElement);observer.observe(layoutRef.current);return()=>observer.disconnect()},[]);
   return (
     <>
-      <section className="home-hero">
-        <div className="shell home-hero-layout">
+      <section className="home-hero" ref={heroRef}>
+        <div className="shell home-hero-layout" ref={layoutRef}>
           <div className="home-hero-copy">
             <p className="home-hero-quote">
               “Follow the evidence. See the whole.”
             </p>
-            <h1 tabIndex="-1">Understand risk through what connects.</h1>
+            <h1 tabIndex="-1" aria-label="Track the flow. Connect the dots. Expose the Fraud."><span>Track the flow.</span><span>Connect the dots.</span><span>Expose the Fraud.</span></h1>
             <p className="home-hero-brand">Prysm Intelligence</p>
             <Link
               to="/request-access"
               className="button button-primary home-hero-cta"
             >
               Start using Prysm <ArrowRight size={17} />
+            </Link>
+            <Link to="/report/intelligence" className="knowledge-link mt-5 inline-flex">
+              Report suspected crime or fraud anonymously
             </Link>
           </div>
           <HeroGraph />
@@ -195,21 +193,21 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-[#e7eee5] py-[var(--space-section)] text-[#18221d]">
+      <section className="border-y border-[var(--border)] bg-[var(--surface)] py-[var(--space-section)] text-[var(--text)]">
         <div className="shell">
           <p className="eyebrow">Investigation workflow</p>
           <h2 className="section-title mt-5 max-w-3xl">
             A repeatable line from question to assessment.
           </h2>
-          <ol className="mt-14 grid border-y border-[#bdcabc] md:grid-cols-5">
+          <ol className="mt-14 grid border-y border-[var(--border)] md:grid-cols-5">
             {steps.map(([n, t, d]) => (
               <li
-                className="border-b border-[#bdcabc] p-5 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0"
+                className="border-b border-[var(--border)] p-5 last:border-b-0 md:border-b-0 md:border-r md:last:border-r-0"
                 key={n}
               >
-                <span className="font-mono text-xs text-[#55705d]">{n}</span>
+                <span className="font-mono text-xs text-[var(--muted)]">{n}</span>
                 <h3 className="mt-8 font-semibold">{t}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#556159]">{d}</p>
+                <p className="muted mt-3 text-sm leading-6">{d}</p>
               </li>
             ))}
           </ol>
@@ -315,7 +313,7 @@ export default function Home() {
           <DemoGraph />
         </div>
       </section>
-      <section className="bg-[#173f2c] py-[var(--space-section)] text-white">
+      <section className="border-y border-[var(--border)] bg-black py-[var(--space-section)] text-white">
         <div className="shell grid gap-14 lg:grid-cols-3">
           <div>
             <BookOpen />

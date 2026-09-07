@@ -1,6 +1,31 @@
 <!-- Durable project knowledge for future agents. Runtime status belongs in current-state.md; actionable work belongs in todo.md. -->
 
+## Phase 5 backend finalization ? current
+
+Read [PHASE5_STATE.md](../PHASE5_STATE.md) and [the frontend API guide](../server/docs/API.md). The backend now runs JavaScript ESM, keeps PostgreSQL for operational state, removes analytical database copies with two applied forward migrations, and connects the selected Phase 3 engine to Phase 4 protected explanations. TypeScript build paths and obsolete ingestion/ticket implementations are removed. Earlier entries below are historical and do not describe the active backend.
+
+Next: Phase 6 frontend adoption and UI/content work, using the finalized 66-endpoint HTTP contract and WebSocket guide. Local LLM inference and the large generator remain deferred. No Phase 6 UI work was done.
+
+
 # Prysm Project Memory
+
+## Phase 4 requested scope complete
+
+Read [PHASE4_STATE.md](../PHASE4_STATE.md). The RAG service now has protected `/explain`, local evidence-preserving summaries, bounded knowledge retrieval and optional Gemini reference selection using general approved content only. Private case context no longer enters Gemini prompts. 23 focused tests passed, including all 80 saved Phase 3 test results. Local-model download, connection and verification are deferred by explicit user request; setup is documented in `chatbot/local_llm/README.md`. No Phase 5/6 integration was implemented. Earlier phase entries below are historical.
+
+
+## Phase 3 evaluation and optimization — complete
+
+Read [PHASE3_STATE.md](../PHASE3_STATE.md) for measured results and the Phase 4 entry point. Selected GNN: 60 epochs, validation F1 .842, test F1 .800; fusion test F1 1.000 on 80 synthetic cases, with no real-world accuracy claim. Fixed graph-activity coverage for quiet personal accounts; anomaly unavailability remains explicit. Complete local output: `ai-engine/runs/evaluation-v3/`; portable reports/model: `ai-engine/reports/phase3/`. Two runs reproduced the selected model and all predictions exactly. Historical documents are grouped in `ai-engine/src/prysm_ai/v1/docs/`. Phase 4 has not been implemented; live HTTP still uses v1. Earlier entries below are historical.
+
+
+## New six-phase improvement journey: Phase 2 completed
+
+The current domain is `ai-engine/src/prysm_intelligence/`; exact decisions, commands and artifacts are in [../PHASE2_STATE.md](../PHASE2_STATE.md). The sixteen prior domain modules are collectively archived in `ai-engine/src/prysm_ai/v1/`, with legacy imports preserved. Phase 2 consumes canonical Phase 1 facts directly and does not use ground-truth membership at inference. It fits a robust training-normal anomaly baseline and a fully trained two-layer relational mean GNN on train only, then produces explicit rule/family/tax/network evidence, component-preserving fusion, red review annotations and computed rankings. The full local run contains 240 results under `ai-engine/runs/intelligence-v2/`; reviewable examples are in `ai-engine/examples/`. Verification: 88 tests passed, with three historical full-artifact integration tests excluded. Live HTTP still calls v1; integration and formal evaluation are not claimed. Continue with Phase 3 evaluation, preserving the cutoff/split and source-evidence boundaries.
+
+## New six-phase improvement journey: Phase 1 completed
+
+On 2026-09-05, the independent `prysm-benchmark-v1` dataset and pipeline were implemented. Read [../PHASE1_STATE.md](../PHASE1_STATE.md) for the exact handoff and commands, then [the canonical dataset manifest](../data/benchmarks/prysm-benchmark-v1/DATASET_MANIFEST.md). The new benchmark contains 240 cases (216 normal / 24 suspicious), 4,320 transactions and explicit family/business relationships. It uses separate evidence-backed retrospective labels, seed 20260905, fail-fast integrity validation and an existing-consumer export. No new models were trained; prior raw data and live artifact selection remain historical. Phase 2 starts from the new manifest. The 1–2 million-row generator is deferred until after all six phases.
 
 ## Durable decisions and invariants
 

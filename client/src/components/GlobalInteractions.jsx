@@ -89,6 +89,7 @@ export default function GlobalInteractions() {
         >
           {actions.map(([label, Icon, action], i) => (
             <button
+              className="quick-action-button"
               ref={i === 0 ? firstItem : null}
               role="menuitem"
               key={label}

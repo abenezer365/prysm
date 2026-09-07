@@ -1,0 +1,337 @@
+{
+  "fixed_components": "Rule/network logic, anomaly fit/threshold and fusion weights unchanged. Graph-activity availability fixes quiet personal accounts with active business neighborhoods.",
+  "policy": "Validation F1, then AP, then fewer parameters/epochs; threshold tie nearest original .65. Test is excluded.",
+  "seed_stability": {
+    "seed": 20260906,
+    "validation": {
+      "average_precision": 0.959375,
+      "confusion": {
+        "fn": 1,
+        "fp": 2,
+        "tn": 70,
+        "tp": 7
+      },
+      "f1": 0.8235294117647058,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 0.7777777777777778,
+      "recall": 0.875,
+      "roc_auc": 0.9947916666666666,
+      "support": 80,
+      "threshold": 0.65,
+      "unavailable": 0
+    }
+  },
+  "selected": {
+    "config": {
+      "epochs": 60,
+      "hidden_dim": 8,
+      "l2": 0.001,
+      "learning_rate": 0.025,
+      "threshold": 0.65
+    },
+    "fit_seconds": 2.640497100000175,
+    "name": "short",
+    "parameters": 945,
+    "threshold": 0.65,
+    "validation": {
+      "average_precision": 0.9659090909090909,
+      "confusion": {
+        "fn": 0,
+        "fp": 3,
+        "tn": 69,
+        "tp": 8
+      },
+      "f1": 0.8421052631578947,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 0.7272727272727273,
+      "recall": 1.0,
+      "roc_auc": 0.9947916666666666,
+      "support": 80,
+      "threshold": 0.65,
+      "unavailable": 0
+    }
+  },
+  "trials": [
+    {
+      "config": {
+        "epochs": 180,
+        "hidden_dim": 8,
+        "l2": 0.001,
+        "learning_rate": 0.025,
+        "threshold": 0.65
+      },
+      "fit_seconds": 8.455224499999986,
+      "name": "baseline",
+      "parameters": 945,
+      "threshold": 0.35,
+      "validation": {
+        "average_precision": 0.7851923076923077,
+        "confusion": {
+          "fn": 3,
+          "fp": 4,
+          "tn": 68,
+          "tp": 5
+        },
+        "f1": 0.5882352941176471,
+        "negatives": 72,
+        "positives": 8,
+        "precision": 0.5555555555555556,
+        "recall": 0.625,
+        "roc_auc": 0.9461805555555556,
+        "support": 80,
+        "threshold": 0.35,
+        "unavailable": 0
+      }
+    },
+    {
+      "config": {
+        "epochs": 180,
+        "hidden_dim": 8,
+        "l2": 0.001,
+        "learning_rate": 0.025,
+        "threshold": 0.65
+      },
+      "fit_seconds": 8.455224499999986,
+      "name": "baseline",
+      "parameters": 945,
+      "threshold": 0.5,
+      "validation": {
+        "average_precision": 0.7851923076923077,
+        "confusion": {
+          "fn": 3,
+          "fp": 4,
+          "tn": 68,
+          "tp": 5
+        },
+        "f1": 0.5882352941176471,
+        "negatives": 72,
+        "positives": 8,
+        "precision": 0.5555555555555556,
+        "recall": 0.625,
+        "roc_auc": 0.9461805555555556,
+        "support": 80,
+        "threshold": 0.5,
+        "unavailable": 0
+      }
+    },
+    {
+      "config": {
+        "epochs": 180,
+        "hidden_dim": 8,
+        "l2": 0.001,
+        "learning_rate": 0.025,
+        "threshold": 0.65
+      },
+      "fit_seconds": 8.455224499999986,
+      "name": "baseline",
+      "parameters": 945,
+      "threshold": 0.65,
+      "validation": {
+        "average_precision": 0.7851923076923077,
+        "confusion": {
+          "fn": 3,
+          "fp": 1,
+          "tn": 71,
+          "tp": 5
+        },
+        "f1": 0.7142857142857143,
+        "negatives": 72,
+        "positives": 8,
+        "precision": 0.8333333333333334,
+        "recall": 0.625,
+        "roc_auc": 0.9461805555555556,
+        "support": 80,
+        "threshold": 0.65,
+        "unavailable": 0
+      }
+    },
+    {
+      "config": {
+        "epochs": 180,
+        "hidden_dim": 4,
+        "l2": 0.001,
+        "learning_rate": 0.025,
+        "threshold": 0.65
+      },
+      "fit_seconds": 7.5443138000000545,
+      "name": "compact",
+      "parameters": 377,
+      "threshold": 0.35,
+      "validation": {
+        "average_precision": 0.8895833333333334,
+        "confusion": {
+          "fn": 1,
+          "fp": 6,
+          "tn": 66,
+          "tp": 7
+        },
+        "f1": 0.6666666666666666,
+        "negatives": 72,
+        "positives": 8,
+        "precision": 0.5384615384615384,
+        "recall": 0.875,
+        "roc_auc": 0.9791666666666666,
+        "support": 80,
+        "threshold": 0.35,
+        "unavailable": 0
+      }
+    },
+    {
+      "config": {
+        "epochs": 180,
+        "hidden_dim": 4,
+        "l2": 0.001,
+        "learning_rate": 0.025,
+        "threshold": 0.65
+      },
+      "fit_seconds": 7.5443138000000545,
+      "name": "compact",
+      "parameters": 377,
+      "threshold": 0.5,
+      "validation": {
+        "average_precision": 0.8895833333333334,
+        "confusion": {
+          "fn": 1,
+          "fp": 6,
+          "tn": 66,
+          "tp": 7
+        },
+        "f1": 0.6666666666666666,
+        "negatives": 72,
+        "positives": 8,
+        "precision": 0.5384615384615384,
+        "recall": 0.875,
+        "roc_auc": 0.9791666666666666,
+        "support": 80,
+        "threshold": 0.5,
+        "unavailable": 0
+      }
+    },
+    {
+      "config": {
+        "epochs": 180,
+        "hidden_dim": 4,
+        "l2": 0.001,
+        "learning_rate": 0.025,
+        "threshold": 0.65
+      },
+      "fit_seconds": 7.5443138000000545,
+      "name": "compact",
+      "parameters": 377,
+      "threshold": 0.65,
+      "validation": {
+        "average_precision": 0.8895833333333334,
+        "confusion": {
+          "fn": 2,
+          "fp": 4,
+          "tn": 68,
+          "tp": 6
+        },
+        "f1": 0.6666666666666666,
+        "negatives": 72,
+        "positives": 8,
+        "precision": 0.6,
+        "recall": 0.75,
+        "roc_auc": 0.9791666666666666,
+        "support": 80,
+        "threshold": 0.65,
+        "unavailable": 0
+      }
+    },
+    {
+      "config": {
+        "epochs": 60,
+        "hidden_dim": 8,
+        "l2": 0.001,
+        "learning_rate": 0.025,
+        "threshold": 0.65
+      },
+      "fit_seconds": 2.640497100000175,
+      "name": "short",
+      "parameters": 945,
+      "threshold": 0.35,
+      "validation": {
+        "average_precision": 0.9659090909090909,
+        "confusion": {
+          "fn": 0,
+          "fp": 7,
+          "tn": 65,
+          "tp": 8
+        },
+        "f1": 0.6956521739130435,
+        "negatives": 72,
+        "positives": 8,
+        "precision": 0.5333333333333333,
+        "recall": 1.0,
+        "roc_auc": 0.9947916666666666,
+        "support": 80,
+        "threshold": 0.35,
+        "unavailable": 0
+      }
+    },
+    {
+      "config": {
+        "epochs": 60,
+        "hidden_dim": 8,
+        "l2": 0.001,
+        "learning_rate": 0.025,
+        "threshold": 0.65
+      },
+      "fit_seconds": 2.640497100000175,
+      "name": "short",
+      "parameters": 945,
+      "threshold": 0.5,
+      "validation": {
+        "average_precision": 0.9659090909090909,
+        "confusion": {
+          "fn": 0,
+          "fp": 6,
+          "tn": 66,
+          "tp": 8
+        },
+        "f1": 0.7272727272727273,
+        "negatives": 72,
+        "positives": 8,
+        "precision": 0.5714285714285714,
+        "recall": 1.0,
+        "roc_auc": 0.9947916666666666,
+        "support": 80,
+        "threshold": 0.5,
+        "unavailable": 0
+      }
+    },
+    {
+      "config": {
+        "epochs": 60,
+        "hidden_dim": 8,
+        "l2": 0.001,
+        "learning_rate": 0.025,
+        "threshold": 0.65
+      },
+      "fit_seconds": 2.640497100000175,
+      "name": "short",
+      "parameters": 945,
+      "threshold": 0.65,
+      "validation": {
+        "average_precision": 0.9659090909090909,
+        "confusion": {
+          "fn": 0,
+          "fp": 3,
+          "tn": 69,
+          "tp": 8
+        },
+        "f1": 0.8421052631578947,
+        "negatives": 72,
+        "positives": 8,
+        "precision": 0.7272727272727273,
+        "recall": 1.0,
+        "roc_auc": 0.9947916666666666,
+        "support": 80,
+        "threshold": 0.65,
+        "unavailable": 0
+      }
+    }
+  ]
+}

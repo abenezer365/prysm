@@ -1,0 +1,93 @@
+{
+  "files": {
+    "REPORT.md": {
+      "bytes": 5119,
+      "sha256": "3d523141312b66ecc78aa206f28f2c81af859e252251c4734c9fc6627c89502c"
+    },
+    "baseline_validation.json": {
+      "bytes": 8217,
+      "sha256": "655cdcb34f0c337801643ffd33d86de987016393b15d5a309c515388108f752a"
+    },
+    "config.json": {
+      "bytes": 1152,
+      "sha256": "ba4451cf65660a91f94dacf33e629161277682f9cb7d62efe327906edd3997e7"
+    },
+    "experiment_plan.json": {
+      "bytes": 337,
+      "sha256": "ff103855945947e65e8f948a392ee1b6fd15482b6aea2ab68fe0621c6d827e5a"
+    },
+    "failures.csv": {
+      "bytes": 31844,
+      "sha256": "87ac456062f0079d91a33938269cb72f6d7e6d6fe7333bdf2980f57503dae482"
+    },
+    "failures.json": {
+      "bytes": 232521,
+      "sha256": "8714dfe0c294ca47bad2292345b792e134e564783dfc7cf3a8ec065df1fa8ad0"
+    },
+    "figures/evaluation.png": {
+      "bytes": 120199,
+      "sha256": "13c41ecd42889666060183ac137a81796bf4eb972adbb12ced53c0619f0ecfb5"
+    },
+    "figures/experiments.png": {
+      "bytes": 92971,
+      "sha256": "be4ecfd58d64aec8899c5902ffd90f7006dd50557f19b8e5047a040297c4b7e0"
+    },
+    "figures/training.png": {
+      "bytes": 170561,
+      "sha256": "302f9416ced0f0431aafa18b8162ad154e52d495c5eda5901c87848ced498ae7"
+    },
+    "metrics.json": {
+      "bytes": 133885,
+      "sha256": "6cda377061a012e29779d6809fa4ee8e6435a3a922e1f82a55cc9bacec0752ce"
+    },
+    "model_bundle.json": {
+      "bytes": 42289,
+      "sha256": "83a68d67c5b410f1921f5d3346a68dd1cc985cd44c26614407f20e35cf9a569f"
+    },
+    "predictions.parquet": {
+      "bytes": 17195,
+      "sha256": "a2abf9da181db7445816da24ffccbe7564ac313f6a4a709b662e47446561cbc4"
+    },
+    "rankings.json": {
+      "bytes": 194065,
+      "sha256": "53b6036b6f3fc2aef15b563d09f08448cfdfc1b2f3f213685d63a7fd18a78a85"
+    },
+    "selection.json": {
+      "bytes": 8381,
+      "sha256": "c95fcfce30a0f843203d47d03974930e6d6fd1323ffff06a7f048f674381ae9c"
+    },
+    "timings.json": {
+      "bytes": 212,
+      "sha256": "b0ee4156fd38fb7d68f205d3342a31a5ac81a03f8d939d782279495242254fd2"
+    },
+    "training_curves.csv": {
+      "bytes": 6848,
+      "sha256": "6d227ec59e53c9acff7b98a747ba0b766cbff41a9ce3a70931989a150962ae11"
+    },
+    "verification.json": {
+      "bytes": 409,
+      "sha256": "10c0fd6b8d227b6d600c9a68ff004463004ae310c77d2bfdd7ce873ccef4e606"
+    }
+  },
+  "phase": 3,
+  "scope": "Portable evaluation/model snapshot; complete raw investigation outputs remain in runs/evaluation-v3.",
+  "source_files": {
+    "__init__.py": "fdb153bfd8c450df33f4ff931190944ffd55f795cc81c38663d1dc64f4402ea8",
+    "anomaly.py": "ec64ece8524c17ed3e292ef138def6876b94d2992834f0f9a05c0eca4a08d7f2",
+    "data.py": "b9bc8d6ff2ae88acfd028cceb23738869c23a84d9f0225c652e53cb7f4abd680",
+    "engine.py": "4a90d231670629d85b0ab7b5d27f78d1fb9f06460a17a6ecd1ad37deb02350f4",
+    "evaluation.py": "89866703d2dbde5a7b7ac91c201ee37367072de0c4c7f9e0b232440b26ad61d5",
+    "evaluation_plots.py": "b1fe54aa5f43885599dc7711d2e3bc53edca7d75f6303a044fec1636611af526",
+    "evidence.py": "553f7332246dfb74200bd4905c2f53f95fa9bb2c379a4bde62e39d4f9e0a9e25",
+    "features.py": "dc21e8b6d5062da8ec1cd18158425e17eb6f34894e4e75f9589638549f71d1e0",
+    "fusion.py": "c387f8ab2a302922754b9a55d674dff2fe53807822c6c454f1ab3800c456bb59",
+    "gnn.py": "b2d181834e87187e38023b39ba1f0786de8550c3e16f6945ae2b50ceb43dd243",
+    "graph.py": "cab658e5578e397a84ac841e0f09556ebf500354d5dd8dfac7053cb6cce05984",
+    "metrics.py": "801adba24d9fbfe0afd95abf27ea849e5c44c0b30d688319ab8c98fe4d1cbaed",
+    "network.py": "25c30efb75c7d09d5fe4e2c1b46d3269b235520d1ae11393b345f6ea64db2f8d",
+    "pipeline.py": "6755e6adbc523bd311751680642b8a2b56317b40e6cd27e9f76944020fad6a65",
+    "rules.py": "08a9d00847269f49c6db1a31cc5b182cd3453c4f6cd4b38377cadc2388f9b672"
+  },
+  "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+  "source_run_manifest_sha256": "1f89e6ce648cac6874675b5391727a2d0c4b0064e0570ba0d239afb4b505ca54"
+}

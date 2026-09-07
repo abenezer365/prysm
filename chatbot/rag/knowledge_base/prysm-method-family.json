@@ -1,0 +1,14 @@
+{
+  "id": "prysm-method-family",
+  "title": "Prysm family methodology",
+  "content": "Family pass-through analysis requires an observed transaction path and an active documented relationship. Being related to a person does not itself imply suspicious behavior.",
+  "source": "ai-engine/INTELLIGENCE_V2.md; PHASE3_STATE.md",
+  "category": "methodology",
+  "version": "phase4-1",
+  "createdAt": "2026-09-05T12:25:05.861957+00:00",
+  "metadata": {
+    "cloud_approved": true,
+    "scope": "general_knowledge"
+  },
+  "enabled": true
+}

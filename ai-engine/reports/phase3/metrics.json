@@ -1,0 +1,5618 @@
+{
+  "test": {
+    "anomaly": {
+      "average_precision": 0.6344734432234432,
+      "confusion": {
+        "fn": 7,
+        "fp": 0,
+        "tn": 63,
+        "tp": 1
+      },
+      "f1": 0.2222222222222222,
+      "negatives": 63,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.4,
+          "recall": 0.5,
+          "returned": 10,
+          "true_positives": 4
+        },
+        "20": {
+          "precision": 0.2,
+          "recall": 0.5,
+          "returned": 20,
+          "true_positives": 4
+        },
+        "5": {
+          "precision": 0.8,
+          "recall": 0.5,
+          "returned": 5,
+          "true_positives": 4
+        },
+        "8": {
+          "precision": 0.5,
+          "recall": 0.5,
+          "returned": 8,
+          "true_positives": 4
+        }
+      },
+      "recall": 0.125,
+      "roc_auc": 0.8611111111111112,
+      "support": 71,
+      "threshold": 0.65,
+      "unavailable": 9
+    },
+    "by_scenario": {
+      "amount": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "asset_sale": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 4,
+            "tn": 5,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "declared_trading": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 0,
+          "threshold": 0.65,
+          "unavailable": 9
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "family": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "family_support": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "geography": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "market_day_sales": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "network": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "ordinary_deposits": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "planned_purchase": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "planned_travel": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "structuring": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "supplier_settlement": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "tax": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "theft": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "velocity": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      }
+    },
+    "circular_network": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 1
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 73,
+      "task": "network versus all normal controls; other suspicious types excluded",
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "family": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 1
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 73,
+      "task": "family versus all normal controls; other suspicious types excluded",
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "fusion": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 8
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.8,
+          "recall": 1.0,
+          "returned": 10,
+          "true_positives": 8
+        },
+        "20": {
+          "precision": 0.4,
+          "recall": 1.0,
+          "returned": 20,
+          "true_positives": 8
+        },
+        "5": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "returned": 5,
+          "true_positives": 5
+        },
+        "8": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "returned": 8,
+          "true_positives": 8
+        }
+      },
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_high_tier": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 6,
+        "fp": 0,
+        "tn": 72,
+        "tp": 2
+      },
+      "f1": 0.4,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 0.25,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.65,
+      "unavailable": 0
+    },
+    "fusion_without_anomaly": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 8
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_without_gnn": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 2,
+        "fp": 0,
+        "tn": 72,
+        "tp": 6
+      },
+      "f1": 0.8571428571428571,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 0.75,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_without_network": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 2,
+        "fp": 0,
+        "tn": 72,
+        "tp": 6
+      },
+      "f1": 0.8571428571428571,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 0.75,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_without_rules": {
+      "average_precision": 0.959375,
+      "confusion": {
+        "fn": 2,
+        "fp": 1,
+        "tn": 71,
+        "tp": 6
+      },
+      "f1": 0.8,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 0.8571428571428571,
+      "recall": 0.75,
+      "roc_auc": 0.9947916666666666,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "gnn": {
+      "average_precision": 0.975,
+      "confusion": {
+        "fn": 0,
+        "fp": 4,
+        "tn": 68,
+        "tp": 8
+      },
+      "f1": 0.8,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 0.6666666666666666,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.8,
+          "recall": 1.0,
+          "returned": 10,
+          "true_positives": 8
+        },
+        "20": {
+          "precision": 0.4,
+          "recall": 1.0,
+          "returned": 20,
+          "true_positives": 8
+        },
+        "5": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "returned": 5,
+          "true_positives": 5
+        },
+        "8": {
+          "precision": 0.875,
+          "recall": 0.875,
+          "returned": 8,
+          "true_positives": 7
+        }
+      },
+      "recall": 1.0,
+      "roc_auc": 0.9965277777777778,
+      "support": 80,
+      "threshold": 0.65,
+      "unavailable": 0
+    },
+    "network": {
+      "average_precision": 0.325,
+      "confusion": {
+        "fn": 6,
+        "fp": 0,
+        "tn": 72,
+        "tp": 2
+      },
+      "f1": 0.4,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.2,
+          "recall": 0.25,
+          "returned": 10,
+          "true_positives": 2
+        },
+        "20": {
+          "precision": 0.15,
+          "recall": 0.375,
+          "returned": 20,
+          "true_positives": 3
+        },
+        "5": {
+          "precision": 0.4,
+          "recall": 0.25,
+          "returned": 5,
+          "true_positives": 2
+        },
+        "8": {
+          "precision": 0.25,
+          "recall": 0.25,
+          "returned": 8,
+          "true_positives": 2
+        }
+      },
+      "recall": 0.25,
+      "roc_auc": 0.625,
+      "support": 80,
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "rules": {
+      "average_precision": 0.775,
+      "confusion": {
+        "fn": 2,
+        "fp": 0,
+        "tn": 72,
+        "tp": 6
+      },
+      "f1": 0.8571428571428571,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.6,
+          "recall": 0.75,
+          "returned": 10,
+          "true_positives": 6
+        },
+        "20": {
+          "precision": 0.3,
+          "recall": 0.75,
+          "returned": 20,
+          "true_positives": 6
+        },
+        "5": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "returned": 5,
+          "true_positives": 5
+        },
+        "8": {
+          "precision": 0.75,
+          "recall": 0.75,
+          "returned": 8,
+          "true_positives": 6
+        }
+      },
+      "recall": 0.75,
+      "roc_auc": 0.875,
+      "support": 80,
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "rules_or_network": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 8
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.5,
+      "unavailable": 0
+    }
+  },
+  "train": {
+    "anomaly": {
+      "average_precision": 0.6546018893387314,
+      "confusion": {
+        "fn": 7,
+        "fp": 0,
+        "tn": 63,
+        "tp": 1
+      },
+      "f1": 0.2222222222222222,
+      "negatives": 63,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.4,
+          "recall": 0.5,
+          "returned": 10,
+          "true_positives": 4
+        },
+        "20": {
+          "precision": 0.3,
+          "recall": 0.75,
+          "returned": 20,
+          "true_positives": 6
+        },
+        "5": {
+          "precision": 0.8,
+          "recall": 0.5,
+          "returned": 5,
+          "true_positives": 4
+        },
+        "8": {
+          "precision": 0.5,
+          "recall": 0.5,
+          "returned": 8,
+          "true_positives": 4
+        }
+      },
+      "recall": 0.125,
+      "roc_auc": 0.8829365079365079,
+      "support": 71,
+      "threshold": 0.65,
+      "unavailable": 9
+    },
+    "by_scenario": {
+      "amount": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "asset_sale": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 3,
+            "tn": 6,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "declared_trading": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 0,
+          "threshold": 0.65,
+          "unavailable": 9
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "family": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "family_support": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "geography": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "market_day_sales": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "network": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "ordinary_deposits": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "planned_purchase": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "planned_travel": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "structuring": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "supplier_settlement": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "tax": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "theft": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "velocity": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      }
+    },
+    "circular_network": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 1
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 73,
+      "task": "network versus all normal controls; other suspicious types excluded",
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "family": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 1
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 73,
+      "task": "family versus all normal controls; other suspicious types excluded",
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "fusion": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 8
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.8,
+          "recall": 1.0,
+          "returned": 10,
+          "true_positives": 8
+        },
+        "20": {
+          "precision": 0.4,
+          "recall": 1.0,
+          "returned": 20,
+          "true_positives": 8
+        },
+        "5": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "returned": 5,
+          "true_positives": 5
+        },
+        "8": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "returned": 8,
+          "true_positives": 8
+        }
+      },
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_high_tier": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 7,
+        "fp": 0,
+        "tn": 72,
+        "tp": 1
+      },
+      "f1": 0.2222222222222222,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 0.125,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.65,
+      "unavailable": 0
+    },
+    "fusion_without_anomaly": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 8
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_without_gnn": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 2,
+        "fp": 0,
+        "tn": 72,
+        "tp": 6
+      },
+      "f1": 0.8571428571428571,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 0.75,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_without_network": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 2,
+        "fp": 0,
+        "tn": 72,
+        "tp": 6
+      },
+      "f1": 0.8571428571428571,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 0.75,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_without_rules": {
+      "average_precision": 0.9502840909090909,
+      "confusion": {
+        "fn": 2,
+        "fp": 1,
+        "tn": 71,
+        "tp": 6
+      },
+      "f1": 0.8,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 0.8571428571428571,
+      "recall": 0.75,
+      "roc_auc": 0.9930555555555556,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "gnn": {
+      "average_precision": 0.9659090909090909,
+      "confusion": {
+        "fn": 0,
+        "fp": 3,
+        "tn": 69,
+        "tp": 8
+      },
+      "f1": 0.8421052631578947,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 0.7272727272727273,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.7,
+          "recall": 0.875,
+          "returned": 10,
+          "true_positives": 7
+        },
+        "20": {
+          "precision": 0.4,
+          "recall": 1.0,
+          "returned": 20,
+          "true_positives": 8
+        },
+        "5": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "returned": 5,
+          "true_positives": 5
+        },
+        "8": {
+          "precision": 0.875,
+          "recall": 0.875,
+          "returned": 8,
+          "true_positives": 7
+        }
+      },
+      "recall": 1.0,
+      "roc_auc": 0.9947916666666666,
+      "support": 80,
+      "threshold": 0.65,
+      "unavailable": 0
+    },
+    "network": {
+      "average_precision": 0.325,
+      "confusion": {
+        "fn": 6,
+        "fp": 0,
+        "tn": 72,
+        "tp": 2
+      },
+      "f1": 0.4,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.2,
+          "recall": 0.25,
+          "returned": 10,
+          "true_positives": 2
+        },
+        "20": {
+          "precision": 0.2,
+          "recall": 0.5,
+          "returned": 20,
+          "true_positives": 4
+        },
+        "5": {
+          "precision": 0.4,
+          "recall": 0.25,
+          "returned": 5,
+          "true_positives": 2
+        },
+        "8": {
+          "precision": 0.25,
+          "recall": 0.25,
+          "returned": 8,
+          "true_positives": 2
+        }
+      },
+      "recall": 0.25,
+      "roc_auc": 0.625,
+      "support": 80,
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "rules": {
+      "average_precision": 0.775,
+      "confusion": {
+        "fn": 2,
+        "fp": 0,
+        "tn": 72,
+        "tp": 6
+      },
+      "f1": 0.8571428571428571,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.6,
+          "recall": 0.75,
+          "returned": 10,
+          "true_positives": 6
+        },
+        "20": {
+          "precision": 0.3,
+          "recall": 0.75,
+          "returned": 20,
+          "true_positives": 6
+        },
+        "5": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "returned": 5,
+          "true_positives": 5
+        },
+        "8": {
+          "precision": 0.75,
+          "recall": 0.75,
+          "returned": 8,
+          "true_positives": 6
+        }
+      },
+      "recall": 0.75,
+      "roc_auc": 0.875,
+      "support": 80,
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "rules_or_network": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 8
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.5,
+      "unavailable": 0
+    }
+  },
+  "validation": {
+    "anomaly": {
+      "average_precision": 0.6394337606837607,
+      "confusion": {
+        "fn": 7,
+        "fp": 0,
+        "tn": 63,
+        "tp": 1
+      },
+      "f1": 0.2222222222222222,
+      "negatives": 63,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.4,
+          "recall": 0.5,
+          "returned": 10,
+          "true_positives": 4
+        },
+        "20": {
+          "precision": 0.25,
+          "recall": 0.625,
+          "returned": 20,
+          "true_positives": 5
+        },
+        "5": {
+          "precision": 0.8,
+          "recall": 0.5,
+          "returned": 5,
+          "true_positives": 4
+        },
+        "8": {
+          "precision": 0.5,
+          "recall": 0.5,
+          "returned": 8,
+          "true_positives": 4
+        }
+      },
+      "recall": 0.125,
+      "roc_auc": 0.8670634920634921,
+      "support": 71,
+      "threshold": 0.65,
+      "unavailable": 9
+    },
+    "by_scenario": {
+      "amount": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "asset_sale": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 3,
+            "tn": 6,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "declared_trading": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 0,
+          "threshold": 0.65,
+          "unavailable": 9
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "family": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "family_support": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "geography": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "market_day_sales": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "network": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "ordinary_deposits": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "planned_purchase": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "planned_travel": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "structuring": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "supplier_settlement": {
+        "anomaly": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": null,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 9,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 9,
+          "positives": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 9,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "tax": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "theft": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      },
+      "velocity": {
+        "anomaly": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "fusion": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.35,
+          "unavailable": 0
+        },
+        "gnn": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.65,
+          "unavailable": 0
+        },
+        "network": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 1,
+            "fp": 0,
+            "tn": 0,
+            "tp": 0
+          },
+          "f1": 0.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        },
+        "rules": {
+          "average_precision": 1.0,
+          "confusion": {
+            "fn": 0,
+            "fp": 0,
+            "tn": 0,
+            "tp": 1
+          },
+          "f1": 1.0,
+          "negatives": 0,
+          "positives": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "roc_auc": null,
+          "support": 1,
+          "threshold": 0.5,
+          "unavailable": 0
+        }
+      }
+    },
+    "circular_network": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 1
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 73,
+      "task": "network versus all normal controls; other suspicious types excluded",
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "family": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 1
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 73,
+      "task": "family versus all normal controls; other suspicious types excluded",
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "fusion": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 8
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.8,
+          "recall": 1.0,
+          "returned": 10,
+          "true_positives": 8
+        },
+        "20": {
+          "precision": 0.4,
+          "recall": 1.0,
+          "returned": 20,
+          "true_positives": 8
+        },
+        "5": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "returned": 5,
+          "true_positives": 5
+        },
+        "8": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "returned": 8,
+          "true_positives": 8
+        }
+      },
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_high_tier": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 7,
+        "fp": 0,
+        "tn": 72,
+        "tp": 1
+      },
+      "f1": 0.2222222222222222,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 0.125,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.65,
+      "unavailable": 0
+    },
+    "fusion_without_anomaly": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 8
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_without_gnn": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 2,
+        "fp": 0,
+        "tn": 72,
+        "tp": 6
+      },
+      "f1": 0.8571428571428571,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 0.75,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_without_network": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 2,
+        "fp": 0,
+        "tn": 72,
+        "tp": 6
+      },
+      "f1": 0.8571428571428571,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 0.75,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "fusion_without_rules": {
+      "average_precision": 0.9362980769230769,
+      "confusion": {
+        "fn": 1,
+        "fp": 1,
+        "tn": 71,
+        "tp": 7
+      },
+      "f1": 0.875,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 0.875,
+      "recall": 0.875,
+      "roc_auc": 0.9895833333333334,
+      "support": 80,
+      "threshold": 0.35,
+      "unavailable": 0
+    },
+    "gnn": {
+      "average_precision": 0.9659090909090909,
+      "confusion": {
+        "fn": 0,
+        "fp": 3,
+        "tn": 69,
+        "tp": 8
+      },
+      "f1": 0.8421052631578947,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 0.7272727272727273,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.7,
+          "recall": 0.875,
+          "returned": 10,
+          "true_positives": 7
+        },
+        "20": {
+          "precision": 0.4,
+          "recall": 1.0,
+          "returned": 20,
+          "true_positives": 8
+        },
+        "5": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "returned": 5,
+          "true_positives": 5
+        },
+        "8": {
+          "precision": 0.875,
+          "recall": 0.875,
+          "returned": 8,
+          "true_positives": 7
+        }
+      },
+      "recall": 1.0,
+      "roc_auc": 0.9947916666666666,
+      "support": 80,
+      "threshold": 0.65,
+      "unavailable": 0
+    },
+    "network": {
+      "average_precision": 0.325,
+      "confusion": {
+        "fn": 6,
+        "fp": 0,
+        "tn": 72,
+        "tp": 2
+      },
+      "f1": 0.4,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.4,
+          "recall": 0.5,
+          "returned": 10,
+          "true_positives": 4
+        },
+        "20": {
+          "precision": 0.2,
+          "recall": 0.5,
+          "returned": 20,
+          "true_positives": 4
+        },
+        "5": {
+          "precision": 0.4,
+          "recall": 0.25,
+          "returned": 5,
+          "true_positives": 2
+        },
+        "8": {
+          "precision": 0.375,
+          "recall": 0.375,
+          "returned": 8,
+          "true_positives": 3
+        }
+      },
+      "recall": 0.25,
+      "roc_auc": 0.625,
+      "support": 80,
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "rules": {
+      "average_precision": 0.775,
+      "confusion": {
+        "fn": 2,
+        "fp": 0,
+        "tn": 72,
+        "tp": 6
+      },
+      "f1": 0.8571428571428571,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "ranking": {
+        "1": {
+          "precision": 1.0,
+          "recall": 0.125,
+          "returned": 1,
+          "true_positives": 1
+        },
+        "10": {
+          "precision": 0.6,
+          "recall": 0.75,
+          "returned": 10,
+          "true_positives": 6
+        },
+        "20": {
+          "precision": 0.35,
+          "recall": 0.875,
+          "returned": 20,
+          "true_positives": 7
+        },
+        "5": {
+          "precision": 1.0,
+          "recall": 0.625,
+          "returned": 5,
+          "true_positives": 5
+        },
+        "8": {
+          "precision": 0.75,
+          "recall": 0.75,
+          "returned": 8,
+          "true_positives": 6
+        }
+      },
+      "recall": 0.75,
+      "roc_auc": 0.875,
+      "support": 80,
+      "threshold": 0.5,
+      "unavailable": 0
+    },
+    "rules_or_network": {
+      "average_precision": 1.0,
+      "confusion": {
+        "fn": 0,
+        "fp": 0,
+        "tn": 72,
+        "tp": 8
+      },
+      "f1": 1.0,
+      "negatives": 72,
+      "positives": 8,
+      "precision": 1.0,
+      "recall": 1.0,
+      "roc_auc": 1.0,
+      "support": 80,
+      "threshold": 0.5,
+      "unavailable": 0
+    }
+  }
+}

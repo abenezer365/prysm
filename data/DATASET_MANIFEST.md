@@ -1,5 +1,7 @@
 # Prysm Raw Data Manifest
 
+> Historical raw-data inventory. The new Phase 1 benchmark is documented in [benchmarks/prysm-benchmark-v1/DATASET_MANIFEST.md](benchmarks/prysm-benchmark-v1/DATASET_MANIFEST.md). Its seven-file source and explicit export replace neither these immutable raw files nor the active historical runtime automatically.
+
 ## Overview
 
 - Datasets: 9 Parquet files; unsupported structured formats: none found.

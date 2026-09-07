@@ -26,6 +26,7 @@ import {
   BugsAdmin,
   ContributorsAdmin,
   GnnAdmin,
+  ModelsAdmin,
   NewsAdmin,
   OperationalDashboard,
   RagAdmin,
@@ -36,6 +37,7 @@ import { useAuth } from "./context/AuthContext";
 import StateView from "./components/StateView";
 import News from "./pages/News";
 import { BetaProgram, Contributors } from "./pages/CommunityPages";
+import InvestigationChat from "./components/InvestigationChat";
 function Protected() {
   const auth = useAuth(),
     loc = useLocation();
@@ -74,6 +76,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<FormPage kind="contact" />} />
+        <Route path="report/intelligence" element={<FormPage kind="intelligence" />} />
         <Route path="docs" element={<Docs />} />
         <Route path="docs/glossary" element={<Glossary />} />
       <Route path="faq" element={<FAQ />} />
@@ -121,6 +124,7 @@ export default function App() {
         <Route path="news" element={<NewsAdmin />} />
         <Route path="activity" element={<ActivityAdmin />} />
         <Route path="gnn-maze" element={<GnnAdmin />} />
+        <Route path="models" element={<ModelsAdmin />} />
         <Route path="settings" element={<SettingsAdmin />} />
         <Route path="access" element={<AccessAdmin />} />
         <Route path="bugs" element={<BugsAdmin />} />
@@ -128,6 +132,7 @@ export default function App() {
         <Route path="contributors" element={<ContributorsAdmin />} />
         <Route path="investigations" element={<Investigations />} />
         <Route path="investigations/:id" element={<Investigation />} />
+        <Route path="investigations/:id/chat" element={<InvestigationChat />} />
         <Route path="subjects/:id" element={<Subject />} />
       </Route>
       <Route path="*" element={<NotFound />} />

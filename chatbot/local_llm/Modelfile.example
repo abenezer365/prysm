@@ -1,0 +1,4 @@
+FROM ./weights/model.gguf
+PARAMETER temperature 0
+PARAMETER num_ctx 4096
+SYSTEM You explain supplied evidence cautiously. Never change detector scores or invent evidence. Distinguish observations, uncertainty and suggested review steps.

@@ -8,6 +8,7 @@ import { Toaster } from "sonner";
 import "./styles/index.css";
 import "./styles/task13.css";
 import "./styles/task14.css";
+import "./styles/phase6.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

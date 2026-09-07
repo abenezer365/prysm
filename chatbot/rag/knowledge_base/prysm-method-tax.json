@@ -1,0 +1,14 @@
+{
+  "id": "prysm-method-tax",
+  "title": "Prysm tax methodology",
+  "content": "Business-tagged personal receipts and an available declaration can support a mismatch lead. Check ownership, declaration period, reporting completeness and transaction purpose; no tax verdict follows automatically.",
+  "source": "ai-engine/INTELLIGENCE_V2.md; PHASE3_STATE.md",
+  "category": "methodology",
+  "version": "phase4-1",
+  "createdAt": "2026-09-05T12:25:05.861957+00:00",
+  "metadata": {
+    "cloud_approved": true,
+    "scope": "general_knowledge"
+  },
+  "enabled": true
+}

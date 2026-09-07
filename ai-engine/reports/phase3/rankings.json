@@ -1,0 +1,5203 @@
+{
+  "by_split": {
+    "test": [
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P01790",
+        "evidence_ids": [
+          "EVD:8017b314c607309c3570",
+          "EVD:afe107ac4d3b06073f4e",
+          "EVD:b1e85ae347e368fadf11"
+        ],
+        "ground_truth": {
+          "scenario": "theft",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.7104148014100883,
+        "rank": 1,
+        "risk_level": "high",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.7785914076331,
+            "weighted_contribution": 0.15571828152662
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9979767992231217,
+            "weighted_contribution": 0.14969651988346824
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Large rapid outflows use devices absent from prior initiating-account activity; investigate possible unauthorized use.",
+            "entity_id": "Person:P01790",
+            "evidence_id": "EVD:8017b314c607309c3570",
+            "graph_highlight": true,
+            "measurements": {
+              "count": 6,
+              "income_etb": 7100.0,
+              "minutes": 60,
+              "outflow_etb": 85200.0
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "NEW_DEVICE_RAPID_OUTFLOW",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0003217",
+              "TX:T0003218",
+              "TX:T0003219",
+              "TX:T0003220",
+              "TX:T0003221",
+              "TX:T0003222"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01790",
+              "Account:A01791",
+              "Person:P01790"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0003217",
+              "T0003218",
+              "T0003219",
+              "T0003220",
+              "T0003221",
+              "T0003222"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-04T08:05:00+00:00",
+              "2025-12-04T08:10:00+00:00",
+              "2025-12-04T08:15:00+00:00",
+              "2025-12-04T08:20:00+00:00",
+              "2025-12-04T08:25:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "Several behavioral measurements depart from the training-normal reference and the subject's own prior history.",
+            "entity_id": "Person:P01790",
+            "evidence_id": "EVD:afe107ac4d3b06073f4e",
+            "graph_highlight": true,
+            "measurements": {
+              "baseline": "train-normal robust median/MAD",
+              "contributions": [
+                {
+                  "baseline_log_median": 0.3191383330509693,
+                  "feature": "outflow_to_income",
+                  "robust_z": 11.015843417469464,
+                  "score_contribution": 0.3121082823136942,
+                  "transaction_ids": [
+                    "T0003217",
+                    "T0003218",
+                    "T0003219",
+                    "T0003220",
+                    "T0003221",
+                    "T0003222"
+                  ],
+                  "value": 12.0
+                },
+                {
+                  "baseline_log_median": 0.5724177712395719,
+                  "feature": "amount_to_history",
+                  "robust_z": 5.057123527412572,
+                  "score_contribution": 0.23918588915501257,
+                  "transaction_ids": [
+                    "T0003217"
+                  ],
+                  "value": 8.51707012787601
+                },
+                {
+                  "baseline_log_median": 0.6931471805599453,
+                  "feature": "burst_15m",
+                  "robust_z": 4.581453659370775,
+                  "score_contribution": 0.22729723616439323,
+                  "transaction_ids": [
+                    "T0003217",
+                    "T0003218",
+                    "T0003219",
+                    "T0003220"
+                  ],
+                  "value": 4.0
+                }
+              ]
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "medium",
+            "signal_source": "anomaly",
+            "signal_type": "BEHAVIORAL_DEVIATION",
+            "strength": 0.7785914076331,
+            "supporting_edge_ids": [
+              "TX:T0003217",
+              "TX:T0003218",
+              "TX:T0003219",
+              "TX:T0003220",
+              "TX:T0003221",
+              "TX:T0003222"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01790",
+              "Account:A01791",
+              "Person:P01790"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0003217",
+              "T0003218",
+              "T0003219",
+              "T0003220",
+              "T0003221",
+              "T0003222"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-04T08:05:00+00:00",
+              "2025-12-04T08:10:00+00:00",
+              "2025-12-04T08:15:00+00:00",
+              "2025-12-04T08:20:00+00:00",
+              "2025-12-04T08:25:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P01790",
+            "evidence_id": "EVD:b1e85ae347e368fadf11",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.00026288147301201104,
+                  "source_node": "Account:A01790",
+                  "target_node": "Account:A01791",
+                  "transaction_ids": [
+                    "T0003217",
+                    "T0003218",
+                    "T0003219",
+                    "T0003220",
+                    "T0003221",
+                    "T0003222"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9979767992231217,
+            "supporting_edge_ids": [
+              "TX:T0003217",
+              "TX:T0003218",
+              "TX:T0003219",
+              "TX:T0003220",
+              "TX:T0003221",
+              "TX:T0003222"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01790",
+              "Account:A01791",
+              "Person:P01790"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0003217",
+              "T0003218",
+              "T0003219",
+              "T0003220",
+              "T0003221",
+              "T0003222"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-04T08:05:00+00:00",
+              "2025-12-04T08:10:00+00:00",
+              "2025-12-04T08:15:00+00:00",
+              "2025-12-04T08:20:00+00:00",
+              "2025-12-04T08:25:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P01730",
+        "evidence_ids": [
+          "EVD:681364708953f73cdbd5",
+          "EVD:957e12e97c229c5a5001"
+        ],
+        "ground_truth": {
+          "scenario": "geography",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.6523249768274038,
+        "rank": 2,
+        "risk_level": "high",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.48946013840146047,
+            "weighted_contribution": 0.09789202768029209
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9962196609807445,
+            "weighted_contribution": 0.14943294914711167
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Initiating-account branch events imply implausible physical travel; verify location quality or unauthorized account use.",
+            "entity_id": "Person:P01730",
+            "evidence_id": "EVD:681364708953f73cdbd5",
+            "graph_highlight": true,
+            "measurements": {
+              "pairs": [
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0003109",
+                    "T0003110"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0003110",
+                    "T0003111"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0003111",
+                    "T0003112"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0003112",
+                    "T0003113"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0003113",
+                    "T0003114"
+                  ]
+                }
+              ],
+              "speed_reference_kmh": 500
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "IMPOSSIBLE_BRANCH_TRAVEL",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0003109",
+              "TX:T0003110",
+              "TX:T0003111",
+              "TX:T0003112",
+              "TX:T0003113",
+              "TX:T0003114"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01730",
+              "Account:A01731",
+              "Person:P01730"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0003109",
+              "T0003110",
+              "T0003111",
+              "T0003112",
+              "T0003113",
+              "T0003114"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-04T08:15:00+00:00",
+              "2025-12-04T08:30:00+00:00",
+              "2025-12-04T08:45:00+00:00",
+              "2025-12-04T09:00:00+00:00",
+              "2025-12-04T09:15:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P01730",
+            "evidence_id": "EVD:957e12e97c229c5a5001",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.0008952892408489177,
+                  "source_node": "Account:A01730",
+                  "target_node": "Account:A01731",
+                  "transaction_ids": [
+                    "T0003109",
+                    "T0003110",
+                    "T0003111",
+                    "T0003112",
+                    "T0003113",
+                    "T0003114"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9962196609807445,
+            "supporting_edge_ids": [
+              "TX:T0003109",
+              "TX:T0003110",
+              "TX:T0003111",
+              "TX:T0003112",
+              "TX:T0003113",
+              "TX:T0003114"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01730",
+              "Account:A01731",
+              "Person:P01730"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0003109",
+              "T0003110",
+              "T0003111",
+              "T0003112",
+              "T0003113",
+              "T0003114"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-04T08:15:00+00:00",
+              "2025-12-04T08:30:00+00:00",
+              "2025-12-04T08:45:00+00:00",
+              "2025-12-04T09:00:00+00:00",
+              "2025-12-04T09:15:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P01870",
+        "evidence_ids": [
+          "EVD:f53fe6daa5ffb5932d35",
+          "EVD:688045b7b35b93e6cfd3"
+        ],
+        "ground_truth": {
+          "scenario": "structuring",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.6124565654184075,
+        "rank": 3,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.28882607720114406,
+            "weighted_contribution": 0.05776521544022881
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9979423331878583,
+            "weighted_contribution": 0.14969134997817873
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Clustered cash deposits just below the configured synthetic review reference; this reference is not a legal threshold.",
+            "entity_id": "Person:P01870",
+            "evidence_id": "EVD:f53fe6daa5ffb5932d35",
+            "graph_highlight": true,
+            "measurements": {
+              "count": 6,
+              "minutes": 60,
+              "reference_etb": 10000
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "STRUCTURED_DEPOSITS",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0003361",
+              "TX:T0003362",
+              "TX:T0003363",
+              "TX:T0003364",
+              "TX:T0003365",
+              "TX:T0003366"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01870",
+              "Account:A01871",
+              "Person:P01870"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0003361",
+              "T0003362",
+              "T0003363",
+              "T0003364",
+              "T0003365",
+              "T0003366"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-04T08:12:00+00:00",
+              "2025-12-04T08:24:00+00:00",
+              "2025-12-04T08:36:00+00:00",
+              "2025-12-04T08:48:00+00:00",
+              "2025-12-04T09:00:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P01870",
+            "evidence_id": "EVD:688045b7b35b93e6cfd3",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.0001832890268590459,
+                  "source_node": "Account:A01871",
+                  "target_node": "Account:A01870",
+                  "transaction_ids": [
+                    "T0003361",
+                    "T0003362",
+                    "T0003363",
+                    "T0003364",
+                    "T0003365",
+                    "T0003366"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9979423331878583,
+            "supporting_edge_ids": [
+              "TX:T0003361",
+              "TX:T0003362",
+              "TX:T0003363",
+              "TX:T0003364",
+              "TX:T0003365",
+              "TX:T0003366"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01870",
+              "Account:A01871",
+              "Person:P01870"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0003361",
+              "T0003362",
+              "T0003363",
+              "T0003364",
+              "T0003365",
+              "T0003366"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-04T08:12:00+00:00",
+              "2025-12-04T08:24:00+00:00",
+              "2025-12-04T08:36:00+00:00",
+              "2025-12-04T08:48:00+00:00",
+              "2025-12-04T09:00:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P02160",
+        "evidence_ids": [
+          "EVD:101350a93b78a8184d20",
+          "EVD:cffe6802f0ee94c04a21"
+        ],
+        "ground_truth": {
+          "scenario": "velocity",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.6074564471277303,
+        "rank": 4,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.263703767075331,
+            "weighted_contribution": 0.052740753415066205
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9981046247510938,
+            "weighted_contribution": 0.14971569371266408
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Observed activity is concentrated into a short interval after sparse historical activity.",
+            "entity_id": "Person:P02160",
+            "evidence_id": "EVD:101350a93b78a8184d20",
+            "graph_highlight": true,
+            "measurements": {
+              "count": 6,
+              "minutes": 15,
+              "prior_count": 9
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "HIGH_VELOCITY",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0003883",
+              "TX:T0003884",
+              "TX:T0003885",
+              "TX:T0003886",
+              "TX:T0003887",
+              "TX:T0003888"
+            ],
+            "supporting_entity_ids": [
+              "Account:A02160",
+              "Account:A02161",
+              "Person:P02160"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0003883",
+              "T0003884",
+              "T0003885",
+              "T0003886",
+              "T0003887",
+              "T0003888"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-04T08:03:00+00:00",
+              "2025-12-04T08:06:00+00:00",
+              "2025-12-04T08:09:00+00:00",
+              "2025-12-04T08:12:00+00:00",
+              "2025-12-04T08:15:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P02160",
+            "evidence_id": "EVD:cffe6802f0ee94c04a21",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.00019390834211818753,
+                  "source_node": "Account:A02161",
+                  "target_node": "Account:A02160",
+                  "transaction_ids": [
+                    "T0003883",
+                    "T0003884",
+                    "T0003885",
+                    "T0003886",
+                    "T0003887",
+                    "T0003888"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9981046247510938,
+            "supporting_edge_ids": [
+              "TX:T0003883",
+              "TX:T0003884",
+              "TX:T0003885",
+              "TX:T0003886",
+              "TX:T0003887",
+              "TX:T0003888"
+            ],
+            "supporting_entity_ids": [
+              "Account:A02160",
+              "Account:A02161",
+              "Person:P02160"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0003883",
+              "T0003884",
+              "T0003885",
+              "T0003886",
+              "T0003887",
+              "T0003888"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-04T08:03:00+00:00",
+              "2025-12-04T08:06:00+00:00",
+              "2025-12-04T08:09:00+00:00",
+              "2025-12-04T08:12:00+00:00",
+              "2025-12-04T08:15:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P02250",
+        "evidence_ids": [
+          "EVD:e67cc1317d1b7cfb7cdb",
+          "EVD:7c50d48f2cddf837aece"
+        ],
+        "ground_truth": {
+          "scenario": "tax",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.592842593937748,
+        "rank": 5,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.23496071280181563,
+            "weighted_contribution": 0.04699214256036313
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9390030091825657,
+            "weighted_contribution": 0.14085045137738486
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Business-tagged receipts reach the beneficial owner's personal accounts near the business and exceed its available declaration for the same period. This is a potential tax-investigation lead, not proof of evasion.",
+            "entity_id": "Person:P02250",
+            "evidence_id": "EVD:e67cc1317d1b7cfb7cdb",
+            "graph_highlight": true,
+            "measurements": {
+              "business_id": "C0225",
+              "declaration_source": "companies.parquet",
+              "declared_sales_etb": 15500.0,
+              "distance_reference_km": 10,
+              "nearby_receipts": 6,
+              "personal_receipts_etb": 186000.0,
+              "sales_period_end": "2025-12-11T08:00:00+00:00",
+              "sales_period_start": "2025-12-04T08:00:00+00:00",
+              "sales_reported_at": "2025-12-11T09:00:00+00:00"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet",
+                "relationships.parquet",
+                "companies.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "BUSINESS_RECEIPTS_MISMATCH",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0004045",
+              "TX:T0004046",
+              "TX:T0004047",
+              "TX:T0004048",
+              "TX:T0004049",
+              "TX:T0004050",
+              "REL:R000674"
+            ],
+            "supporting_entity_ids": [
+              "Account:A02250",
+              "Account:A02251",
+              "Company:C0225",
+              "Person:P02250"
+            ],
+            "supporting_relationship_ids": [
+              "R000674"
+            ],
+            "supporting_transaction_ids": [
+              "T0004045",
+              "T0004046",
+              "T0004047",
+              "T0004048",
+              "T0004049",
+              "T0004050"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-05T08:00:00+00:00",
+              "2025-12-06T08:00:00+00:00",
+              "2025-12-07T08:00:00+00:00",
+              "2025-12-08T08:00:00+00:00",
+              "2025-12-09T08:00:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P02250",
+            "evidence_id": "EVD:7c50d48f2cddf837aece",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9390030091825657,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P02250"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P02000",
+        "evidence_ids": [
+          "EVD:5456a1a459c52acbd31d",
+          "EVD:85488d68abbff7385621"
+        ],
+        "ground_truth": {
+          "scenario": "amount",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.5818285744324923,
+        "rank": 6,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.3058242235801471,
+            "weighted_contribution": 0.061164844716029426
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.7710915314430851,
+            "weighted_contribution": 0.11566372971646276
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Amount exceeds both declared monthly income and historical transaction size without recorded asset-sale context.",
+            "entity_id": "Person:P02000",
+            "evidence_id": "EVD:5456a1a459c52acbd31d",
+            "graph_highlight": true,
+            "measurements": {
+              "history_median_etb": 2909.42,
+              "income_etb": 11600.0,
+              "income_multiple": 10
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "UNEXPLAINED_AMOUNT",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0003595"
+            ],
+            "supporting_entity_ids": [
+              "Account:A02000",
+              "Account:A02001",
+              "Person:P02000"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0003595"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P02000",
+            "evidence_id": "EVD:85488d68abbff7385621",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "medium",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.7710915314430851,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P02000"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P02340",
+        "evidence_ids": [
+          "EVD:9bcdf28fa7b5821a01d9",
+          "EVD:5e561f1c21c4d78022f7"
+        ],
+        "ground_truth": {
+          "scenario": "network",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.43928498404107236,
+        "rank": 7,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.49731895140537075,
+            "weighted_contribution": 0.09946379028107416
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9988079583999879,
+            "weighted_contribution": 0.1498211937599982
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.95,
+            "weighted_contribution": 0.19
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Rapid, approximately amount-preserving circular movement through connected accounts; inspect the purpose of each leg.",
+            "entity_id": "Person:P02340",
+            "evidence_id": "EVD:9bcdf28fa7b5821a01d9",
+            "graph_highlight": true,
+            "measurements": {
+              "amount_tolerance": 0.05,
+              "maximum_minutes": 60,
+              "path_count": 4,
+              "transaction_paths": [
+                [
+                  "T0004207",
+                  "T0004208",
+                  "T0004209"
+                ],
+                [
+                  "T0004207",
+                  "T0004208",
+                  "T0004212"
+                ],
+                [
+                  "T0004207",
+                  "T0004211",
+                  "T0004212"
+                ],
+                [
+                  "T0004210",
+                  "T0004211",
+                  "T0004212"
+                ]
+              ]
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet",
+                "relationships.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "network",
+            "signal_type": "RAPID_CIRCULAR_FLOW",
+            "strength": 0.95,
+            "supporting_edge_ids": [
+              "TX:T0004207",
+              "TX:T0004208",
+              "TX:T0004209",
+              "TX:T0004210",
+              "TX:T0004211",
+              "TX:T0004212",
+              "REL:R000701"
+            ],
+            "supporting_entity_ids": [
+              "Account:A02340",
+              "Account:A02341",
+              "Account:A02343",
+              "Company:C0234",
+              "Person:P02340",
+              "Person:P02341"
+            ],
+            "supporting_relationship_ids": [
+              "R000701"
+            ],
+            "supporting_transaction_ids": [
+              "T0004207",
+              "T0004208",
+              "T0004209",
+              "T0004210",
+              "T0004211",
+              "T0004212"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-04T08:10:00+00:00",
+              "2025-12-04T08:20:00+00:00",
+              "2025-12-04T08:30:00+00:00",
+              "2025-12-04T08:40:00+00:00",
+              "2025-12-04T08:50:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P02340",
+            "evidence_id": "EVD:5e561f1c21c4d78022f7",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9988079583999879,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P02340"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P02310",
+        "evidence_ids": [
+          "EVD:0e65f78938049efc1bed",
+          "EVD:e39e82b93cea6458d5cc"
+        ],
+        "ground_truth": {
+          "scenario": "family",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.4326975453907367,
+        "rank": 8,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.4638871312943804,
+            "weighted_contribution": 0.09277742625887608
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9994674608790708,
+            "weighted_contribution": 0.14992011913186062
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.95,
+            "weighted_contribution": 0.19
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Rapid, approximately amount-preserving circular movement through a documented relative and connected accounts; family ties alone do not assign risk.",
+            "entity_id": "Person:P02310",
+            "evidence_id": "EVD:0e65f78938049efc1bed",
+            "graph_highlight": true,
+            "measurements": {
+              "amount_tolerance": 0.05,
+              "maximum_minutes": 60,
+              "path_count": 4,
+              "transaction_paths": [
+                [
+                  "T0004153",
+                  "T0004154",
+                  "T0004155"
+                ],
+                [
+                  "T0004153",
+                  "T0004154",
+                  "T0004158"
+                ],
+                [
+                  "T0004153",
+                  "T0004157",
+                  "T0004158"
+                ],
+                [
+                  "T0004156",
+                  "T0004157",
+                  "T0004158"
+                ]
+              ]
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet",
+                "relationships.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "network",
+            "signal_type": "FAMILY_PASS_THROUGH",
+            "strength": 0.95,
+            "supporting_edge_ids": [
+              "TX:T0004153",
+              "TX:T0004154",
+              "TX:T0004155",
+              "TX:T0004156",
+              "TX:T0004157",
+              "TX:T0004158",
+              "REL:R000691",
+              "REL:R000692"
+            ],
+            "supporting_entity_ids": [
+              "Account:A02310",
+              "Account:A02312",
+              "Account:A02313",
+              "Company:C0231",
+              "Person:P02310",
+              "Person:P02312"
+            ],
+            "supporting_relationship_ids": [
+              "R000691",
+              "R000692"
+            ],
+            "supporting_transaction_ids": [
+              "T0004153",
+              "T0004154",
+              "T0004155",
+              "T0004156",
+              "T0004157",
+              "T0004158"
+            ],
+            "timestamps": [
+              "2025-12-04T08:00:00+00:00",
+              "2025-12-04T08:10:00+00:00",
+              "2025-12-04T08:20:00+00:00",
+              "2025-12-04T08:30:00+00:00",
+              "2025-12-04T08:40:00+00:00",
+              "2025-12-04T08:50:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P02310",
+            "evidence_id": "EVD:e39e82b93cea6458d5cc",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 7.228571892836655e-06,
+                  "source_node": "Account:A02312",
+                  "target_node": "Account:A02313",
+                  "transaction_ids": [
+                    "T0004154",
+                    "T0004157"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9994674608790708,
+            "supporting_edge_ids": [
+              "TX:T0004154",
+              "TX:T0004157"
+            ],
+            "supporting_entity_ids": [
+              "Account:A02312",
+              "Account:A02313",
+              "Person:P02310"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0004154",
+              "T0004157"
+            ],
+            "timestamps": [
+              "2025-12-04T08:10:00+00:00",
+              "2025-12-04T08:40:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P02060",
+        "evidence_ids": [
+          "EVD:73e32e50e6dc5557c561"
+        ],
+        "ground_truth": {
+          "scenario": "asset_sale",
+          "suspicious": false
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.19542446060194718,
+        "rank": 9,
+        "risk_level": "low",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.3134087763293322,
+            "weighted_contribution": 0.06268175526586643
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.8849513689072049,
+            "weighted_contribution": 0.13274270533608074
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P02060",
+            "evidence_id": "EVD:73e32e50e6dc5557c561",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.8849513689072049,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P02060"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-12-11T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P02010",
+        "evidence_ids": [
+          "EVD:78966b4088c8ae67451b"
+        ],
+        "ground_truth": {
+          "scenario": "asset_sale",
+          "suspicious": false
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.18755211765408825,
+        "rank": 10,
+        "risk_level": "low",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.3058601178374135,
+            "weighted_contribution": 0.061172023567482706
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.8425339605773702,
+            "weighted_contribution": 0.12638009408660553
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P02010",
+            "evidence_id": "EVD:78966b4088c8ae67451b",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-12-11T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.8425339605773702,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P02010"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      }
+    ],
+    "train": [
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-04-12T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00310",
+        "evidence_ids": [
+          "EVD:4d7d0250421e45349ced",
+          "EVD:e032bd0feb6f5521b212",
+          "EVD:6d6a2f9854d66ca7ec19"
+        ],
+        "ground_truth": {
+          "scenario": "theft",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.7140410198215725,
+        "rank": 1,
+        "risk_level": "high",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.7967164397686526,
+            "weighted_contribution": 0.15934328795373054
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9979848791189464,
+            "weighted_contribution": 0.14969773186784197
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Large rapid outflows use devices absent from prior initiating-account activity; investigate possible unauthorized use.",
+            "entity_id": "Person:P00310",
+            "evidence_id": "EVD:4d7d0250421e45349ced",
+            "graph_highlight": true,
+            "measurements": {
+              "count": 6,
+              "income_etb": 16400.0,
+              "minutes": 60,
+              "outflow_etb": 196800.0
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "NEW_DEVICE_RAPID_OUTFLOW",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0000553",
+              "TX:T0000554",
+              "TX:T0000555",
+              "TX:T0000556",
+              "TX:T0000557",
+              "TX:T0000558"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00310",
+              "Account:A00311",
+              "Person:P00310"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0000553",
+              "T0000554",
+              "T0000555",
+              "T0000556",
+              "T0000557",
+              "T0000558"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-05T08:05:00+00:00",
+              "2025-04-05T08:10:00+00:00",
+              "2025-04-05T08:15:00+00:00",
+              "2025-04-05T08:20:00+00:00",
+              "2025-04-05T08:25:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "Several behavioral measurements depart from the training-normal reference and the subject's own prior history.",
+            "entity_id": "Person:P00310",
+            "evidence_id": "EVD:e032bd0feb6f5521b212",
+            "graph_highlight": true,
+            "measurements": {
+              "baseline": "train-normal robust median/MAD",
+              "contributions": [
+                {
+                  "baseline_log_median": 0.3191383330509693,
+                  "feature": "outflow_to_income",
+                  "robust_z": 11.015843417469464,
+                  "score_contribution": 0.3121082823136942,
+                  "transaction_ids": [
+                    "T0000553",
+                    "T0000554",
+                    "T0000555",
+                    "T0000556",
+                    "T0000557",
+                    "T0000558"
+                  ],
+                  "value": 12.0
+                },
+                {
+                  "baseline_log_median": 0.5724177712395719,
+                  "feature": "amount_to_history",
+                  "robust_z": 5.912459192804748,
+                  "score_contribution": 0.25731092129056515,
+                  "transaction_ids": [
+                    "T0000553"
+                  ],
+                  "value": 11.646073000994177
+                },
+                {
+                  "baseline_log_median": 0.6931471805599453,
+                  "feature": "burst_15m",
+                  "robust_z": 4.581453659370775,
+                  "score_contribution": 0.22729723616439323,
+                  "transaction_ids": [
+                    "T0000553",
+                    "T0000554",
+                    "T0000555",
+                    "T0000556"
+                  ],
+                  "value": 4.0
+                }
+              ]
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "medium",
+            "signal_source": "anomaly",
+            "signal_type": "BEHAVIORAL_DEVIATION",
+            "strength": 0.7967164397686526,
+            "supporting_edge_ids": [
+              "TX:T0000553",
+              "TX:T0000554",
+              "TX:T0000555",
+              "TX:T0000556",
+              "TX:T0000557",
+              "TX:T0000558"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00310",
+              "Account:A00311",
+              "Person:P00310"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0000553",
+              "T0000554",
+              "T0000555",
+              "T0000556",
+              "T0000557",
+              "T0000558"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-05T08:05:00+00:00",
+              "2025-04-05T08:10:00+00:00",
+              "2025-04-05T08:15:00+00:00",
+              "2025-04-05T08:20:00+00:00",
+              "2025-04-05T08:25:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00310",
+            "evidence_id": "EVD:6d6a2f9854d66ca7ec19",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.000280192480723751,
+                  "source_node": "Account:A00310",
+                  "target_node": "Account:A00311",
+                  "transaction_ids": [
+                    "T0000553",
+                    "T0000554",
+                    "T0000555",
+                    "T0000556",
+                    "T0000557",
+                    "T0000558"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9979848791189464,
+            "supporting_edge_ids": [
+              "TX:T0000553",
+              "TX:T0000554",
+              "TX:T0000555",
+              "TX:T0000556",
+              "TX:T0000557",
+              "TX:T0000558"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00310",
+              "Account:A00311",
+              "Person:P00310"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0000553",
+              "T0000554",
+              "T0000555",
+              "T0000556",
+              "T0000557",
+              "T0000558"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-05T08:05:00+00:00",
+              "2025-04-05T08:10:00+00:00",
+              "2025-04-05T08:15:00+00:00",
+              "2025-04-05T08:20:00+00:00",
+              "2025-04-05T08:25:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-04-12T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00140",
+        "evidence_ids": [
+          "EVD:ae49b514b422f59b96c5",
+          "EVD:71887886190a1a24c629"
+        ],
+        "ground_truth": {
+          "scenario": "geography",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.6498315779792726,
+        "rank": 2,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.4773410777643812,
+            "weighted_contribution": 0.09546821555287625
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9957557495093089,
+            "weighted_contribution": 0.14936336242639633
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Initiating-account branch events imply implausible physical travel; verify location quality or unauthorized account use.",
+            "entity_id": "Person:P00140",
+            "evidence_id": "EVD:ae49b514b422f59b96c5",
+            "graph_highlight": true,
+            "measurements": {
+              "pairs": [
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0000247",
+                    "T0000248"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0000248",
+                    "T0000249"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0000249",
+                    "T0000250"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0000250",
+                    "T0000251"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0000251",
+                    "T0000252"
+                  ]
+                }
+              ],
+              "speed_reference_kmh": 500
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "IMPOSSIBLE_BRANCH_TRAVEL",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0000247",
+              "TX:T0000248",
+              "TX:T0000249",
+              "TX:T0000250",
+              "TX:T0000251",
+              "TX:T0000252"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00140",
+              "Account:A00141",
+              "Person:P00140"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0000247",
+              "T0000248",
+              "T0000249",
+              "T0000250",
+              "T0000251",
+              "T0000252"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-05T08:15:00+00:00",
+              "2025-04-05T08:30:00+00:00",
+              "2025-04-05T08:45:00+00:00",
+              "2025-04-05T09:00:00+00:00",
+              "2025-04-05T09:15:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00140",
+            "evidence_id": "EVD:71887886190a1a24c629",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.0009370940120991822,
+                  "source_node": "Account:A00140",
+                  "target_node": "Account:A00141",
+                  "transaction_ids": [
+                    "T0000247",
+                    "T0000248",
+                    "T0000249",
+                    "T0000250",
+                    "T0000251",
+                    "T0000252"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9957557495093089,
+            "supporting_edge_ids": [
+              "TX:T0000247",
+              "TX:T0000248",
+              "TX:T0000249",
+              "TX:T0000250",
+              "TX:T0000251",
+              "TX:T0000252"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00140",
+              "Account:A00141",
+              "Person:P00140"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0000247",
+              "T0000248",
+              "T0000249",
+              "T0000250",
+              "T0000251",
+              "T0000252"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-05T08:15:00+00:00",
+              "2025-04-05T08:30:00+00:00",
+              "2025-04-05T08:45:00+00:00",
+              "2025-04-05T09:00:00+00:00",
+              "2025-04-05T09:15:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-04-12T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00640",
+        "evidence_ids": [
+          "EVD:51223cb9ee1ec59639ba",
+          "EVD:e8f5b991e6096391c58e"
+        ],
+        "ground_truth": {
+          "scenario": "structuring",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.6210472267515154,
+        "rank": 3,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.33176811293977504,
+            "weighted_contribution": 0.066353622587955
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.997957361090402,
+            "weighted_contribution": 0.14969360416356028
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Clustered cash deposits just below the configured synthetic review reference; this reference is not a legal threshold.",
+            "entity_id": "Person:P00640",
+            "evidence_id": "EVD:51223cb9ee1ec59639ba",
+            "graph_highlight": true,
+            "measurements": {
+              "count": 6,
+              "minutes": 60,
+              "reference_etb": 10000
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "STRUCTURED_DEPOSITS",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0001147",
+              "TX:T0001148",
+              "TX:T0001149",
+              "TX:T0001150",
+              "TX:T0001151",
+              "TX:T0001152"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00640",
+              "Account:A00641",
+              "Person:P00640"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0001147",
+              "T0001148",
+              "T0001149",
+              "T0001150",
+              "T0001151",
+              "T0001152"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-05T08:12:00+00:00",
+              "2025-04-05T08:24:00+00:00",
+              "2025-04-05T08:36:00+00:00",
+              "2025-04-05T08:48:00+00:00",
+              "2025-04-05T09:00:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00640",
+            "evidence_id": "EVD:e8f5b991e6096391c58e",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.00018301933060027586,
+                  "source_node": "Account:A00641",
+                  "target_node": "Account:A00640",
+                  "transaction_ids": [
+                    "T0001147",
+                    "T0001148",
+                    "T0001149",
+                    "T0001150",
+                    "T0001151",
+                    "T0001152"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.997957361090402,
+            "supporting_edge_ids": [
+              "TX:T0001147",
+              "TX:T0001148",
+              "TX:T0001149",
+              "TX:T0001150",
+              "TX:T0001151",
+              "TX:T0001152"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00640",
+              "Account:A00641",
+              "Person:P00640"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0001147",
+              "T0001148",
+              "T0001149",
+              "T0001150",
+              "T0001151",
+              "T0001152"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-05T08:12:00+00:00",
+              "2025-04-05T08:24:00+00:00",
+              "2025-04-05T08:36:00+00:00",
+              "2025-04-05T08:48:00+00:00",
+              "2025-04-05T09:00:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-04-12T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00780",
+        "evidence_ids": [
+          "EVD:a153fa133063acc510dd",
+          "EVD:143a7dd07ae61131812e"
+        ],
+        "ground_truth": {
+          "scenario": "velocity",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.6074615036135131,
+        "rank": 4,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.263703767075331,
+            "weighted_contribution": 0.052740753415066205
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9981383346563132,
+            "weighted_contribution": 0.14972075019844697
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Observed activity is concentrated into a short interval after sparse historical activity.",
+            "entity_id": "Person:P00780",
+            "evidence_id": "EVD:a153fa133063acc510dd",
+            "graph_highlight": true,
+            "measurements": {
+              "count": 6,
+              "minutes": 15,
+              "prior_count": 9
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "HIGH_VELOCITY",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0001399",
+              "TX:T0001400",
+              "TX:T0001401",
+              "TX:T0001402",
+              "TX:T0001403",
+              "TX:T0001404"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00780",
+              "Account:A00781",
+              "Person:P00780"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0001399",
+              "T0001400",
+              "T0001401",
+              "T0001402",
+              "T0001403",
+              "T0001404"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-05T08:03:00+00:00",
+              "2025-04-05T08:06:00+00:00",
+              "2025-04-05T08:09:00+00:00",
+              "2025-04-05T08:12:00+00:00",
+              "2025-04-05T08:15:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00780",
+            "evidence_id": "EVD:143a7dd07ae61131812e",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.00018723152480648597,
+                  "source_node": "Account:A00781",
+                  "target_node": "Account:A00780",
+                  "transaction_ids": [
+                    "T0001399",
+                    "T0001400",
+                    "T0001401",
+                    "T0001402",
+                    "T0001403",
+                    "T0001404"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9981383346563132,
+            "supporting_edge_ids": [
+              "TX:T0001399",
+              "TX:T0001400",
+              "TX:T0001401",
+              "TX:T0001402",
+              "TX:T0001403",
+              "TX:T0001404"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00780",
+              "Account:A00781",
+              "Person:P00780"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0001399",
+              "T0001400",
+              "T0001401",
+              "T0001402",
+              "T0001403",
+              "T0001404"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-05T08:03:00+00:00",
+              "2025-04-05T08:06:00+00:00",
+              "2025-04-05T08:09:00+00:00",
+              "2025-04-05T08:12:00+00:00",
+              "2025-04-05T08:15:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-04-12T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00740",
+        "evidence_ids": [
+          "EVD:3a58defbac0a7b6998e2",
+          "EVD:4b186f80881a16cc8535"
+        ],
+        "ground_truth": {
+          "scenario": "tax",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.5949309660248185,
+        "rank": 5,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.22711160818376427,
+            "weighted_contribution": 0.04542232163675286
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9633909625871042,
+            "weighted_contribution": 0.14450864438806563
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Business-tagged receipts reach the beneficial owner's personal accounts near the business and exceed its available declaration for the same period. This is a potential tax-investigation lead, not proof of evasion.",
+            "entity_id": "Person:P00740",
+            "evidence_id": "EVD:3a58defbac0a7b6998e2",
+            "graph_highlight": true,
+            "measurements": {
+              "business_id": "C0074",
+              "declaration_source": "companies.parquet",
+              "declared_sales_etb": 11300.0,
+              "distance_reference_km": 10,
+              "nearby_receipts": 6,
+              "personal_receipts_etb": 135600.0,
+              "sales_period_end": "2025-04-12T08:00:00+00:00",
+              "sales_period_start": "2025-04-05T08:00:00+00:00",
+              "sales_reported_at": "2025-04-12T09:00:00+00:00"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet",
+                "relationships.parquet",
+                "companies.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "BUSINESS_RECEIPTS_MISMATCH",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0001327",
+              "TX:T0001328",
+              "TX:T0001329",
+              "TX:T0001330",
+              "TX:T0001331",
+              "TX:T0001332",
+              "REL:R000221"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00740",
+              "Account:A00741",
+              "Company:C0074",
+              "Person:P00740"
+            ],
+            "supporting_relationship_ids": [
+              "R000221"
+            ],
+            "supporting_transaction_ids": [
+              "T0001327",
+              "T0001328",
+              "T0001329",
+              "T0001330",
+              "T0001331",
+              "T0001332"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-06T08:00:00+00:00",
+              "2025-04-07T08:00:00+00:00",
+              "2025-04-08T08:00:00+00:00",
+              "2025-04-09T08:00:00+00:00",
+              "2025-04-10T08:00:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00740",
+            "evidence_id": "EVD:4b186f80881a16cc8535",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9633909625871042,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P00740"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-04-12T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00120",
+        "evidence_ids": [
+          "EVD:b3e727a644bdbc21bd0c",
+          "EVD:4bbb877c330984cbc8ea"
+        ],
+        "ground_truth": {
+          "scenario": "amount",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.577752054789537,
+        "rank": 6,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.31855226521011293,
+            "weighted_contribution": 0.0637104530420226
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.7269440116500959,
+            "weighted_contribution": 0.10904160174751439
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Amount exceeds both declared monthly income and historical transaction size without recorded asset-sale context.",
+            "entity_id": "Person:P00120",
+            "evidence_id": "EVD:b3e727a644bdbc21bd0c",
+            "graph_highlight": true,
+            "measurements": {
+              "history_median_etb": 2835.44,
+              "income_etb": 12600.0,
+              "income_multiple": 10
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "UNEXPLAINED_AMOUNT",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0000211"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00120",
+              "Account:A00121",
+              "Person:P00120"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0000211"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00120",
+            "evidence_id": "EVD:4bbb877c330984cbc8ea",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "medium",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.7269440116500959,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P00120"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-04-12T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00750",
+        "evidence_ids": [
+          "EVD:10f857c2645c37858803",
+          "EVD:5b5ebf61f64a5920fc5e"
+        ],
+        "ground_truth": {
+          "scenario": "network",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.4411156772001664,
+        "rank": 7,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.5061936764790068,
+            "weighted_contribution": 0.10123873529580137
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9991796126957672,
+            "weighted_contribution": 0.14987694190436507
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.95,
+            "weighted_contribution": 0.19
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Rapid, approximately amount-preserving circular movement through connected accounts; inspect the purpose of each leg.",
+            "entity_id": "Person:P00750",
+            "evidence_id": "EVD:10f857c2645c37858803",
+            "graph_highlight": true,
+            "measurements": {
+              "amount_tolerance": 0.05,
+              "maximum_minutes": 60,
+              "path_count": 4,
+              "transaction_paths": [
+                [
+                  "T0001345",
+                  "T0001346",
+                  "T0001347"
+                ],
+                [
+                  "T0001345",
+                  "T0001346",
+                  "T0001350"
+                ],
+                [
+                  "T0001345",
+                  "T0001349",
+                  "T0001350"
+                ],
+                [
+                  "T0001348",
+                  "T0001349",
+                  "T0001350"
+                ]
+              ]
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet",
+                "relationships.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "network",
+            "signal_type": "RAPID_CIRCULAR_FLOW",
+            "strength": 0.95,
+            "supporting_edge_ids": [
+              "TX:T0001345",
+              "TX:T0001346",
+              "TX:T0001347",
+              "TX:T0001348",
+              "TX:T0001349",
+              "TX:T0001350",
+              "REL:R000224"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00750",
+              "Account:A00751",
+              "Account:A00753",
+              "Company:C0075",
+              "Person:P00750",
+              "Person:P00751"
+            ],
+            "supporting_relationship_ids": [
+              "R000224"
+            ],
+            "supporting_transaction_ids": [
+              "T0001345",
+              "T0001346",
+              "T0001347",
+              "T0001348",
+              "T0001349",
+              "T0001350"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-05T08:10:00+00:00",
+              "2025-04-05T08:20:00+00:00",
+              "2025-04-05T08:30:00+00:00",
+              "2025-04-05T08:40:00+00:00",
+              "2025-04-05T08:50:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00750",
+            "evidence_id": "EVD:5b5ebf61f64a5920fc5e",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9991796126957672,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P00750"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-04-12T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00550",
+        "evidence_ids": [
+          "EVD:96db8fa095766f54c158",
+          "EVD:2b2a57f17bc43cb83f04"
+        ],
+        "ground_truth": {
+          "scenario": "family",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.4342922238462402,
+        "rank": 8,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.47184953958929643,
+            "weighted_contribution": 0.09436990791785929
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9994821061892063,
+            "weighted_contribution": 0.14992231592838093
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.95,
+            "weighted_contribution": 0.19
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Rapid, approximately amount-preserving circular movement through a documented relative and connected accounts; family ties alone do not assign risk.",
+            "entity_id": "Person:P00550",
+            "evidence_id": "EVD:96db8fa095766f54c158",
+            "graph_highlight": true,
+            "measurements": {
+              "amount_tolerance": 0.05,
+              "maximum_minutes": 60,
+              "path_count": 4,
+              "transaction_paths": [
+                [
+                  "T0000985",
+                  "T0000986",
+                  "T0000987"
+                ],
+                [
+                  "T0000985",
+                  "T0000986",
+                  "T0000990"
+                ],
+                [
+                  "T0000985",
+                  "T0000989",
+                  "T0000990"
+                ],
+                [
+                  "T0000988",
+                  "T0000989",
+                  "T0000990"
+                ]
+              ]
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet",
+                "relationships.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "network",
+            "signal_type": "FAMILY_PASS_THROUGH",
+            "strength": 0.95,
+            "supporting_edge_ids": [
+              "TX:T0000985",
+              "TX:T0000986",
+              "TX:T0000987",
+              "TX:T0000988",
+              "TX:T0000989",
+              "TX:T0000990",
+              "REL:R000163",
+              "REL:R000164"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00550",
+              "Account:A00552",
+              "Account:A00553",
+              "Company:C0055",
+              "Person:P00550",
+              "Person:P00552"
+            ],
+            "supporting_relationship_ids": [
+              "R000163",
+              "R000164"
+            ],
+            "supporting_transaction_ids": [
+              "T0000985",
+              "T0000986",
+              "T0000987",
+              "T0000988",
+              "T0000989",
+              "T0000990"
+            ],
+            "timestamps": [
+              "2025-04-05T08:00:00+00:00",
+              "2025-04-05T08:10:00+00:00",
+              "2025-04-05T08:20:00+00:00",
+              "2025-04-05T08:30:00+00:00",
+              "2025-04-05T08:40:00+00:00",
+              "2025-04-05T08:50:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00550",
+            "evidence_id": "EVD:2b2a57f17bc43cb83f04",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 7.886012953872701e-06,
+                  "source_node": "Account:A00552",
+                  "target_node": "Account:A00553",
+                  "transaction_ids": [
+                    "T0000986",
+                    "T0000989"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9994821061892063,
+            "supporting_edge_ids": [
+              "TX:T0000986",
+              "TX:T0000989"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00552",
+              "Account:A00553",
+              "Person:P00550"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0000986",
+              "T0000989"
+            ],
+            "timestamps": [
+              "2025-04-05T08:10:00+00:00",
+              "2025-04-05T08:40:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-04-12T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00150",
+        "evidence_ids": [
+          "EVD:ed1e173f8be07f2b0acf"
+        ],
+        "ground_truth": {
+          "scenario": "asset_sale",
+          "suspicious": false
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.19819913333616712,
+        "rank": 9,
+        "risk_level": "low",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.3187851144313401,
+            "weighted_contribution": 0.06375702288626803
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.8962807363326606,
+            "weighted_contribution": 0.1344421104498991
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00150",
+            "evidence_id": "EVD:ed1e173f8be07f2b0acf",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.8962807363326606,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P00150"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-04-12T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00520",
+        "evidence_ids": [
+          "EVD:926fcf4aef51f9084888"
+        ],
+        "ground_truth": {
+          "scenario": "asset_sale",
+          "suspicious": false
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.18176757113967296,
+        "rank": 10,
+        "risk_level": "low",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.33521304084891157,
+            "weighted_contribution": 0.06704260816978232
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.7648330864659376,
+            "weighted_contribution": 0.11472496296989064
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00520",
+            "evidence_id": "EVD:926fcf4aef51f9084888",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-04-12T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "medium",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.7648330864659376,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P00520"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      }
+    ],
+    "validation": [
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-08-10T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P01590",
+        "evidence_ids": [
+          "EVD:493a0463986bb3dd413e",
+          "EVD:c1c0743738599841bbbb",
+          "EVD:89bc34820c77dc821193"
+        ],
+        "ground_truth": {
+          "scenario": "theft",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.7098676508205048,
+        "rank": 1,
+        "risk_level": "high",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.7758594045639144,
+            "weighted_contribution": 0.1551718809127829
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.997971799384813,
+            "weighted_contribution": 0.14969576990772193
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Large rapid outflows use devices absent from prior initiating-account activity; investigate possible unauthorized use.",
+            "entity_id": "Person:P01590",
+            "evidence_id": "EVD:493a0463986bb3dd413e",
+            "graph_highlight": true,
+            "measurements": {
+              "count": 6,
+              "income_etb": 22800.0,
+              "minutes": 60,
+              "outflow_etb": 273600.0
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "NEW_DEVICE_RAPID_OUTFLOW",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0002857",
+              "TX:T0002858",
+              "TX:T0002859",
+              "TX:T0002860",
+              "TX:T0002861",
+              "TX:T0002862"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01590",
+              "Account:A01591",
+              "Person:P01590"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0002857",
+              "T0002858",
+              "T0002859",
+              "T0002860",
+              "T0002861",
+              "T0002862"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-03T08:05:00+00:00",
+              "2025-08-03T08:10:00+00:00",
+              "2025-08-03T08:15:00+00:00",
+              "2025-08-03T08:20:00+00:00",
+              "2025-08-03T08:25:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "Several behavioral measurements depart from the training-normal reference and the subject's own prior history.",
+            "entity_id": "Person:P01590",
+            "evidence_id": "EVD:c1c0743738599841bbbb",
+            "graph_highlight": true,
+            "measurements": {
+              "baseline": "train-normal robust median/MAD",
+              "contributions": [
+                {
+                  "baseline_log_median": 0.3191383330509693,
+                  "feature": "outflow_to_income",
+                  "robust_z": 11.015843417469464,
+                  "score_contribution": 0.3121082823136942,
+                  "transaction_ids": [
+                    "T0002857",
+                    "T0002858",
+                    "T0002859",
+                    "T0002860",
+                    "T0002861",
+                    "T0002862"
+                  ],
+                  "value": 12.0
+                },
+                {
+                  "baseline_log_median": 0.5724177712395719,
+                  "feature": "amount_to_history",
+                  "robust_z": 4.94270238649272,
+                  "score_contribution": 0.23645388608582696,
+                  "transaction_ids": [
+                    "T0002857"
+                  ],
+                  "value": 8.161964885651946
+                },
+                {
+                  "baseline_log_median": 0.6931471805599453,
+                  "feature": "burst_15m",
+                  "robust_z": 4.581453659370775,
+                  "score_contribution": 0.22729723616439323,
+                  "transaction_ids": [
+                    "T0002857",
+                    "T0002858",
+                    "T0002859",
+                    "T0002860"
+                  ],
+                  "value": 4.0
+                }
+              ]
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "medium",
+            "signal_source": "anomaly",
+            "signal_type": "BEHAVIORAL_DEVIATION",
+            "strength": 0.7758594045639144,
+            "supporting_edge_ids": [
+              "TX:T0002857",
+              "TX:T0002858",
+              "TX:T0002859",
+              "TX:T0002860",
+              "TX:T0002861",
+              "TX:T0002862"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01590",
+              "Account:A01591",
+              "Person:P01590"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0002857",
+              "T0002858",
+              "T0002859",
+              "T0002860",
+              "T0002861",
+              "T0002862"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-03T08:05:00+00:00",
+              "2025-08-03T08:10:00+00:00",
+              "2025-08-03T08:15:00+00:00",
+              "2025-08-03T08:20:00+00:00",
+              "2025-08-03T08:25:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P01590",
+            "evidence_id": "EVD:89bc34820c77dc821193",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.0002876306441407239,
+                  "source_node": "Account:A01590",
+                  "target_node": "Account:A01591",
+                  "transaction_ids": [
+                    "T0002857",
+                    "T0002858",
+                    "T0002859",
+                    "T0002860",
+                    "T0002861",
+                    "T0002862"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.997971799384813,
+            "supporting_edge_ids": [
+              "TX:T0002857",
+              "TX:T0002858",
+              "TX:T0002859",
+              "TX:T0002860",
+              "TX:T0002861",
+              "TX:T0002862"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01590",
+              "Account:A01591",
+              "Person:P01590"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0002857",
+              "T0002858",
+              "T0002859",
+              "T0002860",
+              "T0002861",
+              "T0002862"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-03T08:05:00+00:00",
+              "2025-08-03T08:10:00+00:00",
+              "2025-08-03T08:15:00+00:00",
+              "2025-08-03T08:20:00+00:00",
+              "2025-08-03T08:25:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-08-10T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P01300",
+        "evidence_ids": [
+          "EVD:9b9ba41755977a4ebb75",
+          "EVD:7a81b549c8d6fb955d13"
+        ],
+        "ground_truth": {
+          "scenario": "geography",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.6465902258299059,
+        "rank": 2,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.46584152282569347,
+            "weighted_contribution": 0.0931683045651387
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9894794750984474,
+            "weighted_contribution": 0.1484219212647671
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Initiating-account branch events imply implausible physical travel; verify location quality or unauthorized account use.",
+            "entity_id": "Person:P01300",
+            "evidence_id": "EVD:9b9ba41755977a4ebb75",
+            "graph_highlight": true,
+            "measurements": {
+              "pairs": [
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0002335",
+                    "T0002336"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0002336",
+                    "T0002337"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0002337",
+                    "T0002338"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0002338",
+                    "T0002339"
+                  ]
+                },
+                {
+                  "distance_km": 503.3726050722569,
+                  "speed_kmh": 2013.4904202890275,
+                  "transaction_ids": [
+                    "T0002339",
+                    "T0002340"
+                  ]
+                }
+              ],
+              "speed_reference_kmh": 500
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "IMPOSSIBLE_BRANCH_TRAVEL",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0002335",
+              "TX:T0002336",
+              "TX:T0002337",
+              "TX:T0002338",
+              "TX:T0002339",
+              "TX:T0002340"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01300",
+              "Account:A01301",
+              "Person:P01300"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0002335",
+              "T0002336",
+              "T0002337",
+              "T0002338",
+              "T0002339",
+              "T0002340"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-03T08:15:00+00:00",
+              "2025-08-03T08:30:00+00:00",
+              "2025-08-03T08:45:00+00:00",
+              "2025-08-03T09:00:00+00:00",
+              "2025-08-03T09:15:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P01300",
+            "evidence_id": "EVD:7a81b549c8d6fb955d13",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.0018593228246542859,
+                  "source_node": "Account:A01300",
+                  "target_node": "Account:A01301",
+                  "transaction_ids": [
+                    "T0002335",
+                    "T0002336",
+                    "T0002337",
+                    "T0002338",
+                    "T0002339",
+                    "T0002340"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9894794750984474,
+            "supporting_edge_ids": [
+              "TX:T0002335",
+              "TX:T0002336",
+              "TX:T0002337",
+              "TX:T0002338",
+              "TX:T0002339",
+              "TX:T0002340"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01300",
+              "Account:A01301",
+              "Person:P01300"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0002335",
+              "T0002336",
+              "T0002337",
+              "T0002338",
+              "T0002339",
+              "T0002340"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-03T08:15:00+00:00",
+              "2025-08-03T08:30:00+00:00",
+              "2025-08-03T08:45:00+00:00",
+              "2025-08-03T09:00:00+00:00",
+              "2025-08-03T09:15:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-08-10T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P01350",
+        "evidence_ids": [
+          "EVD:fb12cb77ce36cedd3cbe",
+          "EVD:50b6ff4395b88a6ff3b8"
+        ],
+        "ground_truth": {
+          "scenario": "structuring",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.6143284444960914,
+        "rank": 3,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.29818224122578785,
+            "weighted_contribution": 0.05963644824515757
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.997946641672892,
+            "weighted_contribution": 0.1496919962509338
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Clustered cash deposits just below the configured synthetic review reference; this reference is not a legal threshold.",
+            "entity_id": "Person:P01350",
+            "evidence_id": "EVD:fb12cb77ce36cedd3cbe",
+            "graph_highlight": true,
+            "measurements": {
+              "count": 6,
+              "minutes": 60,
+              "reference_etb": 10000
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "STRUCTURED_DEPOSITS",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0002425",
+              "TX:T0002426",
+              "TX:T0002427",
+              "TX:T0002428",
+              "TX:T0002429",
+              "TX:T0002430"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01350",
+              "Account:A01351",
+              "Person:P01350"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0002425",
+              "T0002426",
+              "T0002427",
+              "T0002428",
+              "T0002429",
+              "T0002430"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-03T08:12:00+00:00",
+              "2025-08-03T08:24:00+00:00",
+              "2025-08-03T08:36:00+00:00",
+              "2025-08-03T08:48:00+00:00",
+              "2025-08-03T09:00:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P01350",
+            "evidence_id": "EVD:50b6ff4395b88a6ff3b8",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.00018321750568306427,
+                  "source_node": "Account:A01351",
+                  "target_node": "Account:A01350",
+                  "transaction_ids": [
+                    "T0002425",
+                    "T0002426",
+                    "T0002427",
+                    "T0002428",
+                    "T0002429",
+                    "T0002430"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.997946641672892,
+            "supporting_edge_ids": [
+              "TX:T0002425",
+              "TX:T0002426",
+              "TX:T0002427",
+              "TX:T0002428",
+              "TX:T0002429",
+              "TX:T0002430"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01350",
+              "Account:A01351",
+              "Person:P01350"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0002425",
+              "T0002426",
+              "T0002427",
+              "T0002428",
+              "T0002429",
+              "T0002430"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-03T08:12:00+00:00",
+              "2025-08-03T08:24:00+00:00",
+              "2025-08-03T08:36:00+00:00",
+              "2025-08-03T08:48:00+00:00",
+              "2025-08-03T09:00:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-08-10T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00840",
+        "evidence_ids": [
+          "EVD:4be9645a1f10e04a6be5",
+          "EVD:0a0f302824c9e0e1a115"
+        ],
+        "ground_truth": {
+          "scenario": "velocity",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.6074576494582803,
+        "rank": 4,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.263703767075331,
+            "weighted_contribution": 0.052740753415066205
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9981126402880939,
+            "weighted_contribution": 0.1497168960432141
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Observed activity is concentrated into a short interval after sparse historical activity.",
+            "entity_id": "Person:P00840",
+            "evidence_id": "EVD:4be9645a1f10e04a6be5",
+            "graph_highlight": true,
+            "measurements": {
+              "count": 6,
+              "minutes": 15,
+              "prior_count": 9
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "HIGH_VELOCITY",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0001507",
+              "TX:T0001508",
+              "TX:T0001509",
+              "TX:T0001510",
+              "TX:T0001511",
+              "TX:T0001512"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00840",
+              "Account:A00841",
+              "Person:P00840"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0001507",
+              "T0001508",
+              "T0001509",
+              "T0001510",
+              "T0001511",
+              "T0001512"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-03T08:03:00+00:00",
+              "2025-08-03T08:06:00+00:00",
+              "2025-08-03T08:09:00+00:00",
+              "2025-08-03T08:12:00+00:00",
+              "2025-08-03T08:15:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00840",
+            "evidence_id": "EVD:0a0f302824c9e0e1a115",
+            "graph_highlight": true,
+            "measurements": {
+              "edge_ablation": [
+                {
+                  "score_drop": 0.00019406282617573378,
+                  "source_node": "Account:A00841",
+                  "target_node": "Account:A00840",
+                  "transaction_ids": [
+                    "T0001507",
+                    "T0001508",
+                    "T0001509",
+                    "T0001510",
+                    "T0001511",
+                    "T0001512"
+                  ]
+                }
+              ],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9981126402880939,
+            "supporting_edge_ids": [
+              "TX:T0001507",
+              "TX:T0001508",
+              "TX:T0001509",
+              "TX:T0001510",
+              "TX:T0001511",
+              "TX:T0001512"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00840",
+              "Account:A00841",
+              "Person:P00840"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0001507",
+              "T0001508",
+              "T0001509",
+              "T0001510",
+              "T0001511",
+              "T0001512"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-03T08:03:00+00:00",
+              "2025-08-03T08:06:00+00:00",
+              "2025-08-03T08:09:00+00:00",
+              "2025-08-03T08:12:00+00:00",
+              "2025-08-03T08:15:00+00:00"
+            ]
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-08-10T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P01220",
+        "evidence_ids": [
+          "EVD:6b7ce35823bbf0e90fc8",
+          "EVD:b4b0551be6f123e2b205"
+        ],
+        "ground_truth": {
+          "scenario": "amount",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.5987107420460408,
+        "rank": 5,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.3100343845354689,
+            "weighted_contribution": 0.06200687690709378
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.8780257675929802,
+            "weighted_contribution": 0.13170386513894702
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Amount exceeds both declared monthly income and historical transaction size without recorded asset-sale context.",
+            "entity_id": "Person:P01220",
+            "evidence_id": "EVD:6b7ce35823bbf0e90fc8",
+            "graph_highlight": true,
+            "measurements": {
+              "history_median_etb": 1622.33,
+              "income_etb": 8100.0,
+              "income_multiple": 10
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "UNEXPLAINED_AMOUNT",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0002191"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01220",
+              "Account:A01221",
+              "Person:P01220"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [
+              "T0002191"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P01220",
+            "evidence_id": "EVD:b4b0551be6f123e2b205",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.8780257675929802,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P01220"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-08-10T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00880",
+        "evidence_ids": [
+          "EVD:dea71034fcff3e27e82a",
+          "EVD:4b48ad65d08c24388512"
+        ],
+        "ground_truth": {
+          "scenario": "tax",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.5518826899330801,
+        "rank": 6,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.23902014704213195,
+            "weighted_contribution": 0.047804029408426395
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.6605244034976915,
+            "weighted_contribution": 0.09907866052465372
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.9,
+            "weighted_contribution": 0.405
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Business-tagged receipts reach the beneficial owner's personal accounts near the business and exceed its available declaration for the same period. This is a potential tax-investigation lead, not proof of evasion.",
+            "entity_id": "Person:P00880",
+            "evidence_id": "EVD:dea71034fcff3e27e82a",
+            "graph_highlight": true,
+            "measurements": {
+              "business_id": "C0088",
+              "declaration_source": "companies.parquet",
+              "declared_sales_etb": 29500.0,
+              "distance_reference_km": 10,
+              "nearby_receipts": 6,
+              "personal_receipts_etb": 354000.0,
+              "sales_period_end": "2025-08-10T08:00:00+00:00",
+              "sales_period_start": "2025-08-03T08:00:00+00:00",
+              "sales_reported_at": "2025-08-10T09:00:00+00:00"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet",
+                "relationships.parquet",
+                "companies.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "rules",
+            "signal_type": "BUSINESS_RECEIPTS_MISMATCH",
+            "strength": 0.9,
+            "supporting_edge_ids": [
+              "TX:T0001579",
+              "TX:T0001580",
+              "TX:T0001581",
+              "TX:T0001582",
+              "TX:T0001583",
+              "TX:T0001584",
+              "REL:R000263"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00880",
+              "Account:A00881",
+              "Company:C0088",
+              "Person:P00880"
+            ],
+            "supporting_relationship_ids": [
+              "R000263"
+            ],
+            "supporting_transaction_ids": [
+              "T0001579",
+              "T0001580",
+              "T0001581",
+              "T0001582",
+              "T0001583",
+              "T0001584"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-04T08:00:00+00:00",
+              "2025-08-05T08:00:00+00:00",
+              "2025-08-06T08:00:00+00:00",
+              "2025-08-07T08:00:00+00:00",
+              "2025-08-08T08:00:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00880",
+            "evidence_id": "EVD:4b48ad65d08c24388512",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "medium",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.6605244034976915,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P00880"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-08-10T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P01330",
+        "evidence_ids": [
+          "EVD:ad6b3178b425e5b314b0",
+          "EVD:4db3af231a26da9cbfee"
+        ],
+        "ground_truth": {
+          "scenario": "family",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.4382908833360208,
+        "rank": 7,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.49191455861076694,
+            "weighted_contribution": 0.0983829117221534
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9993864774257828,
+            "weighted_contribution": 0.1499079716138674
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.95,
+            "weighted_contribution": 0.19
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Rapid, approximately amount-preserving circular movement through a documented relative and connected accounts; family ties alone do not assign risk.",
+            "entity_id": "Person:P01330",
+            "evidence_id": "EVD:ad6b3178b425e5b314b0",
+            "graph_highlight": true,
+            "measurements": {
+              "amount_tolerance": 0.05,
+              "maximum_minutes": 60,
+              "path_count": 4,
+              "transaction_paths": [
+                [
+                  "T0002389",
+                  "T0002390",
+                  "T0002391"
+                ],
+                [
+                  "T0002389",
+                  "T0002390",
+                  "T0002394"
+                ],
+                [
+                  "T0002389",
+                  "T0002393",
+                  "T0002394"
+                ],
+                [
+                  "T0002392",
+                  "T0002393",
+                  "T0002394"
+                ]
+              ]
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet",
+                "relationships.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "network",
+            "signal_type": "FAMILY_PASS_THROUGH",
+            "strength": 0.95,
+            "supporting_edge_ids": [
+              "TX:T0002389",
+              "TX:T0002390",
+              "TX:T0002391",
+              "TX:T0002392",
+              "TX:T0002393",
+              "TX:T0002394",
+              "REL:R000397",
+              "REL:R000398"
+            ],
+            "supporting_entity_ids": [
+              "Account:A01330",
+              "Account:A01332",
+              "Account:A01333",
+              "Company:C0133",
+              "Person:P01330",
+              "Person:P01332"
+            ],
+            "supporting_relationship_ids": [
+              "R000397",
+              "R000398"
+            ],
+            "supporting_transaction_ids": [
+              "T0002389",
+              "T0002390",
+              "T0002391",
+              "T0002392",
+              "T0002393",
+              "T0002394"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-03T08:10:00+00:00",
+              "2025-08-03T08:20:00+00:00",
+              "2025-08-03T08:30:00+00:00",
+              "2025-08-03T08:40:00+00:00",
+              "2025-08-03T08:50:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P01330",
+            "evidence_id": "EVD:4db3af231a26da9cbfee",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9993864774257828,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P01330"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-08-10T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P00870",
+        "evidence_ids": [
+          "EVD:6c73d9c059931c5b7386",
+          "EVD:9f8beadb60c41602e4fe"
+        ],
+        "ground_truth": {
+          "scenario": "network",
+          "suspicious": true
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.43691041809515807,
+        "rank": 8,
+        "risk_level": "moderate",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.48546151943485116,
+            "weighted_contribution": 0.09709230388697024
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.9987874280545856,
+            "weighted_contribution": 0.14981811420818783
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.95,
+            "weighted_contribution": 0.19
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.9,
+            "description": "Rapid, approximately amount-preserving circular movement through connected accounts; inspect the purpose of each leg.",
+            "entity_id": "Person:P00870",
+            "evidence_id": "EVD:6c73d9c059931c5b7386",
+            "graph_highlight": true,
+            "measurements": {
+              "amount_tolerance": 0.05,
+              "maximum_minutes": 60,
+              "path_count": 4,
+              "transaction_paths": [
+                [
+                  "T0001561",
+                  "T0001562",
+                  "T0001563"
+                ],
+                [
+                  "T0001561",
+                  "T0001562",
+                  "T0001566"
+                ],
+                [
+                  "T0001561",
+                  "T0001565",
+                  "T0001566"
+                ],
+                [
+                  "T0001564",
+                  "T0001565",
+                  "T0001566"
+                ]
+              ]
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": null,
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet",
+                "relationships.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "network",
+            "signal_type": "RAPID_CIRCULAR_FLOW",
+            "strength": 0.95,
+            "supporting_edge_ids": [
+              "TX:T0001561",
+              "TX:T0001562",
+              "TX:T0001563",
+              "TX:T0001564",
+              "TX:T0001565",
+              "TX:T0001566",
+              "REL:R000260"
+            ],
+            "supporting_entity_ids": [
+              "Account:A00870",
+              "Account:A00871",
+              "Account:A00873",
+              "Company:C0087",
+              "Person:P00870",
+              "Person:P00871"
+            ],
+            "supporting_relationship_ids": [
+              "R000260"
+            ],
+            "supporting_transaction_ids": [
+              "T0001561",
+              "T0001562",
+              "T0001563",
+              "T0001564",
+              "T0001565",
+              "T0001566"
+            ],
+            "timestamps": [
+              "2025-08-03T08:00:00+00:00",
+              "2025-08-03T08:10:00+00:00",
+              "2025-08-03T08:20:00+00:00",
+              "2025-08-03T08:30:00+00:00",
+              "2025-08-03T08:40:00+00:00",
+              "2025-08-03T08:50:00+00:00"
+            ]
+          },
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P00870",
+            "evidence_id": "EVD:9f8beadb60c41602e4fe",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.9987874280545856,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P00870"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-08-10T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P01050",
+        "evidence_ids": [
+          "EVD:30d5552b48bc329d2996"
+        ],
+        "ground_truth": {
+          "scenario": "asset_sale",
+          "suspicious": false
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.19639528499432202,
+        "rank": 9,
+        "risk_level": "low",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.3240156160126614,
+            "weighted_contribution": 0.06480312320253227
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.8772810786119318,
+            "weighted_contribution": 0.13159216179178976
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P01050",
+            "evidence_id": "EVD:30d5552b48bc329d2996",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.8772810786119318,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P01050"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      },
+      {
+        "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+        "cutoff": "2025-08-10T10:00:00+00:00",
+        "dataset_version": "prysm-benchmark-v1",
+        "entity_key": "Person:P01380",
+        "evidence_ids": [
+          "EVD:d4d17c45c40239e7cd6b"
+        ],
+        "ground_truth": {
+          "scenario": "asset_sale",
+          "suspicious": false
+        },
+        "is_fraud_probability": false,
+        "overall_risk": 0.18461461894934666,
+        "rank": 10,
+        "risk_level": "low",
+        "score_breakdown": {
+          "anomaly": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.3036802290966158,
+            "weighted_contribution": 0.06073604581932316
+          },
+          "gnn": {
+            "configured_weight": 0.15,
+            "effective_weight": 0.15,
+            "strength": 0.8258571542001568,
+            "weighted_contribution": 0.12387857313002351
+          },
+          "network": {
+            "configured_weight": 0.2,
+            "effective_weight": 0.2,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          },
+          "rules": {
+            "configured_weight": 0.45,
+            "effective_weight": 0.45,
+            "strength": 0.0,
+            "weighted_contribution": 0.0
+          }
+        },
+        "supporting_evidence": [
+          {
+            "confidence": 0.6,
+            "description": "The learned graph representation resembles the synthetic suspicious training class. Edge-removal sensitivity is explanatory context, not proof of misconduct.",
+            "entity_id": "Person:P01380",
+            "evidence_id": "EVD:d4d17c45c40239e7cd6b",
+            "graph_highlight": false,
+            "measurements": {
+              "edge_ablation": [],
+              "model_input_features": [
+                "is_person",
+                "is_company",
+                "is_account",
+                "recent_in_count",
+                "recent_out_count",
+                "recent_in_etb",
+                "recent_out_etb",
+                "historical_median_etb",
+                "burst_15m",
+                "foreign_fraction",
+                "new_device_fraction"
+              ],
+              "model_version": "relational-mean-sage-v2"
+            },
+            "provenance": {
+              "analysis_fingerprint": "0c5c47537fa97aec415603db017104f25faf7118c19a5e3054c2dccb784b97e6",
+              "cutoff": "2025-08-10T10:00:00+00:00",
+              "dataset_version": "prysm-benchmark-v1",
+              "interpretation": "investigation lead; not proof or a fraud probability",
+              "model_artifact": "model_bundle.json",
+              "source_manifest_sha256": "c181e6ef47dcedfa9aef6d9b9f74734c3110b3cd11c2534a12f4e00cd8f79629",
+              "source_tables": [
+                "transactions.parquet"
+              ]
+            },
+            "severity": "high",
+            "signal_source": "gnn",
+            "signal_type": "LEARNED_GRAPH_AFFINITY",
+            "strength": 0.8258571542001568,
+            "supporting_edge_ids": [],
+            "supporting_entity_ids": [
+              "Person:P01380"
+            ],
+            "supporting_relationship_ids": [],
+            "supporting_transaction_ids": [],
+            "timestamps": []
+          }
+        ]
+      }
+    ]
+  },
+  "evaluation_only": true,
+  "population": "80 benchmark primary subjects per split, not all people",
+  "top_n": 10
+}

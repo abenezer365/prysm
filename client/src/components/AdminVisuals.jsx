@@ -1,8 +1,23 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Minus, Plus, RotateCcw } from "lucide-react";
+import gsap from "gsap";
 
-const palette = ["#00614c", "#175a91", "#9a650d", "#7a4ea3", "#a83b36"];
+const palette = ["#f1f1ef", "#c7c7c3", "#9a9a96", "#747471", "#dededb"];
 const number = new Intl.NumberFormat();
+
+function EntityIcon({ type }) {
+  const common = { fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" };
+  switch (String(type || "").toLowerCase()) {
+    case "person": return <g {...common}><circle cy="-5" r="4"/><path d="M-8 8c1-6 4-9 8-9s7 3 8 9"/></g>;
+    case "company": case "business": case "organization": return <g {...common}><rect x="-8" y="-5" width="16" height="12" rx="1"/><path d="M-3-5v-3h6v3M-8 0h16"/></g>;
+    case "bank": case "institution": return <g {...common}><path d="M-10-4 0-10 10-4M-9 7h18M-7-3v8M-2-3v8M3-3v8M8-3v8"/></g>;
+    case "account": return <g {...common}><rect x="-9" y="-8" width="18" height="16" rx="2"/><path d="M-5-3h10M-5 2h6"/></g>;
+    case "device": return <g {...common}><rect x="-6" y="-10" width="12" height="20" rx="2"/><path d="M-2 6h4"/></g>;
+    case "invoice": return <g {...common}><path d="M-7-10h9l5 5v15H-7zM2-10v5h5M-3 0h6M-3 4h6"/></g>;
+    case "money": case "transaction": return <text y="6" textAnchor="middle" fontSize="18" fontWeight="700">$</text>;
+    default: return <g {...common}><circle r="9"/><path d="M-4 0h8M0-4v8"/></g>;
+  }
+}
 
 export function BarChart({
   data = [],
@@ -133,6 +148,15 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
     graph.addEventListener("wheel", handleWheel, { passive: false });
     return () => graph.removeEventListener("wheel", handleWheel);
   }, []);
+  useEffect(() => {
+    const graph = graphRef.current;
+    if (!graph || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    const context = gsap.context(() => {
+      gsap.fromTo(graph.querySelectorAll("[data-graph-edge]"), { opacity: 0, strokeDasharray: 180, strokeDashoffset: 180 }, { opacity: 1, strokeDashoffset: 0, duration: .7, stagger: .012, ease: "power2.out" });
+      gsap.fromTo(graph.querySelectorAll("[data-graph-node]"), { opacity: 0, scale: .65 }, { opacity: 1, scale: 1, transformOrigin: "center", duration: .4, stagger: .018, ease: "back.out(1.4)" });
+    }, graph);
+    return () => context.revert();
+  }, [nodes, edges]);
   function choose(item, type) {
     const value = { ...item, kind: type };
     setSelected(value);
@@ -205,16 +229,13 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
               className="cursor-pointer"
             >
               <line
+                data-graph-edge
                 x1={a.x}
                 y1={a.y}
                 x2={b.x}
                 y2={b.y}
-                stroke={
-                  selected?.id === (e.id || i)
-                    ? "var(--accent)"
-                    : "var(--border-strong)"
-                }
-                strokeWidth={1.5 + (Number(score) || 0) * 2}
+                stroke={e.attention === "review" || e.highlight_color === "red" ? "#fff" : selected?.id === (e.id || i) ? "#ddd" : "#555"}
+                strokeWidth={(e.attention === "review" ? 3 : 1.5) + (Number(score) || 0) * 2}
               />
               <text x={(a.x+b.x)/2} y={(a.y+b.y)/2-4} textAnchor="middle" fill="var(--muted)" fontSize="8">{String(e.label||e.type||e.edgeType||"related").slice(0,24)}</text>
               <title>
@@ -230,6 +251,7 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
           const active = selected?.id === n.id || hovered?.id === n.id;
           return (
             <g
+              data-graph-node
               key={n.id}
               transform={`translate(${n.x} ${n.y})`}
               onMouseEnter={() => setHovered({ ...n, kind: "node" })}
@@ -239,13 +261,13 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
             >
               <circle
                 r={n.isSubject ? 27 : active ? 19 : 16}
-                fill={
+                fill={n.attention === "review" || n.highlight_color === "red" ? "var(--danger)" :
                   ({Person:"var(--graph-person)",Company:"var(--graph-company)",Bank:"var(--graph-bank)",Account:"var(--graph-account)",Device:"var(--warning)",Invoice:"var(--accent)"})[n.nodeType||n.type] || palette[hash(n.nodeType || n.type || "entity") % palette.length]
                 }
-                stroke={n.isSubject?"var(--accent)":"var(--surface)"}
+                stroke={n.attention === "review" ? "var(--danger)" : n.isSubject?"var(--accent)":"var(--surface)"}
                 strokeWidth={n.isSubject?"6":"4"}
               />
-              <text y="3" textAnchor="middle" fill="white" fontSize="9" fontWeight="700">{({Person:"P",Company:"ORG",Bank:"BANK",Account:"AC",Device:"DEV",Invoice:"INV"})[n.nodeType||n.type]||"?"}</text>
+              <g color="white"><EntityIcon type={n.nodeType || n.type}/></g>
               <text
                 y={i === 0 ? 40 : 31}
                 textAnchor="middle"

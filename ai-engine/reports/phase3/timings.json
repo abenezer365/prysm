@@ -1,0 +1,7 @@
+{
+  "end_to_end_seconds_before_plots": 206.61798629999976,
+  "includes_evidence": true,
+  "investigation_median_ms": 500.1683499997398,
+  "investigation_p95_ms": 621.4491149999049,
+  "observations": 240
+}

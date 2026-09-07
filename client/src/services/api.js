@@ -70,6 +70,8 @@ export const api = {
   clearance: (token) => request("/me/clearance", { token }),
   apply: (body) => request("/applications", { method: "POST", body }),
   contact: (body) => request("/contact", { method: "POST", body }),
+  intelligenceReport: (body) => request("/intelligence-reports", { method: "POST", body }),
+  intelligenceReports: (token, query = "") => request(`/intelligence-reports${query}`, { token }),
   bugReport: (body) => request("/bug-reports", { method: "POST", body }),
   betaApply: (body) => request("/beta/applications", { method: "POST", body }),
   contributorApply: (body) => request("/contributors/applications", { method: "POST", body }),
@@ -85,7 +87,10 @@ export const api = {
   subject: (token, id) => request(`/subjects/${id}`, { token }),
   subjectProfile: (token, id) => request(`/subjects/${id}/profile`, { token }),
   dashboard: (token) => request("/dashboard/summary", { token }),
-  topSuspects: (token) => request("/dashboard/top-suspects", { token }),
+  topSuspects: (token, limit = 10) =>
+    request(`/dashboard/top-suspects?limit=${limit}`, { token }),
+  runTopSuspects: (token, cutoffAt, limit = 10) =>
+    request("/dashboard/top-suspects/run", { method: "POST", token, body: { cutoffAt, limit } }),
   activity: (token, query = "") => request(`/activity${query}`, { token }),
   users: (token, query = "") => request(`/users${query}`, { token }),
   updateUser: (token, id, body) =>
@@ -96,6 +101,12 @@ export const api = {
     request("/me/password", { method: "POST", token, body }),
   investigations: (token) => request("/investigations", { token }),
   investigation: (token, id) => request(`/investigations/${id}`, { token }),
+  intelligence: (token, id) =>
+    request(`/investigations/${id}/intelligence`, { token }),
+  investigationSummary: (token, id) =>
+    request(`/investigations/${id}/summary`, { method: "POST", token, body: {} }),
+  conversation: (token, id, limit = 50) =>
+    request(`/investigations/${id}/conversation?limit=${limit}`, { token }),
   createInvestigation: (token, body) =>
     request("/investigations", { method: "POST", token, body }),
   analyze: (token, id) =>
@@ -104,8 +115,8 @@ export const api = {
       token,
       body: {},
     }),
-  graph: (token, id, params = "") =>
-    request(`/graph/subjects/${id}/subgraph${params}`, { token }),
+  graph: (token, id, cutoffAt) =>
+    request(`/graph/subjects/${id}/subgraph?cutoffAt=${encodeURIComponent(cutoffAt)}`, { token }),
   evidence: (token, id) => request(`/evidence/${id}`, { token }),
   models: (token) => request("/models", { token }),
   audit: (token) => request("/audit/events", { token }),
@@ -125,7 +136,7 @@ export const api = {
   createNews: (token, body) =>
     request("/news", { method: "POST", token, body }),
   updateNews: (token, id, body) => {
-    const { slug, ...editable } = body;
+    const { slug: _slug, ...editable } = body;
     return request(`/news/${id}`, { method: "PATCH", token, body: editable });
   },
   applications: (token, query = "") =>

@@ -1,0 +1,50 @@
+{
+  "anomaly": {
+    "minimum_history": 4,
+    "scale_floor": 0.2,
+    "threshold": 0.65,
+    "z_reference": 4
+  },
+  "fusion": {
+    "high": 0.65,
+    "moderate": 0.35,
+    "weights": {
+      "anomaly": 0.2,
+      "gnn": 0.15,
+      "network": 0.2,
+      "rules": 0.45
+    }
+  },
+  "gnn": {
+    "epochs": 60,
+    "hidden_dim": 8,
+    "l2": 0.001,
+    "learning_rate": 0.025,
+    "threshold": 0.65
+  },
+  "history_days": 120,
+  "max_nodes": 100,
+  "max_transactions": 2000,
+  "observation_days": 9,
+  "rules": {
+    "amount_history_multiple": 5,
+    "amount_income_multiple": 10,
+    "cycle_amount_tolerance": 0.05,
+    "cycle_minutes": 60,
+    "new_device_minutes": 60,
+    "new_device_outflow_multiple": 5,
+    "structuring_lower_fraction": 0.95,
+    "structuring_min_count": 5,
+    "structuring_minutes": 60,
+    "structuring_reference_etb": 10000,
+    "tax_near_business_km": 10,
+    "tax_receipts_multiple": 5,
+    "travel_min_km": 300,
+    "travel_speed_kmh": 500,
+    "velocity_count": 6,
+    "velocity_minutes": 15
+  },
+  "seed": 20260905,
+  "top_n": 10,
+  "version": "prysm-intelligence-v2"
+}

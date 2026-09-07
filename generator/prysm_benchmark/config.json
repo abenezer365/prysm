@@ -1,0 +1,8 @@
+{
+  "version": "prysm-benchmark-v1",
+  "seed": 20260905,
+  "cases_per_pattern_per_split": 10,
+  "splits": {"train": "2025-01-01", "validation": "2025-05-01", "test": "2025-09-01"},
+  "fx_rates_to_etb": {"ETB": 1.0, "USD": 130.0},
+  "notes": "Fictional teaching benchmark. FX, incomes, location weights and review reference are scenario assumptions, not measured population statistics or current market/legal facts."
+}

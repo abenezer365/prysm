@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Bot, Send, X } from "lucide-react";
 import { api, friendlyError } from "../services/api";
 export default function ChatWidget() {
@@ -6,11 +6,16 @@ export default function ChatWidget() {
     [question, setQuestion] = useState(""),
     [messages, setMessages] = useState([]),
     [busy, setBusy] = useState(false),
-    [conversationId, setConversationId] = useState(null);
+    [conversationId, setConversationId] = useState(null),
+    scrollRef = useRef(null);
   useEffect(() => {
     document.body.dataset.chatOpen = open ? "true" : "false";
     return () => delete document.body.dataset.chatOpen;
   }, [open]);
+  useEffect(() => {
+    const node = scrollRef.current;
+    if (node) node.scrollTo({ top: node.scrollHeight, behavior: "smooth" });
+  }, [messages, busy, open]);
   async function ask(q) {
     setMessages((m) => [...m, { role: "user", text: q }]);
     setBusy(true);
@@ -70,6 +75,7 @@ export default function ChatWidget() {
             </button>
           </header>
           <div
+            ref={scrollRef}
             className="flex-1 space-y-3 overflow-y-auto p-4"
             aria-live="polite"
             aria-busy={busy}
@@ -85,7 +91,7 @@ export default function ChatWidget() {
                 key={i}
                 className={`max-w-[90%] rounded-[var(--radius-md)] p-4 text-sm leading-6 ${m.role === "user" ? "chat-message-user ml-auto" : "chat-message-assistant"} ${m.role === "error" ? "text-[var(--danger)]" : ""}`}
               >
-                <p>{m.text}</p>
+                <p className={m.role === "assistant" ? "chat-answer" : ""}>{m.text}</p>
                 {m.sources?.length > 0 && (
                   <details className="mt-2 text-xs">
                     <summary>
@@ -110,7 +116,7 @@ export default function ChatWidget() {
               </div>
             ))}
             {busy && (
-              <p className="muted text-sm">Consulting public knowledge...</p>
+              <div className="chat-thinking" aria-label="Prysm is preparing a response"><i/><i/><i/></div>
             )}
           </div>
           <form

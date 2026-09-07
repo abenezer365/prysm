@@ -26,11 +26,13 @@ import {
 import Brand from "../components/Brand";
 import ThemeButton from "../components/ThemeButton";
 import { useAuth } from "../context/AuthContext";
+import MotionSystem from "../components/MotionSystem";
 const links = [
   ["Dashboard", "/app/dashboard", Gauge],
   ["Search / Case", "/app/search", Search, "subject:read"],
   ["Investigations", "/app/investigations", FileSearch, "investigation:read"],
   ["GNN Maze", "/app/gnn-maze", Network, "graph:read"],
+  ["Models", "/app/models", Bot, "model:read"],
   ["Users", "/app/users", Users, "user:read"],
   ["Access approvals", "/app/access", FileCheck2, "application:review"],
   ["RAG administration", "/app/rag", Bot, "rag:documents:read"],
@@ -48,10 +50,10 @@ const clearanceNames = {
   4: "Top Secret",
 };
 const clearanceBadgeStyles = {
-  1: "border-slate-300 bg-slate-100 text-slate-700 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200",
-  2: "border-sky-300 bg-sky-100 text-sky-800 dark:border-sky-700 dark:bg-sky-950 dark:text-sky-200",
-  3: "border-amber-300 bg-amber-100 text-amber-900 dark:border-amber-700 dark:bg-amber-950 dark:text-amber-200",
-  4: "border-red-300 bg-red-100 text-red-800 dark:border-red-700 dark:bg-red-950 dark:text-red-200",
+  1: "border-neutral-700 bg-neutral-900 text-neutral-300",
+  2: "border-neutral-600 bg-neutral-800 text-neutral-200",
+  3: "border-neutral-500 bg-neutral-800 text-white",
+  4: "border-white bg-white text-black",
 };
 export default function AppLayout() {
   const [menu, setMenu] = useState(false),
@@ -68,6 +70,7 @@ export default function AppLayout() {
   );
   return (
     <div className="min-h-screen bg-[var(--bg)]">
+      <MotionSystem />
       <aside
         className={`fixed inset-y-0 left-0 z-50 flex w-64 flex-col border-r border-[var(--border)] bg-[var(--surface)] p-4 transition-transform lg:translate-x-0 ${menu ? "translate-x-0" : "-translate-x-full"}`}
       >
@@ -176,7 +179,7 @@ export default function AppLayout() {
           </div>
         </header>
         <main className="p-4 md:p-8">
-          <div className="mx-auto max-w-[1450px]" key={loc.pathname}>
+          <div className="route-stage mx-auto max-w-[1450px]" key={loc.pathname}>
             <Outlet />
           </div>
         </main>

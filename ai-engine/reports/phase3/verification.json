@@ -1,0 +1,9 @@
+{
+  "all_240_prediction_rows_reproduced_exactly": true,
+  "all_artifact_and_source_hashes_verified": true,
+  "all_ranked_evidence_verified": true,
+  "metrics_reproduced_exactly": true,
+  "model_bundle_reproduced_exactly": true,
+  "note": "Two complete runs; timings and diagnostic prose are not compared. No model selection change after test.",
+  "raw_inference_outputs_have_no_ground_truth": true
+}

@@ -1,0 +1,14 @@
+{
+  "id": "prysm-method-anomaly",
+  "title": "Prysm anomaly methodology",
+  "content": "Behavioral deviation is measured against prior history and a training-normal reference. A high score is not intent; normal events can be unusual and unavailable behavior must remain explicit.",
+  "source": "ai-engine/INTELLIGENCE_V2.md; PHASE3_STATE.md",
+  "category": "methodology",
+  "version": "phase4-1",
+  "createdAt": "2026-09-05T12:25:05.861957+00:00",
+  "metadata": {
+    "cloud_approved": true,
+    "scope": "general_knowledge"
+  },
+  "enabled": true
+}

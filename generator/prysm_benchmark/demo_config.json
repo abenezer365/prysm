@@ -1,0 +1,9 @@
+{
+  "version": "prysm-benchmark-v1",
+  "seed": 20260907,
+  "cases_per_pattern_per_split": 450,
+  "suspicious_fraction": 0.3,
+  "splits": {"train": "2025-01-01", "validation": "2025-05-01", "test": "2025-09-01"},
+  "fx_rates_to_etb": {"ETB": 1.0, "USD": 130.0},
+  "notes": "Fictional Ethiopia-focused Prysm demonstration data. Every identity, relationship, transaction, label and evidence reference is generated together and validated end to end."
+}

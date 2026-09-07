@@ -70,6 +70,11 @@ const nodes = [
     institution: "Dire Dawa",
     risk: "Example repeated counterparty",
   },
+  {
+    id: "inv-7781", x: 70, y: 42, name: "Invoice ET-7781", type: "Invoice",
+    role: "Trade invoice", institution: "Blue Nile Imports PLC",
+    risk: "Supporting document linked to the example payment pathway",
+  },
 ];
 const edges = [
   [
@@ -93,6 +98,8 @@ const edges = [
     78,
     "Recurring institutional relationship.",
   ],
+  ["blue-nile", "inv-7781", "Issued invoice", 90, "The company issued this fictional trade invoice."],
+  ["inv-7781", "acct-2048", "Settled to", 84, "The invoice is linked to the receiving account."],
   [
     "abay-bank",
     "acct-2048",
@@ -142,7 +149,16 @@ const colors = {
   Company: "var(--graph-company)",
   Bank: "var(--graph-bank)",
   Account: "var(--graph-account)",
+  Invoice: "var(--accent)",
 };
+function NodeIcon({ type }) {
+  const common={fill:"none",stroke:"currentColor",strokeWidth:.65,strokeLinecap:"round",strokeLinejoin:"round"};
+  if(type==="Person")return <g {...common}><circle cy="-1.2" r="1.2"/><path d="M-2.5 2.5c.4-2 1.2-3 2.5-3s2.1 1 2.5 3"/></g>;
+  if(type==="Company")return <g {...common}><rect x="-2.7" y="-1.5" width="5.4" height="4" rx=".3"/><path d="M-1-1.5v-1h2v1M-2.7.3h5.4"/></g>;
+  if(type==="Bank")return <g {...common}><path d="M-3-1 0-2.8 3-1M-2.8 2.5h5.6M-2-1v2.7M0-1v2.7M2-1v2.7"/></g>;
+  if(type==="Invoice")return <g {...common}><path d="M-2.5-3h3l2 2v4h-5zM.5-3v2h2M-1.2.4h2.4M-1.2 1.6h2.4"/></g>;
+  return <g {...common}><rect x="-2.8" y="-2.3" width="5.6" height="4.6" rx=".5"/><path d="M-1.5-.7h3M-1.5.7h2"/></g>;
+}
 export default function DemoGraph() {
   const [selected, setSelected] = useState(nodes[0]),
     [hover, setHover] = useState();
@@ -210,6 +226,7 @@ export default function DemoGraph() {
                   r={n.id === "selam" ? 5.3 : 4.2}
                   fill={colors[n.type]}
                 />
+                <NodeIcon type={n.type}/>
                 <text x={n.x} y={n.y + 8}>
                   {n.name}
                 </text>

@@ -186,22 +186,16 @@ model ApplicationDocument {
 }
 
 model Subject {
-  id                   String          @id @default(uuid()) @db.Uuid
-  subjectType          String          @map("subject_type")
-  externalRef          String?         @map("external_ref")
-  displayLabel         String          @map("display_label")
-  classificationRank   Int             @default(1) @map("classification_rank")
-  status               String?
-  createdAt            DateTime        @default(now()) @map("created_at")
-  updatedAt            DateTime        @updatedAt @map("updated_at")
-  profile              SubjectProfile?
-  graphNodes           GraphNode[]
-  investigations       Investigation[]
-  outgoingTransactions Transaction[]   @relation("TransactionFromSubject")
-  incomingTransactions Transaction[]   @relation("TransactionToSubject")
-  outgoingAccounts     Transaction[]   @relation("TransactionFromAccount")
-  incomingAccounts     Transaction[]   @relation("TransactionToAccount")
-  deviceTransactions   Transaction[]   @relation("TransactionDevice")
+  id                 String          @id @default(uuid()) @db.Uuid
+  subjectType        String          @map("subject_type")
+  externalRef        String?         @map("external_ref")
+  displayLabel       String          @map("display_label")
+  classificationRank Int             @default(1) @map("classification_rank")
+  status             String?
+  createdAt          DateTime        @default(now()) @map("created_at")
+  updatedAt          DateTime        @updatedAt @map("updated_at")
+  profile            SubjectProfile?
+  investigations     Investigation[]
 
   @@unique([subjectType, externalRef])
   @@index([displayLabel])
@@ -220,145 +214,6 @@ model SubjectProfile {
   subject             Subject   @relation(fields: [subjectId], references: [id], onDelete: Cascade)
 
   @@map("subject_profiles")
-}
-
-model Transaction {
-  id                  String   @id @default(uuid()) @db.Uuid
-  sourceTransactionId String?  @unique @map("source_transaction_id")
-  fromSubjectId       String?  @map("from_subject_id") @db.Uuid
-  toSubjectId         String?  @map("to_subject_id") @db.Uuid
-  fromAccountId       String?  @map("from_account_id") @db.Uuid
-  toAccountId         String?  @map("to_account_id") @db.Uuid
-  amount              Decimal  @db.Decimal(24, 8)
-  currency            String   @db.Char(3)
-  timestamp           DateTime
-  transactionType     String?  @map("transaction_type")
-  countryFrom         String?  @map("country_from") @db.Char(2)
-  countryTo           String?  @map("country_to") @db.Char(2)
-  channel             String?
-  deviceSubjectId     String?  @map("device_subject_id") @db.Uuid
-  sourceSystem        String?  @map("source_system")
-  rawMetadata         Json?    @map("raw_metadata")
-  createdAt           DateTime @default(now()) @map("created_at")
-  fromSubject         Subject? @relation("TransactionFromSubject", fields: [fromSubjectId], references: [id])
-  toSubject           Subject? @relation("TransactionToSubject", fields: [toSubjectId], references: [id])
-  fromAccount         Subject? @relation("TransactionFromAccount", fields: [fromAccountId], references: [id])
-  toAccount           Subject? @relation("TransactionToAccount", fields: [toAccountId], references: [id])
-  deviceSubject       Subject? @relation("TransactionDevice", fields: [deviceSubjectId], references: [id])
-
-  @@index([timestamp])
-  @@index([fromSubjectId])
-  @@index([toSubjectId])
-  @@index([fromAccountId, timestamp])
-  @@index([toAccountId, timestamp])
-  @@index([currency])
-  @@index([transactionType])
-  @@map("transactions")
-}
-
-model GraphNode {
-  id                    String         @id @default(uuid()) @db.Uuid
-  subjectId             String?        @map("subject_id") @db.Uuid
-  nodeType              String         @map("node_type")
-  externalKey           String?        @unique @map("external_key")
-  labelHash             String?        @map("label_hash")
-  features              Json?
-  embedding             Json?
-  embeddingModelVersion String?        @map("embedding_model_version")
-  createdAt             DateTime       @default(now()) @map("created_at")
-  updatedAt             DateTime       @updatedAt @map("updated_at")
-  subject               Subject?       @relation(fields: [subjectId], references: [id])
-  outgoingEdges         GraphEdge[]    @relation("GraphEdgeSource")
-  incomingEdges         GraphEdge[]    @relation("GraphEdgeTarget")
-  snapshotNodes         GnnNode[]
-  embeddings            GnnEmbedding[]
-
-  @@index([subjectId])
-  @@index([nodeType])
-  @@map("graph_nodes")
-}
-
-model GraphEdge {
-  id              String    @id @default(uuid()) @db.Uuid
-  sourceNodeId    String    @map("source_node_id") @db.Uuid
-  targetNodeId    String    @map("target_node_id") @db.Uuid
-  edgeType        String    @map("edge_type")
-  weight          Float?
-  firstSeenAt     DateTime? @map("first_seen_at")
-  lastSeenAt      DateTime? @map("last_seen_at")
-  validFrom       DateTime? @map("valid_from")
-  validTo         DateTime? @map("valid_to")
-  sourceReference String?   @map("source_reference")
-  properties      Json?
-  createdAt       DateTime  @default(now()) @map("created_at")
-  updatedAt       DateTime  @updatedAt @map("updated_at")
-  source          GraphNode @relation("GraphEdgeSource", fields: [sourceNodeId], references: [id])
-  target          GraphNode @relation("GraphEdgeTarget", fields: [targetNodeId], references: [id])
-  snapshotEdges   GnnEdge[]
-
-  @@index([sourceNodeId, edgeType])
-  @@index([targetNodeId, edgeType])
-  @@index([lastSeenAt])
-  @@map("graph_edges")
-}
-
-model GnnGraphSnapshot {
-  id                   String         @id @default(uuid()) @db.Uuid
-  graphVersion         String         @map("graph_version")
-  cutoffAt             DateTime       @map("cutoff_at")
-  nodeCount            BigInt         @map("node_count")
-  edgeCount            BigInt         @map("edge_count")
-  featureSchemaVersion String         @map("feature_schema_version")
-  createdAt            DateTime       @default(now()) @map("created_at")
-  metadata             Json?
-  nodes                GnnNode[]
-  edges                GnnEdge[]
-  embeddings           GnnEmbedding[]
-
-  @@unique([graphVersion, cutoffAt, featureSchemaVersion])
-  @@map("gnn_graph_snapshots")
-}
-
-model GnnNode {
-  snapshotId     String           @map("snapshot_id") @db.Uuid
-  graphNodeId    String           @map("graph_node_id") @db.Uuid
-  gnnIndex       BigInt           @map("gnn_index")
-  nodeType       String           @map("node_type")
-  featureVersion String           @map("feature_version")
-  snapshot       GnnGraphSnapshot @relation(fields: [snapshotId], references: [id], onDelete: Cascade)
-  graphNode      GraphNode        @relation(fields: [graphNodeId], references: [id])
-
-  @@id([snapshotId, graphNodeId])
-  @@unique([snapshotId, gnnIndex])
-  @@map("gnn_nodes")
-}
-
-model GnnEdge {
-  snapshotId     String           @map("snapshot_id") @db.Uuid
-  graphEdgeId    String           @map("graph_edge_id") @db.Uuid
-  sourceGnnIndex BigInt           @map("source_gnn_index")
-  targetGnnIndex BigInt           @map("target_gnn_index")
-  edgeType       String           @map("edge_type")
-  snapshot       GnnGraphSnapshot @relation(fields: [snapshotId], references: [id], onDelete: Cascade)
-  graphEdge      GraphEdge        @relation(fields: [graphEdgeId], references: [id])
-
-  @@id([snapshotId, graphEdgeId])
-  @@map("gnn_edges")
-}
-
-model GnnEmbedding {
-  id           String           @id @default(uuid()) @db.Uuid
-  snapshotId   String           @map("snapshot_id") @db.Uuid
-  graphNodeId  String           @map("graph_node_id") @db.Uuid
-  modelVersion String           @map("model_version")
-  embedding    Json
-  generatedAt  DateTime         @map("generated_at")
-  metadata     Json?
-  snapshot     GnnGraphSnapshot @relation(fields: [snapshotId], references: [id])
-  graphNode    GraphNode        @relation(fields: [graphNodeId], references: [id])
-
-  @@unique([snapshotId, graphNodeId, modelVersion])
-  @@map("gnn_embeddings")
 }
 
 model EvidenceReference {
@@ -498,7 +353,7 @@ model AnalysisRun {
   aiEngineVersion String?        @map("ai_engine_version")
   modelVersions   Json?          @map("model_versions")
   requestPayload  Json           @map("request_payload")
-  responsePayload Json?          @map("response_payload")
+  responsePayload String?        @map("response_payload")
   errorCode       String?        @map("error_code")
   startedAt       DateTime?      @map("started_at")
   completedAt     DateTime?      @map("completed_at")
@@ -508,6 +363,7 @@ model AnalysisRun {
 
   @@index([investigationId, createdAt])
   @@index([requestedBy, createdAt])
+  @@index([investigationId, status, createdAt])
   @@map("analysis_runs")
 }
 
@@ -550,6 +406,20 @@ model ModelRegistry {
 
   @@unique([code, version])
   @@map("models")
+}
+
+model RiskRankingSnapshot {
+  id         String   @id @default(uuid()) @db.Uuid
+  cutoffAt   DateTime @unique @map("cutoff_at")
+  population String
+  limit      Int      @default(10)
+  data       Json
+  source     String   @default("AI_ENGINE")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@index([createdAt])
+  @@map("risk_ranking_snapshots")
 }
 
 model AuditEvent {
@@ -617,6 +487,19 @@ model ContactSubmission {
 
   @@index([status, createdAt])
   @@map("contact_submissions")
+}
+
+model IntelligenceReport {
+  id          String   @id @default(uuid()) @db.Uuid
+  observed    String
+  involved    String
+  evidence    String?
+  status      String   @default("NEW")
+  ipHash      String?  @map("ip_hash")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([status, createdAt])
+  @@map("intelligence_reports")
 }
 
 model BugReport {
@@ -697,37 +580,6 @@ model DatasetMetadata {
 
   @@index([visibility, lastScannedAt])
   @@map("dataset_metadata")
-}
-
-model DatasetRecord {
-  id        String   @id @default(uuid()) @db.Uuid
-  dataset   String
-  sourceId  String   @map("source_id")
-  entityKey String?  @map("entity_key")
-  eventAt   DateTime? @map("event_at")
-  payload   Json
-  sourceRef String   @map("source_ref")
-  ingestedAt DateTime @default(now()) @map("ingested_at")
-
-  @@unique([dataset, sourceId])
-  @@index([dataset, entityKey])
-  @@index([dataset, eventAt])
-  @@map("dataset_records")
-}
-
-model ModelDownloadTicket {
-  id           String    @id @default(uuid()) @db.Uuid
-  modelId      String    @map("model_id") @db.Uuid
-  requestedBy  String    @map("requested_by") @db.Uuid
-  tokenHash    String    @unique @map("token_hash")
-  checksum     String?
-  expiresAt    DateTime  @map("expires_at")
-  usedAt       DateTime? @map("used_at")
-  auditEventId String?   @map("audit_event_id") @db.Uuid
-  createdAt    DateTime  @default(now()) @map("created_at")
-
-  @@index([modelId, requestedBy])
-  @@map("model_download_tickets")
 }
 
 model RagDocumentRecord {

@@ -163,11 +163,9 @@ export function OperationalDashboard() {
           <>
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-6">
               {[
-                ["Authorized subjects", "101,000"],
                 ["Open cases", s.data.metrics.openInvestigations],
-                ["Relationships", "500,000"],
-                ["Active models", 5],
-                ["Total training dataset", "100,000"],
+                ["Recent cases", s.data.recentInvestigations?.length || 0],
+                ["Recent events", s.data.recentActivity?.length || 0],
                 [
                   "Clearance",
                   {
@@ -184,7 +182,7 @@ export function OperationalDashboard() {
                 </div>
               ))}
             </div>
-            <div className="mt-6 grid gap-6 xl:grid-cols-2">
+            <div className="mt-6">
               <section className="card overflow-hidden">
                 <div className="border-b border-[var(--border)] p-5">
                   <h2 className="font-semibold">Clearance distribution</h2>
@@ -196,21 +194,6 @@ export function OperationalDashboard() {
                   data={s.data.clearanceDistribution || []}
                   labelKey="name"
                 />
-              </section>
-              <section className="card overflow-hidden">
-                <div className="border-b border-[var(--border)] p-5">
-                  <h2 className="font-semibold">Operational inventory</h2>
-                  <p className="muted mt-1 text-xs">
-                    Counts in your current scope.
-                  </p>
-                </div>
-                <BarChart data={[
-                  {name:"Authorized subjects",count:101000},
-                  {name:"Open cases",count:s.data.metrics.openInvestigations||0},
-                  {name:"Relationships",count:500000},
-                  {name:"Active models",count:5},
-                  {name:"Training dataset",count:100000},
-                ]}/>
               </section>
             </div>
             <div className="mt-6 grid gap-6 xl:grid-cols-2">
@@ -248,30 +231,59 @@ export function OperationalDashboard() {
               </section>
               <section className="card overflow-hidden">
                 <div className="border-b border-[var(--border)] p-5">
-                  <h2 className="font-semibold">
-                    Highest persisted risk findings
-                  </h2>
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <h2 className="font-semibold">
+                        Highest persisted risk findings
+                      </h2>
+                      <p className="muted mt-1 text-xs">
+                        Top {risk.data?.page?.limit || 10} ranked subjects from the AI engine at the persisted cutoff.
+                      </p>
+                    </div>
+                    {risk.data?.cutoffAt && (
+                      <span className="mono text-[10px] text-[var(--muted)]">
+                        Cutoff {dt(risk.data.cutoffAt)}
+                      </span>
+                    )}
+                  </div>
+                  <div
+                    className="mt-4 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-2 text-center text-[10px] text-[var(--muted)]"
+                    aria-label="Risk ranking data path"
+                  >
+                    <span className="rounded bg-[var(--surface-2)] px-2 py-2">
+                      AI ranking
+                    </span>
+                    <span aria-hidden="true">→</span>
+                    <span className="rounded bg-[var(--surface-2)] px-2 py-2">
+                      Persisted snapshot
+                    </span>
+                    <span aria-hidden="true">→</span>
+                    <span className="rounded bg-[var(--surface-2)] px-2 py-2">
+                      Top 10
+                    </span>
+                  </div>
                 </div>
                 <Load s={risk}>
                   {risk.data?.data?.length ? (
                     risk.data.data.map((x) => (
                       <Link
                         className="block border-b border-[var(--border)] p-4 hover:bg-[var(--surface-2)]"
-                        to={`/app/investigations/${x.investigationId}`}
-                        key={x.investigationId}
+                        to={`/app/subjects/${x.subjectId}`}
+                        key={x.subjectId}
                       >
                         <div className="flex justify-between">
-                          <strong>{x.subject.label}</strong>
+                          <strong>{x.displayLabel || x.entity_key || x.subjectId}</strong>
                           <span className="mono font-semibold">
                             {Math.round(
-                              Number(x.risk.score) *
-                                (Number(x.risk.score) <= 1 ? 100 : 1),
-                            )}
+                              Number(x.overall_risk ?? x.score ?? 0) * 100,
+                            )}/100
                           </span>
                         </div>
                         <p className="muted mt-1 text-xs">
-                          {x.risk.dimension} · {x.risk.severity} ·{" "}
-                          {x.model.version}
+                          Rank {x.rank ?? "—"} · {String(x.risk_level || "review").toUpperCase()} · attention score, not a fraud probability
+                        </p>
+                        <p className="mono mt-2 truncate text-[10px] text-[var(--muted)]">
+                          {x.entity_key || x.subjectId}
                         </p>
                       </Link>
                     ))
@@ -332,34 +344,48 @@ export function OperationalDashboard() {
   );
 }
 
+export function ModelsAdmin() {
+  const { token } = useAuth(), state = useLoad(() => api.models(token), [token]);
+  return <Gate permission="model:read"><Heading eyebrow="AI Engine" title="Prysm model training" description="The presentation-ready training path and the latest persisted evaluation metrics."/>
+    <div className="card mb-6 p-5"><div className="grid gap-2 text-center text-sm sm:grid-cols-6">{["Clean data","Clean","Feature","Train","Test","Validate"].map((step,index)=><div className="rounded border border-[var(--border)] bg-[var(--surface-2)] p-3" key={step}><span className="mono muted mr-2">{index+1}</span>{step}</div>)}</div></div>
+    <Load s={state}><div className="grid gap-6 xl:grid-cols-2">{state.data?.data?.map(model=>{const metrics=model.metadata?.metrics||model.metadata?.evaluation||model.metadata||{};const accuracy=Number(metrics.accuracy??metrics.test_accuracy??metrics.f1??0);const loss=Number(metrics.training_loss??metrics.loss??metrics.final_loss??0);return <section className="card overflow-hidden" key={model.id}><div className="border-b border-[var(--border)] p-5"><div className="flex justify-between gap-4"><h2 className="font-semibold">{model.code} v{model.version}</h2><Status value={model.status}/></div><p className="muted mt-2 text-xs">{model.modelType}</p></div><BarChart data={[{name:"Accuracy",value:accuracy},{name:"Training loss",value:loss}]} valueKey="value"/><div className="grid grid-cols-2 border-t border-[var(--border)] text-center"><div className="p-4"><p className="eyebrow">Accuracy</p><strong>{accuracy?`${(accuracy*100).toFixed(1)}%`:"Not recorded"}</strong></div><div className="border-l border-[var(--border)] p-4"><p className="eyebrow">Training loss</p><strong>{loss?loss.toFixed(4):"Not recorded"}</strong></div></div></section>})}</div></Load>
+  </Gate>;
+}
+
 export function GnnAdmin() {
   const { token } = useAuth(),
     [query, setQuery] = useState(""),
     [results, setResults] = useState([]),
     [subjectId, setSubjectId] = useState(""),
-    [hops, setHops] = useState(2),
-    [maxNodes, setMaxNodes] = useState(100),
+    [cutoffAt, setCutoffAt] = useState(""),
+    [month, setMonth] = useState(""),
     [graph, setGraph] = useState(),
     [selected, setSelected] = useState(),
     [error, setError] = useState(),
     [busy, setBusy] = useState(false);
   async function find(e) {
     e.preventDefault();
-    try {
-      const r = await api.search(token, { query, limit: 10 });
-      setResults(r.data || r.results || []);
-    } catch (x) {
-      setError(x);
-    }
-  }
-  async function load(id = subjectId) {
     setBusy(true);
     setError();
     try {
+      const r = await api.search(token, { query, limit: 10 });
+      const matches = r.data || r.results || [];
+      setResults(matches);
+    } catch (x) {
+      setError(x);
+    } finally { setBusy(false); }
+  }
+  async function load(id = subjectId, requestedCutoff = cutoffAt) {
+    setBusy(true);
+    setError();
+    try {
+      if (!requestedCutoff)
+        throw new Error("Search and select a dataset subject before loading its graph.");
       setGraph(
-        await api.graph(token, id, `?maxHops=${hops}&maxNodes=${maxNodes}`),
+        await api.graph(token, id, new Date(requestedCutoff).toISOString()),
       );
       setSubjectId(id);
+      setCutoffAt(new Date(requestedCutoff).toISOString().slice(0, 16));
       setSelected();
     } catch (x) {
       setError(x);
@@ -367,14 +393,25 @@ export function GnnAdmin() {
       setBusy(false);
     }
   }
-  const nodes = graph?.nodes || [],
-    edges = graph?.edges || [];
+  function selectSubject(subject) {
+    setSubjectId(subject.id);
+    setCutoffAt(subject.analysisCutoffAt ? new Date(subject.analysisCutoffAt).toISOString().slice(0, 16) : "");
+    setGraph();
+    setSelected();
+  }
+  const allNodes = graph?.nodes || [], allEdges = graph?.edges || [],
+    start = month ? new Date(`${month}-01T00:00:00`) : null,
+    end = start ? new Date(start) : null;
+  if (end) end.setMonth(end.getMonth() + 1);
+  const edges = month ? allEdges.filter(edge => !edge.timestamp || (new Date(edge.timestamp) >= start && new Date(edge.timestamp) < end)) : allEdges,
+    connected = new Set(edges.flatMap(edge => [edge.sourceNodeId || edge.source, edge.targetNodeId || edge.target])),
+    nodes = month ? allNodes.filter(node => node.isSubject || connected.has(node.id)) : allNodes;
   return (
     <Gate permission="graph:read">
       <Heading
         eyebrow="Relationship intelligence"
         title="GNN Maze"
-        description="Search a subject and explore its bounded relationship graph. Hover or select nodes and edges for persisted safe metadata."
+        description="Search the active Ethiopian dataset by person name or reference, then focus the cutoff-valid graph on a specific month when needed."
       />
       <div className="grid gap-4 lg:grid-cols-2">
         <form onSubmit={find} className="card p-5">
@@ -397,52 +434,31 @@ export function GnnAdmin() {
               type="button"
               className="flex w-full justify-between border-t border-[var(--border)] p-3 text-left text-sm"
               key={x.id}
-              onClick={() => load(x.id)}
+              onClick={() => selectSubject(x)}
             >
               <strong>{x.label || x.displayLabel}</strong>
-              <small>{x.type || x.subjectType}</small>
+              <small className="mono">{x.externalRef || x.type || x.subjectType}</small>
             </button>
           ))}
         </form>
-        <div className="card grid gap-3 p-5 sm:grid-cols-[1fr_90px_110px_auto]">
+        <div className="card grid gap-3 p-5 sm:grid-cols-2">
           <label>
-            <span className="label">Subject UUID</span>
+            <span className="label">Resolved subject</span>
             <input
               className="field"
               value={subjectId}
-              onChange={(e) => setSubjectId(e.target.value)}
+              readOnly
+              placeholder="Search for a subject first"
             />
           </label>
-          <label>
-            <span className="label">Hops</span>
-            <select
-              className="field"
-              value={hops}
-              onChange={(e) => setHops(+e.target.value)}
-            >
-              {[1, 2, 3].map((x) => (
-                <option key={x}>{x}</option>
-              ))}
-            </select>
-          </label>
-          <label>
-            <span className="label">Nodes</span>
-            <select
-              className="field"
-              value={maxNodes}
-              onChange={(e) => setMaxNodes(+e.target.value)}
-            >
-              {[25, 50, 100, 200].map((x) => (
-                <option key={x}>{x}</option>
-              ))}
-            </select>
-          </label>
+          <label><span className="label">Evidence cutoff</span><input type="datetime-local" className="field" value={cutoffAt} onChange={(e)=>setCutoffAt(e.target.value)}/></label>
+          <label><span className="label">Relationship month</span><input type="month" className="field" value={month} max={cutoffAt.slice(0,7)} onChange={(e)=>setMonth(e.target.value)}/></label>
           <button
             className="button button-primary self-end"
-            disabled={busy || !subjectId}
+            disabled={busy || !subjectId || !cutoffAt}
             onClick={() => load()}
           >
-            {busy ? "Loading…" : "Load"}
+            {busy ? "Generating…" : "Generate GNN Maze"}
           </button>
         </div>
       </div>
@@ -459,7 +475,8 @@ export function GnnAdmin() {
             {[
               ["Nodes", nodes.length],
               ["Edges", edges.length],
-              ["Depth", graph.maxHops ?? graph.provenance?.graphDepth ?? hops],
+              ["Timeframe", month || "All"],
+              ["Cutoff", new Date(graph.cutoff||cutoffAt).toLocaleDateString()],
               ["Truncated", graph.truncated ? "Yes" : "No"],
             ].map(([l, v]) => (
               <div className="card p-4" key={l}>
@@ -1462,6 +1479,7 @@ export function BugsAdmin() {
       () => api.bugReports(token, filter ? `?status=${filter}` : ""),
       [token, filter],
     ),
+    intelligence = useLoad(() => api.intelligenceReports(token), [token]),
     [selected, setSelected] = useState(),
     [message, setMessage] = useState(""),
     [form, setForm] = useState({});
@@ -1496,6 +1514,10 @@ export function BugsAdmin() {
         title="Bug reports"
         description="Triage diagnostics, track resolution, and deliberately approve sanitized guidance for the public resolution feed."
       />
+      <section className="card mb-6 overflow-hidden">
+        <div className="border-b border-[var(--border)] p-5"><h2 className="font-semibold">Anonymous intelligence submissions</h2><p className="muted mt-1 text-xs">Citizen observations that may support an authorized investigation.</p></div>
+        <Load s={intelligence}>{intelligence.data?.data?.length ? intelligence.data.data.map(item=><article className="border-b border-[var(--border)] p-5 last:border-0" key={item.id}><div className="flex justify-between gap-3"><strong>{item.involved}</strong><Status value={item.status}/></div><p className="mt-3 text-sm">{item.observed}</p>{item.evidence&&<p className="muted mt-3 text-sm"><strong>Evidence:</strong> {item.evidence}</p>}<p className="mono muted mt-3 text-xs">{dt(item.createdAt)}</p></article>) : <Empty>No anonymous intelligence reports.</Empty>}</Load>
+      </section>
       <Notice>{message}</Notice>
       <select
         className="field mb-5 !w-64"

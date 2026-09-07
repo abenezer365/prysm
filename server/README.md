@@ -1,36 +1,55 @@
-# Prysm Backend
+# Prysm backend — Phase 5
 
-Production-oriented Node.js/Express orchestration boundary between the future frontend, PostgreSQL, the existing Python AI Engine, and the independently deployed RAG service.
+Node.js 22.18+ / Express 5 **JavaScript ESM**, PostgreSQL and Prisma 6. The backend manages access, cases, persisted results, conversation history, knowledge jobs and audit. It never calculates detection scores. The React frontend was not redesigned.
 
-## Local setup
+Frontend contract: [docs/API.md](docs/API.md), [OpenAPI JSON](docs/openapi.json). Handoff and measured checks: [PHASE5_STATE.md](../PHASE5_STATE.md). Database ownership: [docs/DATABASE.md](docs/DATABASE.md).
 
-1. Copy `.env.example` to `.env` and replace every secret.
-2. Start PostgreSQL and create the configured database.
-3. Run `npm install`.
-4. Run `npm run db:generate` and `npm run db:migrate`.
-5. Optionally set `SEED_ADMIN_EMAIL` and `SEED_ADMIN_PASSWORD`, then run `npm run db:seed`.
-6. Run `npm run dev`.
+## Setup
 
-Start the AI Engine with `python -m uvicorn api.app:app --host 127.0.0.1 --port 8100` from `ai-engine/`. Build and start the backend with `npm run build` then `npm start`. Validation commands are `npm run build`, `npm test`, and `npx prisma validate`.
+From `server/`:
 
-To ingest a bounded canonical slice without copying the raw dataset:
-
-```text
-python scripts/export_operational_slice.py --subject Company:C04166 --cutoff 2025-06-16T00:00:00Z --output ../server/data/operational-slice.json --max-hops 3 --max-nodes 250
-npm run ingest:slice -- data/operational-slice.json
+```powershell
+npm ci
+# Copy .env.example to .env only for a new installation; preserve existing values.
+npm run db:generate
+npm run db:backup       # existing database, before deploying cleanup migrations
+npm run db:migrate
+npm run db:seed         # access-control roles/permissions; optional bootstrap admin
+npm run sync:metadata
+npm run build          # JavaScript syntax check; no compiled dist directory
+npm test
+npm start
 ```
 
-The liveness endpoint does not require dependencies. Readiness requires PostgreSQL. AI analysis calls the separately running FastAPI boundary; failures return sanitized `503` errors. RAG is integrated through backend-mediated public/authorized HTTP chat, protected ingestion, dependency health, and an authorized WebSocket relay. API contracts are documented in `BACKEND_API.md`, `docs/openapi.yaml`, and `docs/API.md`; the system design is in `../ARCHITECTURE.md`.
+Configure `DATABASE_URL`, a random `JWT_ACCESS_SECRET` of at least 32 characters, `AI_ENGINE_API_KEY`, and matching `RAG_API_KEY` in `server/.env` and `chatbot/.env`. Internal secrets must not be empty. `AI_ENGINE_TIMEOUT_MS=600000` allows the first full-population ranking on the small benchmark. Refresh tokens are opaque random values stored only as SHA-256 hashes; a separate refresh JWT secret is not used.
 
-## Security and scientific boundaries
+For a new database only, optional `SEED_ADMIN_EMAIL` and `SEED_ADMIN_PASSWORD` provision the bootstrap administrator. The seed updates the bootstrap password if those variables are supplied again; omit them during routine reseeding. Sign-up uses the existing reviewed application flow, not open registration.
 
-- Authorization combines verified JWT identity, a live PostgreSQL session/current-user lookup, current role permissions, clearance rank, and resource ownership. Revocation, disabling, and access changes therefore take effect on the next request.
-- Public chat cannot receive subject or investigation context. Authorized chat reconstructs bounded context server-side.
-- Graph traversal is cutoff-aware and bounded to three hops and 250 nodes.
-- Refresh tokens are stored only as SHA-256 hashes; passwords use Argon2id.
-- API DTOs never expose password hashes or raw model artifacts.
-- AI output is an `uncalibrated_attention_assessment`, not a fraud probability. Synthetic benchmark results remain labeled as synthetic.
+## Local services
 
-## Data ingestion
+The coordinated Windows launcher reads the backend AI credential and the matching RAG credentials, starts hidden AI, RAG, backend, and frontend services, and waits for readiness:
 
-The canonical source remains `data/raw/*.parquet`. After applying migrations, mirror all nine raw tables into PostgreSQL in bounded streaming batches with `npm run ingest:dataset`. Add `-- --replace` only when intentionally replacing `dataset_records`; that option never deletes users, cases, findings, evidence, audits, or access-control data. Search and graph retrieval use the canonical AI artifacts and remain functional while the operational mirror is populated.
+```powershell
+npm run dev:stack
+```
+
+It requires a local PostgreSQL Windows service and Python with the AI/chatbot dependencies installed. The AI target is **`api.intelligence:app`**. The launcher automatically selects `data/prysm-demo-v2/` and `ai-engine/runs/demo-v2-build/model_bundle.json` when the retrained artifacts exist; `PRYSM_MODELS` and `PRYSM_DATASET` can still override those paths explicitly. Restart the AI process after changing artifacts; its loaded engine/ranking caches are process-local.
+
+For separate terminals, set `AI_ENGINE_API_KEY` in the AI process environment and run `python start.py` from `ai-engine/`; run `python main.py` from `chatbot/`; run `npm start` here. Python services bind to loopback ports 8100/8200, backend port 4000. Local LLM download/inference remains deferred; case explanations work via Phase 4 local evidence extraction. Optional Gemini selects approved general references only.
+
+## Verification and documentation
+
+```powershell
+npm run build
+npm test
+npm run format
+npm run verify:integration
+npm run verify:phase5
+npm run docs:generate
+```
+
+`verify:phase5` starts isolated AI/RAG listeners on 18100/18200, an ephemeral backend port, and disables provider calls. It uses the real PostgreSQL schema with disposable users/cases and a copied knowledge corpus, then removes its test application records and stops its services. It can lazily materialize canonical subject summaries, as normal search/ranking does. Do not run it concurrently with another copy. The initial ranking can take minutes.
+
+`docs:generate` checks that all 66 mounted HTTP routes have a reviewed description and generates request schemas from the actual Zod validators. Edit [FRONTEND_FLOW.md](docs/FRONTEND_FLOW.md) and [contract-descriptions.js](docs/contract-descriptions.js), then regenerate. WebSocket behavior is documented alongside the HTTP guide.
+
+Removed entry points: TypeScript compilation/strip-types, `dist/src/server.js`, analytical ingestion scripts and operational slice, old model-registry startup sync, model download tickets, and the old OpenAPI YAML. Existing migration history and historical case results remain preserved. Reanalyze old v1 cases before asking the current explanation service to use them.

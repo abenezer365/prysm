@@ -1,0 +1,60 @@
+{
+  "config_sha256": "69cdc62cf6f5813df18533567485eabce0c81484c6a674828dd5e81132203435",
+  "dataset_version": "prysm-benchmark-v1",
+  "environment": {
+    "pyarrow": "25.0.1",
+    "python": "3.13.5"
+  },
+  "evaluation_scope": "synthetic retrospective detection at as_of; not future prediction or real-world fraud efficacy",
+  "files": {
+    "accounts.parquet": {
+      "logical_sha256": "49b33202eb4d6d0ef34d97b206a5bd2eddd7842b39c71f7e71ed1d7245e32b82",
+      "rows": 43200,
+      "sha256": "81aef53cf3206e5d692dea7ce52fde6f8625bfbafd5197deb925e7c1657e9f79"
+    },
+    "companies.parquet": {
+      "logical_sha256": "8d5c87395738489274638c6e161f84787bf8994416ba1d4d4312a371ba2c57e9",
+      "rows": 10800,
+      "sha256": "61018174b091a1b2b5d6b9db1ba16c151e902cf3f5ac64912a17d24bf4ec0cbd"
+    },
+    "ground_truth.parquet": {
+      "logical_sha256": "9621a85bf9de414caec182da5c617f5bbb632b546de519ef487e6dde6a13f065",
+      "rows": 10800,
+      "sha256": "11177a210f385835edfac7a9027f7dc47d0f82c361a1a980344ef8c946705f5e"
+    },
+    "institutions.parquet": {
+      "logical_sha256": "953961abd0887a12b016c4f32ec3ed672eec378bca25073855576b6799aadba5",
+      "rows": 3,
+      "sha256": "f8bcdf0daabce60b0057d5aa0f8c1cd207a67e4d65287b973ff0826f528a2d09"
+    },
+    "persons.parquet": {
+      "logical_sha256": "46bc3f76158bd4013d37c66967325562468e7913d8cd05828e90ea190acb8a04",
+      "rows": 32400,
+      "sha256": "81e134621b3b44dee72fdde64a3fc69b6f83ed18d7a776d742296fb491051486"
+    },
+    "relationships.parquet": {
+      "logical_sha256": "e05847b949dfa2eaed07941dd21401bce0a792528cadc2c37290aec0ae5cf32c",
+      "rows": 32400,
+      "sha256": "b5c225beab1fc0300b2bd40b3cb32f6c7c51bbcd1320446e575fdc94dfda9476"
+    },
+    "transactions.parquet": {
+      "logical_sha256": "5716307c9e90651bc72c919cb08094dbf9fc259ba97992d6e9a9fff69e0eda75",
+      "rows": 194400,
+      "sha256": "4d35a191153ae700d7e0d8db29307fcb441b3cc93bb36e5cad5faaf212ad23ac"
+    }
+  },
+  "generator": "python -m generator.prysm_benchmark generate",
+  "generator_sources": {
+    "__init__.py": "cf4ca7d5582be6700e6326b3fdcc5ea35ecdd413045cd357dbcf7f8738503c05",
+    "__main__.py": "0fbe19b90ba688ed31fc37e64dcea2e20466d1184a580598b3eade09722a6e68",
+    "compatibility.py": "71daec7a248f0529ab728d4605248a4e480690d6d3b8840dacfafc29a8f8d7ff",
+    "contract.py": "6da8f1365e56e65110d8bfdaa85b3ff392957771e5b2729a797facf740c05536",
+    "generate.py": "5b3a7420e01f1ddf4678f79383dd2c4a99e5de9160ed06e0d9b72cd7a0b863a9",
+    "storage.py": "06a947da6f7fa7b84c2c38a9949eb85f69b27fc2c97b3a7cf7c9cba317460926",
+    "validate.py": "c251bc1adf9ba5e1df7b0dbd1a47fb24fa1a4143813c9ff68b41f496bd9bfc2c"
+  },
+  "ground_truth_file": "ground_truth.parquet",
+  "seed": 20260907,
+  "size_unit": "240 independent cases by default, each with 12 history and 6 observation transactions",
+  "split_policy": "chronological, disjoint case people/businesses/accounts; shared institution reference nodes are not case members"
+}

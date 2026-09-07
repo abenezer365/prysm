@@ -23,6 +23,15 @@ const configs = {
       ["description", "What happened"],
     ],
   },
+  intelligence: {
+    title: "Anonymous reporting and intelligence",
+    intro: "Share a suspected crime or fraud without providing your identity. Describe only what you know; do not endanger yourself to collect evidence.",
+    fields: [
+      ["observed", "What did you observe?"],
+      ["involved", "Who or what was involved?"],
+      ["evidence", "Evidence or where it can be verified (optional)"],
+    ],
+  },
   access: {
     title: "Request controlled access",
     intro:
@@ -47,6 +56,7 @@ const optional = new Set([
   "organization",
   "organizationRole",
   "phone",
+  "evidence",
 ]);
 export default function FormPage({ kind }) {
   const c = configs[kind];
@@ -63,6 +73,7 @@ export default function FormPage({ kind }) {
       );
       if (kind === "access") await api.apply(clean);
       else if (kind === "contact") await api.contact(clean);
+      else if (kind === "intelligence") await api.intelligenceReport(clean);
       else await api.bugReport(clean);
       setState("success");
       setData({});
@@ -88,7 +99,7 @@ export default function FormPage({ kind }) {
             <label className="label" htmlFor={key}>
               {label}
             </label>
-            {["message", "description", "reason", "justification"].includes(
+            {["message", "description", "reason", "justification", "observed", "involved", "evidence"].includes(
               key,
             ) ? (
               <textarea

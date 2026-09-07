@@ -24,6 +24,7 @@ export const listQueries = {
       .enum(["OPEN", "TRIAGED", "IN_PROGRESS", "RESOLVED", "CLOSED"])
       .optional(),
   }),
+  "/intelligence-reports": z.object({ limit: page(), status: z.string().max(40).optional() }),
   "/beta/applications": z.object({ limit: page(), status: review }),
   "/contributors/applications": z.object({ limit: page(), status: review }),
   "/datasets": z.object({ limit: page() }),

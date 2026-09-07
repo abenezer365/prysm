@@ -5,6 +5,20 @@ import gsap from "gsap";
 const palette = ["#f1f1ef", "#c7c7c3", "#9a9a96", "#747471", "#dededb"];
 const number = new Intl.NumberFormat();
 
+function EntityIcon({ type }) {
+  const common = { fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" };
+  switch (String(type || "").toLowerCase()) {
+    case "person": return <g {...common}><circle cy="-5" r="4"/><path d="M-8 8c1-6 4-9 8-9s7 3 8 9"/></g>;
+    case "company": case "business": case "organization": return <g {...common}><rect x="-8" y="-5" width="16" height="12" rx="1"/><path d="M-3-5v-3h6v3M-8 0h16"/></g>;
+    case "bank": case "institution": return <g {...common}><path d="M-10-4 0-10 10-4M-9 7h18M-7-3v8M-2-3v8M3-3v8M8-3v8"/></g>;
+    case "account": return <g {...common}><rect x="-9" y="-8" width="18" height="16" rx="2"/><path d="M-5-3h10M-5 2h6"/></g>;
+    case "device": return <g {...common}><rect x="-6" y="-10" width="12" height="20" rx="2"/><path d="M-2 6h4"/></g>;
+    case "invoice": return <g {...common}><path d="M-7-10h9l5 5v15H-7zM2-10v5h5M-3 0h6M-3 4h6"/></g>;
+    case "money": case "transaction": return <text y="6" textAnchor="middle" fontSize="18" fontWeight="700">$</text>;
+    default: return <g {...common}><circle r="9"/><path d="M-4 0h8M0-4v8"/></g>;
+  }
+}
+
 export function BarChart({
   data = [],
   labelKey = "name",
@@ -253,7 +267,7 @@ export function NetworkGraph({ nodes = [], edges = [], onSelect }) {
                 stroke={n.attention === "review" ? "var(--danger)" : n.isSubject?"var(--accent)":"var(--surface)"}
                 strokeWidth={n.isSubject?"6":"4"}
               />
-              <text y="3" textAnchor="middle" fill="white" fontSize="9" fontWeight="700">{({Person:"P",Company:"ORG",Bank:"BANK",Account:"AC",Device:"DEV",Invoice:"INV"})[n.nodeType||n.type]||"?"}</text>
+              <g color="white"><EntityIcon type={n.nodeType || n.type}/></g>
               <text
                 y={i === 0 ? 40 : 31}
                 textAnchor="middle"

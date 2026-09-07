@@ -1093,6 +1093,34 @@ export function completionRoutes(env) {
     }),
   );
   router.post(
+    "/intelligence-reports",
+    validate(z.object({
+      observed: z.string().min(20).max(20000),
+      involved: z.string().min(2).max(5000),
+      evidence: z.string().max(20000).optional(),
+    }).strict()),
+    asyncRoute(async (req, res) => {
+      const record = await prisma.intelligenceReport.create({
+        data: { ...req.body, ipHash: req.ip ? hash(req.ip) : undefined },
+      });
+      res.status(202).json({ id: record.id, status: record.status, createdAt: record.createdAt });
+    }),
+  );
+  router.get(
+    "/intelligence-reports",
+    requireAuth,
+    authorize("bug:manage", 3),
+    asyncRoute(async (req, res) => {
+      const limit = pageLimit(req.validatedQuery.limit);
+      const data = await prisma.intelligenceReport.findMany({
+        where: typeof req.validatedQuery.status === "string" ? { status: req.validatedQuery.status } : undefined,
+        take: limit,
+        orderBy: { createdAt: "desc" },
+      });
+      res.json({ data, page: { nextCursor: null, limit } });
+    }),
+  );
+  router.post(
     "/bug-reports",
     validate(
       z

@@ -70,6 +70,8 @@ export const api = {
   clearance: (token) => request("/me/clearance", { token }),
   apply: (body) => request("/applications", { method: "POST", body }),
   contact: (body) => request("/contact", { method: "POST", body }),
+  intelligenceReport: (body) => request("/intelligence-reports", { method: "POST", body }),
+  intelligenceReports: (token, query = "") => request(`/intelligence-reports${query}`, { token }),
   bugReport: (body) => request("/bug-reports", { method: "POST", body }),
   betaApply: (body) => request("/beta/applications", { method: "POST", body }),
   contributorApply: (body) => request("/contributors/applications", { method: "POST", body }),
@@ -85,8 +87,10 @@ export const api = {
   subject: (token, id) => request(`/subjects/${id}`, { token }),
   subjectProfile: (token, id) => request(`/subjects/${id}/profile`, { token }),
   dashboard: (token) => request("/dashboard/summary", { token }),
-  topSuspects: (token, cutoffAt = new Date().toISOString(), limit = 10) =>
-    request(`/dashboard/top-suspects?cutoffAt=${encodeURIComponent(cutoffAt)}&limit=${limit}`, { token }),
+  topSuspects: (token, limit = 10) =>
+    request(`/dashboard/top-suspects?limit=${limit}`, { token }),
+  runTopSuspects: (token, cutoffAt, limit = 10) =>
+    request("/dashboard/top-suspects/run", { method: "POST", token, body: { cutoffAt, limit } }),
   activity: (token, query = "") => request(`/activity${query}`, { token }),
   users: (token, query = "") => request(`/users${query}`, { token }),
   updateUser: (token, id, body) =>
@@ -99,6 +103,8 @@ export const api = {
   investigation: (token, id) => request(`/investigations/${id}`, { token }),
   intelligence: (token, id) =>
     request(`/investigations/${id}/intelligence`, { token }),
+  investigationSummary: (token, id) =>
+    request(`/investigations/${id}/summary`, { method: "POST", token, body: {} }),
   conversation: (token, id, limit = 50) =>
     request(`/investigations/${id}/conversation?limit=${limit}`, { token }),
   createInvestigation: (token, body) =>

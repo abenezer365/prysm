@@ -131,7 +131,7 @@ def test_rejects_normal_labels_without_benign_context(tables, config, scenario):
 def test_schema_and_config_failures(tables, config):
     with pytest.raises(ValueError, match="schema mismatch"):
         validate({**tables, "persons": tables["persons"].drop(["occupation"])}, config)
-    with pytest.raises(ValueError, match="9..20"):
+    with pytest.raises(ValueError, match="9..1000"):
         generate({**config, "cases_per_pattern_per_split": 100000})
     invalid = deepcopy(config)
     invalid["splits"]["test"] = invalid["splits"]["train"]

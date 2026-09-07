@@ -6,7 +6,7 @@ export async function syncMetadata() {
   const manifest = JSON.parse(
     await readFile(
       new URL(
-        "../../../data/benchmarks/prysm-benchmark-v1/MANIFEST.json",
+        "../../../data/prysm-demo-v2/MANIFEST.json",
         import.meta.url,
       ),
       "utf8",
@@ -14,7 +14,7 @@ export async function syncMetadata() {
   );
   const model = await readFile(
     new URL(
-      "../../../ai-engine/reports/phase3/model_bundle.json",
+      "../../../ai-engine/runs/demo-v2-build/model_bundle.json",
       import.meta.url,
     ),
   );
@@ -25,7 +25,7 @@ export async function syncMetadata() {
       if (file === "ground_truth.parquet") continue;
       const data = {
         name: file,
-        sourceRef: "data/benchmarks/prysm-benchmark-v1/" + file,
+        sourceRef: "data/prysm-demo-v2/" + file,
         recordCount: BigInt(entry.rows),
         columns: [],
         visibility: "PUBLIC",
@@ -50,7 +50,7 @@ export async function syncMetadata() {
       isCalibratedProbability: false,
       metadata: {
         datasetVersion: manifest.dataset_version,
-        modelSelection: "Phase 3 selected bundle",
+        modelSelection: "Retrained 10,800-case demo bundle",
         deployment: "api.intelligence:app",
       },
     };

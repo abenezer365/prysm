@@ -27,13 +27,13 @@ For a new database only, optional `SEED_ADMIN_EMAIL` and `SEED_ADMIN_PASSWORD` p
 
 ## Local services
 
-The coordinated Windows launcher reads the backend AI credential and the matching RAG credentials, starts hidden services and waits for readiness:
+The coordinated Windows launcher reads the backend AI credential and the matching RAG credentials, starts hidden AI, RAG, backend, and frontend services, and waits for readiness:
 
 ```powershell
 npm run dev:stack
 ```
 
-It requires a running local PostgreSQL Windows service and Python with the AI/chatbot dependencies installed. The AI target is **`api.intelligence:app`**, with the selected portable bundle at `ai-engine/reports/phase3/model_bundle.json`; canonical facts remain at `data/benchmarks/prysm-benchmark-v1/`. `PRYSM_MODELS` and `PRYSM_DATASET` override those paths explicitly. Restart the AI process after changing artifacts; its loaded engine/ranking caches are process-local.
+It requires a local PostgreSQL Windows service and Python with the AI/chatbot dependencies installed. The AI target is **`api.intelligence:app`**. The launcher automatically selects `data/prysm-demo-v2/` and `ai-engine/runs/demo-v2-build/model_bundle.json` when the retrained artifacts exist; `PRYSM_MODELS` and `PRYSM_DATASET` can still override those paths explicitly. Restart the AI process after changing artifacts; its loaded engine/ranking caches are process-local.
 
 For separate terminals, set `AI_ENGINE_API_KEY` in the AI process environment and run `python start.py` from `ai-engine/`; run `python main.py` from `chatbot/`; run `npm start` here. Python services bind to loopback ports 8100/8200, backend port 4000. Local LLM download/inference remains deferred; case explanations work via Phase 4 local evidence extraction. Optional Gemini selects approved general references only.
 

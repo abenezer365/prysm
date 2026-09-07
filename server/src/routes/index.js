@@ -258,12 +258,19 @@ export function apiRoutes(env) {
       // complete canonical population. Materialize matching people lazily so
       // every dataset person can enter the normal investigation workflow.
       let datasetVersion = null;
-      const indexedByRef = new Map();
+      const activeMatches = [];
       try {
-        const indexed = await ai.searchPeople(q.query, q.limit);
+        const indexed = await ai.searchPeople(
+          q.query,
+          Math.min(50, Math.max(q.limit * 3, q.limit)),
+        );
         datasetVersion = indexed.datasetVersion;
+        const seenLabels = new Set();
         for (const person of indexed.data) {
-          indexedByRef.set(person.externalRef, person);
+          const normalizedLabel = person.label.trim().toLocaleLowerCase();
+          if (seenLabels.has(normalizedLabel)) continue;
+          seenLabels.add(normalizedLabel);
+          if (activeMatches.length >= q.limit) break;
           const subject = await prisma.subject.upsert({
             where: {
               subjectType_externalRef: {
@@ -301,6 +308,15 @@ export function apiRoutes(env) {
               sensitiveAttributes: profileJson,
             },
           });
+          activeMatches.push({
+            id: subject.id,
+            type: subject.subjectType,
+            label: person.label,
+            status: person.status,
+            externalRef: person.externalRef,
+            analysisCutoffAt: person.analysisCutoffAt,
+            profile: person.profile,
+          });
         }
       } catch {
         if (!rows.length)
@@ -309,46 +325,33 @@ export function apiRoutes(env) {
             "PERSON_INDEX_UNAVAILABLE",
             "The complete person dataset index is temporarily unavailable",
           );
+        activeMatches.push(
+          ...rows.map((subject) => ({
+            id: subject.id,
+            type: subject.subjectType,
+            label: subject.displayLabel,
+            status: subject.status,
+            externalRef: subject.externalRef,
+            analysisCutoffAt: null,
+            profile: null,
+          })),
+        );
         // Existing operational records remain searchable during a degraded AI
         // service window, but an empty result must never masquerade as a full
         // dataset search.
       }
-      const merged = await prisma.subject.findMany({
-        where: {
-          classificationRank: { lte: rank },
-          OR: [
-            { displayLabel: { contains: q.query, mode: "insensitive" } },
-            { externalRef: { contains: q.query, mode: "insensitive" } },
-            {
-              profile: {
-                is: { fullName: { contains: q.query, mode: "insensitive" } },
-              },
-            },
-          ],
-        },
-        take: q.limit,
-        orderBy: { displayLabel: "asc" },
-      });
       await audit(req, {
         action: "subject.search",
         resourceType: "search",
         decision: "ALLOW",
         metadata: {
           queryLength: q.query.length,
-          resultCount: merged.length,
+          resultCount: activeMatches.length,
           datasetVersion,
         },
       });
       res.json({
-        data: merged.map((x) => ({
-          id: x.id,
-          type: x.subjectType,
-          label: x.displayLabel,
-          status: x.status,
-          externalRef: x.externalRef,
-          analysisCutoffAt:
-            indexedByRef.get(x.externalRef)?.analysisCutoffAt || null,
-        })),
+        data: activeMatches,
         page: { nextCursor: null, limit: q.limit },
         datasetVersion,
       });
@@ -538,6 +541,15 @@ export function apiRoutes(env) {
           requestId,
           investigationId: item.id,
         });
+        const strength = Number(result.assessment?.strength || 0);
+        result.ai_summary = {
+          text: strength < 0.25
+            ? `${item.subject.displayLabel} has insufficient evidence for escalation. No strong supported rule or anomaly was found; continue routine review and obtain additional evidence.`
+            : `${item.subject.displayLabel} has evidence-supported indicators that require review. Verify each cited source record before drawing a conclusion.`,
+          provider: "prysm_immediate_summary",
+          suspicious: (result.evidence || []).slice(0, 5).map((e) => e.description),
+          sufficient: (result.evidence || []).length > 0 && strength >= 0.25,
+        };
         await persistAnalysis(run.id, item.id, result);
         await audit(req, {
           action: "investigation.analyze",

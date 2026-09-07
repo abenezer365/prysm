@@ -143,8 +143,9 @@ def validate(tables, config):
     require(len(used_tx) == len(set(used_tx)) and set(used_tx) == set(tx), "ground_truth: overlapping or uncovered transactions")
     require(len(used_rel) == len(set(used_rel)) and set(used_rel) == set(rel), "ground_truth: overlapping or uncovered relationships")
     for split in config["splits"]:
+        positive_count = round(config["cases_per_pattern_per_split"] * config.get("suspicious_fraction", 1 / config["cases_per_pattern_per_split"]))
         for pattern in PATTERNS:
-            require(counts[split, pattern] == 1 and counts[split, NORMAL[pattern]] == config["cases_per_pattern_per_split"]-1, "ground_truth: wrong scenario distribution")
+            require(counts[split, pattern] == positive_count and counts[split, NORMAL[pattern]] == config["cases_per_pattern_per_split"]-positive_count, "ground_truth: wrong scenario distribution")
     require(max(split_bounds["train"]) < min(split_bounds["validation"]) and max(split_bounds["validation"]) < min(split_bounds["test"]), "ground_truth: temporal split leakage")
     return {"status": "passed", "rows": {name: len(table) for name, table in tables.items()},
             "cases": len(truth), "suspicious_cases": sum(g["is_suspicious"] for g in truth.values()),

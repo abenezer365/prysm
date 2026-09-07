@@ -17,9 +17,19 @@ def test_internal_auth_fails_closed(client, monkeypatch):
     monkeypatch.delenv('AI_ENGINE_API_KEY')
     assert client.get('/ready').status_code == 503
 
-def test_current_engine_result_and_search(client):
+def test_current_engine_result_and_search(client, monkeypatch):
     headers = {'Authorization': 'Bearer phase5-test-key'}
     assert client.get('/ready', headers=headers).status_code == 200
+    monkeypatch.setenv(
+        'PRYSM_MODELS',
+        str(Path(__file__).resolve().parents[1] / 'runs' / 'demo-v2-build' / 'model_bundle.json'),
+    )
+    persisted = client.get('/v2/rank/persisted?limit=10', headers=headers)
+    assert persisted.status_code == 200
+    assert len(persisted.json()['ranking']) == 10
+    assert len({row['entity_key'] for row in persisted.json()['ranking']}) == 10
+    assert all(row['display_label'] for row in persisted.json()['ranking'])
+    assert persisted.json()['cutoff'].endswith('+00:00')
     result = client.post('/v2/investigate', headers=headers, json={'subject': 'Person:P01870', 'cutoff': '2025-12-11T10:00:00Z'})
     assert result.status_code == 200
     facts = result.json()

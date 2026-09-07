@@ -32,6 +32,7 @@ const links = [
   ["Search / Case", "/app/search", Search, "subject:read"],
   ["Investigations", "/app/investigations", FileSearch, "investigation:read"],
   ["GNN Maze", "/app/gnn-maze", Network, "graph:read"],
+  ["Models", "/app/models", Bot, "model:read"],
   ["Users", "/app/users", Users, "user:read"],
   ["Access approvals", "/app/access", FileCheck2, "application:review"],
   ["RAG administration", "/app/rag", Bot, "rag:documents:read"],

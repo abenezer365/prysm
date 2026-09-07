@@ -13,8 +13,16 @@ RELATIONS = ("ownership", "family", "business", "incoming_transfer", "outgoing_t
 def graph_dto(snapshot):
     nodes, edges = [], []
     for p in snapshot.persons.itertuples(index=False):
+        details = p._asdict()
+        optional = {key: details.get(key) for key in (
+            "date_of_birth", "gender", "nationality", "occupation", "employment_status",
+            "declared_monthly_income", "income_currency", "region", "country"
+        ) if details.get(key) is not None and not pd.isna(details.get(key))}
+        if "date_of_birth" in optional:
+            optional["date_of_birth"] = optional["date_of_birth"].isoformat()
         nodes.append({"id": f"Person:{p.person_id}", "type": "Person", "label": f"{p.first_name} {p.last_name}",
-                      "city": p.city, "latitude": p.latitude, "longitude": p.longitude})
+                      "person_id": p.person_id, **optional, "city": p.city,
+                      "latitude": p.latitude, "longitude": p.longitude})
     for c in snapshot.companies.itertuples(index=False):
         nodes.append({"id": f"Company:{c.company_id}", "type": "Company", "label": c.company_name,
                       "industry": c.industry, "city": c.city, "latitude": c.latitude, "longitude": c.longitude})
@@ -45,7 +53,8 @@ def graph_dto(snapshot):
             edges.append({"id": f"DEV:{t.transaction_id}", "source": f"Account:{t.sender_account_id}", "target": f"Device:{t.device_id}",
                           "type": "uses_device", "timestamp": t.timestamp.isoformat(), "transaction_id": t.transaction_id,
                           "source_table": "transactions.parquet", "source_id": t.transaction_id})
-    nodes.extend({"id": f"Device:{d}", "type": "Device", "label": d} for d in sorted(devices))
+    nodes.extend({"id": f"Device:{d}", "type": "Device", "label": d,
+                  "description": "Device observed on a transaction in this cutoff-valid neighborhood"} for d in sorted(devices))
     ids = {n["id"] for n in nodes}
     if snapshot.truncated:
         edges = [e for e in edges if e["source"] in ids and e["target"] in ids]

@@ -1,19 +1,15 @@
-# Phase 5 HTTP integration
-
-The active server is `api.intelligence:app` (started by `python start.py`). It loads the selected portable Phase 3 bundle, requires `AI_ENGINE_API_KEY`, and exposes protected `/v2/investigate`, `/v2/rank`, `/v2/people/search` and `/ready`. Historical `api.app` remains only for archived v1 regression tests. See [PHASE5_STATE.md](../PHASE5_STATE.md) for backend integration.
-
 # Prysm AI Engine
 
-Start with [the Phase 3 handoff](../PHASE3_STATE.md), [the measured report](reports/phase3/REPORT.md), and [the engine guide](INTELLIGENCE_V2.md).
+The active server is `api.intelligence:app` (started by `python start.py`). The repository launcher selects `data/prysm-demo-v2` and `runs/demo-v2-build/model_bundle.json`, requires `AI_ENGINE_API_KEY`, and exposes protected `/v2/investigate`, `/v2/rank`, `/v2/people/search`, and `/ready` endpoints.
 
 The teachable flow is: **validated facts → cutoff-safe features and graph → rules, anomaly, network, GNN → evidence and ranked review priorities**. Labels are used only for training and evaluation. Scores are not fraud probabilities.
 
 From the repository root:
 
 ```powershell
-# First-time preparation; existing output directories are never overwritten.
-python ai-engine/scripts/run_intelligence.py build
-python ai-engine/scripts/run_intelligence.py evaluate --top-n 10
+# Rebuild the active dataset/model into a fresh output directory.
+python -m generator.prysm_benchmark generate --config generator/prysm_benchmark/demo_config.json --output data/prysm-demo-v2-repeat
+python ai-engine/scripts/run_intelligence.py build --dataset data/prysm-demo-v2-repeat --output ai-engine/runs/demo-v2-repeat
 
 # These commands default to the Phase 3 selected model.
 python ai-engine/scripts/run_intelligence.py investigate --subject Person:P01870 --cutoff 2025-12-11T10:00:00Z
@@ -29,11 +25,12 @@ If the runs already exist, use them. To repeat an evaluation, pass `--output ai-
 | `scripts/run_intelligence.py` | One current CLI: build, evaluate, investigate, rank |
 | `config/benchmark_intelligence.json` | Original training baseline |
 | `config/evaluation.json` | Controlled GNN experiments and threshold candidates |
-| `runs/evaluation-v3/` | Selected model, all 240 results, labels-only evaluation reports and checksums; generated locally |
+| `runs/demo-v2-build/` | Retrained bundle and all 10,800 chronological train/validation/test results |
+| `Prysm_AI_Metrics.ipynb` | Executed metrics, confusion matrix, loss, threshold sensitivity, and availability notebook |
 | `reports/phase3/` | Small reviewable copy of measured results, charts and selected configuration |
 | `tests/test_benchmark.py`, `test_phase2.py`, `test_phase3.py` | Dataset, intelligence and evaluation safeguards |
 | `src/prysm_ai/v1/` | Historical domain and documents, retained for compatibility |
 
-The selected model uses 60 epochs instead of 180. The evaluation report records strengths, errors, availability and seed variation rather than claiming national-scale accuracy.
+The active model uses 180 epochs. Its perfect synthetic held-out metrics describe this designed demo benchmark only; they are not evidence of national-scale performance, calibrated fraud probability, or guilt.
 
-Historical API, scripts and artifact directories remain in place because existing service paths depend on them. Their reference documentation is grouped in [v1/docs](src/prysm_ai/v1/docs/RUNTIME.md); historical paths in those documents are relative to `ai-engine/`. The live API still uses v1. Phase 4 integration has not been implemented.
+Large generated V1 data and run directories were removed. Historical source remains only where it still supports compatibility tests; the live API uses `prysm_intelligence`.

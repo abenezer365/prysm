@@ -132,6 +132,49 @@ export class AiEngineAdapter {
       );
     return parsed.data;
   }
+  async persistedRank(limit = 10) {
+    const url = new URL("/v2/rank/persisted", this.env.AI_ENGINE_BASE_URL);
+    url.searchParams.set("limit", limit);
+    let raw;
+    try {
+      const response = await fetch(url, {
+        redirect: "error",
+        headers: { Authorization: "Bearer " + this.env.AI_ENGINE_API_KEY },
+        signal: AbortSignal.timeout(this.env.AI_ENGINE_TIMEOUT_MS),
+      });
+      if (!response.ok) throw new Error();
+      raw = await response.json();
+    } catch {
+      throw new AppError(
+        503,
+        "AI_UNAVAILABLE",
+        "Persisted AI ranking is unavailable",
+      );
+    }
+    const parsed = z
+      .object({
+        population: z.string(),
+        cutoff: z.iso.datetime({ offset: true }),
+        dataset_version: z.string(),
+        ranking: z.array(
+          z
+            .object({
+              entity_key: z.string(),
+              overall_risk: z.number().min(0).max(1),
+              is_fraud_probability: z.literal(false),
+            })
+            .passthrough(),
+        ),
+      })
+      .safeParse(raw);
+    if (!parsed.success)
+      throw new AppError(
+        502,
+        "AI_INVALID_RESPONSE",
+        "Invalid persisted ranking response",
+      );
+    return parsed.data;
+  }
   async searchPeople(query, limit) {
     const url = new URL("/v2/people/search", this.env.AI_ENGINE_BASE_URL);
     url.searchParams.set("q", query);

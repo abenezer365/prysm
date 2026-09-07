@@ -473,6 +473,15 @@ Alias for the same canonical ranking.
 - **Response:** Same as GET /suspects/top; cutoffAt is required.
 - **Errors:** Standard envelope and status cases above; case resources enforce ownership/sharing and clearance.
 
+### POST /dashboard/top-suspects/run
+
+Run the AI ranking once and persist the resulting top subjects for dashboard reads.
+
+- **Auth:** model:read, minimum rank 4.
+- **Request:** `{cutoffAt, limit?}` where cutoffAt is a timezone-aware ISO date-time and limit is 1–50, default 10.
+- **Response:** Same ranking envelope as GET /dashboard/top-suspects, plus snapshotId and persistedAt.
+- **Dashboard behavior:** GET /dashboard/top-suspects reads the latest persisted snapshot and does not invoke the AI engine.
+
 ### GET /investigations/:id/intelligence
 
 Retrieve the latest successful current-contract result.

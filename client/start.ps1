@@ -1,4 +1,4 @@
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = 'Stop'
 $port = 5173
 
 $listeners = netstat.exe -ano -p tcp | Select-String "^\s*TCP\s+\S+:$port\s+\S+\s+LISTENING\s+(\d+)\s*$"
@@ -9,4 +9,4 @@ foreach ($listener in $listeners) {
 }
 
 Push-Location $PSScriptRoot
-try { & npm.cmd start } finally { Pop-Location }
+try { & npm.cmd run start } finally { Pop-Location }

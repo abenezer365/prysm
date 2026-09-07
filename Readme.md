@@ -2,7 +2,7 @@
 
 Prysm combines controlled investigations, behavioral and graph analysis, source-backed evidence, and local evidence-grounded explanations. Its synthetic scores are review priorities, not calibrated fraud probabilities.
 
-**Current implementation:** [PHASE5_STATE.md](PHASE5_STATE.md). The backend is JavaScript ESM with Express 5 and PostgreSQL/Prisma. It serves the selected Phase 3 intelligence and Phase 4 reasoning contracts. Phase 6 frontend work has not started.
+**Current implementation:** an integrated React, Express/PostgreSQL, Python intelligence, and evidence-grounded reasoning demo. The active synthetic snapshot contains 10,800 chronologically split cases and the UI renders live model, graph, evidence, and person-specific summary results.
 
 - [Backend startup and verification](server/README.md)
 - [Frontend API guide](server/docs/API.md)
@@ -16,7 +16,7 @@ Prysm combines controlled investigations, behavioral and graph analysis, source-
 
 Install Node.js 22.18+, Python with the AI/chatbot dependencies, and PostgreSQL. Configure `server/.env` and `chatbot/.env` from their examples without overwriting existing secrets. The backend needs PostgreSQL credentials, a strong access JWT secret, an internal AI key, and a RAG key matching the chatbot. AI requests fail closed without their internal credential.
 
-From `server/`:
+Install dependencies and prepare the database from `server/`:
 
 ```powershell
 npm ci
@@ -25,12 +25,15 @@ npm run db:backup       # existing databases before Phase 5 cleanup migration
 npm run db:migrate
 npm run db:seed         # initial access-control setup
 npm run sync:metadata
-npm run dev:stack
 ```
 
-The Windows stack launcher starts hidden AI, RAG and backend processes with the current AI entry point. See the backend guide for independent terminals, environment requirements and optional initial administrator provisioning. Browser traffic goes only through the backend at `http://127.0.0.1:4000/api/v1`.
+Then run the repository-level launcher from the project root:
 
-Run the existing frontend separately from `client/` with `npm install` then `npm start`. Its Phase 6 work must adopt the finalized API fields, explicit cutoff requirements and completed JSON exports.
+```powershell
+powershell -ExecutionPolicy Bypass -File .\start.ps1
+```
+
+The launcher starts hidden AI, RAG, backend, and frontend processes, selects the retrained demo model when it is present, and waits for every service to become ready. Browser traffic goes only through the backend at `http://127.0.0.1:4000/api/v1`.
 
 ## Verification
 

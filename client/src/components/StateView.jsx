@@ -5,6 +5,7 @@ export default function StateView({
   children,
   onRetry,
 }) {
+  const displayTitle = title === "No authorized matches" ? "Not Found" : title;
   const Icon =
     type === "loading"
       ? LoaderCircle
@@ -17,7 +18,7 @@ export default function StateView({
         className={`mx-auto mb-3 h-6 w-6 text-[var(--muted)] ${type === "loading" ? "animate-spin" : ""}`}
       />
       <h3 className="font-semibold">
-        {title || (type === "loading" ? "Loading" : "Nothing here yet")}
+        {displayTitle || (type === "loading" ? "Loading" : "Nothing here yet")}
       </h3>
       {children && (
         <div className="muted mx-auto mt-2 max-w-md text-sm">{children}</div>

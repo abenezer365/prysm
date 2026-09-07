@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import random
+import csv
 from datetime import date, datetime, timedelta, timezone
+from pathlib import Path
 
 import pyarrow as pa
 
@@ -24,8 +26,15 @@ OCCUPATIONS = (
     ("tailor", "Textiles", 6000, 16000),
     ("transport_operator", "Transport", 12000, 35000),
 )
-NAMES = {"Female": ("Hana", "Meron", "Selam", "Tigist", "Birtukan", "Aster"),
-         "Male": ("Abebe", "Dawit", "Bekele", "Tesfaye", "Tadesse", "Yonas")}
+REPOSITORY = Path(__file__).resolve().parents[2]
+
+
+def _names(filename):
+    with (REPOSITORY / "data" / "demo" / filename).open(encoding="utf-8-sig", newline="") as stream:
+        return tuple(row["name"].strip() for row in csv.DictReader(stream) if row.get("name", "").strip())
+
+
+NAMES = {"Female": _names("girl-names.csv"), "Male": _names("boy-names.csv")}
 
 
 def geo(place):
@@ -38,8 +47,11 @@ def check_config(config):
     if type(config.get("seed")) is not int:
         raise ValueError("seed must be an integer")
     count = config.get("cases_per_pattern_per_split")
-    if type(count) is not int or not 9 <= count <= 20:
-        raise ValueError("cases_per_pattern_per_split must be 9..20 (216..480 cases)")
+    if type(count) is not int or not 9 <= count <= 1000:
+        raise ValueError("cases_per_pattern_per_split must be 9..1000")
+    fraction = config.get("suspicious_fraction", 1 / count)
+    if type(fraction) not in (int, float) or not .05 <= fraction <= .5:
+        raise ValueError("suspicious_fraction must be between 0.05 and 0.5")
     if set(config.get("splits", {})) != {"train", "validation", "test"}:
         raise ValueError("splits must contain train, validation, test")
     starts = [date.fromisoformat(config["splits"][s])
@@ -54,6 +66,11 @@ def check_config(config):
 def generate(config):
     check_config(config)
     rng = random.Random(config["seed"])
+    name_pools = {}
+    for gender, first_names in NAMES.items():
+        combinations = [(first, last) for first in first_names for last in NAMES["Male"] if first != last]
+        rng.shuffle(combinations)
+        name_pools[gender] = iter(combinations)
     rows = {name: [] for name in SCHEMAS}
     rows["institutions"] = [
         dict(institution_id="B001", institution_name="Synthetic Ethiopian Bank", institution_type="Bank", country="Ethiopia"),
@@ -64,7 +81,8 @@ def generate(config):
     for split in ("train", "validation", "test"):
         start = datetime.fromisoformat(config["splits"][split]).replace(tzinfo=timezone.utc)
         # A shuffled assignment prevents positives occupying a predictable ID range.
-        assignments = [(p, n == 0) for p in PATTERNS
+        positive_count = round(config["cases_per_pattern_per_split"] * config.get("suspicious_fraction", 1 / config["cases_per_pattern_per_split"]))
+        assignments = [(p, n < positive_count) for p in PATTERNS
                        for n in range(config["cases_per_pattern_per_split"])]
         rng.shuffle(assignments)
         for pattern, positive in assignments:
@@ -82,8 +100,9 @@ def generate(config):
             end = window + timedelta(days=7)
             for i, person in enumerate(pid):
                 gender = rng.choice(tuple(NAMES))
+                first_name, last_name = next(name_pools[gender])
                 rows["persons"].append(dict(
-                    person_id=person, first_name=rng.choice(NAMES[gender]), last_name=rng.choice(NAMES["Male"]),
+                    person_id=person, first_name=first_name, last_name=last_name,
                     date_of_birth=datetime(rng.randint(1970, 2000), rng.randint(1, 12), rng.randint(1, 28), tzinfo=timezone.utc),
                     gender=gender, occupation=occupation if i == 0 else ("sales_assistant" if i == 1 else "service_worker"),
                     employment_status="Self-employed" if i == 0 else "Employed",

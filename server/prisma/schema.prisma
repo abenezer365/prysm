@@ -408,6 +408,20 @@ model ModelRegistry {
   @@map("models")
 }
 
+model RiskRankingSnapshot {
+  id         String   @id @default(uuid()) @db.Uuid
+  cutoffAt   DateTime @unique @map("cutoff_at")
+  population String
+  limit      Int      @default(10)
+  data       Json
+  source     String   @default("AI_ENGINE")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  @@index([createdAt])
+  @@map("risk_ranking_snapshots")
+}
+
 model AuditEvent {
   id            String   @id @default(uuid()) @db.Uuid
   actorUserId   String?  @map("actor_user_id") @db.Uuid
@@ -473,6 +487,19 @@ model ContactSubmission {
 
   @@index([status, createdAt])
   @@map("contact_submissions")
+}
+
+model IntelligenceReport {
+  id          String   @id @default(uuid()) @db.Uuid
+  observed    String
+  involved    String
+  evidence    String?
+  status      String   @default("NEW")
+  ipHash      String?  @map("ip_hash")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([status, createdAt])
+  @@map("intelligence_reports")
 }
 
 model BugReport {

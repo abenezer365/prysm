@@ -3,6 +3,7 @@ import { Bot, Send } from "lucide-react";
 import { api, friendlyError } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import { useParams } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function InvestigationChat({ investigationId, subjectId, cutoffAt }) {
   const route = useParams();
@@ -45,7 +46,7 @@ export default function InvestigationChat({ investigationId, subjectId, cutoffAt
       const response = await api.authorizedChat(token, { question: text, investigationId, ...(subjectId ? { subjectId } : {}), ...(cutoffAt ? { cutoffAt } : {}), ...(conversationId ? { conversationId } : {}) });
       setConversationId(response.conversationId);
       setMessages((current) => [...current, { role: "assistant", text: response.answer, sources: response.sources || [] }]);
-    } catch (value) { setError(value); }
+    } catch (value) { setError(value); toast.error(friendlyError(value)); }
     finally { setBusy(false); }
   }
 

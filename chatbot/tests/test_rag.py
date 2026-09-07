@@ -28,6 +28,9 @@ def test_health_ok():
     payload = response.json()
     assert payload["status"] == "ok"
     assert payload["service"] == "prysm-rag"
+    assert payload["knowledgeBase"] == "ok"
+    assert payload["enabledDocuments"] > 0
+    assert payload["providerRequiredForHealth"] is False
 
 
 def test_public_ask_uses_knowledge_base():

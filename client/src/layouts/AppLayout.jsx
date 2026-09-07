@@ -27,6 +27,7 @@ import Brand from "../components/Brand";
 import ThemeButton from "../components/ThemeButton";
 import { useAuth } from "../context/AuthContext";
 import MotionSystem from "../components/MotionSystem";
+import { toast } from "sonner";
 const links = [
   ["Dashboard", "/app/dashboard", Gauge],
   ["Search / Case", "/app/search", Search, "subject:read"],
@@ -65,6 +66,21 @@ export default function AppLayout() {
     const t = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(t);
   }, []);
+  useEffect(() => {
+    if (sessionStorage.getItem("prysm-page-refreshed")) {
+      sessionStorage.removeItem("prysm-page-refreshed");
+      toast.success("Page refreshed with the latest data.");
+    }
+  }, []);
+  async function signOut() {
+    await auth.logout();
+    toast.success("Signed out safely.");
+    nav("/login", { replace: true });
+  }
+  function reloadPage() {
+    sessionStorage.setItem("prysm-page-refreshed", "1");
+    window.location.reload();
+  }
   const visible = links.filter(
     ([, , , permission]) => !permission || auth.can(permission),
   );
@@ -125,7 +141,7 @@ export default function AppLayout() {
           ))}
         </nav>
         <button
-          onClick={auth.logout}
+          onClick={signOut}
           className="flex items-center gap-3 px-3 py-2 text-sm text-[var(--muted)]"
         >
           <LogOut size={17} />
@@ -161,7 +177,7 @@ export default function AppLayout() {
             </button>
             <button
               className="button button-secondary !p-2"
-              onClick={() => window.location.reload()}
+              onClick={reloadPage}
               aria-label="Reload"
             >
               <RefreshCw size={16} />

@@ -138,9 +138,7 @@ export class RagAdapter {
       });
       if (!r.ok) return "degraded";
       const body = await r.json();
-      return body.status === "ok" &&
-        body.knowledgeBase === "ok" &&
-        body.llm === "ok"
+      return body.status === "ok" && body.knowledgeBase === "ok"
         ? "ok"
         : "degraded";
     } catch {

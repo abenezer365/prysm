@@ -546,12 +546,18 @@ def root() -> dict[str, Any]:
 
 @app.get("/health")
 def health() -> dict[str, Any]:
+    enabled_documents = sum(
+        1 for document in service.store.documents if document.get("enabled", True)
+    )
+    knowledge_status = "ok" if enabled_documents else "degraded"
     return {
-        "status": "ok",
+        "status": "ok" if knowledge_status == "ok" else "degraded",
         "service": "prysm-rag",
         "llm": service.llm.provider_status,
         "llmLastFailure": service.llm.last_failure,
-        "knowledgeBase": "ok",
+        "knowledgeBase": knowledge_status,
+        "enabledDocuments": enabled_documents,
+        "providerRequiredForHealth": False,
         "reasoning": "evidence_extract_with_optional_gemini_knowledge_selection",
         "localLLM": "deferred_by_request",
         "privateContextCloudEnabled": False,

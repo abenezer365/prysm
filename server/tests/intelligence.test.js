@@ -21,6 +21,25 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 describe("Phase 5 trusted contracts", () => {
+  it("reports core RAG readiness independently of its optional cloud provider", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          status: "ok",
+          knowledgeBase: "ok",
+          llm: "configured_not_verified",
+          providerRequiredForHealth: false,
+        }),
+      }),
+    );
+    const adapter = new RagAdapter({
+      RAG_BASE_URL: "http://localhost:8200",
+      RAG_TIMEOUT_MS: 1000,
+    });
+    await expect(adapter.health()).resolves.toBe("ok");
+  });
   it("preserves the complete actual Phase 2 evidence, graph and nullable score", () => {
     expect(validateIntelligence(real)).toEqual(real);
     const empty = structuredClone(real);

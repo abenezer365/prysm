@@ -1,3 +1,7 @@
 $ErrorActionPreference = 'Stop'
-$projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
-& (Join-Path $projectRoot 'server\scripts\start-local.ps1')
+Write-Host 'Prysm uses four visible terminals; this root script does not start background services.'
+Write-Host ''
+Write-Host 'Terminal 1: cd ai-engine; python start.py'
+Write-Host 'Terminal 2: cd chatbot;   python main.py'
+Write-Host 'Terminal 3: cd server;    npm.cmd start'
+Write-Host 'Terminal 4: cd client;    npm.cmd start'

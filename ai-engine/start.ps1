@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
-$python = Join-Path (Split-Path -Parent $PSScriptRoot) ".venv\Scripts\python.exe"
+$projectRoot = Split-Path -Parent $PSScriptRoot
+$python = Join-Path $projectRoot ".venv\Scripts\python.exe"
 $serverEnv = Join-Path (Split-Path -Parent $PSScriptRoot) "server\.env"
-$port = if ($env:AI_PORT) { [int]$env:AI_PORT } else { 8100 }
 
 if (-not (Test-Path -LiteralPath $python)) {
   $pythonCommand = Get-Command python -ErrorAction SilentlyContinue
@@ -22,16 +22,11 @@ if (-not $env:AI_ENGINE_API_KEY) {
   throw "AI_ENGINE_API_KEY is missing. Configure it in server\.env before starting the AI Engine."
 }
 
-$listeners = netstat.exe -ano -p tcp | Select-String "^\s*TCP\s+\S+:$port\s+\S+\s+LISTENING\s+(\d+)\s*$"
-foreach ($listener in $listeners) {
-  $ownerPid = [int]$listener.Matches[0].Groups[1].Value
-  Write-Host "Stopping stale AI Engine process on port $port (PID $ownerPid)..."
-  taskkill.exe /PID $ownerPid /T /F | Out-Null
+$demoDataset = Join-Path $projectRoot "data\prysm-demo-v2"
+$demoModels = Join-Path $PSScriptRoot "runs\demo-v2-build\model_bundle.json"
+if ((Test-Path -LiteralPath $demoDataset) -and (Test-Path -LiteralPath $demoModels)) {
+  $env:PRYSM_DATASET = $demoDataset
+  $env:PRYSM_MODELS = $demoModels
 }
 
-Push-Location $PSScriptRoot
-try {
-  & $python "start.py"
-} finally {
-  Pop-Location
-}
+& $python (Join-Path $PSScriptRoot "start.py")

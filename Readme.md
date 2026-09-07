@@ -27,13 +27,27 @@ npm run db:seed         # initial access-control setup
 npm run sync:metadata
 ```
 
-Then run the repository-level launcher from the project root:
+Start Prysm in four visible PowerShell terminals. Each command owns one service and remains open while that service is running:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\start.ps1
+# Terminal 1
+cd ai-engine
+python start.py
+
+# Terminal 2
+cd chatbot
+python main.py
+
+# Terminal 3
+cd server
+npm.cmd start
+
+# Terminal 4
+cd client
+npm.cmd start
 ```
 
-The launcher starts hidden AI, RAG, backend, and frontend processes, selects the retrained demo model when it is present, and waits for every service to become ready. Browser traffic goes only through the backend at `http://127.0.0.1:4000/api/v1`.
+There is no hidden or automatic launcher. Stop a service with `Ctrl+C` in its terminal. The AI command selects the retrained demo dataset and model when present. Start the services in the order shown; open `http://127.0.0.1:5173` after all four are running. Browser traffic goes only through the backend at `http://127.0.0.1:4000/api/v1`.
 
 ## Verification
 

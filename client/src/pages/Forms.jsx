@@ -1,5 +1,12 @@
 import { useState } from "react";
+import { toast } from "sonner";
 import { api, friendlyError } from "../services/api";
+const successMessages = {
+  access: "Access request submitted for review.",
+  contact: "Your message was sent successfully.",
+  intelligence: "Anonymous report received securely.",
+  bug: "Bug report submitted successfully.",
+};
 const configs = {
   contact: {
     title: "Contact Abyssinia Associates",
@@ -77,9 +84,11 @@ export default function FormPage({ kind }) {
       else await api.bugReport(clean);
       setState("success");
       setData({});
+      toast.success(successMessages[kind] || "Submission received.");
     } catch (err) {
       setError(err);
       setState("error");
+      toast.error(friendlyError(err));
     }
   }
   return (
@@ -132,12 +141,7 @@ export default function FormPage({ kind }) {
             )}
           </div>
         ))}
-        {state === "success" && (
-          <p className="mb-5 rounded-[var(--radius-md)] bg-[var(--accent-soft)] p-3 text-sm">
-            Your submission was received successfully.
-          </p>
-        )}
-          {state === "error" && <p className="mb-5 text-sm text-[var(--danger)]">{friendlyError(error)}</p>}
+        {state === "error" && <p className="sr-only" role="alert">{friendlyError(error)}</p>}
         <button
           disabled={state === "loading"}
           className="button button-primary w-full"

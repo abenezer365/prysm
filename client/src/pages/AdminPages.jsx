@@ -9,6 +9,7 @@ import {
   Save,
   Search,
   ShieldAlert,
+  Trash2,
   ToggleLeft,
   ToggleRight,
   X,
@@ -93,6 +94,7 @@ function Status({ value }) {
     good = [
       "ACTIVE",
       "APPROVED",
+      "REVIEWED",
       "PUBLISHED",
       "COMPLETED",
       "SUCCEEDED",
@@ -107,6 +109,8 @@ function Status({ value }) {
       "FAILED",
       "DENY",
       "UNAVAILABLE",
+      "FAKE",
+      "SPAM",
     ].includes(v);
   return (
     <span
@@ -146,6 +150,7 @@ export function OperationalDashboard() {
             onClick={() => {
               s.reload();
               risk.reload();
+              toast.info("Refreshing dashboard data…");
             }}
           >
             <RefreshCw size={15} />
@@ -371,8 +376,12 @@ export function GnnAdmin() {
       const r = await api.search(token, { query, limit: 10 });
       const matches = r.data || r.results || [];
       setResults(matches);
+      matches.length
+        ? toast.success(`${matches.length} graph ${matches.length === 1 ? "subject" : "subjects"} found.`)
+        : toast.info("No graph subjects matched that search.");
     } catch (x) {
       setError(x);
+      toast.error(friendlyError(x));
     } finally { setBusy(false); }
   }
   async function load(id = subjectId, requestedCutoff = cutoffAt) {
@@ -387,8 +396,10 @@ export function GnnAdmin() {
       setSubjectId(id);
       setCutoffAt(new Date(requestedCutoff).toISOString().slice(0, 16));
       setSelected();
+      toast.success("GNN Maze generated successfully.");
     } catch (x) {
       setError(x);
+      toast.error(friendlyError(x));
     } finally {
       setBusy(false);
     }
@@ -1508,6 +1519,30 @@ export function BugsAdmin() {
       toast.error("Unable to update the bug report. Please try again.");
     }
   }
+  async function moderateIntelligence(item, status) {
+    const nextStatus = item.status === status ? "NEW" : status;
+    try {
+      await api.updateIntelligenceReport(token, item.id, nextStatus);
+      toast.success(
+        nextStatus === "NEW"
+          ? "Report returned to the review queue."
+          : `Report marked ${nextStatus.toLowerCase()}.`,
+      );
+      intelligence.reload();
+    } catch (error) {
+      toast.error(friendlyError(error));
+    }
+  }
+  async function removeIntelligence(item) {
+    if (!window.confirm("Delete this anonymous report permanently?")) return;
+    try {
+      await api.deleteIntelligenceReport(token, item.id);
+      toast.success("Anonymous report deleted.");
+      intelligence.reload();
+    } catch (error) {
+      toast.error(friendlyError(error));
+    }
+  }
   return (
     <Gate permission="bug:manage">
       <Heading
@@ -1516,7 +1551,7 @@ export function BugsAdmin() {
       />
       <section className="card mb-6 overflow-hidden">
         <div className="border-b border-[var(--border)] p-5"><h2 className="font-semibold">Anonymous intelligence submissions</h2><p className="muted mt-1 text-xs">Citizen observations that may support an authorized investigation.</p></div>
-        <Load s={intelligence}>{intelligence.data?.data?.length ? intelligence.data.data.map(item=><article className="border-b border-[var(--border)] p-5 last:border-0" key={item.id}><div className="flex justify-between gap-3"><strong>{item.involved}</strong><Status value={item.status}/></div><p className="mt-3 text-sm">{item.observed}</p>{item.evidence&&<p className="muted mt-3 text-sm"><strong>Evidence:</strong> {item.evidence}</p>}<p className="mono muted mt-3 text-xs">{dt(item.createdAt)}</p></article>) : <Empty>No anonymous intelligence reports.</Empty>}</Load>
+        <Load s={intelligence}>{intelligence.data?.data?.length ? intelligence.data.data.map(item=><article className="border-b border-[var(--border)] p-5 last:border-0" key={item.id}><div className="flex justify-between gap-3"><strong>{item.involved}</strong><Status value={item.status}/></div><p className="mt-3 text-sm">{item.observed}</p>{item.evidence&&<p className="muted mt-3 text-sm"><strong>Evidence:</strong> {item.evidence}</p>}<div className="mt-4 flex flex-wrap items-center justify-between gap-3"><p className="mono muted text-xs">{dt(item.createdAt)}</p><div className="flex flex-wrap gap-2"><button type="button" className={`button button-secondary !min-h-0 !px-3 !py-1.5 text-xs ${item.status === "REVIEWED" ? "!border-[var(--success)] !text-[var(--success)]" : ""}`} onClick={()=>moderateIntelligence(item,"REVIEWED")}><Check size={14}/>Reviewed</button><button type="button" className={`button button-secondary !min-h-0 !px-3 !py-1.5 text-xs ${item.status === "FAKE" ? "!border-[var(--warning)] !text-[var(--warning)]" : ""}`} onClick={()=>moderateIntelligence(item,"FAKE")}><ShieldAlert size={14}/>Fake</button><button type="button" className={`button button-secondary !min-h-0 !px-3 !py-1.5 text-xs ${item.status === "SPAM" ? "!border-[var(--danger)] !text-[var(--danger)]" : ""}`} onClick={()=>moderateIntelligence(item,"SPAM")}><X size={14}/>Spam</button><button type="button" className="button button-danger !min-h-0 !px-3 !py-1.5 text-xs" onClick={()=>removeIntelligence(item)}><Trash2 size={14}/>Delete</button></div></div></article>) : <Empty>No anonymous intelligence reports.</Empty>}</Load>
       </section>
       <Notice>{message}</Notice>
       <select

@@ -1120,6 +1120,56 @@ export function completionRoutes(env) {
       res.json({ data, page: { nextCursor: null, limit } });
     }),
   );
+  router.patch(
+    "/intelligence-reports/:id",
+    requireAuth,
+    authorize("bug:manage", 3),
+    validate(
+      z
+        .object({ status: z.enum(["NEW", "REVIEWED", "FAKE", "SPAM"]) })
+        .strict(),
+    ),
+    asyncRoute(async (req, res) => {
+      const reportId = id(req);
+      const current = await prisma.intelligenceReport.findUnique({
+        where: { id: reportId },
+      });
+      if (!current) throw notFound("Anonymous intelligence report");
+      const updated = await prisma.intelligenceReport.update({
+        where: { id: reportId },
+        data: { status: req.body.status },
+      });
+      await audit(req, {
+        action: "intelligence_report.status.update",
+        resourceType: "intelligence_report",
+        resourceId: reportId,
+        decision: "ALLOW",
+        metadata: { previousStatus: current.status, newStatus: updated.status },
+      });
+      res.json(updated);
+    }),
+  );
+  router.delete(
+    "/intelligence-reports/:id",
+    requireAuth,
+    authorize("bug:manage", 3),
+    asyncRoute(async (req, res) => {
+      const reportId = id(req);
+      const current = await prisma.intelligenceReport.findUnique({
+        where: { id: reportId },
+      });
+      if (!current) throw notFound("Anonymous intelligence report");
+      await prisma.intelligenceReport.delete({ where: { id: reportId } });
+      await audit(req, {
+        action: "intelligence_report.delete",
+        resourceType: "intelligence_report",
+        resourceId: reportId,
+        decision: "ALLOW",
+        metadata: { previousStatus: current.status },
+      });
+      res.status(204).end();
+    }),
+  );
   router.post(
     "/bug-reports",
     validate(

@@ -16,7 +16,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <ThemeProvider>
         <AuthProvider>
           <App />
-          <Toaster position="bottom-right" richColors closeButton offset={80} />
+          <Toaster
+            position="bottom-right"
+            richColors
+            closeButton
+            expand
+            visibleToasts={4}
+            duration={4200}
+            offset={24}
+            toastOptions={{ className: "prysm-toast" }}
+          />
         </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>

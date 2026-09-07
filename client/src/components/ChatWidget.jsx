@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Bot, Send, X } from "lucide-react";
 import { api, friendlyError } from "../services/api";
+import { toast } from "sonner";
 export default function ChatWidget() {
   const [open, setOpen] = useState(false),
     [question, setQuestion] = useState(""),
@@ -35,6 +36,7 @@ export default function ChatWidget() {
         },
       ]);
     } catch (err) {
+      toast.error(friendlyError(err));
       const unavailable = err.status === 503 || err.code === "RAG_UNAVAILABLE";
       setMessages((m) => [
         ...m,

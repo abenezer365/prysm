@@ -72,6 +72,14 @@ export const api = {
   contact: (body) => request("/contact", { method: "POST", body }),
   intelligenceReport: (body) => request("/intelligence-reports", { method: "POST", body }),
   intelligenceReports: (token, query = "") => request(`/intelligence-reports${query}`, { token }),
+  updateIntelligenceReport: (token, id, status) =>
+    request(`/intelligence-reports/${id}`, {
+      method: "PATCH",
+      token,
+      body: { status },
+    }),
+  deleteIntelligenceReport: (token, id) =>
+    request(`/intelligence-reports/${id}`, { method: "DELETE", token }),
   bugReport: (body) => request("/bug-reports", { method: "POST", body }),
   betaApply: (body) => request("/beta/applications", { method: "POST", body }),
   contributorApply: (body) => request("/contributors/applications", { method: "POST", body }),
